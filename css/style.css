@@ -1,0 +1,96 @@
+body {
+    color: #52499E;
+    background-color: #F8F8FB;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+}
+
+.heading a {
+    text-decoration: none;
+    color: inherit;
+}
+.heading a:hover{
+	color: #90CD9B;
+}
+
+.hint-panel {
+    padding: 20px;
+}
+
+.hint-panel li {
+    padding: 10px;
+}
+
+.button-run {
+    background-color: #EF5898;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: .05rem solid #fff;
+}
+.btn-secondary:hover{
+  background-color: #90CD9B;
+}
+
+.progress-container {
+    border: 2px #EF5898 solid;
+}
+
+.progress-container li {
+    margin-top: 1rem;
+    padding: 0 10px 0 10px;
+}
+
+.progress-container a:hover {
+    text-decoration: none;
+    color: #EF5898;
+    font-weight: bold;
+}
+
+.working-space {
+    border: 10px #52499E solid;
+    margin-top: 50px;
+    margin-bottom: 50px
+}
+
+#preview {
+	background-color: #fff;
+    border: 5px #90CD9B solid;
+    height: 50vh;
+    padding: 10px;
+}
+
+.flagPart {
+    height: 50px;
+    width: 250px;
+    background-color: #fff;
+    border: 3px solid #52499e;
+    position: relative;
+}
+
+.button-panel {
+	margin-top: 20px; 
+	text-align: center;
+}
+#blocklyDiv {
+	height: 70vh;
+	border: solid #E1D82C 5px;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .working-space {
+        height: 80vh;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
