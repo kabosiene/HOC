@@ -24,10 +24,10 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                    <a href="">3</a>
+                    <a href="level1-3.html">3</a>
                 </li>
                 <li>
-                    <a href="">4</a>
+                    <a href="level1-4.html">4</a>
                 </li>
                 <li>
                     <a href="">5</a>
@@ -41,29 +41,31 @@
             </ul>
         </div>
     </div>
-    <div class="container-fluid working-space" >
+    <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
-            <div class="col-md-5"> <h4>Temos pavadinimas</h4></div>
-            <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. </div>
+            <div class="col-md-5">
+                <h4>Lietuvos valiutos</h4></div>
+            <div class=" col-md-7" id="task"> Paversk eurus litais ir nusipirk šakotį.
+                <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col-md-6 col-lg-5  ">
                 <div id="preview">
-                    <div class="flagPart" id="yellow"></div>
-                    <div class="flagPart" id="green"></div>
-                    <div class="flagPart" id="red"></div>
+                    <canvas id="canvas" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
                 </div>
-                <div class="button-panel" >
-                    <button class="button-run" onclick="runCode()">PALEISTI</button>
+                <div class="button-panel">
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
                 </div>
                 <div class="hint-panel">
-                    <ul> Pagalba:
+                    <ul> Jei sunku:
                         <li>
-                          <a href="javascript:void(0)" data-toggle="popover" title="HINT1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">HINT1</a>
+                            <a href="javascript:void(0)" data-toggle="popover" title="Pagalba" data-content="1 Eur = 1.45 Lt.">Pagalba</a>
                         </li>
-                        <li>
-                          <a href="javascript:void(0)" data-toggle="popover" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
-                        </li>
+                        <!--  <li>
+                            <a href="javascript:void(0)" data-toggle="popover" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -71,36 +73,11 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Logic">
-                        <block type="controls_if"></block>
-                        <block type="logic_compare"></block>
-                        <block type="logic_operation"></block>
-                        <block type="logic_negate"></block>
-                        <block type="logic_boolean"></block>
-                        <block type="nupiesk_veliava">
+                    <category name="Valiutos">
+                        <block type="keisti">
                             <field name="spalva">geltoną</field>
                             <field name="I/O">išjungti</field>
                         </block>
-                    </category>
-                    <category name="Loops">
-                        <block type="controls_repeat_ext">
-                            <value name="TIMES">
-                                <block type="math_number">
-                                    <field name="NUM">10</field>
-                                </block>
-                            </value>
-                        </block>
-                        <block type="controls_whileUntil"></block>
-                    </category>
-                    <category name="Math">
-                        <block type="math_number"></block>
-                        <block type="math_arithmetic"></block>
-                        <block type="math_single"></block>
-                    </category>
-                    <category name="Text">
-                        <block type="text"></block>
-                        <block type="text_length"></block>
-                        <block type="text_print"></block>
                     </category>
                 </xml>
             </div>
@@ -108,6 +85,20 @@
                 <h5>Javascript kodas: </h5>
                 <pre id="content_javascript">
                 </pre>
+            </div>
+        </div>
+        <div class="video-modal">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/isnwxt2Z5Dw  " frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -120,17 +111,83 @@
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
-    <script src="../js/customBlocks.js">
+    <script src="../js/litai.js"></script>
+    <script type="text/javascript">
+
+    var my_canvas = document.getElementById("canvas");
+    my_canvas.addEventListener('click', clickReporter, false);
+    var ctx = my_canvas.getContext("2d");
+    var button = new Image();
+    var buy = new Image();
+    var eurasKainuoja = 3.45;
+    var turimLitų = 0;
+    var turimEurų = 0;
+
+    button.src = "../test_img/download.jpg";
+    buy.src = "http://i.imgur.com/bCXdyYP.png";
+
+    button.onload = function() {
+        draw(button, 100,100);
+    };
+    buy.onload = function() {
+        draw(buy, 200,200);
+    };
+
+    function draw(pic_name,x,y) {
+        ctx.drawImage(pic_name, x, y);
+    }
+
+    function clickReporter(e, wx, wy) { /// assign event to some variable
+
+        /// adjust mouse click position to be relative to canvas:
+        var rect = this.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+
+        /// check x/y coordinate against the image position and dimension
+        if (x >= 100 && x <= (100 + button.width) &&
+            y >= 100 && y <= (100 + button.height)) {
+
+            exchangeLitai();
+        }
+           if (x >= 200 && x <= (200 + button.width) &&
+            y >= 200 && y <= (200 + button.height)) {
+
+           
+            if (turimLitų > 30) {
+                ctx.clearRect(0, 0, 10, 10);
+                ctx.strokeText("NUSIPIRKAI", 10, 10);
+            }
+            else{
+                 ctx.clearRect(0, 0, 10, 10);
+                ctx.strokeText("TRUKSTA", 10, 10);
+            }
+        }
+    }
+
+    function exchangeLitai() {
+
+
+        turimEurų += 1;
+        turimLitų = turimEurų * eurasKainuoja;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+       draw(button, 100,100);
+       draw(buy, 200,200);
+        ctx.strokeText("Eurai: " + turimEurų, 20, 80);
+        ctx.strokeText("Surinkta suma: " + turimLitų, 20, 90);
+    }
     </script>
     <script>
-    var workspace = Blockly.inject('blocklyDiv',
-        {toolbox: document.getElementById('toolbox'),
-     grid:
-         {spacing: 20,
-          length: 5,
-          colour: '#E1D82C',
-          snap: true},
-     trashcan: true});
+    var workspace = Blockly.inject('blocklyDiv', {
+        toolbox: document.getElementById('toolbox'),
+        grid: {
+            spacing: 20,
+            length: 5,
+            colour: '#E1D82C',
+            snap: true
+        },
+        trashcan: true
+    });
 
     function toJavascript(event) {
         var code = Blockly.JavaScript.workspaceToCode(workspace);
@@ -144,19 +201,43 @@
     });
     </script>
     <script type="text/javascript">
-        function runCode() {
-      // Generate JavaScript code and run it.
-      window.LoopTrap = 1000;
-      Blockly.JavaScript.INFINITE_LOOP_TRAP =
-          'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-      var code = Blockly.JavaScript.workspaceToCode(workspace);
-      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-      try {
-        eval(code);
-      } catch (e) {
-        alert(e);
-      }
+    function runCode() {
+        // Generate JavaScript code and run it.
+        window.LoopTrap = 1000;
+        Blockly.JavaScript.INFINITE_LOOP_TRAP =
+            'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        turimLitų = 0;
+        turimEurų = 0;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        draw(button, 100,100);
+        draw(buy, 200,200);
+        ctx.strokeText("Eurai: " + turimEurų, 20, 80);
+        ctx.strokeText("Surinkta suma: " + turimLitų, 20, 90);
+        try {
+            eval(code);
+        } catch (e) {
+            alert(e);
+        }
     }
+    </script>
+    <script type="text/javascript">
+    // $(document).ready(function() {
+    //     $("#myModal").on("hidden.bs.modal", function() {
+    //         $("#iframeYoutube").attr("src", "#");
+    //     })
+    // })
+
+    // function changeVideo(vId) {
+    //     var iframe = document.getElementById("iframeYoutube");
+    //     iframe.src = "https://www.youtube.com/embed/" + vId;
+
+    //     $("#myModal").modal("show");
+    // }
+    // $(window).on('load', function() {
+    //     $('#myModal').modal('show');
+    // });
     </script>
 </body>
 

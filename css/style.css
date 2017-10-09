@@ -59,7 +59,9 @@ li {
 	background-color: #fff;
     border: 5px #90CD9B solid;
     height: 50vh;
-    padding: 10px;
+    /*padding: 10px;*/
+    width: 500px;
+    height: 340px;
 }
 
 .flagPart {

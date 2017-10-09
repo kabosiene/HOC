@@ -24,10 +24,10 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                    <a href="">3</a>
+                    <a href="level1-3.html">3</a>
                 </li>
                 <li>
-                    <a href="">4</a>
+                    <a href="level1-4.html">4</a>
                 </li>
                 <li>
                     <a href="">5</a>
@@ -44,28 +44,28 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Temos pavadinimas</h4></div>
-            <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas.
+                <h4>Baltijos kelias</h4></div>
+            <div class=" col-md-7" id="task"> Padėk suorganizuoti Baltijos kelią. Nurodyk žmonėms, kur važiuoti, kad jie susikibę galėtų užpildyti likusius tarpus.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col-md-6 col-lg-5  ">
-                <div id="preview">
-         <canvas id="canvas" width="100%" height="100%">
-            This text is displayed if your browser does not support HTML5 Canvas.
-        </canvas>
+                 <div id="preview">
+                    <canvas id="canvas" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
                 </div>
                 <div class="hint-panel">
-                    <ul> Pagalba:
+                    <ul> Jei sunku:
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" title="HINT1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">HINT1</a>
+                            <a href="javascript:void(0)" data-toggle="popover" title="Pagalba" data-content="1 žmogus gali užpildyti 1m tarpą.">Pagalba </a> <!-- Perkelti vyresniems -->
                         </li>
-                        <li>
+                       <!--  <li>
                             <a href="javascript:void(0)" data-toggle="popover" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                         <block type="logic_negate"></block>
                         <block type="logic_boolean"></block>
                         <block type="nupiesk_veliava">
-                            <field name="spalva">pasirink</field>
+                            <field name="spalva">geltoną</field>
                             <field name="I/O">išjungti</field>
                         </block>
                     </category>
@@ -103,30 +103,6 @@
                         <block type="text"></block>
                         <block type="text_length"></block>
                         <block type="text_print"></block>
-                    </category>
-                    <category name="Custom">
-                        <block type="raide_O">
-                            <field name="XPOS">x</field>
-                            <field name="YPOS">y</field>
-                        </block>
-                        <block type="raide_U">
-                            <field name="XPOS">x</field>
-                            <field name="YPOS">y</field>
-                        </block>
-                        <block type="raide_C">
-                            <field name="XPOS">x</field>
-                            <field name="YPOS">y</field>
-                        </block>
-                        <block type="raide_T">
-                        </block>
-                        <block type="raide_E">
-                        </block>
-                        <block type="raide_Ė">
-                        </block>
-                        <block type="raide_J">
-                        </block>
-                        <block type="raide_S">
-                        </block>
                     </category>
                 </xml>
             </div>
@@ -162,6 +138,7 @@
     <script src="../msg/js/lt.js"></script>
     <script src="../js/customBlocks.js">
     </script>
+    <script src="../js/draw.js"></script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -200,7 +177,7 @@
         }
     }
     </script>
-    <!--     <script type="text/javascript">
+    <script type="text/javascript">
     $(document).ready(function() {
         $("#myModal").on("hidden.bs.modal", function() {
             $("#iframeYoutube").attr("src", "#");
@@ -216,10 +193,6 @@
     $(window).on('load', function() {
         $('#myModal').modal('show');
     });
-    </script> -->
-    <script type="text/javascript">
-         var my_canvas = document.getElementById("canvas");
-        var context = my_canvas.getContext("2d");
     </script>
 </body>
 
