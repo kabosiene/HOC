@@ -61,7 +61,7 @@
                 <div class="hint-panel">
                     <ul> Jei sunku:
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" title="Pagalba" data-content="1 Eur = 1.45 Lt.">Pagalba</a>
+                            <a href="javascript:void(0)" data-toggle="popover" title="Pagalba" data-content="1 Eur = 3.45 Lt.">Pagalba</a>
                         </li>
                         <!--  <li>
                             <a href="javascript:void(0)" data-toggle="popover" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
@@ -113,27 +113,31 @@
     <script src="../msg/js/lt.js"></script>
     <script src="../js/litai.js"></script>
     <script type="text/javascript">
-
     var my_canvas = document.getElementById("canvas");
     my_canvas.addEventListener('click', clickReporter, false);
     var ctx = my_canvas.getContext("2d");
     var button = new Image();
+    var button_euras = new Image();
     var buy = new Image();
     var eurasKainuoja = 3.45;
     var turimLitų = 0;
     var turimEurų = 0;
 
     button.src = "../test_img/download.jpg";
+    button_euras.src = "../test_img/euras.jpg";
     buy.src = "http://i.imgur.com/bCXdyYP.png";
 
     button.onload = function() {
-        draw(button, 100,100);
+        draw(button, 10, 10);
+    };
+    button_euras.onload = function() {
+        draw(button_euras, 10, 120);
     };
     buy.onload = function() {
-        draw(buy, 200,200);
+        draw(buy, 250, 200);
     };
 
-    function draw(pic_name,x,y) {
+    function draw(pic_name, x, y) {
         ctx.drawImage(pic_name, x, y);
     }
 
@@ -145,25 +149,44 @@
             y = e.clientY - rect.top;
 
         /// check x/y coordinate against the image position and dimension
-        if (x >= 100 && x <= (100 + button.width) &&
-            y >= 100 && y <= (100 + button.height)) {
+        //button
+        if (x >= 10 && x <= (10 + button.width) &&
+            y >= 10 && y <= (10 + button.height)) {
+
+            //exchangeLitai();
+        }
+        //button_euras
+         if (x >= 10 && x <= (10 + button_euras.width) &&
+            y >= 120 && y <= (120 + button_euras.height)) {
 
             exchangeLitai();
         }
-           if (x >= 200 && x <= (200 + button.width) &&
-            y >= 200 && y <= (200 + button.height)) {
+        //buy
+        if (x >= 250 && x <= (250 + buy.width) &&
+            y >= 200 && y <= (200 + buy.height)) {
 
-           
+
             if (turimLitų > 30) {
                 ctx.clearRect(0, 0, 10, 10);
-                ctx.strokeText("NUSIPIRKAI", 10, 10);
-            }
-            else{
-                 ctx.clearRect(0, 0, 10, 10);
-                ctx.strokeText("TRUKSTA", 10, 10);
+                ctx.strokeText("NUSIPIRKAI", 200, 100);
+            } else {
+
+                turimLitų = 0;
+                turimEurų = 0;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                draw_elements();
+                ctx.strokeText("TRUKSTA", 200, 100);
             }
         }
     }
+
+function draw_elements(){
+     draw(button, 10, 10);
+     draw(buy, 250, 200);
+     draw(button_euras, 10, 120);
+     ctx.strokeText("Eurai: " + turimEurų, 10, 120);
+     ctx.strokeText("Surinkta suma: " + turimLitų, 10, 10);
+}
 
     function exchangeLitai() {
 
@@ -171,10 +194,7 @@
         turimEurų += 1;
         turimLitų = turimEurų * eurasKainuoja;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-       draw(button, 100,100);
-       draw(buy, 200,200);
-        ctx.strokeText("Eurai: " + turimEurų, 20, 80);
-        ctx.strokeText("Surinkta suma: " + turimLitų, 20, 90);
+        draw_elements();
     }
     </script>
     <script>
@@ -211,10 +231,7 @@
         turimLitų = 0;
         turimEurų = 0;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        draw(button, 100,100);
-        draw(buy, 200,200);
-        ctx.strokeText("Eurai: " + turimEurų, 20, 80);
-        ctx.strokeText("Surinkta suma: " + turimLitų, 20, 90);
+        draw_elements();
         try {
             eval(code);
         } catch (e) {
