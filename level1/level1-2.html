@@ -119,12 +119,14 @@
     var button = new Image();
     var button_euras = new Image();
     var buy = new Image();
+    var sakotis = new Image();
     var eurasKainuoja = 3.45;
     var turimLitų = 0;
     var turimEurų = 0;
 
     button.src = "../test_img/download.jpg";
     button_euras.src = "../test_img/euras.jpg";
+    sakotis.src = "../test_img/sakotis.jpg";
     buy.src = "http://i.imgur.com/bCXdyYP.png";
 
     button.onload = function() {
@@ -135,6 +137,10 @@
     };
     buy.onload = function() {
         draw(buy, 250, 200);
+    };
+    sakotis.onload = function() {
+        draw(sakotis, 300, 50);
+        ctx.strokeText("Kaina: 30 Litų", 300,50);
     };
 
     function draw(pic_name, x, y) {
@@ -149,7 +155,7 @@
             y = e.clientY - rect.top;
 
         /// check x/y coordinate against the image position and dimension
-        //button
+        //button litas
         if (x >= 10 && x <= (10 + button.width) &&
             y >= 10 && y <= (10 + button.height)) {
 
@@ -184,6 +190,8 @@ function draw_elements(){
      draw(button, 10, 10);
      draw(buy, 250, 200);
      draw(button_euras, 10, 120);
+     draw(sakotis, 300, 50);
+     ctx.strokeText("Kaina: 30 Litų", 300,50);
      ctx.strokeText("Eurai: " + turimEurų, 10, 120);
      ctx.strokeText("Surinkta suma: " + turimLitų, 10, 10);
 }
