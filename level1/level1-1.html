@@ -17,7 +17,7 @@
         </div>
         <div class="progress-container">
             <ul style="text-align: center;">
-                 <li>
+                <li>
                     <a href="level1-1.html">1</a>
                 </li>
                 <li>
@@ -45,7 +45,7 @@
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
                 <h4>Vardo simbolis. Jurgis Mačiūnas. FLUXUS</h4></div>
-            <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas.
+            <div class=" col-md-7" id="task"> Sukurk savo vardo simbolį.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
@@ -61,10 +61,10 @@
                 <div class="hint-panel">
                     <ul> Jei sunku:
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" title="HINT1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">HINT1</a>
+                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">HINT1</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
+                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
                         </li>
                     </ul>
                 </div>
@@ -73,71 +73,78 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-<!--                     <category name="Logic">
-                        <block type="controls_if"></block>
-                        <block type="logic_compare"></block>
-                        <block type="logic_operation"></block>
-                        <block type="logic_negate"></block>
-                        <block type="logic_boolean"></block>
-                        <block type="nupiesk_veliava">
-                            <field name="spalva">pasirink</field>
-                            <field name="I/O">išjungti</field>
-                        </block>
-                    </category>
-                    <category name="Loops">
-                        <block type="controls_repeat_ext">
-                            <value name="TIMES">
-                                <block type="math_number">
-                                    <field name="NUM">10</field>
-                                </block>
-                            </value>
-                        </block>
-                        <block type="controls_whileUntil"></block>
-                    </category>
-                    <category name="Math">
-                        <block type="math_number"></block>
-                        <block type="math_arithmetic"></block>
-                        <block type="math_single"></block>
-                    </category>
-                    <category name="Text">
-                        <block type="text"></block>
-                        <block type="text_length"></block>
-                        <block type="text_print"></block>
-                    </category> -->
-                    <category name="Raidės">
-                        <block type="kvadratas">
-                        </block>
-                        <block type="raide_A">
-                        </block>
-                        <block type="raide_Ą">
-                        </block>
-                        <block type="raide_B">
-                        </block>
-                        <block type="raide_C">
-                        </block>
-                        <block type="raide_Č">
-                        </block>
-                        <block type="raide_D">
-                        </block>
-                        <block type="raide_E">
-                        </block>
-                        <block type="raide_Ė">
-                        </block>
-                        <block type="raide_F">
-                        </block>
-                        <block type="raide_I">
-                        </block>
-                        <block type="raide_J">
-                        </block>
-                        <block type="raide_O">
-                        </block>
-                        <block type="raide_S">
-                        </block>
-                        <block type="raide_T">
-                        </block>
-                        <block type="raide_U">
-                        </block>
-                    </category>
+                    <!-- <category name="Raidės"> -->
+                    <block type="spalva">
+                    </block>
+                    <block type="storis">
+                    </block>
+                    <block type="kvadratas">
+                    </block>
+                    <block type="raide_A">
+                    </block>
+                    <block type="raide_Ą">
+                    </block>
+                    <block type="raide_B">
+                    </block>
+                    <block type="raide_C">
+                    </block>
+                    <block type="raide_Č">
+                    </block>
+                    <block type="raide_D">
+                    </block>
+                    <block type="raide_E">
+                    </block>
+                    <block type="raide_Ę">
+                    </block>
+                    <block type="raide_Ė">
+                    </block>
+                    <block type="raide_F">
+                    </block>
+                    <block type="raide_G">
+                    </block>
+                    <block type="raide_H">
+                    </block>
+                    <block type="raide_I">
+                    </block>
+                    <block type="raide_Į">
+                    </block>
+                    <block type="raide_Y">
+                    </block>
+                    <block type="raide_J">
+                    </block>
+                    <block type="raide_K">
+                    </block>
+                    <block type="raide_L">
+                    </block>
+                    <block type="raide_M">
+                    </block>
+                    <block type="raide_N">
+                    </block>
+                    <block type="raide_O">
+                    </block>
+                    <block type="raide_P">
+                    </block>
+                    <block type="raide_R">
+                    </block>
+                    <block type="raide_S">
+                    </block>
+                    <block type="raide_Š">
+                    </block>
+                    <block type="raide_T">
+                    </block>
+                    <block type="raide_U">
+                    </block>
+                    <block type="raide_Ų">
+                    </block>
+                    <block type="raide_Ū">
+                    </block>
+                    <block type="raide_V">
+                    </block>
+                    <block type="raide_Z">
+                    </block>
+                    <block type="raide_Ž">
+                    </block>
+                    <!-- </category> -->
                 </xml>
             </div>
             <div class="col-md-12 col-lg-2" style="height: 70vh;">
@@ -222,13 +229,9 @@
         var radius = 71;
         var degreeAngle = 0;
         var degreeAngleCircle = 0;
-        // var molbertas = new Image();
-        // molbertas.src = '../img_lessons/molbertas.png';
-
         var img_maciunas_drawing = new Image();
         img_maciunas_drawing.src = '../img_lessons/maciunas_2.png';
         img_maciunas_drawing.addEventListener("load", function() {
-            // ctx.drawImage(molbertas, 90, 40, 210, 320);
             ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 200);
         });
 
@@ -236,7 +239,9 @@
         try {
 
             if (code.length > 0) {
-                animateLine(); animate();}
+                animateLine();
+                animate();
+            }
 
             function animate() {
 
@@ -244,7 +249,6 @@
                 // this creates an animation loop
 
                 globalID = requestAnimationFrame(animate);
-
 
                 // clear the canvas
 
@@ -257,11 +261,7 @@
 
                 // clear the canvas 
                 // and draw the image at its new position
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                // ctx.drawImage(molbertas, 90, 40, 210, 320);
-                // ctx.beginPath();
-                // ctx.arc(200, 150, 71, 0, 2 * Math.PI);
-                // ctx.stroke();
+               ctx.clearRect(0, 0, canvas.width, canvas.height);
                 eval(code);
                 ctx.drawImage(img_maciunas_drawing, x, y, 200, 200);
 
@@ -273,8 +273,7 @@
                 // request that this animate() function be called again
                 // this creates an animation loop
 
-                globalID = requestAnimationFrame(animateLine);
-
+                globalID2 = requestAnimationFrame(animateLine);
 
                 // clear the canvas
 
@@ -282,36 +281,39 @@
                 // this example just rotates it around a centerpoint   
                 degreeAngleCircle += 0.0056;
 
-
-
                 // clear the canvas 
                 // and draw the image at its new position
-                ctx.beginPath();
-                ctx.lineWidth=2;
+                 ctx.beginPath();
+                ctx.lineJoin = 'round';
+                ctx.lineCap = 'round';
+                ctx.lineWidth = 3;
+                ctx.strokeStyle="black";
                 ctx.arc(200, 150, 70, 0, degreeAngleCircle * Math.PI);
                 ctx.stroke();
+                
+
             }
         } catch (e) {
             alert(e);
         }
     }
     </script>
-        <script type="text/javascript">
-    $(document).ready(function() {
-        $("#myModal").on("hidden.bs.modal", function() {
-            $("#iframeYoutube").attr("src", "#");
-        })
-    })
+    <script type="text/javascript">
+    // $(document).ready(function() {
+    //     $("#myModal").on("hidden.bs.modal", function() {
+    //         $("#iframeYoutube").attr("src", "#");
+    //     })
+    // })
 
-    function changeVideo(vId) {
-        var iframe = document.getElementById("iframeYoutube");
-        iframe.src = "https://www.youtube.com/embed/" + vId;
+    // function changeVideo(vId) {
+    //     var iframe = document.getElementById("iframeYoutube");
+    //     iframe.src = "https://www.youtube.com/embed/" + vId;
 
-        $("#myModal").modal("show");
-    }
-    $(window).on('load', function() {
-        $('#myModal').modal('show');
-    });
+    //     $("#myModal").modal("show");
+    // }
+    // $(window).on('load', function() {
+    //     $('#myModal').modal('show');
+    // });
     </script>
 </body>
 
