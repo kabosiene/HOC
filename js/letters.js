@@ -1,3 +1,4 @@
+   
 Blockly.Blocks['spalva'] = {
   init: function() {
     this.appendDummyInput()
@@ -55,7 +56,7 @@ Blockly.JavaScript['storis'] = function(block) {
 
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
-     var code = 'ctx.strokeStyle="black";\nctx.lineWidth=3;\n ctx.lineJoin = "round";\n ctx.lineCap = "round";\n ctx.rect(150,100,100,100);\n ctx.stroke();\n';
+     var code = 'ctx.beginPath();\n ctx.strokeStyle="black";\n ctx.lineWidth=3;\n ctx.lineJoin = "round";\n ctx.lineCap = "round";\n ctx.rect(150,100,100,100);\n ctx.stroke();\n';
      return code;
  };
 
