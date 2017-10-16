@@ -24,7 +24,7 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                   <a href="level1-3.html">3</a>
+                    <a href="level1-3.html">3</a>
                 </li>
                 <li>
                     <a href="level1-4.html">4</a>
@@ -91,6 +91,12 @@
                     <!-- <category name="Raidės"> -->
                     <block type="spalva">
                     </block>
+                    <block type="grid_turnleft">
+                    </block>
+                    <block type="grid_turnright">
+                    </block>
+                    <block type="grid_goforward">
+                    </block>
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -125,23 +131,41 @@
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/letters.js"></script>
+    <script src="../js/lituanica.js"></script>
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
-    var ctx = my_canvas.getContext("2d");
-    var c_canvas = document.getElementById("canvas2");
-    var c_ctx = c_canvas.getContext("2d");
-    var a_canvas = document.getElementById("canvas3");
-    var m_ctx = a_canvas.getContext("2d");
+    var background = my_canvas.getContext("2d");
+    var route_canvas = document.getElementById("canvas2");
+    var route = route_canvas.getContext("2d");
+    var lituanica_canvas = document.getElementById("canvas3");
+    var lituanica = lituanica_canvas.getContext("2d");
+    var map = new Image();
+    map.src = "../test_img/atlantas.png";
+    var plane = new Image();
+    plane.src = "../test_img/litu.png";
+    var angleInDegrees = 0;
+    var plain_x = 30;
+    var plain_y = 70;
+    var route_x = 80;
+    var route_y = 120;
+    var colour = "#000000";
 
-    var img_maciunas = new Image();
-    img_maciunas.src = '../img_lessons/maciunas_1.png';
+    map.onload = function() {
+        //draw(map, 0, 0, 500,300);
+        background.drawImage(map, 0, 0);
+    };
+    plane.onload = function() {
+        lituanica.drawImage(plane, plain_x, plain_y);
+    };
 
-    ///draw image
 
-    img_maciunas.addEventListener("load", function() {
-        m_ctx.drawImage(img_maciunas, 140, 20, 200, 300);
-    });
+    // function drawRotated(degrees){
+    //     lituanica.clearRect(0,0,canvas.width,canvas.height);
+    //     lituanica.save();
+    //     lituanica.translate(-canvas.width/2,-canvas.height/2);
+    //     lituanica.drawImage(plain,-plain.width/2,-plain.width/2);
+    //     lituanica.restore();
+    // }
     </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
@@ -169,35 +193,25 @@
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        m_ctx.clearRect(0, 0, canvas.width, canvas.height);
-        c_ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        var cx = 200;
-        var cy = 145;
-        var radius = 71;
-        var degreeAngle = 0;
-        var degreeAngleCircle = 0;
-        var img_maciunas_drawing = new Image();
-        img_maciunas_drawing.src = '../img_lessons/maciunas_2.png';
-        img_maciunas_drawing.addEventListener("load", function() {
-            m_ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 200);
-        });
-
+        lituanica.clearRect(0, 0, canvas.width, canvas.height);
+        route.clearRect(0, 0, canvas.width, canvas.height);
+         plain_x = 30;
+         plain_y = 70;
+         route_x = 80;
+         route_y = 120;
+         lituanica.restore();
 
         try {
 
             if (code.length > 0) {
                 eval(code);
-            }
-            else{
+            } else {
                 alert('Pridėk kodo blokelį.');
             }
 
         } catch (e) {
             alert(e);
         }
-
-
     }
     </script>
 </body>
