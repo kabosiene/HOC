@@ -53,9 +53,6 @@ Blockly.JavaScript['storis'] = function(block) {
      }
  };
  Blockly.JavaScript['kvadratas'] = function(block) {
-
-     var x = block.getFieldValue('XPOS');
-     var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.strokeStyle="black";\n ctx.lineWidth=3;\n ctx.lineJoin = "round";\n ctx.lineCap = "round";\n ctx.rect(150,100,100,100);\n ctx.stroke();\n';
      return code;
  };
