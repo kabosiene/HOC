@@ -24,19 +24,28 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                    <a href="level1-3.html">3</a>
+                   <a href="level1-3.html">3</a>
                 </li>
                 <li>
                     <a href="level1-4.html">4</a>
                 </li>
                 <li>
-                    <a href="">5</a>
+                    <a href="level1-5.html">5</a>
                 </li>
                 <li>
-                    <a href="">6</a>
+                    <a href="level1-6.html">6</a>
                 </li>
                 <li>
-                    <a href="">7</a>
+                    <a href="level1-7.html">7</a>
+                </li>
+                <li>
+                    <a href="level1-8.html">8</a>
+                </li>
+                <li>
+                    <a href="level1-9.html">9</a>
+                </li>
+                <li>
+                    <a href="level1-10.html">10</a>
                 </li>
             </ul>
         </div>
@@ -49,9 +58,15 @@
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
-            <div class="col-md-6 col-lg-5  ">
+            <div class="col  ">
                 <div id="preview">
                     <canvas id="canvas" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <canvas id="canvas2" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <canvas id="canvas3" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
                 </div>
@@ -69,15 +84,15 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6 col-sm-12" style="padding: 0 ;">
+            <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
                     <!-- <category name="Raidės"> -->
-                    <block type="spalva">
+                  <!--   <block type="spalva">
                     </block>
                     <block type="storis">
-                    </block>
+                    </block> -->
                     <block type="kvadratas">
                     </block>
                     <block type="raide_A">
@@ -147,7 +162,7 @@
                     <!-- </category> -->
                 </xml>
             </div>
-            <div class="col-md-12 col-lg-2" style="height: 70vh;">
+            <div class="col-md-3 col-lg-2" style="height: 70vh;">
                 <h5>Javascript kodas: </h5>
                 <pre id="content_javascript">
                 </pre>
@@ -167,6 +182,21 @@
                 </div>
             </div>
         </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
+                            <a href="level1-2.html" type="button" class="btn btn-default">Sekanti užduotis</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <img style="visibility: hidden;">
     </div>
     <!-- Optional JavaScript -->
@@ -178,7 +208,25 @@
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/letters.js"></script>
+    <script type="text/javascript">
+    var my_canvas = document.getElementById("canvas");
+    var ctx = my_canvas.getContext("2d");
+    var c_canvas = document.getElementById("canvas2");
+    var c_ctx = c_canvas.getContext("2d");
+    var a_canvas = document.getElementById("canvas3");
+    var m_ctx = a_canvas.getContext("2d");
+
+    var img_maciunas = new Image();
+    img_maciunas.src = '../img_lessons/maciunas_1.png';
+
+    ///draw image
+
+    img_maciunas.addEventListener("load", function() {
+        m_ctx.drawImage(img_maciunas, 140, 20, 200, 300);
+    });
+    </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -197,24 +245,6 @@
     }
     workspace.addChangeListener(toJavascript);
     </script>
-    <script>
-    $(document).ready(function() {
-        $('[data-toggle="popover"]').popover();
-    });
-    </script>
-    <script type="text/javascript">
-    var my_canvas = document.getElementById("canvas");
-    var ctx = my_canvas.getContext("2d");
-
-    var img_maciunas = new Image();
-    img_maciunas.src = '../img_lessons/maciunas_1.png';
-
-    ///draw image
-
-    img_maciunas.addEventListener("load", function() {
-        ctx.drawImage(img_maciunas, 140, 20, 200, 300);
-    });
-    </script>
     <script type="text/javascript">
     function runCode() {
         // Generate JavaScript code and run it.
@@ -223,6 +253,8 @@
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        m_ctx.clearRect(0, 0, canvas.width, canvas.height);
+        c_ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         var cx = 200;
         var cy = 145;
@@ -232,88 +264,74 @@
         var img_maciunas_drawing = new Image();
         img_maciunas_drawing.src = '../img_lessons/maciunas_2.png';
         img_maciunas_drawing.addEventListener("load", function() {
-            ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 200);
+            m_ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 200);
         });
 
 
         try {
 
             if (code.length > 0) {
-                animateLine();
                 animate();
-            }
-
-            function animate() {
-
-                // request that this animate() function be called again
-                // this creates an animation loop
-
-                globalID = requestAnimationFrame(animate);
-
-                // clear the canvas
-
-                // calculate the new position of the image
-                // this example just rotates it around a centerpoint   
-                degreeAngle += 1;
-                var radianAngle = degreeAngle * Math.PI / 180;
-                var x = cx + radius * Math.cos(radianAngle);
-                var y = cy + radius * Math.sin(radianAngle);
-
-                // clear the canvas 
-                // and draw the image at its new position
-               ctx.clearRect(0, 0, canvas.width, canvas.height);
+                animateLine();
                 eval(code);
-                ctx.drawImage(img_maciunas_drawing, x, y, 200, 200);
-
-                if (degreeAngle == 360) { cancelAnimationFrame(globalID); }
+            }
+            else{
+                alert('Pridėk kodo blokelį.');
             }
 
-            function animateLine() {
-
-                // request that this animate() function be called again
-                // this creates an animation loop
-
-                globalID2 = requestAnimationFrame(animateLine);
-
-                // clear the canvas
-
-                // calculate the new position of the image
-                // this example just rotates it around a centerpoint   
-                degreeAngleCircle += 0.0056;
-
-                // clear the canvas 
-                // and draw the image at its new position
-                 ctx.beginPath();
-                ctx.lineJoin = 'round';
-                ctx.lineCap = 'round';
-                ctx.lineWidth = 3;
-                ctx.strokeStyle="black";
-                ctx.arc(200, 150, 70, 0, degreeAngleCircle * Math.PI);
-                ctx.stroke();
-                
-
-            }
         } catch (e) {
             alert(e);
         }
+
+        function animate() {
+
+            // request that this animate() function be called again
+            // this creates an animation loop
+
+            globalID = requestAnimationFrame(animate);
+
+            // clear the canvas
+
+            // calculate the new position of the image
+            // this example just rotates it around a centerpoint   
+            degreeAngle += 1;
+            var radianAngle = degreeAngle * Math.PI / 180;
+            var x = cx + radius * Math.cos(radianAngle);
+            var y = cy + radius * Math.sin(radianAngle);
+
+            // clear the canvas 
+            // and draw the image at its new position
+            c_ctx.clearRect(0, 0, canvas.width, canvas.height);
+            m_ctx.clearRect(0, 0, canvas.width, canvas.height);
+            m_ctx.drawImage(img_maciunas_drawing, x, y, 200, 200);
+            if (degreeAngle == 360) {
+                cancelAnimationFrame(globalID); 
+                 $('#nextModal').modal('show');
+            }
+        }
+
+        function animateLine() {
+
+            // request that this animate() function be called again
+            // this creates an animation loop
+
+            globalID2 = requestAnimationFrame(animateLine);
+
+            // clear the canvas
+
+            // calculate the new position of the image
+            // this example just rotates it around a centerpoint   
+            degreeAngleCircle += 0.0056;
+
+            c_ctx.beginPath();
+            c_ctx.lineJoin = 'round';
+            c_ctx.lineCap = 'round';
+            c_ctx.lineWidth = 3;
+            c_ctx.strokeStyle = "black";
+            c_ctx.arc(200, 150, 70, 0, degreeAngleCircle * Math.PI);
+            c_ctx.stroke();
+        }
     }
-    </script>
-    <script type="text/javascript">
-    // $(document).ready(function() {
-    //     $("#myModal").on("hidden.bs.modal", function() {
-    //         $("#iframeYoutube").attr("src", "#");
-    //     })
-    // })
-
-    // function changeVideo(vId) {
-    //     var iframe = document.getElementById("iframeYoutube");
-    //     iframe.src = "https://www.youtube.com/embed/" + vId;
-
-    //     $("#myModal").modal("show");
-    // }
-    // $(window).on('load', function() {
-    //     $('#myModal').modal('show');
-    // });
     </script>
 </body>
 
