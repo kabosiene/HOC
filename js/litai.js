@@ -104,10 +104,6 @@
     };
 
 
-    button.src = "../test_img/download.jpg";
-    button_euras.src = "../test_img/euras.jpg";
-    sakotis.src = "../test_img/sakotis.jpg";
-    buy.src = "http://i.imgur.com/bCXdyYP.png";
 
     button.onload = function() {
         draw(button, 10, 10);
