@@ -24,19 +24,28 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                    <a href="level1-3.html">3</a>
+                   <a href="level1-3.html">3</a>
                 </li>
                 <li>
                     <a href="level1-4.html">4</a>
                 </li>
                 <li>
-                    <a href="">5</a>
+                    <a href="level1-5.html">5</a>
                 </li>
                 <li>
-                    <a href="">6</a>
+                    <a href="level1-6.html">6</a>
                 </li>
                 <li>
-                    <a href="">7</a>
+                    <a href="level1-7.html">7</a>
+                </li>
+                <li>
+                    <a href="level1-8.html">8</a>
+                </li>
+                <li>
+                    <a href="level1-9.html">9</a>
+                </li>
+                <li>
+                    <a href="level1-10.html">10</a>
                 </li>
             </ul>
         </div>
@@ -44,14 +53,20 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Lietuvos valiutos</h4></div>
-            <div class=" col-md-7" id="task"> Paversk eurus litais ir nusipirk šakotį.
+                <h4>Darisu ir Girėno skrydis. LITUANICA</h4></div>
+            <div class=" col-md-7" id="task"> Tikslas - atkartoti Dariaus ir Girėno kelionės maršrutą (trasa buvo suskirstyta į tris etapus: Niujorkas-Niufaundlandas, Atlanto vandenynas, Airija-Kaunas).
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
-            <div class="col-md-6 col-lg-5  ">
+            <div class="col  ">
                 <div id="preview">
                     <canvas id="canvas" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <canvas id="canvas2" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <canvas id="canvas3" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
                 </div>
@@ -61,27 +76,24 @@
                 <div class="hint-panel">
                     <ul> Jei sunku:
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" title="Pagalba" data-content="1 Eur = 3.45 Lt.">Pagalba</a>
+                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">HINT1</a>
                         </li>
-                        <!--  <li>
-                            <a href="javascript:void(0)" data-toggle="popover" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
-                        </li> -->
+                        <li>
+                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6 col-sm-12" style="padding: 0 ;">
+            <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Valiutos">
-                        <block type="keisti">
-                            <field name="spalva">geltoną</field>
-                            <field name="I/O">išjungti</field>
-                        </block>
-                    </category>
+                    <!-- <category name="Raidės"> -->
+                    <block type="spalva">
+                    </block>
                 </xml>
             </div>
-            <div class="col-md-12 col-lg-2" style="height: 70vh;">
+            <div class="col-md-3 col-lg-2" style="height: 70vh;">
                 <h5>Javascript kodas: </h5>
                 <pre id="content_javascript">
                 </pre>
@@ -101,6 +113,7 @@
                 </div>
             </div>
         </div>
+        <img style="visibility: hidden;">
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -111,99 +124,24 @@
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
-    <script src="../js/litai.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/letters.js"></script>
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
-    my_canvas.addEventListener('click', clickReporter, false);
     var ctx = my_canvas.getContext("2d");
-    var button = new Image();
-    var button_euras = new Image();
-    var buy = new Image();
-    var sakotis = new Image();
-    var eurasKainuoja = 3.45;
-    var turimLitų = 0;
-    var turimEurų = 0;
+    var c_canvas = document.getElementById("canvas2");
+    var c_ctx = c_canvas.getContext("2d");
+    var a_canvas = document.getElementById("canvas3");
+    var m_ctx = a_canvas.getContext("2d");
 
-    button.src = "../test_img/download.jpg";
-    button_euras.src = "../test_img/euras.jpg";
-    sakotis.src = "../test_img/sakotis.jpg";
-    buy.src = "http://i.imgur.com/bCXdyYP.png";
+    var img_maciunas = new Image();
+    img_maciunas.src = '../img_lessons/maciunas_1.png';
 
-    button.onload = function() {
-        draw(button, 10, 10);
-    };
-    button_euras.onload = function() {
-        draw(button_euras, 10, 120);
-    };
-    buy.onload = function() {
-        draw(buy, 250, 200);
-    };
-    sakotis.onload = function() {
-        draw(sakotis, 300, 50);
-        ctx.strokeText("Kaina: 30 Litų", 300,50);
-    };
+    ///draw image
 
-    function draw(pic_name, x, y) {
-        ctx.drawImage(pic_name, x, y);
-    }
-
-    function clickReporter(e, wx, wy) { /// assign event to some variable
-
-        /// adjust mouse click position to be relative to canvas:
-        var rect = this.getBoundingClientRect(),
-            x = e.clientX - rect.left,
-            y = e.clientY - rect.top;
-
-        /// check x/y coordinate against the image position and dimension
-        //button litas
-        if (x >= 10 && x <= (10 + button.width) &&
-            y >= 10 && y <= (10 + button.height)) {
-
-            //exchangeLitai();
-        }
-        //button_euras
-         if (x >= 10 && x <= (10 + button_euras.width) &&
-            y >= 120 && y <= (120 + button_euras.height)) {
-
-            exchangeLitai();
-        }
-        //buy
-        if (x >= 250 && x <= (250 + buy.width) &&
-            y >= 200 && y <= (200 + buy.height)) {
-
-
-            if (turimLitų > 30) {
-                ctx.clearRect(0, 0, 10, 10);
-                ctx.strokeText("NUSIPIRKAI", 200, 100);
-            } else {
-
-                turimLitų = 0;
-                turimEurų = 0;
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                draw_elements();
-                ctx.strokeText("TRUKSTA", 200, 100);
-            }
-        }
-    }
-
-function draw_elements(){
-     draw(button, 10, 10);
-     draw(buy, 250, 200);
-     draw(button_euras, 10, 120);
-     draw(sakotis, 300, 50);
-     ctx.strokeText("Kaina: 30 Litų", 300,50);
-     ctx.strokeText("Eurai: " + turimEurų, 10, 120);
-     ctx.strokeText("Surinkta suma: " + turimLitų, 10, 10);
-}
-
-    function exchangeLitai() {
-
-
-        turimEurų += 1;
-        turimLitų = turimEurų * eurasKainuoja;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        draw_elements();
-    }
+    img_maciunas.addEventListener("load", function() {
+        m_ctx.drawImage(img_maciunas, 140, 20, 200, 300);
+    });
     </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
@@ -223,11 +161,6 @@ function draw_elements(){
     }
     workspace.addChangeListener(toJavascript);
     </script>
-    <script>
-    $(document).ready(function() {
-        $('[data-toggle="popover"]').popover();
-    });
-    </script>
     <script type="text/javascript">
     function runCode() {
         // Generate JavaScript code and run it.
@@ -236,33 +169,36 @@ function draw_elements(){
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        turimLitų = 0;
-        turimEurų = 0;
+        m_ctx.clearRect(0, 0, canvas.width, canvas.height);
+        c_ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        draw_elements();
+        var cx = 200;
+        var cy = 145;
+        var radius = 71;
+        var degreeAngle = 0;
+        var degreeAngleCircle = 0;
+        var img_maciunas_drawing = new Image();
+        img_maciunas_drawing.src = '../img_lessons/maciunas_2.png';
+        img_maciunas_drawing.addEventListener("load", function() {
+            m_ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 200);
+        });
+
+
         try {
-            eval(code);
+
+            if (code.length > 0) {
+                eval(code);
+            }
+            else{
+                alert('Pridėk kodo blokelį.');
+            }
+
         } catch (e) {
             alert(e);
         }
+
+
     }
-    </script>
-    <script type="text/javascript">
-    // $(document).ready(function() {
-    //     $("#myModal").on("hidden.bs.modal", function() {
-    //         $("#iframeYoutube").attr("src", "#");
-    //     })
-    // })
-
-    // function changeVideo(vId) {
-    //     var iframe = document.getElementById("iframeYoutube");
-    //     iframe.src = "https://www.youtube.com/embed/" + vId;
-
-    //     $("#myModal").modal("show");
-    // }
-    // $(window).on('load', function() {
-    //     $('#myModal').modal('show');
-    // });
     </script>
 </body>
 
