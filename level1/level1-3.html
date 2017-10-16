@@ -24,19 +24,28 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                    <a href="level1-3.html">3</a>
+                   <a href="level1-3.html">3</a>
                 </li>
                 <li>
                     <a href="level1-4.html">4</a>
                 </li>
                 <li>
-                    <a href="">5</a>
+                    <a href="level1-5.html">5</a>
                 </li>
                 <li>
-                    <a href="">6</a>
+                    <a href="level1-6.html">6</a>
                 </li>
                 <li>
-                    <a href="">7</a>
+                    <a href="level1-7.html">7</a>
+                </li>
+                <li>
+                    <a href="level1-8.html">8</a>
+                </li>
+                <li>
+                    <a href="level1-9.html">9</a>
+                </li>
+                <li>
+                    <a href="level1-10.html">10</a>
                 </li>
             </ul>
         </div>
@@ -44,13 +53,13 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Baltijos kelias</h4></div>
-            <div class=" col-md-7" id="task"> Padėk suorganizuoti Baltijos kelią. Nurodyk žmonėms, kur važiuoti, kad jie susikibę galėtų užpildyti likusius tarpus.
+                <h4>Lietuvos valiutos</h4></div>
+            <div class=" col-md-7" id="task"> Paversk eurus litais ir nusipirk šakotį.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
-            <div class="col-md-6 col-lg-5  ">
-                 <div id="preview">
+            <div class="col  ">
+                <div id="preview">
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
@@ -61,52 +70,28 @@
                 <div class="hint-panel">
                     <ul> Jei sunku:
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" title="Pagalba" data-content="1 žmogus gali užpildyti 1m tarpą.">Pagalba </a> <!-- Perkelti vyresniems -->
+                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="Pagalba" data-content="1 Eur = 3.45 Lt.">Pagalba</a>
                         </li>
-                       <!--  <li>
-                            <a href="javascript:void(0)" data-toggle="popover" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
+                        <!--  <li>
+                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus"  title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
                         </li> -->
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6 col-sm-12" style="padding: 0 ;">
+            <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Logic">
+                    <!-- <category name="Valiutos"> -->
                         <block type="controls_if"></block>
-                        <block type="logic_compare"></block>
-                        <block type="logic_operation"></block>
-                        <block type="logic_negate"></block>
-                        <block type="logic_boolean"></block>
-                        <block type="nupiesk_veliava">
-                            <field name="spalva">geltoną</field>
-                            <field name="I/O">išjungti</field>
-                        </block>
-                    </category>
-                    <category name="Loops">
-                        <block type="controls_repeat_ext">
-                            <value name="TIMES">
-                                <block type="math_number">
-                                    <field name="NUM">10</field>
-                                </block>
-                            </value>
-                        </block>
-                        <block type="controls_whileUntil"></block>
-                    </category>
-                    <category name="Math">
-                        <block type="math_number"></block>
-                        <block type="math_arithmetic"></block>
-                        <block type="math_single"></block>
-                    </category>
-                    <category name="Text">
-                        <block type="text"></block>
-                        <block type="text_length"></block>
-                        <block type="text_print"></block>
-                    </category>
+                        <!-- <block type="math_number"></block> -->
+                        <block type="paspausta"></block>
+                        <block type="keisti_valiuta"> </block>
+                        <block type="kintamasis"></block>
+                    <!-- </category> -->
                 </xml>
             </div>
-            <div class="col-md-12 col-lg-2" style="height: 70vh;">
+            <div class="col-md-3 col-lg-2" style="height: 70vh;">
                 <h5>Javascript kodas: </h5>
                 <pre id="content_javascript">
                 </pre>
@@ -136,9 +121,8 @@
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
-    <script src="../js/customBlocks.js">
-    </script>
-    <script src="../js/draw.js"></script>
+     <script src="../js/main.js"></script>
+    <script src="../js/litai.js"></script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -157,11 +141,6 @@
     }
     workspace.addChangeListener(toJavascript);
     </script>
-    <script>
-    $(document).ready(function() {
-        $('[data-toggle="popover"]').popover();
-    });
-    </script>
     <script type="text/javascript">
     function runCode() {
         // Generate JavaScript code and run it.
@@ -170,29 +149,22 @@
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        turimLitų = 0;
+        turimEurų = 0;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        draw_elements();
         try {
-            eval(code);
+            if (code.length > 0) {
+                eval(code);
+            }
+            else{
+                alert('Pridėk kodo blokelį.');
+            }
+
         } catch (e) {
             alert(e);
         }
     }
-    </script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $("#myModal").on("hidden.bs.modal", function() {
-            $("#iframeYoutube").attr("src", "#");
-        })
-    })
-
-    function changeVideo(vId) {
-        var iframe = document.getElementById("iframeYoutube");
-        iframe.src = "https://www.youtube.com/embed/" + vId;
-
-        $("#myModal").modal("show");
-    }
-    $(window).on('load', function() {
-        $('#myModal').modal('show');
-    });
     </script>
 </body>
 
