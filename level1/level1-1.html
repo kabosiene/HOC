@@ -211,6 +211,8 @@
     <script src="../js/main.js"></script>
     <script src="../js/letters.js"></script>
     <script type="text/javascript">
+        var w = window;
+requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
     var c_canvas = document.getElementById("canvas2");
@@ -306,6 +308,7 @@
             m_ctx.drawImage(img_maciunas_drawing, x, y, 200, 200);
             if (degreeAngle == 360) {
                 cancelAnimationFrame(globalID); 
+                return; 
                  $('#nextModal').modal('show');
             }
         }
