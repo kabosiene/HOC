@@ -65,8 +65,9 @@ li {
 position: relative;
 }
  canvas { position: absolute; }
- #canvas{z-index: 2;}
- #animation_canvas{z-index: 1;}
+ #canvas{z-index: 1;}
+ #canvas2{z-index: 2;}
+ #canvas3{z-index: 3;}
 
 .flagPart {
     height: 50px;
@@ -82,6 +83,7 @@ position: relative;
 }
 #blocklyDiv {
 	height: 70vh;
+    min-width: 400px;
 	border: solid #E1D82C 5px;
 }
 
