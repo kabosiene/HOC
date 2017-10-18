@@ -85,13 +85,18 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                     <block type="krastas"></block>
-                        <block type="apsisuk"></block>
-                          <block type="controls_if"></block>
-                            <block type="keisti_greiti"></block>
-                              <block type="math_number"></block>
-                               <block type="on_click"></block>
-<!--                     <category name="Logic">
+                    <category name = blokeliai>
+                    <block type="krastas"></block>
+                    <block type="apsisuk"></block>
+                    <block type="plaukti"></block>
+                    <block type="controls_if"></block>
+                    <block type="keisti_greiti"></block>
+                    <block type="math_number"></block>
+                    <block type="on_click"></block>
+                    <block type="controls_whileUntil"></block>  
+                </category>
+                    <category name="Functions" colour="#9A5CA6" custom="PROCEDURE"></category>
+                    <!--                     <category name="Logic">
                         <block type="controls_if"></block>
                         <block type="logic_compare"></block>
                         <block type="logic_operation"></block>
@@ -205,16 +210,23 @@
     var speed = 0.15;
     var turn = false;
     var edge = false;
-    var edge1 = -41;
-    var edge2 = 491;
+    var edge1;
+    var edge2;
     var mouse_click = false;
+    var swim_do = false;
+
 
     function runCode() {
         // Generate JavaScript code and run it.
         start_x = 0;
         start_y = 150;
-        x = 0;
         speed = 0.15;
+        turn = false;
+        edge = false;
+        edge1 = 1;
+        edge2 = 450;
+        mouse_click = false;
+        swim_do = false;
 
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
@@ -227,17 +239,19 @@
         try {
             if (code.length > 0) {
                 eval(code);
-                if (mouse_click){
+                if (mouse_click) {
                     canvas2.addEventListener("click", onClick, false);
                 }
+                // if (edge) { 
+                //     edge1 = 1;
+                // edge2 = 450;}
 
-                if (edge) {
-                    edge1 = 1;
-                    edge2 = 450;
+                if (swim_do) {
                     animate_swimmer();
                 } else {
-                    alert("Trūksta baseino krašto");
+                    alert("Ar plaukikui plaukti?");
                 }
+   
             } else {
                 alert('Pridėk kodo blokelį.');
             }
@@ -253,21 +267,23 @@
         //swimlID = requestAnimationFrame(animate_swimmer);
 
         if (start_x < edge2) {
-            requestAnimationFrame(function() { animate_swimmer(); });
+           anim_id =  requestAnimationFrame(function() { animate_swimmer(); });
         } else {
-            if (turn) {
+            edge = true;
+            cancelAnimationFrame(anim_id); 
+                      if (turn) {
                 animate_swimmer_back();
-            } else {
+            } else if (edge){
                 alert("Apsisuk");
-                return;
             }
+
         }
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.drawImage(swim, start_x, 150, 40, 40);
         drawElapsedTime();
-                ctx.font = "14px Verdana";
-        ctx.fillText(speed, 10,10);
+        ctx.font = "14px Verdana";
+        ctx.fillText(speed, 10, 10);
         start_x += speed;
     }
 
@@ -281,13 +297,15 @@
             score = parseInt((new Date() - startTime) / 1000);
             if (score < 5) {
                 ctx.font = "20px Verdana";
-                ctx.fillText("LAIMĖJAI!", 200,150);
+                ctx.fillText("LAIMĖJAI!", 200, 150);
                 $('#nextModal').modal('show');
-                 return;
-            } else { 
-            ctx.font = "20px Verdana";
-            ctx.fillText("Bandyk dar kartą", 200,150);  return;}
-           
+                return;
+            } else {
+                ctx.font = "20px Verdana";
+                ctx.fillText("Bandyk dar kartą", 200, 150);
+                return;
+            }
+
         }
 
 
@@ -295,8 +313,8 @@
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
         this.swimmer.drawImage(swim2, start_x, 150, 40, 40);
         drawElapsedTime();
-                ctx.font = "14px Verdana";
-        ctx.fillText(speed, 10,10);
+        ctx.font = "14px Verdana";
+        ctx.fillText(speed, 10, 10);
         start_x -= speed;
 
     }
