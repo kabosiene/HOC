@@ -53,13 +53,13 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Baltijos kelias</h4></div>
-            <div class=" col-md-7" id="task"> Padėk suorganizuoti Baltijos kelią. Nurodyk žmonėms, kur važiuoti, kad jie susikibę galėtų užpildyti likusius tarpus.
+                <h4>Temos pavadinimas</h4></div>
+            <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
-            <div class="col ">
-                <div id="preview">
+            <div class="col  ">
+                 <div id="preview">
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
@@ -68,14 +68,13 @@
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
                 </div>
                 <div class="hint-panel">
-                    <ul> Jei sunku:
+                    <ul> Pagalba:
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="Pagalba" data-content="1 žmogus gali užpildyti 1m tarpą.">Pagalba </a>
-                            <!-- Perkelti vyresniems -->
+                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">HINT1</a>
                         </li>
-                        <!--  <li>
+                        <li>
                             <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
-                        </li> -->
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -84,9 +83,31 @@
                 </div>
                 <xml id="toolbox" style="display: none">
                     <category name="Logic">
-                        <block type="keist">
-
+                        <block type="controls_if"></block>
+                        <block type="logic_compare"></block>
+                        <block type="logic_operation"></block>
+                        <block type="logic_negate"></block>
+                        <block type="logic_boolean"></block>
+                    </category>
+                    <category name="Loops">
+                        <block type="controls_repeat_ext">
+                            <value name="TIMES">
+                                <block type="math_number">
+                                    <field name="NUM">10</field>
+                                </block>
+                            </value>
                         </block>
+                        <block type="controls_whileUntil"></block>
+                    </category>
+                    <category name="Math">
+                        <block type="math_number"></block>
+                        <block type="math_arithmetic"></block>
+                        <block type="math_single"></block>
+                    </category>
+                    <category name="Text">
+                        <block type="text"></block>
+                        <block type="text_length"></block>
+                        <block type="text_print"></block>
                     </category>
                 </xml>
             </div>
@@ -120,103 +141,10 @@
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
-    <script src="../js/customBlocks.js"></script>
      <script src="../js/main.js"></script>
-    <script src="../js/kelias.js"></script>
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
-    var people_lt = new Image();
-    var people_lv = new Image();
-    var people_est = new Image();
-    var girl = new Image();
-    var step = 0;
-
-
-    people_lt.src = "../test_img/ppl.png";
-    people_lv.src = "../test_img/ppl.png";
-    people_est.src = "../test_img/ppl.png";
-    girl.src = "../test_img/girl.png";
-
-    people_lt.onload = function() {
-        draw(people_lt, 10, 10);
-        draw(people_lt, 100, 10);
-        draw(people_lt, 230, 10);
-    };
-    people_lv.onload = function() {
-        draw(people_lv, 10, 100);
-        draw(people_lv, 100, 100);
-        draw(people_lv, 230, 100);
-    };
-    people_est.onload = function() {
-        draw(people_est, 10, 200);
-        draw(people_est, 100, 200);
-        draw(people_est, 230, 200);
-    };
-    girl.onload = function() {
-        //draw(girl, 200, 10);
-    };
-
-    function draw(pic_name, x, y) {
-        ctx.drawImage(pic_name, x, y);
-    }
-
-    function draw_elements() {
-        draw(people_lt, 10, 10);
-        draw(people_lt, 100, 10);
-        draw(people_lt, 230, 10);
-        draw(people_lv, 10, 100);
-        draw(people_lv, 100, 100);
-        draw(people_lv, 230, 100);
-        draw(people_est, 10, 200);
-        draw(people_est, 100, 200);
-        draw(people_est, 230, 200);
-    }
-
-    function animatePerson() {
-
-        // request that this animate() function be called again
-        // this creates an animation loop
-
-        animStopID = requestAnimationFrame(animatePerson);
-        // clear the canvas
-
-        // calculate the new position of the image
-        // this example just rotates it around a centerpoint   
-        step += 1;
-        // clear the canvas 
-        // and draw the image at its new position
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        draw_elements();
-        ctx.drawImage(girl, step, 10);
-
-        if (step >= 200) { cancelAnimationFrame(animStopID); }
-    }
-
-    function animateLostPerson() {
-        // request that this animate() function be called again
-        // this creates an animation loop
-        var cx = 200;
-        var cy = 145;
-        var radius = 50;
-
-        animLostID = requestAnimationFrame(animateLostPerson);
-        // clear the canvas
-
-        // calculate the new position of the image
-        // this example just rotates it around a centerpoint   
-        step += 1;
-        var radianAngle = step * Math.PI / 180;
-                var x = cx + radius * Math.cos(radianAngle);
-                var y = cy + radius * Math.sin(radianAngle);
-        // clear the canvas 
-        // and draw the image at its new position
-        //ctx.clearRect(0, 0, canvas.width, canvas.height);
-        //draw_elements();
-        ctx.drawImage(girl, x,y);
-
-        if (step >= 201) { cancelAnimationFrame(animLostID); }
-    }
     </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
@@ -244,10 +172,6 @@
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-         step = 0;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        animatePerson();
-       // animateLostPerson();
         try {
             if (code.length > 0) {
                 eval(code);
