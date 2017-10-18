@@ -24,7 +24,7 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                    <a href="level1-3.html">3</a>
+                   <a href="level1-3.html">3</a>
                 </li>
                 <li>
                     <a href="level1-4.html">4</a>
@@ -53,17 +53,14 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Meilutytė</h4></div>
+                <h4>Temos pavadinimas</h4></div>
             <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
-                <div id="preview">
+                 <div id="preview">
                     <canvas id="canvas" width="490" height="330">
-                        This text is displayed if your browser does not support HTML5 Canvas.
-                    </canvas>
-                    <canvas id="canvas2" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
                 </div>
@@ -85,13 +82,7 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                     <block type="krastas"></block>
-                        <block type="apsisuk"></block>
-                          <block type="controls_if"></block>
-                            <block type="keisti_greiti"></block>
-                              <block type="math_number"></block>
-                               <block type="on_click"></block>
-<!--                     <category name="Logic">
+                    <category name="Logic">
                         <block type="controls_if"></block>
                         <block type="logic_compare"></block>
                         <block type="logic_operation"></block>
@@ -117,7 +108,7 @@
                         <block type="text"></block>
                         <block type="text_length"></block>
                         <block type="text_print"></block>
-                    </category> -->
+                    </category>
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -140,21 +131,6 @@
                 </div>
             </div>
         </div>
-        <div class="next-modal">
-            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
-                            <a href="level1-2.html" type="button" class="btn btn-default">Sekanti užduotis</a>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -165,8 +141,11 @@
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/baseinas.js"></script>
+     <script src="../js/main.js"></script>
+    <script type="text/javascript">
+    var my_canvas = document.getElementById("canvas");
+    var ctx = my_canvas.getContext("2d");
+    </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -186,137 +165,24 @@
     workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
-    var my_canvas = document.getElementById("canvas");
-    var ctx = my_canvas.getContext("2d");
-    var my_canvas2 = document.getElementById("canvas2");
-    var swimmer = my_canvas2.getContext("2d");
-    var swim = new Image();
-    swim.src = "../test_img/swim.png";
-    var swim2 = new Image();
-    swim2.src = "../test_img/swim2.png";
-    swim.onload = function() {
-        swimmer.drawImage(swim, 0, 150, 40, 40);
-    };
-    var start_x = 0;
-    var start_y = 150;
-    var x = 490;
-    var startTime;
-    var score;
-    var speed = 0.15;
-    var turn = false;
-    var edge = false;
-    var edge1 = -41;
-    var edge2 = 491;
-    var mouse_click = false;
-
     function runCode() {
         // Generate JavaScript code and run it.
-        start_x = 0;
-        start_y = 150;
-        x = 0;
-        speed = 0.15;
-
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        startTime = new Date();
-
-
         try {
             if (code.length > 0) {
                 eval(code);
-                if (mouse_click){
-                    canvas2.addEventListener("click", onClick, false);
-                }
-
-                if (edge) {
-                    edge1 = 1;
-                    edge2 = 450;
-                    animate_swimmer();
-                } else {
-                    alert("Trūksta baseino krašto");
-                }
-            } else {
+            }
+            else{
                 alert('Pridėk kodo blokelį.');
             }
 
         } catch (e) {
             alert(e);
         }
-    }
-
-
-    function animate_swimmer() {
-
-        //swimlID = requestAnimationFrame(animate_swimmer);
-
-        if (start_x < edge2) {
-            requestAnimationFrame(function() { animate_swimmer(); });
-        } else {
-            if (turn) {
-                animate_swimmer_back();
-            } else {
-                alert("Apsisuk");
-                return;
-            }
-        }
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.drawImage(swim, start_x, 150, 40, 40);
-        drawElapsedTime();
-                ctx.font = "14px Verdana";
-        ctx.fillText(speed, 10,10);
-        start_x += speed;
-    }
-
-
-
-    function animate_swimmer_back() {
-
-        if (start_x > edge1) {
-            requestAnimationFrame(function() { animate_swimmer_back(); });
-        } else {
-            score = parseInt((new Date() - startTime) / 1000);
-            if (score < 5) {
-                ctx.font = "20px Verdana";
-                ctx.fillText("LAIMĖJAI!", 200,150);
-                $('#nextModal').modal('show');
-                 return;
-            } else { 
-            ctx.font = "20px Verdana";
-            ctx.fillText("Bandyk dar kartą", 200,150);  return;}
-           
-        }
-
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.clearRect(0, 0, canvas.width, canvas.height);
-        this.swimmer.drawImage(swim2, start_x, 150, 40, 40);
-        drawElapsedTime();
-                ctx.font = "14px Verdana";
-        ctx.fillText(speed, 10,10);
-        start_x -= speed;
-
-    }
-
-
-    function drawElapsedTime() {
-        var elapsed = parseInt((new Date() - startTime) / 1000);
-        ctx.save();
-        ctx.beginPath();
-        ctx.fillStyle = "red";
-        ctx.font = "14px Verdana";
-        // draw the running time at half opacity
-        ctx.globalAlpha = 0.50;
-        ctx.fillText(elapsed + " min", canvas.width - 75, 25);
-        ctx.restore();
-    }
-
-
-    function onClick(e) {
-        speed += 0.2;
     }
     </script>
 </body>
