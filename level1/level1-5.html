@@ -85,17 +85,19 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name = blokeliai>
-                    <block type="krastas"></block>
-                    <block type="apsisuk"></block>
-                    <block type="plaukti"></block>
-                    <block type="controls_if"></block>
-                    <block type="keisti_greiti"></block>
-                    <block type="math_number"></block>
-                    <block type="on_click"></block>
-                    <block type="controls_whileUntil"></block>  
-                </category>
-                    <category name="Functions" colour="#9A5CA6" custom="PROCEDURE"></category>
+                    <!-- <category name=b lokeliai> -->
+                        <block type="krastas"></block>
+                        <block type="apsisuk"></block>
+                        <!-- <block type="irtis"></block> -->
+                        <block type="controls_if"></block>
+                        <block type="keisti_greiti"></block>
+                        <block type="math_number"></block>
+                        <block type="on_click"></block>
+                        <!-- <block type="controls_whileUntil"></block> -->
+                        <block type="function"></block>
+                        <block type="function_call"></block>
+                    <!-- </category> -->
+                    <!-- /<category name="Functions" colour="#9A5CA6" custom="PROCEDURE"></category> -->
                     <!--                     <category name="Logic">
                         <block type="controls_if"></block>
                         <block type="logic_compare"></block>
@@ -214,6 +216,7 @@
     var edge2;
     var mouse_click = false;
     var swim_do = false;
+    var add_speed = 0
 
 
     function runCode() {
@@ -227,6 +230,7 @@
         edge2 = 450;
         mouse_click = false;
         swim_do = false;
+        add_speed = 0;
 
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
@@ -251,7 +255,7 @@
                 } else {
                     alert("Ar plaukikui plaukti?");
                 }
-   
+
             } else {
                 alert('Pridėk kodo blokelį.');
             }
@@ -267,13 +271,13 @@
         //swimlID = requestAnimationFrame(animate_swimmer);
 
         if (start_x < edge2) {
-           anim_id =  requestAnimationFrame(function() { animate_swimmer(); });
+            anim_id = requestAnimationFrame(function() { animate_swimmer(); });
         } else {
-            edge = true;
-            cancelAnimationFrame(anim_id); 
-                      if (turn) {
+           // edge = true;
+            cancelAnimationFrame(anim_id);
+            if (turn) {
                 animate_swimmer_back();
-            } else if (edge){
+            } else if (edge) {
                 alert("Apsisuk");
             }
 
@@ -334,7 +338,7 @@
 
 
     function onClick(e) {
-        speed += 0.2;
+        speed += add_speed;
     }
     </script>
 </body>
