@@ -35,21 +35,60 @@ Blockly.JavaScript['apsisuk'] = function(block) {
 };
 
 
-Blockly.Blocks['keisti'] = {
-    init: function() {
-        this.appendDummyInput()
-            .appendField("keisti kostiumą");
-        this.setColour(230);
-        this.setTooltip('Blokelis prideda plaukimo animaciją.');
-        this.setNextStatement(true);
-        this.setPreviousStatement(true);
-    }
-};
+// Blockly.Blocks['keisti'] = {
+//     init: function() {
+//         this.appendDummyInput()
+//             .appendField("keisti kostiumą");
+//         this.setColour(230);
+//         this.setTooltip('Blokelis prideda plaukimo animaciją.');
+//         this.setNextStatement(true);
+//         this.setPreviousStatement(true);
+//     }
+// };
 
+// Blockly.JavaScript['keisti'] = function(block) {
+//       var code = "costume = 'swim_anim';\n";
+//       add_costume = true;
+//     return code;
+// };
+Blockly.Blocks['keisti'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("keisti kostiumą į ")
+        .appendField(new Blockly.FieldDropdown([["swim","swim"], ["swim2","swim2"]]), "kostiumas");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(65);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
 Blockly.JavaScript['keisti'] = function(block) {
-      var code = "costume = 'swim_anim';\n";
-      add_costume = true;
-    return code;
+  var dropdown_kostiumas = block.getFieldValue('kostiumas');
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'costume = '+dropdown_kostiumas+';\n';
+  add_costume = true;
+  return code;
+};
+Blockly.Blocks['set'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("laukti")
+        .appendField("= ")
+        .appendField(new Blockly.FieldNumber(0, 0), "NUMBER")
+         .appendField("s");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+Blockly.JavaScript['set'] = function(block) {
+  var number_name = block.getFieldValue('NUMBER');
+  // TODO: Assemble JavaScript into code variable.
+    var code = 'document.getElementById("test1").style.animationDuration = "'+number_name+'s";\n';
+  return code;
 };
 
 
@@ -60,7 +99,7 @@ Blockly.Blocks['keisti_greiti'] = {
             .appendField("padidink greitį");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(230);
+        this.setColour(330);
         this.setTooltip("Pakeičia plaukimo greitį");
         this.setHelpUrl("");
     }
@@ -110,7 +149,7 @@ Blockly.JavaScript['function'] = function(block) {
   var statements_body = Blockly.JavaScript.statementToCode(block, 'FUNCTION_BODY');
   // TODO: Assemble JavaScript into code variable.
   var code = 'function plaukti() {\n'+statements_body+'};\n';
-  swim_do = true;
+  swim_do_f = true;
   return code;
 };
 
@@ -129,5 +168,6 @@ Blockly.Blocks['function_call'] = {
 Blockly.JavaScript['function_call'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   var code = 'plaukti();\n';
+   swim_do = true;
   return code;
 };
