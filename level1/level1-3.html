@@ -83,11 +83,14 @@
                 </div>
                 <xml id="toolbox" style="display: none">
                     <!-- <category name="Valiutos"> -->
-                        <block type="controls_if"></block>
+                        <!-- <block type="controls_if"></block> -->
                         <!-- <block type="math_number"></block> -->
                         <block type="paspausta"></block>
-                        <block type="keisti_valiuta"> </block>
-                        <block type="kintamasis"></block>
+                        <!-- <block type="keisti_valiuta"> </block> -->
+                        <!-- <block type="kintamasis"></block> -->
+                        <block type="set"></block>
+                        <block type="change"></block>
+                        <block type="ifas"></block>
                     <!-- </category> -->
                 </xml>
             </div>
@@ -103,6 +106,21 @@
                     <div class="modal-content">
                         <div class="modal-body">
                             <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/isnwxt2Z5Dw  " frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
+                            <a href="level1-2.html" type="button" class="btn btn-default">Sekanti užduotis</a>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -139,9 +157,11 @@
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         document.getElementById('content_javascript').innerHTML = code;
     }
-    workspace.addChangeListener(toJavascript);
+   workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
+    var clicked;
+
     function runCode() {
         // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
@@ -149,9 +169,9 @@
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        turimLitų = 0;
-        turimEurų = 0;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+         my_canvas.removeEventListener('click', clicked, false);
+           litas =0;
+           euras=0;
         draw_elements();
         try {
             if (code.length > 0) {
