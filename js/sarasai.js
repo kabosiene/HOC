@@ -151,3 +151,37 @@ Blockly.JavaScript['tekstas9'] = function(block) {
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+//**************************************
+//SAMPLE OF XML TO LOAD TO WORKSPACE
+// <xml xmlns="http://www.w3.org/1999/xhtml">
+//   <variables>
+//     <variable type="" id="bIqqa+{5{%uX3JtyQuh5">litai</variable>
+//     <variable type="" id="|RDL=+G-BPZ1^=;=BKqi">euras</variable>
+//     <variable type="" id="Tz5xAOXdy(67GK8OKMLh">x</variable>
+//     <variable type="" id="}t63oO7#(0}B3f%C_Nh3">list</variable>
+//     <variable type="" id="Qgr%,iu.M=[w%WYFvHx)">tekstas</variable>
+//   </variables>
+//   <block type="lists_setIndex" id="?{+oKAq%)?zChb8!+Ht9" x="88" y="88">
+//     <mutation at="true"></mutation>
+//     <field name="MODE">SET</field>
+//     <field name="WHERE">FROM_START</field>
+//     <value name="LIST">
+//       <block type="variables_get" id="k+^BK0C{dU6xg{:`s8Ta">
+//         <field name="VAR" id="Qgr%,iu.M=[w%WYFvHx)" variabletype="">tekstas</field>
+//       </block>
+//     </value>
+//     <next>
+//       <block type="lists_setIndex" id="fgjRAQ+/[gu|!]DrJz~i">
+//         <mutation at="true"></mutation>
+//         <field name="MODE">SET</field>
+//         <field name="WHERE">FROM_START</field>
+//         <value name="LIST">
+//           <block type="variables_get" id="d)Kgj_1?PvAJ~HZ`d#0l">
+//             <field name="VAR" id="Qgr%,iu.M=[w%WYFvHx)" variabletype="">tekstas</field>
+//           </block>
+//         </value>
+//       </block>
+//     </next>
+//   </block>
+// </xml>
