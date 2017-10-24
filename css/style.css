@@ -87,6 +87,23 @@ position: relative;
 	border: solid #E1D82C 5px;
 }
 
+#test1{
+    visibility: hidden;
+  background-image:url(../test_img/swim_sprite.png);
+  height:40px;
+  width:40px;
+  background-position:0 0 ; 
+  background-size:200% 100%; 
+animation : swim 1s infinite  steps(2, end);
+/*   float:left; */
+transform: translate(0px,150px);
+}
+
+@keyframes swim {
+  100% { background-position: 200% 0}
+}
+
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
     .working-space {

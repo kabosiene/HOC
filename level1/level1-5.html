@@ -66,6 +66,7 @@
                     <canvas id="canvas2" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
+ <div id="test1"></div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
@@ -86,16 +87,16 @@
                 </div>
                 <xml id="toolbox" style="display: none">
                     <!-- <category name=b lokeliai> -->
-                        <block type="krastas"></block>
-                        <block type="apsisuk"></block>
-                        <!-- <block type="irtis"></block> -->
-                        <block type="controls_if"></block>
-                        <block type="keisti_greiti"></block>
-                        <block type="math_number"></block>
-                        <block type="on_click"></block>
-                        <!-- <block type="controls_whileUntil"></block> -->
-                        <block type="function"></block>
-                        <block type="function_call"></block>
+                    <block type="krastas"></block>
+                    <block type="apsisuk"></block>
+                    <block type="keisti"></block>
+                    <block type="controls_if"></block>
+                    <block type="keisti_greiti"></block>
+                    <block type="math_number"></block>
+                    <block type="on_click"></block>
+                    <!-- <block type="controls_whileUntil"></block> -->
+                    <block type="function"></block>
+                    <block type="function_call"></block>
                     <!-- </category> -->
                     <!-- /<category name="Functions" colour="#9A5CA6" custom="PROCEDURE"></category> -->
                     <!--                     <category name="Logic">
@@ -201,8 +202,11 @@
     swim.src = "../test_img/swim.png";
     var swim2 = new Image();
     swim2.src = "../test_img/swim2.png";
+    var swim3 = new Image();
+    swim3.src = "../test_img/swim_anim.png";
+
     swim.onload = function() {
-        swimmer.drawImage(swim, 0, 150, 40, 40);
+       swimmer.drawImage(swim, 0, 150, 40, 40);
     };
     var start_x = 0;
     var start_y = 150;
@@ -217,6 +221,8 @@
     var mouse_click = false;
     var swim_do = false;
     var add_speed = 0
+    var add_costume = false;
+    var costume = false;
 
 
     function runCode() {
@@ -231,6 +237,12 @@
         mouse_click = false;
         swim_do = false;
         add_speed = 0;
+        add_costume = false;
+        costume = false;
+      document.getElementById("test1").style.animationDuration = "1s";
+        canvas2.removeEventListener("click", onClick, false);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        swimmer.clearRect(0, 0, canvas.width, canvas.height);
 
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
@@ -239,19 +251,20 @@
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         startTime = new Date();
 
-
-        try {
+         try {
             if (code.length > 0) {
                 eval(code);
+
                 if (mouse_click) {
                     canvas2.addEventListener("click", onClick, false);
                 }
-                // if (edge) { 
-                //     edge1 = 1;
-                // edge2 = 450;}
 
                 if (swim_do) {
-                    animate_swimmer();
+                    if (add_costume) {
+                     document.getElementById("test1").style.visibility = "visible"; 
+                    }else{document.getElementById("test1").style.visibility = "hidden"; }
+
+                    animateSwimmer();
                 } else {
                     alert("Ar plaukikui plaukti?");
                 }
@@ -266,25 +279,31 @@
     }
 
 
-    function animate_swimmer() {
+    function animateSwimmer() {
 
         //swimlID = requestAnimationFrame(animate_swimmer);
 
         if (start_x < edge2) {
-            anim_id = requestAnimationFrame(function() { animate_swimmer(); });
+            anim_id = requestAnimationFrame(function() { animateSwimmer(); });
         } else {
-           // edge = true;
+            // edge = true;
             cancelAnimationFrame(anim_id);
             if (turn) {
-                animate_swimmer_back();
-            } else if (edge) {
+                animateSwimmerBack();
+            } else {
                 alert("Apsisuk");
             }
 
         }
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.drawImage(swim, start_x, 150, 40, 40);
+        swimmer.clearRect(0, 0, canvas.width, canvas.height)
+        if (add_costume) { 
+            // switchCostumes(start_x);
+           document.getElementById("test1").style.transform = "translate("+start_x+"px, 150px)";} else {
+            alert('Pridėk į funkciją kostiumus');
+                 cancelAnimationFrame(anim_id);
+           // swimmer.drawImage(swim, start_x, 150, 40, 40);
+        }
         drawElapsedTime();
         ctx.font = "14px Verdana";
         ctx.fillText(speed, 10, 10);
@@ -293,16 +312,21 @@
 
 
 
-    function animate_swimmer_back() {
+    function animateSwimmerBack() {
 
         if (start_x > edge1) {
-            requestAnimationFrame(function() { animate_swimmer_back(); });
+            requestAnimationFrame(function() { animateSwimmerBack(); });
         } else {
+            
+  document.getElementById("test1").style.visibility = "hidden"; 
             score = parseInt((new Date() - startTime) / 1000);
+            console.log(score);
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+        swimmer.clearRect(0, 0, canvas.width, canvas.height);
             if (score < 5) {
                 ctx.font = "20px Verdana";
-                ctx.fillText("LAIMĖJAI!", 200, 150);
-                $('#nextModal').modal('show');
+                ctx.fillText("LAIMĖJAI AUKSĄ!", 200, 150);
+                setTimeout(function(){$('#nextModal').modal('show');},1000);
                 return;
             } else {
                 ctx.font = "20px Verdana";
@@ -315,14 +339,18 @@
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
-        this.swimmer.drawImage(swim2, start_x, 150, 40, 40);
-        drawElapsedTime();
-        ctx.font = "14px Verdana";
+        if (add_costume) {    
+            document.getElementById("test1").style.transform = "translate("+start_x+"px, 150px) scaleX(-1)";} else {
+          
+            swimmer.drawImage(swim2, start_x, 150, 40, 40);
+        }
         ctx.fillText(speed, 10, 10);
         start_x -= speed;
+        drawElapsedTime();
+        ctx.font = "14px Verdana";
+
 
     }
-
 
     function drawElapsedTime() {
         var elapsed = parseInt((new Date() - startTime) / 1000);
@@ -339,6 +367,7 @@
 
     function onClick(e) {
         speed += add_speed;
+        document.getElementById("test1").style.animationDuration = ""+(0.1/add_speed)+"s";
     }
     </script>
 </body>

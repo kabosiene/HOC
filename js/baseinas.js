@@ -33,10 +33,12 @@ Blockly.JavaScript['apsisuk'] = function(block) {
     var code = 'turn = true;\n';
     return code;
 };
-Blockly.Blocks['irtis'] = {
+
+
+Blockly.Blocks['keisti'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("irtis");
+            .appendField("keisti kostiumą");
         this.setColour(230);
         this.setTooltip('Blokelis prideda plaukimo animaciją.');
         this.setNextStatement(true);
@@ -44,9 +46,9 @@ Blockly.Blocks['irtis'] = {
     }
 };
 
-Blockly.JavaScript['irtis'] = function(block) {
-      var code = 'swim_do = true;\n ';
-   //swim_do = true;
+Blockly.JavaScript['keisti'] = function(block) {
+      var code = "costume = 'swim_anim';\n";
+      add_costume = true;
     return code;
 };
 
@@ -107,7 +109,7 @@ Blockly.JavaScript['function'] = function(block) {
   var text_swim = block.getFieldValue('SWIM');
   var statements_body = Blockly.JavaScript.statementToCode(block, 'FUNCTION_BODY');
   // TODO: Assemble JavaScript into code variable.
-  var code = 'function plaukti() {'+statements_body+'};\n';
+  var code = 'function plaukti() {\n'+statements_body+'};\n';
   swim_do = true;
   return code;
 };
