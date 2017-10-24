@@ -39,7 +39,6 @@ Blockly.JavaScript['storis'] = function(block) {
   return code;
 };
 
-
  Blockly.Blocks['kvadratas'] = {
      // draw a line from current position to x,y
      init: function() {

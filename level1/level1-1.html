@@ -308,8 +308,7 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
             m_ctx.drawImage(img_maciunas_drawing, x, y, 200, 200);
             if (degreeAngle == 360) {
                 cancelAnimationFrame(globalID); 
-                return; 
-                 $('#nextModal').modal('show');
+                 setTimeout(function(){$('#nextModal').modal('show');},1000);
             }
         }
 

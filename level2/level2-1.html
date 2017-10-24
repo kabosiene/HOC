@@ -182,6 +182,21 @@
                 </div>
             </div>
         </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
+                            <a href="level1-2.html" type="button" class="btn btn-default">Sekanti užduotis</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <img style="visibility: hidden;">
     </div>
     <!-- Optional JavaScript -->
@@ -289,7 +304,8 @@
             c_ctx.clearRect(0, 0, canvas.width, canvas.height);
             m_ctx.clearRect(0, 0, canvas.width, canvas.height);
             m_ctx.drawImage(img_maciunas_drawing, x, y, 200, 200);
-            if (degreeAngle == 360) { cancelAnimationFrame(globalID);    alert('add popup: toliau? tęsti?');}
+            if (degreeAngle == 360) { cancelAnimationFrame(globalID);    
+                setTimeout(function(){$('#nextModal').modal('show');},1000);}
         }
 
         function animateLine() {
