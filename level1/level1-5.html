@@ -66,7 +66,7 @@
                     <canvas id="canvas2" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
- <div id="test1"></div>
+                    <div id="test1"></div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
@@ -89,15 +89,15 @@
                     <!-- <category name=b lokeliai> -->
                     <block type="krastas"></block>
                     <block type="apsisuk"></block>
-                    <block type="keisti"></block>
+                    <!-- <block type="keisti"></block> -->
                     <block type="controls_if"></block>
                     <block type="keisti_greiti"></block>
-                    <block type="set"></block>
+                    <!-- <block type="set"></block> -->
                     <block type="math_number"></block>
                     <block type="on_click"></block>
                     <!-- <block type="controls_whileUntil"></block> -->
-                    <block type="function"></block>
-                    <block type="function_call"></block>
+                    <block type="plaukti"></block>
+                    <!-- <block type="function_call"></block> -->
                     <!-- </category> -->
                     <!-- /<category name="Functions" colour="#9A5CA6" custom="PROCEDURE"></category> -->
                     <!--                     <category name="Logic">
@@ -207,7 +207,7 @@
     swim3.src = "../test_img/swim_anim.png";
 
     swim.onload = function() {
-       swimmer.drawImage(swim, 0, 150, 40, 40);
+        swimmer.drawImage(swim, 0, 150, 40, 40);
     };
     var start_x = 0;
     var start_y = 150;
@@ -243,7 +243,7 @@
         add_speed = 0;
         add_costume = false;
         costume = false;
-      document.getElementById("test1").style.animationDuration = "0s";
+        // document.getElementById("test1").style.animationDuration = "0s";
         canvas2.removeEventListener("click", onClick, false);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
@@ -255,7 +255,7 @@
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         startTime = new Date();
 
-         try {
+        try {
             if (code.length > 0) {
                 eval(code);
 
@@ -263,13 +263,11 @@
                     canvas2.addEventListener("click", onClick, false);
                 }
 
-                if (swim_do && swim_do_f) {
-                    if (add_costume) {
-                     document.getElementById("test1").style.visibility = "visible"; 
-                    }else{document.getElementById("test1").style.visibility = "hidden"; }
-
+                if (swim_do) {
+                    document.getElementById("test1").style.visibility = "visible";
                     animateSwimmer();
                 } else {
+                    document.getElementById("test1").style.visibility = "hidden";
                     alert("Ar plaukikui plaukti?");
                 }
 
@@ -301,11 +299,8 @@
         }
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height)
-        if (add_costume) { 
-            // switchCostumes(start_x);
-           document.getElementById("test1").style.transform = "translate("+start_x+"px, 150px)";} else {
-           swimmer.drawImage(swim, start_x, 150, 40, 40);
-        }
+        // switchCostumes(start_x);
+        document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px)";
         drawElapsedTime();
         ctx.font = "14px Verdana";
         ctx.fillText(speed, 10, 10);
@@ -319,16 +314,16 @@
         if (start_x > edge1) {
             requestAnimationFrame(function() { animateSwimmerBack(); });
         } else {
-            
-  document.getElementById("test1").style.visibility = "hidden"; 
+
+            document.getElementById("test1").style.visibility = "hidden";
             score = parseInt((new Date() - startTime) / 1000);
             console.log(score);
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            swimmer.clearRect(0, 0, canvas.width, canvas.height);
             if (score < 5) {
                 ctx.font = "20px Verdana";
                 ctx.fillText("LAIMĖJAI AUKSĄ!", 200, 150);
-                setTimeout(function(){$('#nextModal').modal('show');},1000);
+                setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
                 return;
             } else {
                 ctx.font = "20px Verdana";
@@ -341,11 +336,7 @@
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
-        if (add_costume) {    
-            document.getElementById("test1").style.transform = "translate("+start_x+"px, 150px) scaleX(-1)";} else {
-          
-            swimmer.drawImage(swim2, start_x, 150, 40, 40);
-        }
+        document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px) scaleX(-1)";
         ctx.fillText(speed, 10, 10);
         start_x -= speed;
         drawElapsedTime();
@@ -369,7 +360,7 @@
 
     function onClick(e) {
         speed += add_speed;
-        // document.getElementById("test1").style.animationDuration = ""+(0.1/add_speed)+"s";
+        document.getElementById("test1").style.animationDuration = ""+(0.1/add_speed)+"s";
     }
     </script>
 </body>

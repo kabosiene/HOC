@@ -66,7 +66,7 @@
                     <canvas id="canvas2" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
- <div id="test1"></div>
+                    <div id="test1"></div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
@@ -92,41 +92,16 @@
                     <block type="keisti"></block>
                     <block type="controls_if"></block>
                     <block type="keisti_greiti"></block>
-                    <block type="set"></block>
+                    <!-- <block type="set"></block> -->
+                    <block type="anim_speed"></block>
+                    <block type="var_speed"></block>
                     <block type="math_number"></block>
                     <block type="on_click"></block>
                     <!-- <block type="controls_whileUntil"></block> -->
                     <block type="function"></block>
                     <block type="function_call"></block>
-                    <!-- </category> -->
-                    <!-- /<category name="Functions" colour="#9A5CA6" custom="PROCEDURE"></category> -->
-                    <!--                     <category name="Logic">
-                        <block type="controls_if"></block>
-                        <block type="logic_compare"></block>
-                        <block type="logic_operation"></block>
-                        <block type="logic_negate"></block>
-                        <block type="logic_boolean"></block>
-                    </category>
-                    <category name="Loops">
-                        <block type="controls_repeat_ext">
-                            <value name="TIMES">
-                                <block type="math_number">
-                                    <field name="NUM">10</field>
-                                </block>
-                            </value>
-                        </block>
-                        <block type="controls_whileUntil"></block>
-                    </category>
-                    <category name="Math">
-                        <block type="math_number"></block>
-                        <block type="math_arithmetic"></block>
-                        <block type="math_single"></block>
-                    </category>
-                    <category name="Text">
-                        <block type="text"></block>
-                        <block type="text_length"></block>
-                        <block type="text_print"></block>
-                    </category> -->
+                    <!--   <block type="function_x"></block>
+                    <block type="function_call_x"></block> -->
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -207,7 +182,7 @@
     swim3.src = "../test_img/swim_anim.png";
 
     swim.onload = function() {
-       swimmer.drawImage(swim, 0, 150, 40, 40);
+        swimmer.drawImage(swim, 0, 150, 40, 40);
     };
     var start_x = 0;
     var start_y = 150;
@@ -223,9 +198,11 @@
     var swim_do = false;
     var swim_do_f = false;
     var add_speed = 0
-    var add_costume = false;
+    var add_costume_swim = false;
+    var add_costume_swim2 = false;
     var costume = false;
-    var animation_speed = 0;
+    var animation_speed = false;
+    var anim_speed = 0;
 
 
     function runCode() {
@@ -241,10 +218,14 @@
         swim_do = false;
         swim_do_f = false;
         add_speed = 0;
-        add_costume = false;
+        add_costume_swim = false;
+        add_costume_swim2 = false;
         costume = false;
-      document.getElementById("test1").style.animationDuration = "0s";
-        canvas2.removeEventListener("click", onClick, false);
+        animation_speed = false;
+        anim_speed = 0;
+        document.getElementById("test1").style.animationDuration = "0s";
+
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -255,7 +236,8 @@
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         startTime = new Date();
 
-         try {
+        canvas2.removeEventListener("click", onClick, false);
+        try {
             if (code.length > 0) {
                 eval(code);
 
@@ -264,12 +246,20 @@
                 }
 
                 if (swim_do && swim_do_f) {
-                    if (add_costume) {
-                     document.getElementById("test1").style.visibility = "visible"; 
-                    }else{document.getElementById("test1").style.visibility = "hidden"; }
+                    if (add_costume_swim && add_costume_swim2) {
+                        document.getElementById("test1").style.visibility = "visible";
+                          if (animation_speed) {
+            document.getElementById("test1").style.animationDuration = "" + (1 / anim_speed) + "s";
+        }
+                        animateSwimmer();
+                    } else {
+                        document.getElementById("test1").style.visibility = "hidden";
+                        swimmer.drawImage(swim, 0, 150, 40, 40);
+                    }
 
-                    animateSwimmer();
+
                 } else {
+
                     alert("Ar plaukikui plaukti?");
                 }
 
@@ -301,10 +291,11 @@
         }
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height)
-        if (add_costume) { 
+        if (add_costume_swim && add_costume_swim2) {
             // switchCostumes(start_x);
-           document.getElementById("test1").style.transform = "translate("+start_x+"px, 150px)";} else {
-           swimmer.drawImage(swim, start_x, 150, 40, 40);
+            document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px)";
+        } else {
+            swimmer.drawImage(swim, start_x, 150, 40, 40);
         }
         drawElapsedTime();
         ctx.font = "14px Verdana";
@@ -319,16 +310,16 @@
         if (start_x > edge1) {
             requestAnimationFrame(function() { animateSwimmerBack(); });
         } else {
-            
-  document.getElementById("test1").style.visibility = "hidden"; 
+
+            document.getElementById("test1").style.visibility = "hidden";
             score = parseInt((new Date() - startTime) / 1000);
             console.log(score);
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            swimmer.clearRect(0, 0, canvas.width, canvas.height);
             if (score < 5) {
                 ctx.font = "20px Verdana";
                 ctx.fillText("LAIMĖJAI AUKSĄ!", 200, 150);
-                setTimeout(function(){$('#nextModal').modal('show');},1000);
+                setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
                 return;
             } else {
                 ctx.font = "20px Verdana";
@@ -341,9 +332,10 @@
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
-        if (add_costume) {    
-            document.getElementById("test1").style.transform = "translate("+start_x+"px, 150px) scaleX(-1)";} else {
-          
+        if (add_costume_swim && add_costume_swim2) {
+            document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px) scaleX(-1)";
+        } else {
+
             swimmer.drawImage(swim2, start_x, 150, 40, 40);
         }
         ctx.fillText(speed, 10, 10);
@@ -369,7 +361,12 @@
 
     function onClick(e) {
         speed += add_speed;
-        // document.getElementById("test1").style.animationDuration = ""+(0.1/add_speed)+"s";
+
+        if (animation_speed) {
+            anim_speed += add_speed;
+            document.getElementById("test1").style.animationDuration = "" + (1 / anim_speed) + "s";
+        }
+
     }
     </script>
 </body>
