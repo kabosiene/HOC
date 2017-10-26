@@ -24,7 +24,7 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                   <a href="level1-3.html">3</a>
+                    <a href="level1-3.html">3</a>
                 </li>
                 <li>
                     <a href="level1-4.html">4</a>
@@ -72,6 +72,7 @@
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
+                    <button id="download">download</button>
                 </div>
                 <div class="hint-panel">
                     <ul> Jei sunku:
@@ -88,78 +89,95 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <!-- <category name="Raidės"> -->
-                  <!--   <block type="spalva">
-                    </block>
-                    <block type="storis">
-                    </block> -->
-                    <block type="kvadratas">
-                    </block>
-                    <block type="raide_A">
-                    </block>
-                    <block type="raide_Ą">
-                    </block>
-                    <block type="raide_B">
-                    </block>
-                    <block type="raide_C">
-                    </block>
-                    <block type="raide_Č">
-                    </block>
-                    <block type="raide_D">
-                    </block>
-                    <block type="raide_E">
-                    </block>
-                    <block type="raide_Ę">
-                    </block>
-                    <block type="raide_Ė">
-                    </block>
-                    <block type="raide_F">
-                    </block>
-                    <block type="raide_G">
-                    </block>
-                    <block type="raide_H">
-                    </block>
-                    <block type="raide_I">
-                    </block>
-                    <block type="raide_Į">
-                    </block>
-                    <block type="raide_Y">
-                    </block>
-                    <block type="raide_J">
-                    </block>
-                    <block type="raide_K">
-                    </block>
-                    <block type="raide_L">
-                    </block>
-                    <block type="raide_M">
-                    </block>
-                    <block type="raide_N">
-                    </block>
-                    <block type="raide_O">
-                    </block>
-                    <block type="raide_P">
-                    </block>
-                    <block type="raide_R">
-                    </block>
-                    <block type="raide_S">
-                    </block>
-                    <block type="raide_Š">
-                    </block>
-                    <block type="raide_T">
-                    </block>
-                    <block type="raide_U">
-                    </block>
-                    <block type="raide_Ų">
-                    </block>
-                    <block type="raide_Ū">
-                    </block>
-                    <block type="raide_V">
-                    </block>
-                    <block type="raide_Z">
-                    </block>
-                    <block type="raide_Ž">
-                    </block>
-                    <!-- </category> -->
+                    <category name="Raidžių stilius" colour="20">
+                        <block type="spalva">
+                        </block>
+                        <block type="storis">
+                        </block>
+                        <block type="colour_random"></block>
+                        <block type="math_random_int">
+                            <value name="FROM">
+                                <shadow type="math_number">
+                                    <field name="NUM">1</field>
+                                </shadow>
+                            </value>
+                            <value name="TO">
+                                <shadow type="math_number">
+                                    <field name="NUM">100</field>
+                                </shadow>
+                            </value>
+                        </block>
+                        <block type="math_number" gap="32"></block>
+                        <block type="colour_picker"></block>
+                        <block type="kvadratas">
+                        </block>
+                    </category>
+                    <category name="Raidės" colour="260">
+                        <block type="raide_A">
+                        </block>
+                        <block type="raide_Ą">
+                        </block>
+                        <block type="raide_B">
+                        </block>
+                        <block type="raide_C">
+                        </block>
+                        <block type="raide_Č">
+                        </block>
+                        <block type="raide_D">
+                        </block>
+                        <block type="raide_E">
+                        </block>
+                        <block type="raide_Ę">
+                        </block>
+                        <block type="raide_Ė">
+                        </block>
+                        <block type="raide_F">
+                        </block>
+                        <block type="raide_G">
+                        </block>
+                        <block type="raide_H">
+                        </block>
+                        <block type="raide_I">
+                        </block>
+                        <block type="raide_Į">
+                        </block>
+                        <block type="raide_Y">
+                        </block>
+                        <block type="raide_J">
+                        </block>
+                        <block type="raide_K">
+                        </block>
+                        <block type="raide_L">
+                        </block>
+                        <block type="raide_M">
+                        </block>
+                        <block type="raide_N">
+                        </block>
+                        <block type="raide_O">
+                        </block>
+                        <block type="raide_P">
+                        </block>
+                        <block type="raide_R">
+                        </block>
+                        <block type="raide_S">
+                        </block>
+                        <block type="raide_Š">
+                        </block>
+                        <block type="raide_T">
+                        </block>
+                        <block type="raide_U">
+                        </block>
+                        <block type="raide_Ų">
+                        </block>
+                        <block type="raide_Ū">
+                        </block>
+                        <block type="raide_V">
+                        </block>
+                        <block type="raide_Z">
+                        </block>
+                        <block type="raide_Ž">
+                        </block>
+                    </category>
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -210,9 +228,10 @@
     <script src="../msg/js/lt.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/letters.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
     <script type="text/javascript">
-        var w = window;
-requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
+    var w = window;
+    requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
     var c_canvas = document.getElementById("canvas2");
@@ -248,6 +267,13 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
     workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
+    var cx = 200;
+    var cy = 145;
+    var radius = 71;
+    var degreeAngle = 0;
+    var degreeAngleCircle = 0;
+    var interval = 0;
+
     function runCode() {
         // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
@@ -258,12 +284,12 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
         m_ctx.clearRect(0, 0, canvas.width, canvas.height);
         c_ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        var cx = 200;
-        var cy = 145;
-        var radius = 71;
-        var degreeAngle = 0;
-        var degreeAngleCircle = 0;
-        var img_maciunas_drawing = new Image();
+        cx = 200;
+        cy = 145;
+        radius = 71;
+        degreeAngle = 0;
+        degreeAngleCircle = 0;
+        img_maciunas_drawing = new Image();
         img_maciunas_drawing.src = '../img_lessons/maciunas_2.png';
         img_maciunas_drawing.addEventListener("load", function() {
             m_ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 200);
@@ -274,10 +300,8 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 
             if (code.length > 0) {
                 animate();
-                animateLine();
                 eval(code);
-            }
-            else{
+            } else {
                 alert('Pridėk kodo blokelį.');
             }
 
@@ -289,8 +313,12 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 
             // request that this animate() function be called again
             // this creates an animation loop
+            if (degreeAngle >= 360) {
+                cancelAnimationFrame(globalID);
+                //cancelAnimationFrame(globalID2);
+                setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+            } else { globalID = requestAnimationFrame(animate); }
 
-            globalID = requestAnimationFrame(animate);
 
             // clear the canvas
 
@@ -306,23 +334,6 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
             c_ctx.clearRect(0, 0, canvas.width, canvas.height);
             m_ctx.clearRect(0, 0, canvas.width, canvas.height);
             m_ctx.drawImage(img_maciunas_drawing, x, y, 200, 200);
-            if (degreeAngle == 360) {
-                cancelAnimationFrame(globalID); 
-                 setTimeout(function(){$('#nextModal').modal('show');},1000);
-            }
-        }
-
-        function animateLine() {
-
-            // request that this animate() function be called again
-            // this creates an animation loop
-
-            globalID2 = requestAnimationFrame(animateLine);
-
-            // clear the canvas
-
-            // calculate the new position of the image
-            // this example just rotates it around a centerpoint   
             degreeAngleCircle += 0.0056;
 
             c_ctx.beginPath();
@@ -334,6 +345,23 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
             c_ctx.stroke();
         }
     }
+    </script>
+    <script type="text/javascript">
+        download.addEventListener("click", function() {
+  // only jpeg is supported by jsPDF
+  var imgData = canvas.toDataURL();
+  var imgData2 = canvas2.toDataURL();
+ // var imgData3 = canvas3.toDataURL();
+  var pdf = new jsPDF({
+  orientation: 'landscape'
+})
+
+
+  pdf.addImage(imgData, 'JPEG', 20, 20);
+  pdf.addImage(imgData2, 'JPEG', 20, 20);
+ // pdf.addImage(imgData3, 'JPEG', 20, 20);
+  pdf.save("vardo_simbolis.pdf");
+}, false);
     </script>
 </body>
 

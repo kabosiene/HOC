@@ -64,7 +64,7 @@ li {
     height: 340px;
 position: relative;
 }
- canvas { position: absolute; }
+ canvas { position: absolute;}
  #canvas{z-index: 1;}
  #canvas2{z-index: 2;}
  #canvas3{z-index: 3;}

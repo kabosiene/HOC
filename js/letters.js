@@ -1,29 +1,28 @@
    
 Blockly.Blocks['spalva'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("Raidės  spalva")
-        .appendField(new Blockly.FieldColour("#ff0000"), "spalva");
+    this.appendValueInput("spalva")
+        .setCheck(null)
+        .appendField("Raidės spalva");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(20);
  this.setTooltip("");
  this.setHelpUrl("");
   }
 };
-
 Blockly.JavaScript['spalva'] = function(block) {
-  var colour_spalva = block.getFieldValue('spalva');
+  var value_spalva = Blockly.JavaScript.valueToCode(block, 'spalva', Blockly.JavaScript.ORDER_NONE);
   // TODO: Assemble JavaScript into code variable.
-  var code = 'ctx.strokeStyle="'+ colour_spalva+'";\n';
+    var code = 'ctx.strokeStyle='+ value_spalva+';\n';
   return code;
 };
  
  Blockly.Blocks['storis'] = {
   init: function() {
-    this.appendDummyInput()
+    this.appendValueInput("storis")
         .appendField("Linijos storis")
-        .appendField(new Blockly.FieldNumber(0, 1, 10), "NUMBER");
+        .setCheck(null)
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -33,9 +32,9 @@ Blockly.JavaScript['spalva'] = function(block) {
 };
 
 Blockly.JavaScript['storis'] = function(block) {
-  var number_name = block.getFieldValue('NUMBER');
+  var value_storis = Blockly.JavaScript.valueToCode(block, 'storis', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = 'ctx.lineWidth='+number_name+';\n';
+    var code = 'ctx.lineWidth='+value_storis+';\n';
   return code;
 };
 
@@ -53,6 +52,9 @@ Blockly.JavaScript['storis'] = function(block) {
  };
  Blockly.JavaScript['kvadratas'] = function(block) {
      var code = 'ctx.beginPath();\n ctx.strokeStyle="black";\n ctx.lineWidth=3;\n ctx.lineJoin = "round";\n ctx.lineCap = "round";\n ctx.rect(150,100,100,100);\n ctx.stroke();\n';
+
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -75,8 +77,11 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(200, 100);\n ctx.lineTo(150, 200);\n ctx.moveTo(200, 100);\n ctx.lineTo(250, 200);\n ctx.stroke(); \n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
+ 
 
   Blockly.Blocks['raide_Ą'] = {
      // draw a line from current position to x,y
@@ -96,6 +101,9 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(200, 100);\n ctx.lineTo(150, 200);\n ctx.moveTo(200, 100);\n ctx.lineTo(250, 200);\n ctx.lineTo(250, 210);\n ctx.lineTo(260, 210);\n ctx.stroke();\n';
+    
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
    Blockly.Blocks['raide_B'] = {
@@ -116,6 +124,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(230, 100);\n ctx.lineTo(150, 100);\n ctx.lineTo(150, 200);\n ctx.lineTo(230, 200);\n ctx.moveTo(150, 150);\n ctx.lineTo(230, 150);\n ctx.lineTo(250, 125);\n ctx.lineTo(230, 100);\n ctx.moveTo(230, 150);\n ctx.lineTo(250, 175);\n ctx.lineTo(230, 200);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -137,6 +147,9 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.arc(' + 200 + ',' + 150 + ',50, 7, 1.7 * Math.PI);\n ctx.stroke();\n';
+
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
   Blockly.Blocks['raide_Č'] = {
@@ -157,6 +170,9 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.arc(' + 200 + ',' + 150 + ',50, 7, 1.7 * Math.PI);\n ctx.moveTo(170, 90);\n ctx.lineTo(230, 90);\n ctx.stroke();\n';
+     
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
   Blockly.Blocks['raide_D'] = {
@@ -177,6 +193,9 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(220, 100);\n ctx.lineTo(150, 100);\n ctx.lineTo(150, 200);\n ctx.lineTo(220, 200);\n ctx.lineTo(250,150);\n ctx.lineTo(220,100);\n ctx.stroke();\n';
+     
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -199,6 +218,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(250, 100);\n ctx.lineTo(150, 100);\n ctx.lineTo(150, 200);\n ctx.lineTo(250, 200);\n ctx.moveTo(150, 150);\n ctx.lineTo(250, 150);\n ctx.stroke();\n';
+// interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -221,6 +242,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(250, 100);\n ctx.lineTo(150, 100);\n ctx.lineTo(150, 200);\n ctx.lineTo(250, 200);\n ctx.moveTo(150, 150);\n ctx.lineTo(250, 150);\n ctx.moveTo(250, 200);\n ctx.lineTo(250, 210);\n ctx.lineTo(260, 210);\nctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -244,6 +267,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath(); ctx.moveTo(250, 100); ctx.lineTo(150, 100); ctx.lineTo(150, 200); ctx.lineTo(250, 200); ctx.moveTo(150, 150); ctx.lineTo(250, 150); ctx.moveTo(170, 90); ctx.lineTo(230, 90); ctx.stroke();\n';
 
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -266,6 +291,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(250, 100);\n ctx.lineTo(150, 100);\n ctx.lineTo(150, 200);\n ctx.moveTo(150, 150);\n ctx.lineTo(250, 150);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -288,6 +315,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code =  'ctx.beginPath();\n ctx.arc(' + 200 + ',' + 150 + ',50, 7, 1.7 * Math.PI);\n ctx.stroke();\n ctx.moveTo(240, 200);\n ctx.lineTo(240, 150);\n ctx.lineTo(200, 150);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -309,6 +338,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(150, 100);\n ctx.lineTo(150, 200);\n ctx.moveTo(250, 100);\n ctx.lineTo(250, 200);\n ctx.moveTo(150, 150);\n ctx.lineTo(250, 150);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -331,6 +362,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(170, 100);\n ctx.lineTo(230, 100);\n ctx.moveTo(200, 100);\n ctx.lineTo(200, 200);\n ctx.moveTo(170, 200);\n ctx.lineTo(230, 200);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -352,6 +385,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(170, 100);\n ctx.lineTo(230, 100);\n ctx.moveTo(200, 100);\n ctx.lineTo(200, 200);\n ctx.moveTo(170, 200);\n ctx.lineTo(230, 200);\n ctx.lineTo(230, 210);\n ctx.lineTo(240, 210);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
   Blockly.Blocks['raide_Y'] = {
@@ -372,6 +407,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(150, 100);\n ctx.lineTo(200, 150);\n ctx.moveTo(200, 200);\n ctx.lineTo(200, 150);\n ctx.lineTo(250, 100);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
  Blockly.Blocks['raide_J'] = {
@@ -392,6 +429,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath(); ctx.moveTo(150, 100); ctx.lineTo(250, 100); ctx.lineTo(200, 200); ctx.lineTo(151, 150); ctx.lineTo(225, 150); ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
   Blockly.Blocks['raide_K'] = {
@@ -412,6 +451,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(200, 100);\n ctx.lineTo(200, 200);\n ctx.moveTo(200, 150);\n ctx.lineTo(250, 100);\n ctx.moveTo(200, 150);\n ctx.lineTo(250, 200);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
   Blockly.Blocks['raide_L'] = {
@@ -432,6 +473,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(200, 100);\n ctx.lineTo(200, 200);\n ctx.lineTo(250, 200);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
    Blockly.Blocks['raide_M'] = {
@@ -452,6 +495,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(150, 200);\n ctx.lineTo(170, 100);\n ctx.lineTo(200, 200);\n ctx.lineTo(230, 100);\n ctx.lineTo(250, 200);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -473,6 +518,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(150, 200);\n ctx.lineTo(150, 100);\n ctx.lineTo(250, 200);\n ctx.lineTo(250, 100);\nctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
  Blockly.Blocks['raide_O'] = {
@@ -493,6 +540,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();ctx.arc(' + 200 + ',' + 150 + ',50,0,2*Math.PI);ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
     Blockly.Blocks['raide_P'] = {
@@ -513,6 +562,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(150, 200);\n ctx.lineTo(150, 100);\n ctx.lineTo(200, 100);\n ctx.lineTo(250, 125);\n ctx.lineTo(200, 150);\n ctx.lineTo(150, 150);\nctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -534,6 +585,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(150, 200);\n ctx.lineTo(150, 100);\n ctx.lineTo(200, 100);\n ctx.lineTo(250, 125);\n ctx.lineTo(200, 150);\n ctx.lineTo(150, 150);\nctx.lineTo(250, 200);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -556,6 +609,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(150, 100);\n ctx.lineTo(250, 100);\n ctx.moveTo(150, 100);\n ctx.lineTo(150, 150);\n ctx.lineTo(250, 150)\n; ctx.lineTo(250, 200);\n  ctx.lineTo(150, 200); ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -577,6 +632,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(150, 100);\n ctx.lineTo(250, 100);\n ctx.moveTo(150, 100);\n ctx.lineTo(150, 150);\n ctx.lineTo(250, 150);\n ctx.lineTo(250, 200);\n ctx.lineTo(150, 200); ctx.moveTo(170, 90);\n ctx.lineTo(230, 90);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -598,6 +655,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();\n ctx.moveTo(150, 100);\n ctx.lineTo(250, 100);\n ctx.stroke();\n ctx.beginPath();\n ctx.moveTo(200, 100);\n ctx.lineTo(200, 200);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
   Blockly.Blocks['raide_U'] = {
@@ -633,6 +692,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var y = block.getFieldValue('YPOS');
     // var code = 'ctx.beginPath();ctx.arc(' + 200 + ',' + 150 + ',50,0,Math.PI);ctx.stroke();\n';
      var code ='ctx.beginPath();\n ctx.bezierCurveTo(150, 100, 200, 325, 250, 100);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
 
@@ -655,6 +716,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var y = block.getFieldValue('YPOS');
     // var code = 'ctx.beginPath();ctx.arc(' + 200 + ',' + 150 + ',50,0,Math.PI);ctx.stroke();\n';
      var code ='ctx.beginPath();\n ctx.bezierCurveTo(150, 100, 200, 325, 250, 100);\n ctx.moveTo(170, 90);\n ctx.lineTo(230, 90);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
   Blockly.Blocks['raide_Ų'] = {
@@ -676,6 +739,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var y = block.getFieldValue('YPOS');
     // var code = 'ctx.beginPath();ctx.arc(' + 200 + ',' + 150 + ',50,0,Math.PI);ctx.stroke();\n';
      var code ='ctx.beginPath();\n ctx.bezierCurveTo(150, 100, 200, 325, 250, 100);\n ctx.moveTo(170, 90);\n ctx.lineTo(230, 90);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
    Blockly.Blocks['raide_V'] = {
@@ -696,6 +761,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code ='ctx.beginPath();\n ctx.moveTo(150, 100);\n ctx.lineTo(200, 200);\n ctx.lineTo(250, 100);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  }; 
   Blockly.Blocks['raide_Z'] = {
@@ -716,6 +783,8 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code ='ctx.beginPath();\n ctx.moveTo(150, 100);\n ctx.lineTo(250, 100);\n ctx.lineTo(150, 200);\nctx.lineTo(250, 200);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  }; 
   Blockly.Blocks['raide_Ž'] = {
@@ -736,5 +805,7 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code ='ctx.beginPath();\n ctx.moveTo(150, 100);\n ctx.lineTo(250, 100);\n ctx.lineTo(150, 200);\nctx.lineTo(250, 200);\n ctx.moveTo(170, 90);\n ctx.lineTo(230, 90);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
      return code;
  };
