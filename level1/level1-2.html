@@ -53,7 +53,7 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Darisu ir Girėno skrydis. LITUANICA</h4></div>
+                <h4>Dariaus ir Girėno skrydis. LITUANICA</h4></div>
             <div class=" col-md-7" id="task"> Tikslas - atkartoti Dariaus ir Girėno kelionės maršrutą (trasa buvo suskirstyta į tris etapus: Niujorkas-Niufaundlandas, Atlanto vandenynas, Airija-Kaunas).
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
@@ -63,12 +63,13 @@
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-                    <canvas id="canvas2" width="490" height="330">
+<!--                     <canvas id="canvas2" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
                     <canvas id="canvas3" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
-                    </canvas>
+                    </canvas> -->
+                    <div id="lituanica_plane"></div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
@@ -89,13 +90,15 @@
                 </div>
                 <xml id="toolbox" style="display: none">
                     <!-- <category name="Raidės"> -->
-                    <block type="spalva">
-                    </block>
+                    <!-- <block type="spalva">
+                    </block> -->
                     <block type="grid_turnleft">
                     </block>
                     <block type="grid_turnright">
                     </block>
                     <block type="grid_goforward">
+                    </block>
+                    <block type="grid_forward">
                     </block>
                 </xml>
             </div>
@@ -111,6 +114,21 @@
                     <div class="modal-content">
                         <div class="modal-body">
                             <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/isnwxt2Z5Dw  " frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
+                            <a href="level1-2.html" type="button" class="btn btn-default">Sekanti užduotis</a>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -135,37 +153,77 @@
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var background = my_canvas.getContext("2d");
-    var route_canvas = document.getElementById("canvas2");
-    var route = route_canvas.getContext("2d");
-    var lituanica_canvas = document.getElementById("canvas3");
-    var lituanica = lituanica_canvas.getContext("2d");
+    // var lituanica_canvas = document.getElementById("canvas3");
+    // var lituanica = lituanica_canvas.getContext("2d");
     var map = new Image();
     map.src = "../test_img/atlantas.png";
     var plane = new Image();
     plane.src = "../test_img/litu.png";
+    var plane_left = new Image();
+    plane_left.src = "../test_img/litu-left.png";
+    var plane_right = new Image();
+    plane_right.src = "../test_img/litu-right.png";
+
     var angleInDegrees = 0;
-    var plain_x = 30;
-    var plain_y = 70;
-    var route_x = 80;
-    var route_y = 120;
-    var colour = "#000000";
+    var plain_x = 50;
+    var plain_y = 100;
+
+    var plane_state = "plane";
+     var x_deg = 0;
 
     map.onload = function() {
         //draw(map, 0, 0, 500,300);
         background.drawImage(map, 0, 0);
+        drawGrid();
+        //newyork
+        background.fillRect(100, 120, 4, 4);
+        background.beginPath();
+        background.arc(102, 122, 8, 0, 2 * Math.PI);
+        background.stroke();
+        //newfoundland
+        background.fillRect(180, 90, 4, 4);
+        background.beginPath();
+        background.arc(182, 92, 8, 0, 2 * Math.PI);
+        background.stroke();
+        //Airija
+        background.fillRect(330, 75, 4, 4);
+        background.beginPath();
+        background.arc(332, 77, 8, 0, 2 * Math.PI);
+        background.stroke();
+        //Kaunas
+        background.fillRect(425, 67, 4, 4);
+        background.beginPath();
+        background.arc(427, 69, 8, 0, 2 * Math.PI);
+        background.stroke();
+        //Lenkija, ex Vokietija, 
+        background.fillRect(400, 80, 4, 4);
+        background.beginPath();
+        background.arc(402, 82, 8, 0, 2 * Math.PI);
+        background.strokeStyle = '#ff0000';
+        background.stroke();
+
+
     };
     plane.onload = function() {
-        lituanica.drawImage(plane, plain_x, plain_y);
+       // lituanica.drawImage(plane, plain_x, plain_y);
     };
 
+    function drawGrid() {
 
-    // function drawRotated(degrees){
-    //     lituanica.clearRect(0,0,canvas.width,canvas.height);
-    //     lituanica.save();
-    //     lituanica.translate(-canvas.width/2,-canvas.height/2);
-    //     lituanica.drawImage(plain,-plain.width/2,-plain.width/2);
-    //     lituanica.restore();
-    // }
+        for (i = 0; i < 490; i += 50) {
+            background.beginPath();
+            background.moveTo(i, 0);
+            background.lineTo(i, 330);
+            background.stroke();
+        }
+        for (i = 0; i < 330; i += 50) {
+            background.beginPath();
+            background.moveTo(0, i);
+            background.lineTo(490, i);
+            background.stroke();
+        }
+
+    }
     </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
@@ -187,19 +245,16 @@
     </script>
     <script type="text/javascript">
     function runCode() {
-        // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        lituanica.clearRect(0, 0, canvas.width, canvas.height);
-        route.clearRect(0, 0, canvas.width, canvas.height);
-         plain_x = 30;
-         plain_y = 70;
-         route_x = 80;
-         route_y = 120;
-         lituanica.restore();
+        //lituanica.clearRect(0, 0, canvas.width, canvas.height);
+        plain_x = 50;
+        plain_y = 100;
+        var move = 0;
+         x_deg = 0;
 
         try {
 
@@ -213,6 +268,48 @@
             alert(e);
         }
     }
+
+    function update_plane(x, x_deg) {
+              console.log("funkcijoje"+x_deg);
+        if (x > 0) {
+            requestAnimationFrame(function() { update_plane(x, x_deg); });
+        }
+        //lituanica.clearRect(0, 0, canvas.width, canvas.height);
+        //lituanica.drawImage(plane, plain_x, plain_y);
+        document.getElementById("lituanica_plane").style.transform = "rotate("+x_deg+"deg) translate(" + plain_x + "px, " + plain_y + "px)";
+        plain_x += 1;
+        x -= 1;
+
+    }
+
+
+ //    function update_plane_left(x) {
+ //        if (x > 0) {
+ //            requestAnimationFrame(function() { update_plane_left(x); });
+ //        }
+ //       // lituanica.clearRect(0, 0, canvas.width, canvas.height); 
+ //           //lituanica.drawImage(plane_left, plain_x, plain_y);
+ // document.getElementById("lituanica_plane").style.transformOrigin = "100px 50px 0";
+   
+ //        document.getElementById("lituanica_plane").style.transform = "rotate(-90deg)";//" translate(" + plain_x + "px, " + plain_y + "px)";
+       
+ //      // document.getElementById("lituanica_plane").style.transform = "";
+ //        plain_x += 1;
+ //        x -= 1;
+
+ //    }
+
+ //    function update_plane_right(x) {
+ //        if (x > 0) {
+ //            requestAnimationFrame(function() { update_plane_right(x); });
+ //        }
+ //        // lituanica.clearRect(0, 0, canvas.width, canvas.height);
+ //        // lituanica.drawImage(plane_right, plain_x, plain_y);
+ //          document.getElementById("lituanica_plane").style.transformOrigin = "0px 100px 0";
+ //        document.getElementById("lituanica_plane").style.transform = "rotate(90deg)"// translate(" + plain_x + "px, " + plain_y + "px)";
+ //        plain_x -= 1;
+ //        x -= 1;
+ //    }
     </script>
 </body>
 

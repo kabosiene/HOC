@@ -1,26 +1,4 @@
 
-
-Blockly.Blocks['spalva'] = {
-    init: function() {
-        this.appendDummyInput()
-            .appendField("Kelio spalva")
-            .appendField(new Blockly.FieldColour("#ff0000"), "spalva");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
-
-Blockly.JavaScript['spalva'] = function(block) {
-    var colour_spalva = block.getFieldValue('spalva');
-    // TODO: Assemble JavaScript into code variable.
-    var code = ' route.strokeStyle ="' + colour_spalva + '";\n';
-    return code;
-};
-
-
 Blockly.Blocks['grid_turnright'] = {
     init: function() {
         this.setColour(320);
@@ -33,7 +11,29 @@ Blockly.Blocks['grid_turnright'] = {
 };
 
 Blockly.JavaScript['grid_turnright'] = function(block) {
-    var code = " angleInDegrees+=90;\n lituanica.clearRect(0,0,canvas.width,canvas.height);\n lituanica.save(); lituanica.translate(route_x ,route_y);\n lituanica.rotate(angleInDegrees*Math.PI/180);\n lituanica.drawImage(plane,-plane.width/2,-plane.width/2);\n";
+    var code = 'plane_state = "plane_right";\n';
+       x_deg = 90;
+        code += 'document.getElementById("lituanica_plane").style.transformOrigin = "0px 100px 0";\n'
+       // document.getElementById("lituanica_plane").style.transform = "rotate(90deg)"'
+    //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane_right, plain_x, plain_y);\n ";
+    return code;
+};
+Blockly.Blocks['grid_forward'] = {
+    init: function() {
+        this.setColour(320);
+        this.appendDummyInput()
+            .appendField('Pasisuk tiesiai');
+        this.setTooltip('Skrisk tiesia trajektorija. ');
+        this.setNextStatement(true);
+        this.setPreviousStatement(true);
+    }
+};
+
+Blockly.JavaScript['grid_forward'] = function(block) {
+    var code = ' plane_state = "plane";\n';
+    x_deg = 0;
+       //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane, plain_x, plain_y);\n ";  
+       //code += 'update_plane(move, x_deg);';
     return code;
 };
 
@@ -49,7 +49,11 @@ Blockly.Blocks['grid_turnleft'] = {
 };
 
 Blockly.JavaScript['grid_turnleft'] = function(block) {
-    var code = " angleInDegrees-=90;\n lituanica.clearRect(0,0,canvas.width,canvas.height);\n lituanica.save(); lituanica.translate(route_x ,route_y);\n lituanica.rotate(angleInDegrees*Math.PI/180);\n lituanica.drawImage(plane,-plane.width/2,-plane.width/2);\n";
+    var code = 'plane_state = "plane_left";\n';
+    x_deg = -90;
+     code += ' document.getElementById("lituanica_plane").style.transformOrigin = "100px 50px 0";\n'
+     // document.getElementById("lituanica_plane").style.transform = "rotate(-90deg)";'
+    //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane_left, plain_x, plain_y);\n ";
     return code;
 };
 
@@ -57,7 +61,7 @@ Blockly.Blocks['grid_goforward'] = {
     init: function() {
         this.setColour(320);
         this.appendDummyInput()
-            .appendField('Skristi ')
+            .appendField('Skristi per')
             .appendField(new Blockly.FieldNumber(0), "STEPS")
             .appendField(' langelius');
         this.setTooltip('Eiti tiesia linija, be pasisukimų');
@@ -68,14 +72,10 @@ Blockly.Blocks['grid_goforward'] = {
 
 Blockly.JavaScript['grid_goforward'] = function(block) {
     var number_zingsniai = block.getFieldValue('STEPS');
-    var move = number_zingsniai*20; 
-    var code=' if ('+move+' > 0) {animatePlane('+move+');}\n function animatePlane(x) { lituanica.clearRect(0,0,canvas.width,canvas.height);\n lituanica.drawImage(plane, plain_x, plain_y);\n plain_x += 1;\n  x -= 1;\n  frameID = requestAnimationFrame(function() {animatePlane(x);});\n if (x==0) {cancelAnimationFrame(frameID); } }\n';
-        code += 'route.beginPath();\n route.moveTo(route_x,route_y);\n route.lineTo(route_x+'+move+', route_y);\n route.stroke();\n route_x +='+move+'; ';
-        return code;
+    var code = 'move = '+number_zingsniai * 50+';\n';
+        console.log(x_deg);
+     code += 'update_plane(move, '+x_deg+');';
+ return code;
 
 
 };
-
-    
-     
-  

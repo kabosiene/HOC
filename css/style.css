@@ -65,7 +65,7 @@ li {
 position: relative;
 }
  canvas { position: absolute;}
- #canvas{z-index: 1;}
+ #canvas{z-index: 0;}
  #canvas2{z-index: 2;}
  #canvas3{z-index: 3;}
 
@@ -101,6 +101,15 @@ transform: translate(0px,150px);
 
 @keyframes swim {
   100% { background-position: 200% 0}
+}
+
+#lituanica_plane{
+  /*visibility: hidden;*/
+  background-image:url(../test_img/litu.png);
+  height:50px;
+  width:50px;
+  transform: translate(50px,100px);
+  z-index: 6;
 }
 
 
