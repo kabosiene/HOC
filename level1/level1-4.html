@@ -24,7 +24,7 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                   <a href="level1-3.html">3</a>
+                    <a href="level1-3.html">3</a>
                 </li>
                 <li>
                     <a href="level1-4.html">4</a>
@@ -53,29 +53,32 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Baltijos kelias</h4></div>
-            <div class=" col-md-7" id="task"> Padėk suorganizuoti Baltijos kelią. Nurodyk žmonėms, kur važiuoti, kad jie susikibę galėtų užpildyti likusius tarpus.
+                <h4>Meilutytė</h4></div>
+            <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
-            <div class="col ">
+            <div class="col  ">
                 <div id="preview">
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
+                    <canvas id="canvas2" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <div id="test1"></div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
                 </div>
                 <div class="hint-panel">
-                    <ul> Jei sunku:
+                    <ul> Pagalba:
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="Pagalba" data-content="1 žmogus gali užpildyti 1m tarpą.">Pagalba </a>
-                            <!-- Perkelti vyresniems -->
+                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">HINT1</a>
                         </li>
-                        <!--  <li>
+                        <li>
                             <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
-                        </li> -->
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -83,11 +86,19 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Logic">
-                        <block type="keist">
-
-                        </block>
-                    </category>
+                    <!-- <category name=b lokeliai> -->
+                    <block type="krastas"></block>
+                    <block type="apsisuk"></block>
+                    <!-- <block type="keisti"></block> -->
+                    <block type="controls_if"></block>
+                    <block type="keisti_greiti"></block>
+                    <!-- <block type="set"></block> -->
+                    <block type="math_number"></block>
+                    <block type="on_click"></block>
+                    <!-- <block type="controls_whileUntil"></block> -->
+                    <block type="plaukti"></block>
+                    <!-- <block type="function_call"></block> -->
+                    <!-- </category> -->
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -110,6 +121,21 @@
                 </div>
             </div>
         </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
+                            <a href="level1-5.html" type="button" class="btn btn-default">Sekanti užduotis</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -120,104 +146,8 @@
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
-    <script src="../js/customBlocks.js"></script>
-     <script src="../js/main.js"></script>
-    <script src="../js/kelias.js"></script>
-    <script type="text/javascript">
-    var my_canvas = document.getElementById("canvas");
-    var ctx = my_canvas.getContext("2d");
-    var people_lt = new Image();
-    var people_lv = new Image();
-    var people_est = new Image();
-    var girl = new Image();
-    var step = 0;
-
-
-    people_lt.src = "../test_img/ppl.png";
-    people_lv.src = "../test_img/ppl.png";
-    people_est.src = "../test_img/ppl.png";
-    girl.src = "../test_img/girl.png";
-
-    people_lt.onload = function() {
-        draw(people_lt, 10, 10);
-        draw(people_lt, 100, 10);
-        draw(people_lt, 230, 10);
-    };
-    people_lv.onload = function() {
-        draw(people_lv, 10, 100);
-        draw(people_lv, 100, 100);
-        draw(people_lv, 230, 100);
-    };
-    people_est.onload = function() {
-        draw(people_est, 10, 200);
-        draw(people_est, 100, 200);
-        draw(people_est, 230, 200);
-    };
-    girl.onload = function() {
-        //draw(girl, 200, 10);
-    };
-
-    function draw(pic_name, x, y) {
-        ctx.drawImage(pic_name, x, y);
-    }
-
-    function draw_elements() {
-        draw(people_lt, 10, 10);
-        draw(people_lt, 100, 10);
-        draw(people_lt, 230, 10);
-        draw(people_lv, 10, 100);
-        draw(people_lv, 100, 100);
-        draw(people_lv, 230, 100);
-        draw(people_est, 10, 200);
-        draw(people_est, 100, 200);
-        draw(people_est, 230, 200);
-    }
-
-    function animatePerson() {
-
-        // request that this animate() function be called again
-        // this creates an animation loop
-
-        animStopID = requestAnimationFrame(animatePerson);
-        // clear the canvas
-
-        // calculate the new position of the image
-        // this example just rotates it around a centerpoint   
-        step += 1;
-        // clear the canvas 
-        // and draw the image at its new position
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        draw_elements();
-        ctx.drawImage(girl, step, 10);
-
-        if (step >= 200) { cancelAnimationFrame(animStopID); }
-    }
-
-    function animateLostPerson() {
-        // request that this animate() function be called again
-        // this creates an animation loop
-        var cx = 200;
-        var cy = 145;
-        var radius = 50;
-
-        animLostID = requestAnimationFrame(animateLostPerson);
-        // clear the canvas
-
-        // calculate the new position of the image
-        // this example just rotates it around a centerpoint   
-        step += 1;
-        var radianAngle = step * Math.PI / 180;
-                var x = cx + radius * Math.cos(radianAngle);
-                var y = cy + radius * Math.sin(radianAngle);
-        // clear the canvas 
-        // and draw the image at its new position
-        //ctx.clearRect(0, 0, canvas.width, canvas.height);
-        //draw_elements();
-        ctx.drawImage(girl, x,y);
-
-        if (step >= 201) { cancelAnimationFrame(animLostID); }
-    }
-    </script>
+    <script src="../js/main.js"></script>
+    <script src="../js/baseinas.js"></script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -237,28 +167,172 @@
     workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
+    var my_canvas = document.getElementById("canvas");
+    var ctx = my_canvas.getContext("2d");
+    var my_canvas2 = document.getElementById("canvas2");
+    var swimmer = my_canvas2.getContext("2d");
+    var swim = new Image();
+    swim.src = "../test_img/swim.png";
+    var swim2 = new Image();
+    swim2.src = "../test_img/swim2.png";
+    var swim3 = new Image();
+    swim3.src = "../test_img/swim_anim.png";
+
+    swim.onload = function() {
+        swimmer.drawImage(swim, 0, 150, 40, 40);
+    };
+    var start_x = 0;
+    var start_y = 150;
+    var x = 490;
+    var startTime;
+    var score;
+    var speed = 0.15;
+    var turn = false;
+    var edge = false;
+    var edge1;
+    var edge2;
+    var mouse_click = false;
+    var swim_do = false;
+    var swim_do_f = false;
+    var add_speed = 0
+    var add_costume = false;
+    var costume = false;
+    var animation_speed = 0;
+
+
     function runCode() {
         // Generate JavaScript code and run it.
+        start_x = 0;
+        start_y = 150;
+        speed = 0.15;
+        turn = false;
+        edge = false;
+        edge1 = 1;
+        edge2 = 450;
+        mouse_click = false;
+        swim_do = false;
+        swim_do_f = false;
+        add_speed = 0;
+        add_costume = false;
+        costume = false;
+        // document.getElementById("test1").style.animationDuration = "0s";
+        canvas2.removeEventListener("click", onClick, false);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        swimmer.clearRect(0, 0, canvas.width, canvas.height);
+
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-         step = 0;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        animatePerson();
-       // animateLostPerson();
+        startTime = new Date();
+
         try {
             if (code.length > 0) {
                 eval(code);
-            }
-            else{
+
+                if (mouse_click) {
+                    canvas2.addEventListener("click", onClick, false);
+                }
+
+                if (swim_do) {
+                    document.getElementById("test1").style.visibility = "visible";
+                    animateSwimmer();
+                } else {
+                    document.getElementById("test1").style.visibility = "hidden";
+                    alert("Ar plaukikui plaukti?");
+                }
+
+            } else {
                 alert('Pridėk kodo blokelį.');
             }
 
         } catch (e) {
             alert(e);
         }
+    }
+
+
+    function animateSwimmer() {
+
+        //swimlID = requestAnimationFrame(animate_swimmer);
+
+        if (start_x < edge2) {
+            anim_id = requestAnimationFrame(function() { animateSwimmer(); });
+        } else {
+            // edge = true;
+            cancelAnimationFrame(anim_id);
+            if (turn) {
+                animateSwimmerBack();
+            } else {
+                alert("Apsisuk");
+            }
+
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        swimmer.clearRect(0, 0, canvas.width, canvas.height)
+        // switchCostumes(start_x);
+        document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px)";
+        drawElapsedTime();
+        ctx.font = "14px Verdana";
+        ctx.fillText(speed, 10, 10);
+        start_x += speed;
+    }
+
+
+
+    function animateSwimmerBack() {
+
+        if (start_x > edge1) {
+            requestAnimationFrame(function() { animateSwimmerBack(); });
+        } else {
+
+            document.getElementById("test1").style.visibility = "hidden";
+            score = parseInt((new Date() - startTime) / 1000);
+            console.log(score);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            swimmer.clearRect(0, 0, canvas.width, canvas.height);
+            if (score < 5) {
+                ctx.font = "20px Verdana";
+                ctx.fillText("LAIMĖJAI AUKSĄ!", 200, 150);
+                setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+                return;
+            } else {
+                ctx.font = "20px Verdana";
+                ctx.fillText("Bandyk dar kartą", 200, 150);
+                return;
+            }
+
+        }
+
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        swimmer.clearRect(0, 0, canvas.width, canvas.height);
+        document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px) scaleX(-1)";
+        ctx.fillText(speed, 10, 10);
+        start_x -= speed;
+        drawElapsedTime();
+        ctx.font = "14px Verdana";
+
+
+    }
+
+    function drawElapsedTime() {
+        var elapsed = parseInt((new Date() - startTime) / 1000);
+        ctx.save();
+        ctx.beginPath();
+        ctx.fillStyle = "red";
+        ctx.font = "14px Verdana";
+        // draw the running time at half opacity
+        ctx.globalAlpha = 0.50;
+        ctx.fillText(elapsed + " min", canvas.width - 75, 25);
+        ctx.restore();
+    }
+
+
+    function onClick(e) {
+        speed += add_speed;
+        document.getElementById("test1").style.animationDuration = ""+(0.1/add_speed)+"s";
     }
     </script>
 </body>
