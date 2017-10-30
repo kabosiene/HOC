@@ -68,10 +68,12 @@ var list_x = [];
     
 
 function spausdinti(list) {
-
+    ctx.fillStyle = "black";
+    ctx.font = "12px Verdana";
 
     for (var i = 0; i < list.length; i++) {
-       ctx.strokeText("Dokumentai:"+list[i], 20, (i+10)*20);
+      
+       ctx.strokeText("Dokumentai:"+list[i], 20, (i + 1) * 30);
     }
     
     
