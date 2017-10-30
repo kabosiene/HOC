@@ -92,7 +92,7 @@
                     <!-- <category name="Raidės"> -->
                     <!-- <block type="spalva">
                     </block> -->
-                    <block type="grid_turnleft">
+<!--                     <block type="grid_turnleft">
                     </block>
                     <block type="grid_turnright">
                     </block>
@@ -100,7 +100,7 @@
                     </block>
                     <block type="grid_forward">
                     </block>
-                    <block type="wait_seconds">
+                    <block type="wait_seconds"> -->
                     </block>
                       <block type="fly_to">
                     </block>  
@@ -256,22 +256,10 @@
     <script type="text/javascript">
     function runCode() {
 
-        // window.LoopTrap = 1000;
-        // Blockly.JavaScript.INFINITE_LOOP_TRAP =
-        //     'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-        // var code = Blockly.JavaScript.workspaceToCode(workspace);
-        // Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-
         Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
         Blockly.JavaScript.addReservedWords('highlightBlock');
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         var myInterpreter = new Interpreter(code, initApi);
-        //  myInterpreter.appendCode('var lituanica_canvas = document.getElementById("canvas3");var lituanica = lituanica_canvas.getContext("2d");');
-        // myInterpreter.appendCode('var my_canvas = document.getElementById("canvas"); var background = my_canvas.getContext("2d");');
-        //  myInterpreter.appendCode('var plane = new Image();plane.src = "../test_img/litu.png";');
-
-
-
 
         background.clearRect(0, 0, canvas.width, canvas.height);
         background.strokeStyle = "black";
@@ -386,53 +374,6 @@
 
     }
 
-    // function updatePlane(x) {
-    //     if (x > 0) {
-    //         requestAnimationFrame(function() { updatePlane(x); });
-    //     } 
-    //     //lituanica.clearRect(0, 0, canvas.width, canvas.height);
-    //     //lituanica.drawImage(plane, plain_x, plain_y);
-    //     // document.getElementById("lituanica_plane").style.transform = "rotate("+x_deg+"deg) translate(" + plain_x + "px, " + plain_y + "px)";
-    //     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
-    //     //background.fillRect(plain_x, plain_y, 50, 50);
-    //     plain_x += 1;
-    //     x -= 1;
-
-
-
-    // function update_plane_left(x) {
-    //     console.log("update_plane_left" + finished);
-    //     if (x > 0) {
-    //         requestAnimationFrame(function() { update_plane_left(x); });
-    //         finished = false;
-    //     } else { finished = true;
-    //         console.log(finished); return finished; }
-    //     // lituanica.clearRect(0, 0, canvas.width, canvas.height); 
-    //     //lituanica.drawImage(plane_left, plain_x, plain_y);
-    //     // document.getElementById("lituanica_plane").style.transformOrigin = "100px 50px 0";
-
-    //     //        document.getElementById("lituanica_plane").style.transform = "rotate(-90deg)";//" translate(" + plain_x + "px, " + plain_y + "px)";
-    //     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
-
-    //     // document.getElementById("lituanica_plane").style.transform = "";
-    //     plain_y -= 1;
-    //     x -= 1;
-
-    // }
-
-    // function update_plane_right(x) {
-    //     if (x > 0) {
-    //         requestAnimationFrame(function() { update_plane_right(x); });
-    //         finished = false;
-    //     } else { finished = true; return finished; }
-    //     // lituanica.clearRect(0, 0, canvas.width, canvas.height);
-    //     // lituanica.drawImage(plane_right, plain_x, plain_y);
-    //     //   document.getElementById("lituanica_plane").style.transformOrigin = "0px 100px 0";
-    //     // document.getElementById("lituanica_plane").style.transform = "rotate(90deg)"// translate(" + plain_x + "px, " + plain_y + "px)";
-    //     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
-    //     plain_y += 1;
-    //     x -= 1;
-    // }
     </script>
 </body>
 
