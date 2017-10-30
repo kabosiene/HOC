@@ -100,8 +100,8 @@
                     </block>
                     <block type="grid_forward">
                     </block>
-                    <block type="wait_seconds">
-                    </block>
+<!--                     <block type="wait_seconds">
+                    </block> -->
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -332,14 +332,6 @@
             function updatePlane(x,y, callback) {
                 changePoints(x, y);
                 callback();
-                // if (x > 0) {
-                //     var globalID = requestAnimationFrame(function() { updatePlane(x); });
-                // }else{
-                //     cancelAnimationFrame(globalID);
-                //     callback();}
-                // document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
-                // plain_x += 1;
-                // x -= 1;
             }
             );
         interpreter.setProperty(scope, 'updatePlane', wrapper);
