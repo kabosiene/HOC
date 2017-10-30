@@ -244,15 +244,15 @@
     var ctx = my_canvas.getContext("2d");
     var tekstas_correct = [1,5,3,4,2,,7,6,9];
     var tekstas_old = [];
-    tekstas_old[0] = "Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
-    tekstas_old[1] = "Drauge Lietuvos Taryba pareiškia,";
-    tekstas_old[2] = "skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-    tekstas_old[3] = "ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
-    tekstas_old[4] = "remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,";
-    tekstas_old[5] = "Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
-    tekstas_old[6] = "demokratiniu būdu visų jos gyventojų išrinktas.";
-    tekstas_old[7] = "kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-    tekstas_old[8] = "prašo pripažinti nepriklausomą Lietuvos valstybę.";
+    tekstas_old[0] = "A. Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+    tekstas_old[1] = "B. Drauge Lietuvos Taryba pareiškia,";
+    tekstas_old[2] = "C. skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
+    tekstas_old[3] = "D. ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+    tekstas_old[4] = "E. remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,";
+    tekstas_old[5] = "F. Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
+    tekstas_old[6] = "G. demokratiniu būdu visų jos gyventojų išrinktas.";
+    tekstas_old[7] = "H. kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
+    tekstas_old[8] = "I. prašo pripažinti nepriklausomą Lietuvos valstybę.";
     var tekstas_sample = ["Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,","remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,","skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje","ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.","Drauge Lietuvos Taryba pareiškia,","kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,","demokratiniu būdu visų jos gyventojų išrinktas.","Lietuvos Taryba pranešdama apie tai ....... vyriausybei,","prašo pripažinti nepriklausomą Lietuvos valstybę."]
 
     ctx.save();
@@ -261,7 +261,7 @@
     ctx.font = "12px Verdana";
     ctx.globalAlpha = 0.50;
     for (var i = tekstas_old.length - 1; i >= 0; i--) {
-        ctx.fillText((i + 1) + '. ' + tekstas_old[i], 0, (i + 1) * 30);
+        ctx.fillText(tekstas_old[i], 0, (i + 1) * 30);
     }
     ctx.restore();
 

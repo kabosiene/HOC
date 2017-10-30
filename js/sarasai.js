@@ -1,7 +1,7 @@
 Blockly.Blocks['tekstas1'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("1. Eilutė");
+        .appendField("A. Eilutė");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");
@@ -18,7 +18,7 @@ Blockly.JavaScript['tekstas1'] = function(block) {
 Blockly.Blocks['tekstas2'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("2. Eilutė");
+        .appendField("B. Eilutė");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");
@@ -35,7 +35,7 @@ Blockly.JavaScript['tekstas2'] = function(block) {
 Blockly.Blocks['tekstas3'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("3. Eilutė");
+        .appendField("C. Eilutė");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");
@@ -52,7 +52,7 @@ Blockly.JavaScript['tekstas3'] = function(block) {
 Blockly.Blocks['tekstas4'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("4. Eilutė");
+        .appendField("D. Eilutė");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");
@@ -69,7 +69,7 @@ Blockly.JavaScript['tekstas4'] = function(block) {
 Blockly.Blocks['tekstas5'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("5. Eilutė");
+        .appendField("E. Eilutė");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");
@@ -86,7 +86,7 @@ Blockly.JavaScript['tekstas5'] = function(block) {
 Blockly.Blocks['tekstas6'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("6. Eilutė");
+        .appendField("F. Eilutė");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");
@@ -103,7 +103,7 @@ Blockly.JavaScript['tekstas6'] = function(block) {
 Blockly.Blocks['tekstas7'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("7. Eilutė");
+        .appendField("G. Eilutė");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");
@@ -120,7 +120,7 @@ Blockly.JavaScript['tekstas7'] = function(block) {
 Blockly.Blocks['tekstas8'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("8. Eilutė");
+        .appendField("H. Eilutė");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");
@@ -137,7 +137,7 @@ Blockly.JavaScript['tekstas8'] = function(block) {
 Blockly.Blocks['tekstas9'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("9. Eilutė");
+        .appendField("I. Eilutė");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");
