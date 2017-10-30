@@ -1,3 +1,6 @@
+var move = 0;
+
+
 Blockly.Blocks['grid_turnright'] = {
     init: function() {
         this.setColour(320);
@@ -15,7 +18,8 @@ Blockly.JavaScript['grid_turnright'] = function(block) {
     //code += 'document.getElementById("lituanica_plane").style.transformOrigin = "0px 100px 0";\n'
     // document.getElementById("lituanica_plane").style.transform = "rotate(90deg)"'
     //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane_right, plain_x, plain_y);\n ";
-    code += 'updatePlaneRight(move);';
+    code += 'updatePlane(0,move);';
+        code += 'waitForSeconds(5);\n';
     return code;
 };
 Blockly.Blocks['grid_forward'] = {
@@ -34,7 +38,8 @@ Blockly.JavaScript['grid_forward'] = function(block) {
     x_deg = 0;
     //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane, plain_x, plain_y);\n ";  
     //code += 'update_plane(move, x_deg);';     
-    code += 'updatePlane(move);';
+    code += 'updatePlane(move,0);';
+        code += 'waitForSeconds(5);\n';
     return code;
 };
 
@@ -55,7 +60,8 @@ Blockly.JavaScript['grid_turnleft'] = function(block) {
     //code += ' document.getElementById("lituanica_plane").style.transformOrigin = "100px 50px 0";\n'
     // document.getElementById("lituanica_plane").style.transform = "rotate(-90deg)";'
     //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane_left, plain_x, plain_y);\n ";
-    code += 'updatePlaneLeft(move);';
+    code += 'updatePlane(0,-move);';
+        code += 'waitForSeconds(5);\n';
     return code;
 };
 

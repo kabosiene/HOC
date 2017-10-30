@@ -60,15 +60,15 @@
         <div class="row" style="padding: 10px">
             <div class="col  ">
                 <div id="preview">
-                    <canvas id="canvas" width="490" height="330">
+                    <canvas id="canvas" width="490" height="330" style="z-index: 0">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-<!--                     <canvas id="canvas2" width="490" height="330">
-                        This text is displayed if your browser does not support HTML5 Canvas.
-                    </canvas>
-                    <canvas id="canvas3" width="490" height="330">
+                    <!--  <canvas id="canvas2" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas> -->
+                    <canvas id="canvas3" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
                     <div id="lituanica_plane"></div>
                 </div>
                 <div class="button-panel">
@@ -99,6 +99,8 @@
                     <block type="grid_goforward">
                     </block>
                     <block type="grid_forward">
+                    </block>
+                    <block type="wait_seconds">
                     </block>
                 </xml>
             </div>
@@ -144,6 +146,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/acorn_interpreter.js"></script>
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
@@ -153,8 +156,8 @@
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var background = my_canvas.getContext("2d");
-    // var lituanica_canvas = document.getElementById("canvas3");
-    // var lituanica = lituanica_canvas.getContext("2d");
+    var lituanica_canvas = document.getElementById("canvas3");
+    var lituanica = lituanica_canvas.getContext("2d");
     var map = new Image();
     map.src = "../test_img/atlantas.png";
     var plane = new Image();
@@ -169,12 +172,22 @@
     var plain_y = 100;
 
     var plane_state = "plane";
-     var x_deg = 0;
+    var x_deg = 0;
+    var finished = false;
 
+    plane.onload = function() {
+        // lituanica.drawImage(plane, plain_x, plain_y);
+    };
     map.onload = function() {
         //draw(map, 0, 0, 500,300);
+
         background.drawImage(map, 0, 0);
         drawGrid();
+
+    }
+
+    function drawGrid() {
+
         //newyork
         background.fillRect(100, 120, 4, 4);
         background.beginPath();
@@ -202,14 +215,7 @@
         background.strokeStyle = '#ff0000';
         background.stroke();
 
-
-    };
-    plane.onload = function() {
-       // lituanica.drawImage(plane, plain_x, plain_y);
-    };
-
-    function drawGrid() {
-
+        background.strokeStyle = 'black';
         for (i = 0; i < 490; i += 50) {
             background.beginPath();
             background.moveTo(i, 0);
@@ -245,21 +251,44 @@
     </script>
     <script type="text/javascript">
     function runCode() {
-        window.LoopTrap = 1000;
-        Blockly.JavaScript.INFINITE_LOOP_TRAP =
-            'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+
+        // window.LoopTrap = 1000;
+        // Blockly.JavaScript.INFINITE_LOOP_TRAP =
+        //     'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+        // var code = Blockly.JavaScript.workspaceToCode(workspace);
+        // Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+
+        Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
+        Blockly.JavaScript.addReservedWords('highlightBlock');
         var code = Blockly.JavaScript.workspaceToCode(workspace);
-        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        //lituanica.clearRect(0, 0, canvas.width, canvas.height);
+        var myInterpreter = new Interpreter(code, initApi);
+        //  myInterpreter.appendCode('var lituanica_canvas = document.getElementById("canvas3");var lituanica = lituanica_canvas.getContext("2d");');
+        // myInterpreter.appendCode('var my_canvas = document.getElementById("canvas"); var background = my_canvas.getContext("2d");');
+        //  myInterpreter.appendCode('var plane = new Image();plane.src = "../test_img/litu.png";');
+
+
+
+
+        background.clearRect(0, 0, canvas.width, canvas.height);
+        background.strokeStyle = "black";
+        background.drawImage(map, 0, 0);
+        drawGrid();
         plain_x = 50;
         plain_y = 100;
         var move = 0;
-         x_deg = 0;
-
+        x_deg = 0;
+        finished = false;
         try {
 
             if (code.length > 0) {
-                eval(code);
+                //eval(code);
+                function nextStep() {
+                    if (myInterpreter.step()) {
+                        window.setTimeout(nextStep, 0);
+                    }
+                }
+                nextStep();
+               // myInterpreter.run();
             } else {
                 alert('Pridėk kodo blokelį.');
             }
@@ -269,47 +298,139 @@
         }
     }
 
-    function update_plane(x, x_deg) {
-              console.log("funkcijoje"+x_deg);
-        if (x > 0) {
-            requestAnimationFrame(function() { update_plane(x, x_deg); });
-        }
-        //lituanica.clearRect(0, 0, canvas.width, canvas.height);
-        //lituanica.drawImage(plane, plain_x, plain_y);
-        document.getElementById("lituanica_plane").style.transform = "rotate("+x_deg+"deg) translate(" + plain_x + "px, " + plain_y + "px)";
-        plain_x += 1;
-        x -= 1;
+
+    function initApi(interpreter, scope) {
+
+        // Add an API function for the alert() block.
+        var wrapper = function(text) {
+            text = text ? text.toString() : '';
+            return interpreter.createPrimitive(alert(text));
+        };
+        interpreter.setProperty(scope, 'alert',
+            interpreter.createNativeFunction(wrapper));
+
+        // Add an API function for the prompt() block.
+        wrapper = function(text) {
+            text = text ? text.toString() : '';
+            return interpreter.createPrimitive(prompt(text));
+        };
+        interpreter.setProperty(scope, 'prompt',
+            interpreter.createNativeFunction(wrapper));
+        // Add an API function for highlighting blocks.
+        var wrapper = function(id) {
+            id = id ? id.toString() : '';
+            return interpreter.createPrimitive(Blockly.mainWorkspace.highlightBlock(id));
+        };
+        interpreter.setProperty(scope, 'highlightBlock',
+            interpreter.createNativeFunction(wrapper));
+
+        /***********************************************************************/
+        
+        Blockly.JavaScript.addReservedWords('updatePlane');
+
+        var wrapper = interpreter.createAsyncFunction(
+            function updatePlane(x,y, callback) {
+                changePoints(x, y);
+                callback();
+                // if (x > 0) {
+                //     var globalID = requestAnimationFrame(function() { updatePlane(x); });
+                // }else{
+                //     cancelAnimationFrame(globalID);
+                //     callback();}
+                // document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
+                // plain_x += 1;
+                // x -= 1;
+            }
+            );
+        interpreter.setProperty(scope, 'updatePlane', wrapper);
+        /***********************************************************************/
+
+        Blockly.JavaScript.addReservedWords('updatePlaneLeft');
+
+        var wrapper = interpreter.createAsyncFunction(
+            function updatePlaneLeft(x) {
+                if (x > 0) {
+                   globalID2 = requestAnimationFrame(function() { updatePlaneLeft(x); });
+                }
+                document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
+                plain_y -= 1;
+                x -= 1;
+            });
+        interpreter.setProperty(scope, 'updatePlaneLeft', wrapper);
+        /***********************************************************************/
+
+        Blockly.JavaScript.addReservedWords('updatePlaneRight');
+
+        var wrapper = interpreter.createAsyncFunction(
+            function updatePlaneRight(x) {
+                if (x > 0) {
+                   globalID3 = requestAnimationFrame(function() { updatePlaneRight(x); });
+                }else{cancelAnimationFrame(globalID3);}
+                document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
+                plain_y += 1;
+                x -= 1;
+            });
+        interpreter.setProperty(scope, 'updatePlaneRight', wrapper);
+
+        /*************************************************************************/
+          Blockly.JavaScript.addReservedWords('waitForSeconds');
+
+  var wrapper = interpreter.createAsyncFunction(
+    function(timeInSeconds, callback) {
+      // Delay the call to the callback.
+      setTimeout(callback, timeInSeconds * 1000);
+    });
+  interpreter.setProperty(scope, 'waitForSeconds', wrapper);
 
     }
 
+    // function updatePlane(x) {
+    //     if (x > 0) {
+    //         requestAnimationFrame(function() { updatePlane(x); });
+    //     } 
+    //     //lituanica.clearRect(0, 0, canvas.width, canvas.height);
+    //     //lituanica.drawImage(plane, plain_x, plain_y);
+    //     // document.getElementById("lituanica_plane").style.transform = "rotate("+x_deg+"deg) translate(" + plain_x + "px, " + plain_y + "px)";
+    //     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
+    //     //background.fillRect(plain_x, plain_y, 50, 50);
+    //     plain_x += 1;
+    //     x -= 1;
 
- //    function update_plane_left(x) {
- //        if (x > 0) {
- //            requestAnimationFrame(function() { update_plane_left(x); });
- //        }
- //       // lituanica.clearRect(0, 0, canvas.width, canvas.height); 
- //           //lituanica.drawImage(plane_left, plain_x, plain_y);
- // document.getElementById("lituanica_plane").style.transformOrigin = "100px 50px 0";
-   
- //        document.getElementById("lituanica_plane").style.transform = "rotate(-90deg)";//" translate(" + plain_x + "px, " + plain_y + "px)";
-       
- //      // document.getElementById("lituanica_plane").style.transform = "";
- //        plain_x += 1;
- //        x -= 1;
 
- //    }
 
- //    function update_plane_right(x) {
- //        if (x > 0) {
- //            requestAnimationFrame(function() { update_plane_right(x); });
- //        }
- //        // lituanica.clearRect(0, 0, canvas.width, canvas.height);
- //        // lituanica.drawImage(plane_right, plain_x, plain_y);
- //          document.getElementById("lituanica_plane").style.transformOrigin = "0px 100px 0";
- //        document.getElementById("lituanica_plane").style.transform = "rotate(90deg)"// translate(" + plain_x + "px, " + plain_y + "px)";
- //        plain_x -= 1;
- //        x -= 1;
- //    }
+    // function update_plane_left(x) {
+    //     console.log("update_plane_left" + finished);
+    //     if (x > 0) {
+    //         requestAnimationFrame(function() { update_plane_left(x); });
+    //         finished = false;
+    //     } else { finished = true;
+    //         console.log(finished); return finished; }
+    //     // lituanica.clearRect(0, 0, canvas.width, canvas.height); 
+    //     //lituanica.drawImage(plane_left, plain_x, plain_y);
+    //     // document.getElementById("lituanica_plane").style.transformOrigin = "100px 50px 0";
+
+    //     //        document.getElementById("lituanica_plane").style.transform = "rotate(-90deg)";//" translate(" + plain_x + "px, " + plain_y + "px)";
+    //     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
+
+    //     // document.getElementById("lituanica_plane").style.transform = "";
+    //     plain_y -= 1;
+    //     x -= 1;
+
+    // }
+
+    // function update_plane_right(x) {
+    //     if (x > 0) {
+    //         requestAnimationFrame(function() { update_plane_right(x); });
+    //         finished = false;
+    //     } else { finished = true; return finished; }
+    //     // lituanica.clearRect(0, 0, canvas.width, canvas.height);
+    //     // lituanica.drawImage(plane_right, plain_x, plain_y);
+    //     //   document.getElementById("lituanica_plane").style.transformOrigin = "0px 100px 0";
+    //     // document.getElementById("lituanica_plane").style.transform = "rotate(90deg)"// translate(" + plain_x + "px, " + plain_y + "px)";
+    //     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
+    //     plain_y += 1;
+    //     x -= 1;
+    // }
     </script>
 </body>
 
