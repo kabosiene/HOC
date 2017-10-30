@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="heading">
+            <h1 style="text-align: center;"><a href="../index.html">Programavimo valanda</a></h1>
+        </div>
+        <div class="progress-container">
+            <ul style="text-align: center;">
+                <li>
+                    <a href="level1-1.html">1</a>
+                </li>
+                <li>
+                    <a href="level1-2.html">2</a>
+                </li>
+                <li>
+                    <a href="level1-3.html">3</a>
+                </li>
+                <li>
+                    <a href="level1-4.html">4</a>
+                </li>
+                <li>
+                    <a href="level1-5.html">5</a>
+                </li>
+                <li>
+                    <a href="level1-6.html">6</a>
+                </li>
+                <li>
+                    <a href="level1-7.html">7</a>
+                </li>
+                <li>
+                    <a href="level1-8.html">8</a>
+                </li>
+                <li>
+                    <a href="level1-9.html">9</a>
+                </li>
+                <li>
+                    <a href="level1-10.html">10</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid working-space">
+        <div class="row" style="padding: 10px;">
+            <div class="col-md-5">
+                <h4>Lietuvos valiutos</h4></div>
+            <div class=" col-md-7" id="task"> Paversk eurus litais ir nusipirk šakotį.
+                <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
+        </div>
+        <div class="row" style="padding: 10px">
+            <div class="col  ">
+                <div id="preview">
+                    <canvas id="canvas" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                </div>
+                <div class="button-panel">
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
+                </div>
+                <div class="hint-panel">
+                    <ul> Jei sunku:
+                        <li>
+                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="Pagalba" data-content="1 Eur = 3.45 Lt.">Pagalba</a>
+                        </li>
+                        <!--  <li>
+                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus"  title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="col" style="padding: 0 ;">
+                <div id="blocklyDiv">
+                </div>
+                <xml id="toolbox" style="display: none">
+                    <!-- <category name="Valiutos"> -->
+                    <!-- <block type="controls_if"></block> -->
+                    <block type="math_number"></block>
+                    <block type="math_arithmetic">
+                        <value name="A">
+                            <shadow type="math_number">
+                                <field name="NUM">1</field>
+                            </shadow>
+                        </value>
+                        <value name="B">
+                            <shadow type="math_number">
+                                <field name="NUM">1</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="paspausta"></block>
+                    <!-- <block type="keisti_valiuta"> </block> -->
+                    <block type="kintamieji"></block>
+                    <block type="set"></block>
+                    <block type="change"></block>
+                    <block type="ifas"></block>
+                    <!-- </category> -->
+                </xml>
+            </div>
+            <div class="col-md-3 col-lg-2" style="height: 70vh;">
+                <h5>Javascript kodas: </h5>
+                <pre id="content_javascript">
+                </pre>
+            </div>
+        </div>
+        <div class="video-modal">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/isnwxt2Z5Dw  " frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
+                            <a href="level2-4.html" type="button" class="btn btn-default">Sekanti užduotis</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/blockly_compressed.js"></script>
+    <script src="../js/javascript_compressed.js"></script>
+    <script src="../js/blocks_compressed.js"></script>
+    <script src="../msg/js/lt.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/litai_2.js"></script>
+    <script>
+    var workspace = Blockly.inject('blocklyDiv', {
+        toolbox: document.getElementById('toolbox'),
+        grid: {
+            spacing: 20,
+            length: 5,
+            colour: '#E1D82C',
+            snap: true
+        },
+        trashcan: true
+    });
+
+    function toJavascript(event) {
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        document.getElementById('content_javascript').innerHTML = code;
+    }
+    workspace.addChangeListener(toJavascript);
+    </script>
+    <script type="text/javascript">
+    var my_canvas = document.getElementById("canvas");
+    var ctx = my_canvas.getContext("2d");
+    var button = new Image();
+    var button_1 = new Image();
+    var button_2 = new Image();
+    var button_euras = new Image();
+    var buy = new Image();
+    var sakotis = new Image();
+    my_canvas.addEventListener('click', clickReporterPirkti, false);
+    var eurasKainuoja = 3.45;
+    // var turimLitų = 0;
+    // var turimEurų = 0;
+    var litas;
+    var euras;
+    var talonas;
+    var litas_old;
+    var paspausta;
+    var callAgain;
+
+
+
+    button.src = "../test_img/download.jpg";
+    button_1.src = "../test_img/download.jpg";
+    button_2.src = "../test_img/download.jpg";
+    button_euras.src = "../test_img/euras.jpg";
+    sakotis.src = "../test_img/sakotis.jpg";
+    buy.src = "http://i.imgur.com/bCXdyYP.png";
+    button_euras.onload = function() {
+        draw(button_euras, 10, 10);
+    };
+    button.onload = function() {
+        draw(button, 10, 120);
+    };
+    button_1.onload = function() {
+        draw(button, 10, 200);
+    };
+    button_2.onload = function() {
+        draw(button, 10, 280);
+    };
+
+
+    buy.onload = function() {
+        draw(buy, 250, 200);
+    };
+    sakotis.onload = function() {
+        draw(sakotis, 300, 50);
+        ctx.strokeText("Kaina: 30 Litų", 300, 50);
+    };
+
+
+
+    var clicked;
+
+    function runCode() {
+        // Generate JavaScript code and run it.
+        window.LoopTrap = 1000;
+        Blockly.JavaScript.INFINITE_LOOP_TRAP =
+            'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        my_canvas.removeEventListener('click', clicked, false);
+        litas = 0;
+        euras = 0;
+        talonas = 0;
+        litas_old = 0;
+        draw_elements();
+        try {
+            if (code.length > 0) {
+                eval(code);
+            } else {
+                alert('Pridėk kodo blokelį.');
+            }
+
+        } catch (e) {
+            alert(e);
+        }
+    }
+
+    function draw(pic_name, x, y) {
+        ctx.drawImage(pic_name, x, y);
+    }
+
+    function draw_elements() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        draw(buy, 250, 200);
+        draw(button_euras, 10, 10);
+        draw(button, 10, 120);
+        draw(button, 10, 200);
+        draw(button, 10, 280);
+        draw(sakotis, 300, 50);
+        ctx.strokeText("Kaina: 30 Litų", 300, 50);
+        ctx.strokeText("Eurai: " + euras, 10, 10);
+        ctx.strokeText("Litai: " + litas, 10, 120);
+        ctx.strokeText("Talonai: " + talonas, 10, 200);
+        ctx.strokeText("Litai(23m.): " + litas_old, 10, 280);
+    }
+
+    function callAgain(if_body) {
+
+        clicked = function(e) { clickReporter(e, if_body) };
+        my_canvas.addEventListener('click', clicked);
+
+    };
+
+    function clickReporter(e, if_body) { /// assign event to some variable
+
+        /// adjust mouse click position to be relative to canvas:
+        var rect = canvas.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+
+        /// check x/y coordinate against the image position and dimension
+        //button litas
+        if (x >= 10 && x <= (10 + button.width) &&
+            y >= 120 && y <= (120 + button.height)) {
+
+            //exchangeLitai();
+            paspausta = "litai";
+            if_body();
+            draw_elements();
+
+        }
+        //button_1 talonas
+        if (x >= 10 && x <= (10 + button_1.width) &&
+            y >= 200 && y <= (200 + button_1.height)) {
+
+            //exchangeLitai();
+            paspausta = "talonas";
+            if_body();
+            draw_elements();
+
+        }
+        //button_2 litas(23m.)
+        if (x >= 10 && x <= (10 + button_2.width) &&
+            y >= 280 && y <= (280 + button_2.height)) {
+
+            //exchangeLitai();
+            paspausta = "litas_old";
+            if_body();
+            draw_elements();
+
+        }
+        //button_euras
+        if (x >= 10 && x <= (10 + button_euras.width) &&
+            y >= 10 && y <= (10 + button_euras.height)) {
+
+            // exchangeLitai();
+            paspausta = "eurai";
+            if_body();
+            draw_elements();
+        }
+    }
+
+    function clickReporterPirkti(e) { /// assign event to some variable
+
+        /// adjust mouse click position to be relative to canvas:
+        var rect = this.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+
+        if (x >= 250 && x <= (250 + buy.width) &&
+            y >= 200 && y <= (200 + buy.height)) {
+
+            if (litas != 0 && euras != 0 && talonas != 0 && litas_old != 0) {
+                if (litas_old > 30) {
+                    ctx.clearRect(0, 0, 10, 10);
+                    ctx.strokeText("NUSIPIRKAI", 200, 100);
+                    setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+                } else {
+
+                    litas = 0;
+                    euras = 0;
+                    talonas = 0;
+                    litas_old = 0;
+                    draw_elements();
+                    ctx.strokeText("TRUKSTA", 200, 100);
+                }
+            } else {
+                alert('Ne visos valiutos konvertuotos');
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>
