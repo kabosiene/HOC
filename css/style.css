@@ -65,7 +65,7 @@ li {
 position: relative;
 }
  canvas { position: absolute;}
- #canvas{z-index: 0;}
+ #canvas{z-index: 1;}
  #canvas2{z-index: 2;}
  #canvas3{z-index: 3;}
 
@@ -109,7 +109,6 @@ transform: translate(0px,150px);
   height:50px;
   width:50px;
   transform: translate(50px,100px);
-  z-index: 6;
 }
 
 
