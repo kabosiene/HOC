@@ -60,7 +60,7 @@
   init: function() {
     this.appendDummyInput()
         .appendField("prie")
-        .appendField(new Blockly.FieldDropdown([["litai","litas"], ["eurai","euras"]]), "NAME")
+        .appendField(new Blockly.FieldDropdown([ ["eurai","euras"]]), "NAME")
         .appendField("pridėk")
         .appendField(new Blockly.FieldNumber(0), "NUMBER");
     this.setPreviousStatement(true, null);
@@ -80,7 +80,7 @@ Blockly.JavaScript['change'] = function(block) {
 Blockly.Blocks['set'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["litai","litas"], ["eurai","euras"]]), "NAME")
+        .appendField(new Blockly.FieldDropdown([["eurai","euras"]]), "NAME")
         .appendField("=")
         .appendField(new Blockly.FieldNumber(0, 0), "NUMBER");
     this.setPreviousStatement(true, null);
@@ -121,6 +121,23 @@ Blockly.JavaScript['ifas'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   var code = 'callAgain(function(){if('+value_if_reiksme+'){\n'+statements_do_reiksme+'}});\n';
  // var code2 = 'if('+value_if_reiksme+'){\n'+statements_do_reiksme+'}\n;'
+  return code;
+};
+
+Blockly.Blocks['convert'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("konvertuoti");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("Konevrtuoja eurus į litus. ");
+ this.setHelpUrl("");
+  }
+};
+Blockly.JavaScript['convert'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'litas = euras * 3.45;\n';
   return code;
 };
     //*****************************************************************************
@@ -189,72 +206,23 @@ Blockly.JavaScript['ifas'] = function(block) {
           draw_elements();
         }
         //buy
-        if (x >= 250 && x <= (250 + buy.width) &&
-            y >= 200 && y <= (200 + buy.height)) {
+        // if (x >= 250 && x <= (250 + buy.width) &&
+        //     y >= 200 && y <= (200 + buy.height)) {
 
 
-            if (litas > 30) {
-                ctx.clearRect(0, 0, 10, 10);
-                ctx.strokeText("NUSIPIRKAI", 200, 100);
-                 setTimeout(function(){$('#nextModal').modal('show');},1000);
-            } else {
+        //     if (litas > 30) {
+        //         ctx.clearRect(0, 0, 200, 100);
+        //         ctx.strokeText("NUSIPIRKAI", 200, 100);
+        //          setTimeout(function(){$('#nextModal').modal('show');},1000);
+        //     } else {
 
-                litas = 0;
-                euras = 0;
-                draw_elements();
-                ctx.strokeText("TRUKSTA", 200, 100);
-            }
-        }
+        //         litas = 0;
+        //         euras = 0;
+        //         draw_elements();
+        //         ctx.strokeText("TRUKSTA", 200, 100);
+        //     }
+        // }
     }
-
-
-
-
-
-    // function exchangeLitai() {
-
-    //     // turimEurų += 1;
-    //     // turimLitų = turimEurų * eurasKainuoja;
-    //     // ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //     // draw_elements();
-    // }
-
-    // function clickReporterEuras(e) { /// assign event to some variable
-
-    //     /// adjust mouse click position to be relative to canvas:
-    //     var rect = this.getBoundingClientRect(),
-    //         x = e.clientX - rect.left,
-    //         y = e.clientY - rect.top;
-
-    //     //button_euras
-    //     if (x >= 10 && x <= (10 + button_euras.width) &&
-    //         y >= 120 && y <= (120 + button_euras.height)) {
-    //   //     euras = litas / 3.45;
-    //   // litas = 0;
-    //   //  draw_elements();
-    //     }
-
-    // }
-
-    // function clickReporterLitas(e) { /// assign event to some variable
-
-    //     /// adjust mouse click position to be relative to canvas:
-    //     var rect = this.getBoundingClientRect(),
-    //         x = e.clientX - rect.left,
-    //         y = e.clientY - rect.top;
-
-    //     /// check x/y coordinate against the image position and dimension
-    //     //button litas
-    //     if (x >= 10 && x <= (10 + button.width) &&
-    //         y >= 10 && y <= (10 + button.height)) {
-
-    //         //exchangeLitai();
-    //      // litas += 1;
-    //      // draw_elements();
-    //        //                  var blocks = workspace.getAllBlocks();
-    //        // alert (blocks);
-    //     }
-    // }
 
     function clickReporterPirkti(e) { /// assign event to some variable
 
@@ -268,7 +236,7 @@ Blockly.JavaScript['ifas'] = function(block) {
 
 
             if (litas >= 30) {
-                ctx.clearRect(0, 0, 10, 10);
+                ctx.clearRect(0,0,canvas.width, canvas.height);
                 ctx.strokeText("NUSIPIRKAI", 200, 100);
                 setTimeout(function(){$('#nextModal').modal('show');},1000);
             } else {
