@@ -169,8 +169,6 @@ Blockly.JavaScript['fly_points'] = function(block) {
 };
 
 function changePoints(x, y) {
-    console.log(x);
-    console.log(y);
    if (x != 0 || y != 0) {
         var globalID = requestAnimationFrame(function() { changePoints(x, y); });
     } else { cancelAnimationFrame(globalID); }
@@ -183,6 +181,7 @@ function changePoints(x, y) {
 
 checkPoint(plain_x,plain_y);
 }
+
 function checkPoint(x,y){
 
 //check if end point setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
