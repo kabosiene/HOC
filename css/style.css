@@ -112,6 +112,39 @@ transform: translate(0px,150px);
 }
 
 
+
+#d5 {
+  width: 200px;
+  height: 200px;
+  margin: 65px auto;
+  animation: spin 10s linear infinite;
+}
+.dance {
+
+  position: absolute;
+  
+    animation: spin 10s linear infinite reverse;
+}
+.d-inner{
+    background-image:url(../test_img/swim_sprite.png);
+  height:40px;
+  width:40px;
+  animation: dance 2s infinite steps(2, end);
+}
+@keyframes spin {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes dance {
+ 100% { background-position: 200% 0}
+}
+
+
+
+
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
     .working-space {

@@ -24,7 +24,7 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                   <a href="level1-3.html">3</a>
+                    <a href="level1-3.html">3</a>
                 </li>
                 <li>
                     <a href="level1-4.html">4</a>
@@ -53,16 +53,33 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Dainų šventė</h4></div>
+                <h4>Dainų šventė - sinchroninis plaukimas:))</h4></div>
             <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
-                 <div id="preview">
+                <div id="preview">
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
+                    <div id=d5>
+                        <div class="dance">
+                            <div class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div class="d-inner"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
@@ -109,6 +126,9 @@
                         <block type="text_length"></block>
                         <block type="text_print"></block>
                     </category>
+                    <category name="custom">
+                        <block type="anim_speed"></block>
+                    </category>
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -131,17 +151,33 @@
                 </div>
             </div>
         </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
+                            <a href="level1-5.html" type="button" class="btn btn-default">Sekanti užduotis</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
-     <script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/sokiai.js"></script>
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
@@ -165,7 +201,45 @@
     workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
+    var radius = 71;
+    var degreeAngle = 0;
+    var x1 = 73;
+    var y1 = 150;
+    var anim_speed = 1000;
+    var radius = 100; // adjust to move out items in and out 
+    var fields = $('.dance'),
+        inner_fields = $('.d-inner'),
+        container = $('#d5'),
+        width = container.width(),
+        height = container.height();
+    var angle = 0,
+        step = (2 * Math.PI) / fields.length;
+
+    fields.each(function() {
+        var x = Math.round(width / 2 + radius * Math.cos(angle) - $(this).width() / 2);
+        var y = Math.round(height / 2 + radius * Math.sin(angle) - $(this).height() / 2);
+        $(this).css({
+            left: x + 'px',
+            top: y + 'px'
+        });
+
+        angle += step;
+    });
+
     function runCode() {
+        radius = 71;
+        degreeAngle = 0;
+        // animateCircle();                   
+        anim_speed = 1000;
+        radius = 100; // adjust to move out items in and out 
+        fields = $('.dance');
+        inner_fields = $('.d-inner');
+        container = $('#d5');
+        width = container.width();
+        height = container.height();
+        angle = 0;
+        step = (2 * Math.PI) / fields.length;
+
         // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
@@ -175,8 +249,12 @@
         try {
             if (code.length > 0) {
                 eval(code);
-            }
-            else{
+
+
+                inner_fields.each(function() {
+                    $(this).style.WebkitAnimationDuration = anim_speed+'s';
+                });
+            } else {
                 alert('Pridėk kodo blokelį.');
             }
 
