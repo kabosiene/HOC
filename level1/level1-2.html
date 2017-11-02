@@ -337,33 +337,6 @@
         interpreter.setProperty(scope, 'updatePlane', wrapper);
         /***********************************************************************/
 
-        Blockly.JavaScript.addReservedWords('updatePlaneLeft');
-
-        var wrapper = interpreter.createAsyncFunction(
-            function updatePlaneLeft(x) {
-                if (x > 0) {
-                   globalID2 = requestAnimationFrame(function() { updatePlaneLeft(x); });
-                }
-                document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
-                plain_y -= 1;
-                x -= 1;
-            });
-        interpreter.setProperty(scope, 'updatePlaneLeft', wrapper);
-        /***********************************************************************/
-
-        Blockly.JavaScript.addReservedWords('updatePlaneRight');
-
-        var wrapper = interpreter.createAsyncFunction(
-            function updatePlaneRight(x) {
-                if (x > 0) {
-                   globalID3 = requestAnimationFrame(function() { updatePlaneRight(x); });
-                }else{cancelAnimationFrame(globalID3);}
-                document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
-                plain_y += 1;
-                x -= 1;
-            });
-        interpreter.setProperty(scope, 'updatePlaneRight', wrapper);
-
         /*************************************************************************/
           Blockly.JavaScript.addReservedWords('waitForSeconds');
 
@@ -376,53 +349,6 @@
 
     }
 
-    // function updatePlane(x) {
-    //     if (x > 0) {
-    //         requestAnimationFrame(function() { updatePlane(x); });
-    //     } 
-    //     //lituanica.clearRect(0, 0, canvas.width, canvas.height);
-    //     //lituanica.drawImage(plane, plain_x, plain_y);
-    //     // document.getElementById("lituanica_plane").style.transform = "rotate("+x_deg+"deg) translate(" + plain_x + "px, " + plain_y + "px)";
-    //     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
-    //     //background.fillRect(plain_x, plain_y, 50, 50);
-    //     plain_x += 1;
-    //     x -= 1;
-
-
-
-    // function update_plane_left(x) {
-    //     console.log("update_plane_left" + finished);
-    //     if (x > 0) {
-    //         requestAnimationFrame(function() { update_plane_left(x); });
-    //         finished = false;
-    //     } else { finished = true;
-    //         console.log(finished); return finished; }
-    //     // lituanica.clearRect(0, 0, canvas.width, canvas.height); 
-    //     //lituanica.drawImage(plane_left, plain_x, plain_y);
-    //     // document.getElementById("lituanica_plane").style.transformOrigin = "100px 50px 0";
-
-    //     //        document.getElementById("lituanica_plane").style.transform = "rotate(-90deg)";//" translate(" + plain_x + "px, " + plain_y + "px)";
-    //     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
-
-    //     // document.getElementById("lituanica_plane").style.transform = "";
-    //     plain_y -= 1;
-    //     x -= 1;
-
-    // }
-
-    // function update_plane_right(x) {
-    //     if (x > 0) {
-    //         requestAnimationFrame(function() { update_plane_right(x); });
-    //         finished = false;
-    //     } else { finished = true; return finished; }
-    //     // lituanica.clearRect(0, 0, canvas.width, canvas.height);
-    //     // lituanica.drawImage(plane_right, plain_x, plain_y);
-    //     //   document.getElementById("lituanica_plane").style.transformOrigin = "0px 100px 0";
-    //     // document.getElementById("lituanica_plane").style.transform = "rotate(90deg)"// translate(" + plain_x + "px, " + plain_y + "px)";
-    //     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
-    //     plain_y += 1;
-    //     x -= 1;
-    // }
     </script>
 </body>
 

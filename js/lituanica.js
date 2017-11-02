@@ -14,12 +14,11 @@ Blockly.Blocks['grid_turnright'] = {
 
 Blockly.JavaScript['grid_turnright'] = function(block) {
     var code = 'plane_state = "plane_right";\n';
-    x_deg = 90;
     //code += 'document.getElementById("lituanica_plane").style.transformOrigin = "0px 100px 0";\n'
     // document.getElementById("lituanica_plane").style.transform = "rotate(90deg)"'
     //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane_right, plain_x, plain_y);\n ";
     code += 'updatePlane(0,move);';
-        code += 'waitForSeconds(5);\n';
+        code += 'waitForSeconds(move/50);\n';
     return code;
 };
 Blockly.Blocks['grid_forward'] = {
@@ -35,11 +34,10 @@ Blockly.Blocks['grid_forward'] = {
 
 Blockly.JavaScript['grid_forward'] = function(block) {
     var code = ' plane_state = "plane";\n';
-    x_deg = 0;
     //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane, plain_x, plain_y);\n ";  
     //code += 'update_plane(move, x_deg);';     
     code += 'updatePlane(move,0);';
-        code += 'waitForSeconds(5);\n';
+        code += 'waitForSeconds(move/50);\n';
     return code;
 };
 
@@ -56,12 +54,11 @@ Blockly.Blocks['grid_turnleft'] = {
 
 Blockly.JavaScript['grid_turnleft'] = function(block) {
     var code = 'plane_state = "plane_left";\n';
-    x_deg = -90;
     //code += ' document.getElementById("lituanica_plane").style.transformOrigin = "100px 50px 0";\n'
     // document.getElementById("lituanica_plane").style.transform = "rotate(-90deg)";'
     //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane_left, plain_x, plain_y);\n ";
     code += 'updatePlane(0,-move);';
-        code += 'waitForSeconds(5);\n';
+        code += 'waitForSeconds(move/50);\n';
     return code;
 };
 
@@ -164,7 +161,7 @@ Blockly.JavaScript['fly_points'] = function(block) {
     var code = ""; //dropdown_d_points;
     //code += value_points_x_y;
     code += 'updatePlane(' + value_points_x_y + ');';
-    code += 'waitForSeconds(5);\n';
+    code += 'waitForSeconds(3);\n';
     return code;
 };
 
