@@ -63,9 +63,6 @@
                     <canvas id="canvas" width="490" height="330" style="z-index: 0">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-                    <!--  <canvas id="canvas2" width="490" height="330">
-                        This text is displayed if your browser does not support HTML5 Canvas.
-                    </canvas> -->
                     <canvas id="canvas3" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
@@ -100,7 +97,7 @@
                     </block>
                     <block type="grid_forward">
                     </block>
-<!--                     <block type="wait_seconds">
+                    <!--                     <block type="wait_seconds">
                     </block> -->
                 </xml>
             </div>
@@ -156,28 +153,17 @@
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var background = my_canvas.getContext("2d");
-    var lituanica_canvas = document.getElementById("canvas3");
-    var lituanica = lituanica_canvas.getContext("2d");
     var map = new Image();
-    map.src = "../test_img/atlantas.png";
-    var plane = new Image();
-    plane.src = "../test_img/litu.png";
-    var plane_left = new Image();
-    plane_left.src = "../test_img/litu-left.png";
-    var plane_right = new Image();
-    plane_right.src = "../test_img/litu-right.png";
+    map.src = "../img_lessons/lituanica/fonas.png";
+       var plane = new Image();
+    plane.src = "../img_lessons/lituanica/lituanica_didelis.png";
 
     var angleInDegrees = 0;
-    var plain_x = 50;
-    var plain_y = 100;
-
-    var plane_state = "plane";
-    var x_deg = 0;
+    var plain_x = 0;
+    var plain_y = 170;
     var finished = false;
+    var points =[];
 
-    plane.onload = function() {
-        // lituanica.drawImage(plane, plain_x, plain_y);
-    };
     map.onload = function() {
         //draw(map, 0, 0, 500,300);
 
@@ -187,47 +173,50 @@
     }
 
     function drawGrid() {
-
-        //newyork
-        background.fillRect(100, 120, 4, 4);
-        background.beginPath();
-        background.arc(102, 122, 8, 0, 2 * Math.PI);
-        background.stroke();
-        //newfoundland
-        background.fillRect(180, 90, 4, 4);
-        background.beginPath();
-        background.arc(182, 92, 8, 0, 2 * Math.PI);
-        background.stroke();
-        //Airija
-        background.fillRect(330, 75, 4, 4);
-        background.beginPath();
-        background.arc(332, 77, 8, 0, 2 * Math.PI);
-        background.stroke();
-        //Kaunas
-        background.fillRect(425, 67, 4, 4);
-        background.beginPath();
-        background.arc(427, 69, 8, 0, 2 * Math.PI);
-        background.stroke();
-        //Lenkija, ex Vokietija, 
-        background.fillRect(400, 80, 4, 4);
-        background.beginPath();
-        background.arc(402, 82, 8, 0, 2 * Math.PI);
-        background.strokeStyle = '#ff0000';
-        background.stroke();
-
-        background.strokeStyle = 'black';
-        for (i = 0; i < 490; i += 50) {
+                background.strokeStyle = 'grey';
+        for (i = 0; i < 490; i += 40) {
             background.beginPath();
             background.moveTo(i, 0);
             background.lineTo(i, 330);
             background.stroke();
         }
-        for (i = 0; i < 330; i += 50) {
+        for (i = 10; i < 330; i += 40) {
             background.beginPath();
             background.moveTo(0, i);
             background.lineTo(490, i);
             background.stroke();
         }
+     background.strokeStyle = 'black';
+        //newyork
+        background.fillRect(45, 190, 4, 4);
+        background.beginPath();
+        background.arc(47, 192, 8, 0, 2 * Math.PI);
+        background.strokeText("Niujorkas", 40, 210);
+        background.stroke();
+        //newfoundland
+        background.fillRect(130, 140, 4, 4);
+        background.beginPath();
+        background.arc(132, 142, 8, 0, 2 * Math.PI);
+ 
+        background.stroke();
+        //Škotija
+        background.fillRect(330, 105, 4, 4);
+        background.beginPath();
+        background.arc(332, 107, 8, 0, 2 * Math.PI);
+     
+        background.stroke();
+        //Kaunas
+        background.fillRect(449, 122, 4, 4);
+        background.beginPath();
+        background.arc(451, 124, 8, 0, 2 * Math.PI);
+        background.stroke();
+        //Lenkija, ex Vokietija, 
+        background.fillRect(410, 140, 4, 4);
+        background.beginPath();
+        background.strokeStyle = '#ff0000';
+        background.arc(412, 142, 8, 0, 2 * Math.PI);
+        background.stroke();
+
 
     }
     </script>
@@ -252,32 +241,22 @@
     <script type="text/javascript">
     function runCode() {
 
-        // window.LoopTrap = 1000;
-        // Blockly.JavaScript.INFINITE_LOOP_TRAP =
-        //     'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-        // var code = Blockly.JavaScript.workspaceToCode(workspace);
-        // Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-
         Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
         Blockly.JavaScript.addReservedWords('highlightBlock');
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         var myInterpreter = new Interpreter(code, initApi);
-        //  myInterpreter.appendCode('var lituanica_canvas = document.getElementById("canvas3");var lituanica = lituanica_canvas.getContext("2d");');
-        // myInterpreter.appendCode('var my_canvas = document.getElementById("canvas"); var background = my_canvas.getContext("2d");');
-        //  myInterpreter.appendCode('var plane = new Image();plane.src = "../test_img/litu.png";');
-
-
-
 
         background.clearRect(0, 0, canvas.width, canvas.height);
         background.strokeStyle = "black";
         background.drawImage(map, 0, 0);
         drawGrid();
-        plain_x = 50;
-        plain_y = 100;
+        plain_x = 0;
+        plain_y = 170;
         var move = 0;
-        x_deg = 0;
         finished = false;
+        document.getElementById("lituanica_plane").style.visibility = 'visible';
+
+
         try {
 
             if (code.length > 0) {
@@ -288,7 +267,7 @@
                     }
                 }
                 nextStep();
-               // myInterpreter.run();
+                // myInterpreter.run();
             } else {
                 alert('Pridėk kodo blokelį.');
             }
@@ -325,30 +304,29 @@
             interpreter.createNativeFunction(wrapper));
 
         /***********************************************************************/
-        
+
         Blockly.JavaScript.addReservedWords('updatePlane');
 
         var wrapper = interpreter.createAsyncFunction(
-            function updatePlane(x,y, callback) {
+            function updatePlane(x, y, callback) {
                 changePoints(x, y);
                 callback();
             }
-            );
+        );
         interpreter.setProperty(scope, 'updatePlane', wrapper);
         /***********************************************************************/
 
         /*************************************************************************/
-          Blockly.JavaScript.addReservedWords('waitForSeconds');
+        Blockly.JavaScript.addReservedWords('waitForSeconds');
 
-  var wrapper = interpreter.createAsyncFunction(
-    function(timeInSeconds, callback) {
-      // Delay the call to the callback.
-      setTimeout(callback, timeInSeconds * 1000);
-    });
-  interpreter.setProperty(scope, 'waitForSeconds', wrapper);
+        var wrapper = interpreter.createAsyncFunction(
+            function(timeInSeconds, callback) {
+                // Delay the call to the callback.
+                setTimeout(callback, timeInSeconds * 1000);
+            });
+        interpreter.setProperty(scope, 'waitForSeconds', wrapper);
 
     }
-
     </script>
 </body>
 

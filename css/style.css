@@ -105,13 +105,16 @@ transform: translate(0px,150px);
 
 #lituanica_plane{
   /*visibility: hidden;*/
-  background-image:url(../test_img/litu.png);
-  height:50px;
-  width:50px;
-  transform: translate(50px,100px);
+  background-image:url(../img_lessons/lituanica/lituanica_sprite.png);
+  height:33px;
+  width:75px;
+  animation : fly 0.15s infinite  steps(2, end);
+  transform: translate(0px,170px);
 }
 
-
+@keyframes fly {
+  100% { background-position: 200% 0}
+}
 
 #d5 {
   width: 200px;
@@ -120,9 +123,7 @@ transform: translate(0px,150px);
   animation: spin 10s linear infinite;
 }
 .dance {
-
   position: absolute;
-  
     animation: spin 10s linear infinite reverse;
 }
 .d-inner{

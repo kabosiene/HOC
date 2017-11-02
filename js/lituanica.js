@@ -18,7 +18,8 @@ Blockly.JavaScript['grid_turnright'] = function(block) {
     // document.getElementById("lituanica_plane").style.transform = "rotate(90deg)"'
     //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane_right, plain_x, plain_y);\n ";
     code += 'updatePlane(0,move);';
-        code += 'waitForSeconds(move/50);\n';
+    code += 'waitForSeconds(move/40);\n';
+    code += 'move = 0;\n';
     return code;
 };
 Blockly.Blocks['grid_forward'] = {
@@ -37,7 +38,8 @@ Blockly.JavaScript['grid_forward'] = function(block) {
     //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane, plain_x, plain_y);\n ";  
     //code += 'update_plane(move, x_deg);';     
     code += 'updatePlane(move,0);';
-        code += 'waitForSeconds(move/50);\n';
+    code += 'waitForSeconds(move/40);\n';
+    code += 'move = 0;\n';
     return code;
 };
 
@@ -58,7 +60,9 @@ Blockly.JavaScript['grid_turnleft'] = function(block) {
     // document.getElementById("lituanica_plane").style.transform = "rotate(-90deg)";'
     //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane_left, plain_x, plain_y);\n ";
     code += 'updatePlane(0,-move);';
-        code += 'waitForSeconds(move/50);\n';
+    code += 'waitForSeconds(move/40);\n';
+    code += 'move = 0;\n';
+
     return code;
 };
 
@@ -77,7 +81,7 @@ Blockly.Blocks['grid_goforward'] = {
 
 Blockly.JavaScript['grid_goforward'] = function(block) {
     var number_zingsniai = block.getFieldValue('STEPS');
-    var code = 'move = ' + number_zingsniai * 50 + ';\n';
+    var code = 'move = ' + number_zingsniai * 40 + ';\n';
 
     return code;
 
@@ -166,21 +170,67 @@ Blockly.JavaScript['fly_points'] = function(block) {
 };
 
 function changePoints(x, y) {
-   if (x != 0 || y != 0) {
+    if (x != 0 || y != 0) {
+
         var globalID = requestAnimationFrame(function() { changePoints(x, y); });
     } else { cancelAnimationFrame(globalID); }
     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
+    checkPoint(plain_x, plain_y);
+    if (x > 0) {
+        plain_x += 1;
+        x -= 1;
+    } else if (x < 0) {
+        plain_x -= 1;
+        x += 1;
+    }
+    if (y > 0) {
+        plain_y += 1;
+        y -= 1;
+    } else if (y < 0) {
+        plain_y -= 1;
+        y += 1;
+    }
 
-    if (x > 0) { plain_x += 1;
-        x -= 1; } else if (x < 0) {plain_x -= 1; x += 1;}
-    if (y > 0) { plain_y += 1;
-        y -= 1; }else if (y < 0) {plain_y -= 1; y += 1; }
 
-checkPoint(plain_x,plain_y);
 }
 
-function checkPoint(x,y){
+function checkPoint(x, y) {
+    console.log(x + " - " + y);
 
-//check if end point setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+    //check if end point setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+    if (420 > x && x >= 400 && 100 > y && y > 88) {
+        if (points[0] == 1 && points[1] == 1 && points[2] == 1) {
+            setTimeout(function() {
+                document.getElementById("lituanica_plane").style.visibility = 'hidden';
+                background.clearRect(0, 0, canvas.width, canvas.height);
+                background.drawImage(map, 0, 0);
+                background.drawImage(plane, 0, 50);
+            }, 1000);
+            setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
+        } else if (x == 400 && y == 90) {
+            setTimeout(function() { alert("Ne visi taškai aplankyti!"); }, 500);
+        }
+    } else if (90 > x && x >= 80 && 150 > y && y >= 130) {
+        background.clearRect(0, 0, canvas.width, canvas.height);
+        background.drawImage(map, 0, 0);
+        drawGrid();
+        background.strokeStyle = 'black';
+        background.strokeText("Niufaunlandas", 140, 140);
+        points[0] = 1;
+    } else if (290 > x && x >= 270 && 100 > y && y > 88) {
+        background.clearRect(0, 0, canvas.width, canvas.height);
+        background.drawImage(map, 0, 0);
+        drawGrid();
+        background.strokeStyle = 'black';
+        background.strokeText("Škotija", 320, 95);
+        points[1] = 1;
+    } else if (370 > x && x >= 350 && 110 > y && y > 90) {
+        background.clearRect(0, 0, canvas.width, canvas.height);
+        background.drawImage(map, 0, 0);
+        drawGrid();
+        background.strokeStyle = 'black';
+        background.strokeText("Lenkija", 410, 160);
+        points[2] = 1;
+    }
 
 }
