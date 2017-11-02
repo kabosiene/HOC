@@ -128,6 +128,10 @@
                     </category>
                     <category name="custom">
                         <block type="anim_speed"></block>
+                        <block type="wait_seconds"></block>
+                        <block type="musicplay"></block>
+                        <block type="dance"></block>
+                        <block type="math_number"></block>
                     </category>
                 </xml>
             </div>
@@ -174,6 +178,7 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
+    <script src="../js/acorn_interpreter.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
     <script src="../js/main.js"></script>
@@ -205,7 +210,7 @@
     var degreeAngle = 0;
     var x1 = 73;
     var y1 = 150;
-    var anim_speed = 1000;
+    var anim_speed;
     var radius = 100; // adjust to move out items in and out 
     var fields = $('.dance'),
         inner_fields = $('.d-inner'),
@@ -227,33 +232,43 @@
     });
 
     function runCode() {
+
+        // Generate JavaScript code and run it.
+        // window.LoopTrap = 1000;
+        // Blockly.JavaScript.INFINITE_LOOP_TRAP =
+        //     'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+        // var code = Blockly.JavaScript.workspaceToCode(workspace);
+        // Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+
+        Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
+        Blockly.JavaScript.addReservedWords('highlightBlock');
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        var myInterpreter = new Interpreter(code, initApi);
+
         radius = 71;
         degreeAngle = 0;
         // animateCircle();                   
-        anim_speed = 1000;
+        anim_speed = 0;
         radius = 100; // adjust to move out items in and out 
         fields = $('.dance');
-        inner_fields = $('.d-inner');
         container = $('#d5');
         width = container.width();
         height = container.height();
         angle = 0;
         step = (2 * Math.PI) / fields.length;
-
-        // Generate JavaScript code and run it.
-        window.LoopTrap = 1000;
-        Blockly.JavaScript.INFINITE_LOOP_TRAP =
-            'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-        var code = Blockly.JavaScript.workspaceToCode(workspace);
-        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         try {
+            audio.pause();
+            audio.currentTime = 0;
             if (code.length > 0) {
-                eval(code);
+                //eval(code);
 
+                function nextStep() {
+                    if (myInterpreter.step()) {
+                        window.setTimeout(nextStep, 0);
+                    }
+                }
+                nextStep();
 
-                inner_fields.each(function() {
-                    $(this).style.WebkitAnimationDuration = anim_speed+'s';
-                });
             } else {
                 alert('Pridėk kodo blokelį.');
             }
@@ -261,6 +276,90 @@
         } catch (e) {
             alert(e);
         }
+    }
+
+    function initApi(interpreter, scope) {
+
+        // Add an API function for the alert() block.
+        var wrapper = function(text) {
+            text = text ? text.toString() : '';
+            return interpreter.createPrimitive(alert(text));
+        };
+        interpreter.setProperty(scope, 'alert',
+            interpreter.createNativeFunction(wrapper));
+
+        // Add an API function for the prompt() block.
+        wrapper = function(text) {
+            text = text ? text.toString() : '';
+            return interpreter.createPrimitive(prompt(text));
+        };
+        interpreter.setProperty(scope, 'prompt',
+            interpreter.createNativeFunction(wrapper));
+        // Add an API function for highlighting blocks.
+        var wrapper = function(id) {
+            id = id ? id.toString() : '';
+            return interpreter.createPrimitive(Blockly.mainWorkspace.highlightBlock(id));
+        };
+        interpreter.setProperty(scope, 'highlightBlock',
+            interpreter.createNativeFunction(wrapper));
+
+        /*************************************************************************/
+
+        Blockly.JavaScript.addReservedWords('sSpeed');
+
+        var wrapper = interpreter.createNativeFunction(
+            function(anim_speed) {
+                var inner_fields = document.getElementsByClassName('d-inner');
+                for (i = 0; i < inner_fields.length; i++) {
+                    inner_fields[i].style.animationDuration = (anim_speed) + "s";
+                }
+            });
+        interpreter.setProperty(scope, 'aSpeed', wrapper);
+
+
+        Blockly.JavaScript.addReservedWords('musicPlay');
+
+        var wrapper = interpreter.createNativeFunction(
+            function() {
+
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.currentTime = 0;
+                }
+            });
+        interpreter.setProperty(scope, 'musicPlay', wrapper);
+
+
+        Blockly.JavaScript.addReservedWords('costumeChange');
+
+        var wrapper = interpreter.createNativeFunction(
+            function(costumeNumber) {
+                var d_fields = document.getElementsByClassName('dance');
+                
+                var costumeClass;
+                if (costumeNumber == 1) {
+                    costumeClass = "d-inner";
+                } else if (costumeNumber == 2) {
+                    costumeClass = "d-inner2";
+                }
+                for (i = 0; i < d_fields.length; i++) {
+                    console.log(d_fields[i].children[0].className);
+                     d_fields[i].children[0].className = costumeClass;
+                }
+            });
+        interpreter.setProperty(scope, 'costumeChange', wrapper);
+
+
+        Blockly.JavaScript.addReservedWords('waitForSeconds');
+
+        var wrapper = interpreter.createAsyncFunction(
+            function(timeInSeconds, callback) {
+                // Delay the call to the callback.
+                setTimeout(callback, timeInSeconds * 1000);
+            });
+        interpreter.setProperty(scope, 'waitForSeconds', wrapper);
+
     }
     </script>
 </body>

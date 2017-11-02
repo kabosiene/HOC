@@ -126,10 +126,17 @@ transform: translate(0px,150px);
     animation: spin 10s linear infinite reverse;
 }
 .d-inner{
-    background-image:url(../test_img/swim_sprite.png);
+  background-image:url(../test_img/swim_sprite.png);
   height:40px;
   width:40px;
   animation: dance 2s infinite steps(2, end);
+}
+
+.d-inner2{
+  background-image:url(../test_img/dance2.png);
+  height:50px;
+  width:54px;
+  animation: dance2 1s infinite steps(4, end);
 }
 @keyframes spin {
   100% {
@@ -138,9 +145,12 @@ transform: translate(0px,150px);
 }
 
 @keyframes dance {
- 100% { background-position: 200% 0}
+ 100% { background-position:200% 0}
 }
 
+@keyframes dance2 {
+ 100% { background-position:400% 0}
+}
 
 
 
