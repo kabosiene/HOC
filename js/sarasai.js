@@ -1,3 +1,4 @@
+var tekstas = [];
 Blockly.Blocks['tekstas1'] = {
   init: function() {
     this.appendDummyInput()

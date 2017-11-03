@@ -29,9 +29,9 @@ Blockly.JavaScript['anim_speed'] = function(block) {
 Blockly.Blocks['wait_seconds'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("wait")
+            .appendField("laukti")
             .appendField(new Blockly.FieldTextInput("1"), "SECONDS")
-            .appendField("seconds");
+            .appendField("s.");
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setColour(120);
