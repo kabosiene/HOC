@@ -13,8 +13,7 @@ Blockly.Blocks['grid_turnright'] = {
 };
 
 Blockly.JavaScript['grid_turnright'] = function(block) {
-    var code = 'plane_state = "plane_right";\n';
-    code += 'updatePlane(0,move);';
+    var  code = 'updatePlane(0,move);';
     code += 'waitForSeconds(move/40);\n';
     code += 'move = 0;\n';
     return code;
@@ -31,8 +30,7 @@ Blockly.Blocks['grid_forward'] = {
 };
 
 Blockly.JavaScript['grid_forward'] = function(block) {
-    var code = ' plane_state = "plane";\n';
-    code += 'updatePlane(move,0);';
+    var code = 'updatePlane(move,0);';
     code += 'waitForSeconds(move/40);\n';
     code += 'move = 0;\n';
     return code;
@@ -50,7 +48,7 @@ Blockly.Blocks['grid_turnleft'] = {
 };
 
 Blockly.JavaScript['grid_turnleft'] = function(block) {
-    var code += 'updatePlane(0,-move);';
+    var code = 'updatePlane(0,-move);';
     code += 'waitForSeconds(move/40);\n';
     code += 'move = 0;\n';
 
@@ -82,9 +80,9 @@ Blockly.JavaScript['grid_goforward'] = function(block) {
 Blockly.Blocks['wait_seconds'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("wait")
+            .appendField("laukti")
             .appendField(new Blockly.FieldTextInput("1"), "SECONDS")
-            .appendField("seconds");
+            .appendField("s.");
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setColour(120);
@@ -151,7 +149,7 @@ Blockly.JavaScript['fly_points'] = function(block) {
     var dropdown_d_points = block.getFieldValue('d_points');
     var value_points_x_y = Blockly.JavaScript.valueToCode(block, 'points_x_y', Blockly.JavaScript.ORDER_NONE);
     // TODO: Assemble JavaScript into code variable.
-    var code = ""; 
+    var code = "";
     code += 'updatePlane(' + value_points_x_y + ');';
     code += 'waitForSeconds(3);\n';
     return code;
@@ -160,7 +158,7 @@ Blockly.JavaScript['fly_points'] = function(block) {
 function changePoints(x, y) {
     if (x != 0 || y != 0) {
 
-    var globalID = requestAnimationFrame(function() { changePoints(x, y); });
+        var globalID = requestAnimationFrame(function() { changePoints(x, y); });
     } else { cancelAnimationFrame(globalID); }
     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
     checkPoint(plain_x, plain_y);
