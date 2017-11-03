@@ -17,35 +17,35 @@
         </div>
         <div class="progress-container">
             <ul style="text-align: center;">
-                <li>
-                    <a href="level1-1.html">1</a>
+                 <li>
+                    <a href="level2-1.html">1</a>
                 </li>
                 <li>
-                    <a href="level1-2.html">2</a>
+                    <a href="level2-2.html">2</a>
                 </li>
                 <li>
-                    <a href="level1-3.html">3</a>
+                    <a href="level2-3.html">3</a>
                 </li>
                 <li>
-                    <a href="level1-4.html">4</a>
+                    <a href="level2-4.html">4</a>
                 </li>
                 <li>
-                    <a href="level1-5.html">5</a>
+                    <a href="level2-5.html">5</a>
                 </li>
                 <li>
-                    <a href="level1-6.html">6</a>
+                    <a href="level2-6.html">6</a>
                 </li>
                 <li>
-                    <a href="level1-7.html">7</a>
+                    <a href="level2-7.html">7</a>
                 </li>
                 <li>
-                    <a href="level1-8.html">8</a>
+                    <a href="level2-8.html">8</a>
                 </li>
                 <li>
-                    <a href="level1-9.html">9</a>
+                    <a href="level2-9.html">9</a>
                 </li>
                 <li>
-                    <a href="level1-10.html">10</a>
+                    <a href="level2-10.html">10</a>
                 </li>
             </ul>
         </div>
@@ -83,15 +83,18 @@
                 </div>
                 <xml id="toolbox" style="display: none">
                     <category name="Tekstas" colour="160">
-                        <block type="text">
+                         <block type="text">
                         </block>
                         <block type="text">
                             <field name="TEXT">18 aa; 19 bcjhs; 18 cj nj; 2003 vndjv; 18 djvnsjk;</field>
                         </block>
+                        <block type="text_print"></block>
                         <block type="spausdinti"></block>
                     </category>
                     <category name="Sąrašai" colour="260">
-                        <block type="list_includes"></block>
+                        <block type="lists_getSublist">
+                        </block>
+                        <block type="list_includes2"></block>
                         <block type="lists_split">
                             <value name="DELIM">
                                 <shadow type="text">
@@ -102,8 +105,8 @@
                         <block type="lists_sort"></block>
                     </category>
                     <category name="Kintamieji" colour="330">
-                        <block type="v_dokumentai"></block>
-                        <block type="set_v"></block>
+                              <block type="v_dokumentai"></block>
+                        <block type="set_v2"></block>
                     </category>
                 </xml>
             </div>
@@ -133,7 +136,7 @@
                     <div class="modal-content">
                         <div class="modal-body">
                             <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
-                            <a href="level1-6.html" type="button" class="btn btn-default">Sekanti užduotis</a>
+                            <a href="level2-6.html" type="button" class="btn btn-default">Sekanti užduotis</a>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
