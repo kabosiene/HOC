@@ -50,8 +50,7 @@ Blockly.Blocks['grid_turnleft'] = {
 };
 
 Blockly.JavaScript['grid_turnleft'] = function(block) {
-    var code = 'plane_state = "plane_left";\n';
-    code += 'updatePlane(0,-move);';
+    var code += 'updatePlane(0,-move);';
     code += 'waitForSeconds(move/40);\n';
     code += 'move = 0;\n';
 
