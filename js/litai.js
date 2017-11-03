@@ -7,8 +7,6 @@
     var sakotis = new Image();
     my_canvas.addEventListener('click', clickReporterPirkti, false);
     var eurasKainuoja = 3.45;
-    // var turimLitų = 0;
-    // var turimEurų = 0;
     var litas;
     var euras;
     var paspausta;
@@ -131,13 +129,14 @@ Blockly.Blocks['convert'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
- this.setTooltip("Konevrtuoja eurus į litus. ");
+ this.setTooltip("Konvertuoja eurus į litus. ");
  this.setHelpUrl("");
   }
 };
 Blockly.JavaScript['convert'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   var code = 'litas = euras * 3.45;\n';
+  code += 'euras = 0; \n';
   return code;
 };
     //*****************************************************************************
