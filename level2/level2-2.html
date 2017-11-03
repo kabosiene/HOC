@@ -63,10 +63,6 @@
                     <canvas id="canvas" width="490" height="330" style="z-index: 0">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-                    </canvas> -->
-                    <canvas id="canvas3" width="490" height="330">
-                        This text is displayed if your browser does not support HTML5 Canvas.
-                    </canvas>
                     <div id="lituanica_plane"></div>
                 </div>
                 <div class="button-panel">
@@ -87,11 +83,13 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
+                    <!--                     <category name="Koordinatės" colour="230"> -->
                     </block>
-                      <block type="fly_to">
-                    </block>  
+                    <block type="fly_to">
+                    </block>
                     <block type="fly_points">
                     </block>
+                    <!-- </category> -->
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -146,16 +144,16 @@
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var background = my_canvas.getContext("2d");
-    var lituanica_canvas = document.getElementById("canvas3");
-    var lituanica = lituanica_canvas.getContext("2d");
+    // var lituanica_canvas = document.getElementById("canvas3");
+    // var lituanica = lituanica_canvas.getContext("2d");
     var map = new Image();
     map.src = "../img_lessons/lituanica/fonas.png";
     var plane = new Image();
-    plane.src = "../test_img/litu.png";
-    var angleInDegrees = 0;
+    plane.src = "../img_lessons/lituanica/lituanica_didelis.png";
     var plain_x = 0;
     var plain_y = 170;
     var finished = false;
+    var points = [];
 
     map.onload = function() {
         //draw(map, 0, 0, 500,300);
@@ -167,7 +165,7 @@
 
     function drawGrid() {
 
-             background.strokeStyle = 'black';
+        background.strokeStyle = 'black';
         //newyork
         background.fillRect(45, 190, 4, 4);
         background.beginPath();
@@ -178,13 +176,13 @@
         background.fillRect(130, 140, 4, 4);
         background.beginPath();
         background.arc(132, 142, 8, 0, 2 * Math.PI);
- 
+
         background.stroke();
         //Škotija
         background.fillRect(330, 105, 4, 4);
         background.beginPath();
         background.arc(332, 107, 8, 0, 2 * Math.PI);
-     
+
         background.stroke();
         //Kaunas
         background.fillRect(449, 122, 4, 4);
@@ -197,8 +195,6 @@
         background.strokeStyle = '#ff0000';
         background.arc(412, 142, 8, 0, 2 * Math.PI);
         background.stroke();
-
-      
 
     }
     </script>
@@ -234,7 +230,9 @@
         drawGrid();
         plain_x = 0;
         plain_y = 170;
-        var move = 0;
+        points = [];
+        document.getElementById("lituanica_plane").style.visibility = 'visible';
+
         finished = false;
         try {
 
@@ -246,7 +244,7 @@
                     }
                 }
                 nextStep();
-               // myInterpreter.run();
+                // myInterpreter.run();
             } else {
                 alert('Pridėk kodo blokelį.');
             }
@@ -284,34 +282,31 @@
 
         /***********************************************************************/
 
-
-         var move = 0;
         Blockly.JavaScript.addReservedWords('updatePlane');
 
         var wrapper = interpreter.createAsyncFunction(
-            function updatePlane(x,y,callback) {  
-                x = x-plain_x-32;
-                y = y-plain_y-15;
-                changePoints(x,y);
+            function updatePlane(x, y, callback) {
+                x = x - plain_x;
+                y = y - plain_y;
+                changePoints(x, y);
                 callback();
-            } 
-            );
-       
+            }
+        );
+
         interpreter.setProperty(scope, 'updatePlane', wrapper);
 
         /***********************************************************************/
 
-          Blockly.JavaScript.addReservedWords('waitForSeconds');
+        Blockly.JavaScript.addReservedWords('waitForSeconds');
 
-  var wrapper = interpreter.createAsyncFunction(
-    function(timeInSeconds, callback) {
-      // Delay the call to the callback.
-      setTimeout(callback, timeInSeconds * 1000);
-    });
-  interpreter.setProperty(scope, 'waitForSeconds', wrapper);
+        var wrapper = interpreter.createAsyncFunction(
+            function(timeInSeconds, callback) {
+                // Delay the call to the callback.
+                setTimeout(callback, timeInSeconds * 1000);
+            });
+        interpreter.setProperty(scope, 'waitForSeconds', wrapper);
 
     }
-
     </script>
 </body>
 

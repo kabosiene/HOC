@@ -14,9 +14,6 @@ Blockly.Blocks['grid_turnright'] = {
 
 Blockly.JavaScript['grid_turnright'] = function(block) {
     var code = 'plane_state = "plane_right";\n';
-    //code += 'document.getElementById("lituanica_plane").style.transformOrigin = "0px 100px 0";\n'
-    // document.getElementById("lituanica_plane").style.transform = "rotate(90deg)"'
-    //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane_right, plain_x, plain_y);\n ";
     code += 'updatePlane(0,move);';
     code += 'waitForSeconds(move/40);\n';
     code += 'move = 0;\n';
@@ -35,8 +32,6 @@ Blockly.Blocks['grid_forward'] = {
 
 Blockly.JavaScript['grid_forward'] = function(block) {
     var code = ' plane_state = "plane";\n';
-    //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane, plain_x, plain_y);\n ";  
-    //code += 'update_plane(move, x_deg);';     
     code += 'updatePlane(move,0);';
     code += 'waitForSeconds(move/40);\n';
     code += 'move = 0;\n';
@@ -56,9 +51,6 @@ Blockly.Blocks['grid_turnleft'] = {
 
 Blockly.JavaScript['grid_turnleft'] = function(block) {
     var code = 'plane_state = "plane_left";\n';
-    //code += ' document.getElementById("lituanica_plane").style.transformOrigin = "100px 50px 0";\n'
-    // document.getElementById("lituanica_plane").style.transform = "rotate(-90deg)";'
-    //code += "lituanica.clearRect(0,0,canvas.width,canvas.height);\n  lituanica.drawImage(plane_left, plain_x, plain_y);\n ";
     code += 'updatePlane(0,-move);';
     code += 'waitForSeconds(move/40);\n';
     code += 'move = 0;\n';
@@ -142,13 +134,11 @@ Blockly.Blocks['fly_points'] = {
     init: function() {
         this.appendValueInput("points_x_y")
             .setCheck(null)
-            .appendField("Skristi į")
             .appendField(new Blockly.FieldDropdown([
-                ["pirmas taškas", "first_point"],
-                ["antras taškas", "second_point"],
-                ["trečias taškas", "third_point"],
-                ["ketvirtas taškas", "fourth_point"],
-                ["penktas taškas", "fifth_point"]
+                ["Niufaunlandas", "first_point"],
+                ["Škotija", "second_point"],
+                ["Lenkija", "third_point"],
+                ["Lietuva", "fourth_point"]
             ]), "d_points");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -162,8 +152,7 @@ Blockly.JavaScript['fly_points'] = function(block) {
     var dropdown_d_points = block.getFieldValue('d_points');
     var value_points_x_y = Blockly.JavaScript.valueToCode(block, 'points_x_y', Blockly.JavaScript.ORDER_NONE);
     // TODO: Assemble JavaScript into code variable.
-    var code = ""; //dropdown_d_points;
-    //code += value_points_x_y;
+    var code = ""; 
     code += 'updatePlane(' + value_points_x_y + ');';
     code += 'waitForSeconds(3);\n';
     return code;
@@ -172,7 +161,7 @@ Blockly.JavaScript['fly_points'] = function(block) {
 function changePoints(x, y) {
     if (x != 0 || y != 0) {
 
-        var globalID = requestAnimationFrame(function() { changePoints(x, y); });
+    var globalID = requestAnimationFrame(function() { changePoints(x, y); });
     } else { cancelAnimationFrame(globalID); }
     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
     checkPoint(plain_x, plain_y);
@@ -210,21 +199,21 @@ function checkPoint(x, y) {
         } else if (x == 400 && y == 90) {
             setTimeout(function() { alert("Ne visi taškai aplankyti!"); }, 500);
         }
-    } else if (90 > x && x >= 80 && 150 > y && y >= 130) {
+    } else if (100 >= x && x >= 80 && 140 >= y && y >= 120) {
         background.clearRect(0, 0, canvas.width, canvas.height);
         background.drawImage(map, 0, 0);
         drawGrid();
         background.strokeStyle = 'black';
         background.strokeText("Niufaunlandas", 140, 140);
         points[0] = 1;
-    } else if (290 > x && x >= 270 && 100 > y && y > 88) {
+    } else if (290 >= x && x >= 270 && 100 >= y && y >= 88) {
         background.clearRect(0, 0, canvas.width, canvas.height);
         background.drawImage(map, 0, 0);
         drawGrid();
         background.strokeStyle = 'black';
         background.strokeText("Škotija", 320, 95);
         points[1] = 1;
-    } else if (370 > x && x >= 350 && 110 > y && y > 90) {
+    } else if (370 >= x && x >= 350 && 130 >= y && y >= 100) {
         background.clearRect(0, 0, canvas.width, canvas.height);
         background.drawImage(map, 0, 0);
         drawGrid();
