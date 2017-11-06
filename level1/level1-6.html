@@ -194,9 +194,9 @@
         trashcan: true
     });
 
-    var dom = Blockly.Xml.textToDom('load_custom');
-    console.log(dom);
-    Blockly.Xml.domToWorkspace(dom, workspace);
+    // var dom = Blockly.Xml.textToDom('load_custom');
+    // console.log(dom);
+    // Blockly.Xml.domToWorkspace(dom, workspace);
 
 
     function toJavascript(event) {
@@ -208,6 +208,12 @@
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
+    var paper = new Image();
+    paper.src = "../img_lessons/basanavicius/dokumentas.png";
+    var basanavicius = new Image();
+    basanavicius.src = "../img_lessons/basanavicius/basanavicius.png";
+
+
     var tekstas_correct = [];
     tekstas_correct[0] = (1);
     tekstas_correct[5] = (2);
@@ -234,22 +240,25 @@
     tekstas_short[0] = " Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė, "
     tekstas_short[1] = " ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis."
     tekstas_short[2] = " demokratiniu būdu visų jos gyventojų išrinktas. "
+    paper.onload = function() {
+        ctx.drawImage(paper, 0, 2);
 
-    ctx.save();
-    ctx.beginPath();
-    ctx.fillStyle = "black";
-    ctx.font = "12px Verdana";
-    ctx.globalAlpha = 0.70;
-    for (var i = tekstas_old.length - 1; i >= 0; i--) {
-        ctx.fillText((i + 1) + '. ' + tekstas_old[i], 0, (i + 1) * 20);
+        ctx.save();
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.font = "12px Verdana";
+        ctx.globalAlpha = 0.70;
+        for (var i = tekstas_old.length - 1; i >= 0; i--) {
+            ctx.fillText((i + 1) + '. ' + tekstas_old[i], 10, (i + 1) * 20);
+        }
+        ctx.globalAlpha = 1;
+        ctx.fillText("A. " + tekstas_short[0], 10, 14 * 20);
+        ctx.fillText("B. " + tekstas_short[1], 10, 15 * 20);
+        ctx.fillText("C. " + tekstas_short[2], 10, 16 * 20);
+
+        ctx.restore();
+
     }
-    ctx.globalAlpha = 1;
-    ctx.fillText("A. " + tekstas_short[0], 0, 14 * 20);
-    ctx.fillText("B. " + tekstas_short[1], 0, 15 * 20);
-    ctx.fillText("C. " + tekstas_short[2], 0, 16 * 20);
-
-    ctx.restore();
-
 
     function runCode() {
         tekstas = [];
@@ -261,6 +270,7 @@
         code += Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(paper, 0, 2);
         tekstas_old[0] = "" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
         tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus"
         tekstas_old[2] = " konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,";
@@ -277,6 +287,7 @@
             if (code.length > 0) {
 
                 eval(code);
+
                 ctx.beginPath();
                 ctx.fillStyle = "black";
                 ctx.font = "12px Verdana";
@@ -285,16 +296,20 @@
                     if (tekstas[i]) { tekstas_old.splice(i, 1, tekstas_short[tekstas[i] - 1]); }
                 }
                 for (var i = tekstas_old.length - 1; i >= 0; i--) {
-                    ctx.fillText((i + 1) + '. ' + tekstas_old[i], 0, (i + 1) * 20);
+                    ctx.fillText((i + 1) + '. ' + tekstas_old[i], 10, (i + 1) * 20);
                 }
                 ctx.globalAlpha = 1;
-                ctx.fillText("A. " + tekstas_short[0], 0, 14 * 20);
-                ctx.fillText("B. " + tekstas_short[1], 0, 15 * 20);
-                ctx.fillText("C. " + tekstas_short[2], 0, 16 * 20);
-  
+                ctx.fillText("A. " + tekstas_short[0], 10, 14 * 20);
+                ctx.fillText("B. " + tekstas_short[1], 10, 15 * 20);
+                ctx.fillText("C. " + tekstas_short[2], 10, 16 * 20);
+
                 if (JSON.stringify(tekstas_correct) == JSON.stringify(tekstas)) {
-                    setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+
+                    ctx.drawImage(basanavicius, 138, 0);
+                    setTimeout(function() { $('#nextModal').modal('show'); }, 1500);
+
                 } else { alert('Bandyk dar'); }
+
             } else {
                 alert('Pridėk kodo blokelį.');
             }

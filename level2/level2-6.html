@@ -109,7 +109,7 @@
                         </block>
                     </category>
                 </xml>
-                <xml  id="load_custom" style="display: none">
+                <xml id="load_custom" style="display: none">
                     <variables>
                         <variable type="" id="bIqqa+{5{%uX3JtyQuh5">litai</variable>
                         <variable type="" id="|RDL=+G-BPZ1^=;=BKqi">euras</variable>
@@ -161,7 +161,7 @@
                 </div>
             </div>
         </div>
-            <div class="next-modal">
+        <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -200,9 +200,9 @@
         trashcan: true
     });
 
-    var dom = Blockly.Xml.textToDom('load_custom');
-    console.log(dom);
-    Blockly.Xml.domToWorkspace(dom, workspace);
+    // var dom = Blockly.Xml.textToDom('load_custom');
+    // console.log(dom);
+    // Blockly.Xml.domToWorkspace(dom, workspace);
 
 
     function toJavascript(event) {
@@ -214,6 +214,11 @@
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
+    var paper = new Image();
+    paper.src = "../img_lessons/basanavicius/dokumentas.png";
+    var basanavicius = new Image();
+    basanavicius.src = "../img_lessons/basanavicius/basanavicius.png";
+
     var tekstas_correct = [1, 5, 3, 4, 2, , 7, 6, 9];
     var tekstas_old = [];
     var tekstas = [];
@@ -227,17 +232,19 @@
     tekstas_old[7] = "H. kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
     tekstas_old[8] = "I. prašo pripažinti nepriklausomą Lietuvos valstybę.";
     var tekstas_sample = ["Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,", "remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,", "skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje", "ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.", "Drauge Lietuvos Taryba pareiškia,", "kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,", "demokratiniu būdu visų jos gyventojų išrinktas.", "Lietuvos Taryba pranešdama apie tai ....... vyriausybei,", "prašo pripažinti nepriklausomą Lietuvos valstybę."]
+    paper.onload = function() {
+        ctx.drawImage(paper, 0, 2);
+        ctx.save();
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.font = "12px Verdana";
+        ctx.globalAlpha = 0.50;
+        for (var i = tekstas_old.length - 1; i >= 0; i--) {
+            ctx.fillText(tekstas_old[i], 10, (i + 2) * 25);
+        }
+        ctx.restore();
 
-    ctx.save();
-    ctx.beginPath();
-    ctx.fillStyle = "black";
-    ctx.font = "12px Verdana";
-    ctx.globalAlpha = 0.50;
-    for (var i = tekstas_old.length - 1; i >= 0; i--) {
-        ctx.fillText(tekstas_old[i], 0, (i + 1) * 30);
     }
-    ctx.restore();
-
 
     function runCode() {
         tekstas = [];
@@ -245,26 +252,27 @@
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-            var code = 'tekstas = [];';
+        var code = 'tekstas = [];';
         code += Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(paper, 0, 2);
+
         for (var i = tekstas_old.length - 1; i >= 0; i--) {
-            ctx.fillText((i + 1) + '. ' + tekstas_old[i], 0, (i + 1) * 10);
+            ctx.fillText((i + 1) + '. ' + tekstas_old[i], 10, (i + 2) * 15);
         }
-        //            for (var i = tekstas_sample.length - 1; i >= 0; i--) {
-        //     ctx.fillText((i + 1) + '. ' + tekstas_sample[i], 0, (100+(i + 1) * 10));
-        // }
+
         try {
             if (code.length > 0) {
-            
+
                 eval(code);
 
                 for (var i = tekstas.length - 1; i >= 0; i--) {
-                    ctx.fillText((i + 1) + '. ' + tekstas_old[tekstas[i] - 1], 30, (200 + (i + 1) * 10));
+                    ctx.fillText((i + 1) + '. ' + tekstas_old[tekstas[i] - 1], 20, (170 + (i + 1) * 15));
                 }
                 if (JSON.stringify(tekstas_correct) == JSON.stringify(tekstas)) {
-                 setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+                    ctx.drawImage(basanavicius, 138, 0);
+                    setTimeout(function() { $('#nextModal').modal('show'); }, 1500);
                 } else { alert('Bandyk dar'); }
             } else {
                 alert('Pridėk kodo blokelį.');
