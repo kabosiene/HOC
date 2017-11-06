@@ -53,7 +53,7 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>8. Sąrašai. Basanavičius</h4></div>
+                <h4>Sąrašai. Basanavičius</h4></div>
             <div class=" col-md-7" id="task"> Sutvarkyk Nepriklausomybės akto tekstą. Sukurk tuščią sąrašą "tekstas". Sudėk eilutes į sarašą tinkama eilės tvarka.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
@@ -264,7 +264,7 @@
                     ctx.fillText((i + 1) + '. ' + tekstas_old[tekstas[i] - 1], 30, (200 + (i + 1) * 10));
                 }
                 if (JSON.stringify(tekstas_correct) == JSON.stringify(tekstas)) {
-                    alert('Match');
+                 setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
                 } else { alert('Bandyk dar'); }
             } else {
                 alert('Pridėk kodo blokelį.');

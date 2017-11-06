@@ -53,7 +53,7 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>8. Sąrašai. Basanavičius</h4></div>
+                <h4> Sąrašai. Basanavičius</h4></div>
             <div class=" col-md-7" id="task"> Sutvarkyk Nepriklausomybės akto tekstą. Sukurk tuščią sąrašą "tekstas". Sudėk eilutes į sarašą tinkama eilės tvarka.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
@@ -89,12 +89,6 @@
                         <block type="tekstas1"></block>
                         <block type="tekstas2"></block>
                         <block type="tekstas3"></block>
-                        <block type="tekstas4"></block>
-                        <block type="tekstas5"></block>
-                        <block type="tekstas6"></block>
-                        <block type="tekstas7"></block>
-                        <block type="tekstas8"></block>
-                        <block type="tekstas9"></block>
                     </category>
                     <category name="Sąrašai" colour="#745CA6">
                         <block type="lists_setIndex">
@@ -109,7 +103,7 @@
                         </block>
                     </category>
                 </xml>
-                <xml  id="load_custom" style="display: none">
+                <xml id="load_custom" style="display: none">
                     <variables>
                         <variable type="" id="bIqqa+{5{%uX3JtyQuh5">litai</variable>
                         <variable type="" id="|RDL=+G-BPZ1^=;=BKqi">euras</variable>
@@ -161,7 +155,7 @@
                 </div>
             </div>
         </div>
-            <div class="next-modal">
+        <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -214,28 +208,46 @@
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
-    var tekstas_correct = [1, 5, 3, 4, 2, , 7, 6, 9];
+    var tekstas_correct = [];
+    tekstas_correct[0] = (1);
+    tekstas_correct[5] = (2);
+    tekstas_correct[9] = (3);
     var tekstas_old = [];
     var tekstas = [];
-    tekstas_old[0] = "A. Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
-    tekstas_old[1] = "B. Drauge Lietuvos Taryba pareiškia,";
-    tekstas_old[2] = "C. skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-    tekstas_old[3] = "D. ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
-    tekstas_old[4] = "E. remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,";
-    tekstas_old[5] = "F. Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
-    tekstas_old[6] = "G. demokratiniu būdu visų jos gyventojų išrinktas.";
-    tekstas_old[7] = "H. kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-    tekstas_old[8] = "I. prašo pripažinti nepriklausomą Lietuvos valstybę.";
-    var tekstas_sample = ["Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,", "remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,", "skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje", "ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.", "Drauge Lietuvos Taryba pareiškia,", "kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,", "demokratiniu būdu visų jos gyventojų išrinktas.", "Lietuvos Taryba pranešdama apie tai ....... vyriausybei,", "prašo pripažinti nepriklausomą Lietuvos valstybę."]
+    tekstas_old[0] = "" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+    tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus"
+    tekstas_old[2] = " konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,";
+    tekstas_old[3] = " skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos "
+    tekstas_old[4] = " valstybę su sostine Vilniuje";
+    tekstas_old[5] = "" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+    tekstas_old[6] = " Drauge Lietuvos Taryba pareiškia,";
+    tekstas_old[7] = " kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo "
+    tekstas_old[8] = " galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
+    tekstas_old[9] = "" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+    tekstas_old[10] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
+    tekstas_old[11] = " prašo pripažinti nepriklausomą Lietuvos valstybę.";
+
+
+    var tekstas_sample = [" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,", " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus ", "konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,", " skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos", " valstybę su sostine Vilniuje", " ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.", " Drauge Lietuvos Taryba pareiškia,", " kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo ", "galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,", " demokratiniu būdu visų jos gyventojų išrinktas.", " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,", " prašo pripažinti nepriklausomą Lietuvos valstybę."]
+
+    var tekstas_short = [];
+    tekstas_short[0] = " Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė, "
+    tekstas_short[1] = " ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis."
+    tekstas_short[2] = " demokratiniu būdu visų jos gyventojų išrinktas. "
 
     ctx.save();
     ctx.beginPath();
     ctx.fillStyle = "black";
     ctx.font = "12px Verdana";
-    ctx.globalAlpha = 0.50;
+    ctx.globalAlpha = 0.70;
     for (var i = tekstas_old.length - 1; i >= 0; i--) {
-        ctx.fillText(tekstas_old[i], 0, (i + 1) * 30);
+        ctx.fillText((i + 1) + '. ' + tekstas_old[i], 0, (i + 1) * 20);
     }
+    ctx.globalAlpha = 1;
+    ctx.fillText("A. " + tekstas_short[0], 0, 14 * 20);
+    ctx.fillText("B. " + tekstas_short[1], 0, 15 * 20);
+    ctx.fillText("C. " + tekstas_short[2], 0, 16 * 20);
+
     ctx.restore();
 
 
@@ -245,26 +257,43 @@
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-            var code = 'tekstas = [];';
+        var code = 'tekstas = [];';
         code += Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (var i = tekstas_old.length - 1; i >= 0; i--) {
-            ctx.fillText((i + 1) + '. ' + tekstas_old[i], 0, (i + 1) * 10);
-        }
-        //            for (var i = tekstas_sample.length - 1; i >= 0; i--) {
-        //     ctx.fillText((i + 1) + '. ' + tekstas_sample[i], 0, (100+(i + 1) * 10));
-        // }
+        tekstas_old[0] = "" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+        tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus"
+        tekstas_old[2] = " konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,";
+        tekstas_old[3] = " skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos "
+        tekstas_old[4] = " valstybę su sostine Vilniuje";
+        tekstas_old[5] = "" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+        tekstas_old[6] = " Drauge Lietuvos Taryba pareiškia,";
+        tekstas_old[7] = " kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo "
+        tekstas_old[8] = " galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
+        tekstas_old[9] = "" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+        tekstas_old[10] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
+        tekstas_old[11] = " prašo pripažinti nepriklausomą Lietuvos valstybę.";
         try {
             if (code.length > 0) {
-            
-                eval(code);
 
+                eval(code);
+                ctx.beginPath();
+                ctx.fillStyle = "black";
+                ctx.font = "12px Verdana";
+                ctx.globalAlpha = 0.70;
                 for (var i = tekstas.length - 1; i >= 0; i--) {
-                    ctx.fillText((i + 1) + '. ' + tekstas_old[tekstas[i] - 1], 30, (200 + (i + 1) * 10));
+                    if (tekstas[i]) { tekstas_old.splice(i, 1, tekstas_short[tekstas[i] - 1]); }
                 }
+                for (var i = tekstas_old.length - 1; i >= 0; i--) {
+                    ctx.fillText((i + 1) + '. ' + tekstas_old[i], 0, (i + 1) * 20);
+                }
+                ctx.globalAlpha = 1;
+                ctx.fillText("A. " + tekstas_short[0], 0, 14 * 20);
+                ctx.fillText("B. " + tekstas_short[1], 0, 15 * 20);
+                ctx.fillText("C. " + tekstas_short[2], 0, 16 * 20);
+  
                 if (JSON.stringify(tekstas_correct) == JSON.stringify(tekstas)) {
-                    alert('Match');
+                    setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
                 } else { alert('Bandyk dar'); }
             } else {
                 alert('Pridėk kodo blokelį.');
