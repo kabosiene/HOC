@@ -190,7 +190,12 @@
     }
     workspace.addChangeListener(toJavascript);
     </script>
-    <script type="text/javascript">
+    <script type="text/javascript">  
+        var $ken = $('.avatar');
+    var $star = $('.star');
+    var $kenPos;
+    var $starPos;
+    var countStars = 0;
     function runCode() {
         // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
@@ -198,6 +203,8 @@
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        countStars = 0;
+         $('.rating').empty();
         try {
             if (code.length > 0) {
                 eval(code);
@@ -210,11 +217,7 @@
         }
     }
 
-    var $ken = $('.avatar');
-    var $star = $('.star');
-    var $kenPos;
-    var $starPos;
-    var countStars = 0;
+  
     var jump = function() {
 
         $ken.addClass('jump');
