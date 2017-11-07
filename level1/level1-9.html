@@ -142,6 +142,21 @@
                 </div>
             </div>
         </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
+                            <a href="level1-10.html" type="button" class="btn btn-default">Sekanti užduotis</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -199,19 +214,24 @@
     var $star = $('.star');
     var $kenPos;
     var $starPos;
+    var countStars = 0;
     var jump = function() {
 
         $ken.addClass('jump');
 
-           var explodeIfColision = setInterval(function() {
-           if (isStarllColision()) { clearInterval(explodeIfColision);
-           $("<span>&#x2605;</span>").appendTo($('.rating'));
-           setTimeout(function() {$('.star').hide();}, 200);
-        setTimeout(function() {$('.star').show();}, 500);
-       }
+        var explodeIfColision = setInterval(function() {
+            if (isStarllColision()) {
+                clearInterval(explodeIfColision);
+                $("<span>&#x2605;</span>").appendTo($('.rating'));
+                countStars += 1;
+                setTimeout(function() { $('.star').hide(); }, 200);
+                setTimeout(function() { $('.star').show(); }, 500);
+            }
+            if (countStars == 12) {   setTimeout(function() { $('#nextModal').modal('show'); }, 1000);}
         }, 50);
 
-        setTimeout(function() { $ken.removeClass('jump');clearInterval(explodeIfColision); }, 500);
+        setTimeout(function() { $ken.removeClass('jump');
+            clearInterval(explodeIfColision); }, 500);
     };
     $('#up').on('mousedown mouseup', function(e) {
         if (e.type == 'mousedown') { jump(); }
@@ -219,9 +239,9 @@
 
 
     var isStarllColision = function() {
-            $starPos = $star.offset();
-            $kenPos = $ken.offset();
-        return $starPos.left > $kenPos.left+20  && $starPos.left < $kenPos.left+70 ? true : false;
+        $starPos = $star.offset();
+        $kenPos = $ken.offset();
+        return $starPos.left > $kenPos.left + 20 && $starPos.left < $kenPos.left + 70 ? true : false;
     };
     </script>
 </body>
