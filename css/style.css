@@ -12,8 +12,9 @@ li {
     text-decoration: none;
     color: inherit;
 }
-.heading a:hover{
-	color: #90CD9B;
+
+.heading a:hover {
+    color: #90CD9B;
 }
 
 .hint-panel {
@@ -30,8 +31,9 @@ li {
     font-weight: bold;
     border: .05rem solid #fff;
 }
-.btn-secondary:hover{
-  background-color: #90CD9B;
+
+.btn-secondary:hover {
+    background-color: #90CD9B;
 }
 
 .progress-container {
@@ -56,18 +58,30 @@ li {
 }
 
 #preview {
-	background-color: #fff;
+    background-color: #fff;
     border: 5px #90CD9B solid;
     height: 50vh;
     /*padding: 10px;*/
     width: 500px;
     height: 340px;
-position: relative;
+    position: relative;
 }
- canvas { position: absolute;}
- #canvas{z-index: 1;}
- #canvas2{z-index: 2;}
- #canvas3{z-index: 3;}
+
+canvas {
+    position: absolute;
+}
+
+#canvas {
+    z-index: 1;
+}
+
+#canvas2 {
+    z-index: 2;
+}
+
+#canvas3 {
+    z-index: 3;
+}
 
 .flagPart {
     height: 50px;
@@ -78,82 +92,205 @@ position: relative;
 }
 
 .button-panel {
-	margin-top: 20px; 
-	text-align: center;
-}
-#blocklyDiv {
-	height: 70vh;
-    min-width: 400px;
-	border: solid #E1D82C 5px;
+    margin-top: 20px;
+    text-align: center;
 }
 
-#test1{
+#blocklyDiv {
+    height: 70vh;
+    min-width: 400px;
+    border: solid #E1D82C 5px;
+}
+
+#test1 {
     visibility: hidden;
-  background-image:url(../test_img/swim_sprite.png);
-  height:40px;
-  width:40px;
-  background-position:0 0 ; 
-  background-size:200% 100%; 
-animation : swim 1s infinite  steps(2, end);
-/*   float:left; */
-transform: translate(0px,150px);
+    background-image: url(../test_img/swim_sprite.png);
+    height: 40px;
+    width: 40px;
+    background-position: 0 0;
+    background-size: 200% 100%;
+    animation: swim 1s infinite steps(2, end);
+    /*   float:left; */
+    transform: translate(0px, 150px);
 }
 
 @keyframes swim {
-  100% { background-position: 200% 0}
+    100% {
+        background-position: 200% 0
+    }
 }
 
-#lituanica_plane{
-  /*visibility: hidden;*/
-  background-image:url(../img_lessons/lituanica/lituanica_sprite.png);
-  height:33px;
-  width:75px;
-  animation : fly 0.15s infinite  steps(2, end);
-  transform: translate(0px,170px);
+#lituanica_plane {
+    /*visibility: hidden;*/
+    background-image: url(../img_lessons/lituanica/lituanica_sprite.png);
+    height: 33px;
+    width: 75px;
+    animation: fly 0.15s infinite steps(2, end);
+    transform: translate(0px, 170px);
 }
 
 @keyframes fly {
-  100% { background-position: 200% 0}
+    100% {
+        background-position: 200% 0
+    }
 }
 
 #d5 {
-  width: 200px;
-  height: 200px;
-  margin: 65px auto;
-  animation: spin 10s linear infinite;
+    width: 200px;
+    height: 200px;
+    margin: 65px auto;
+    animation: spin 10s linear infinite;
 }
+
 .dance {
-  position: absolute;
+    position: absolute;
     animation: spin 10s linear infinite reverse;
 }
-.d-inner{
-  background-image:url(../test_img/swim_sprite.png);
-  height:40px;
-  width:40px;
-  animation: dance 2s infinite steps(2, end);
+
+.d-inner {
+    background-image: url(../test_img/swim_sprite.png);
+    height: 40px;
+    width: 40px;
+    animation: dance 2s infinite steps(2, end);
 }
 
-.d-inner2{
-  background-image:url(../test_img/dance2.png);
-  height:50px;
-  width:54px;
-  animation: dance2 1s infinite steps(4, end);
+.d-inner2 {
+    background-image: url(../test_img/dance2.png);
+    height: 50px;
+    width: 54px;
+    animation: dance2 1s infinite steps(4, end);
 }
+
 @keyframes spin {
-  100% {
-    transform: rotate(1turn);
-  }
+    100% {
+        transform: rotate(1turn);
+    }
 }
+
+@keyframes stop {
+    100% {
+        transform: rotate(0turn);
+    }
+}
+
 
 @keyframes dance {
- 100% { background-position:200% 0}
+    100% {
+        background-position: 200% 0
+    }
 }
 
 @keyframes dance2 {
- 100% { background-position:400% 0}
+    100% {
+        background-position: 400% 0
+    }
+}
+
+.rating {
+    position: absolute;
+    color: yellow;
+    background: blue;
+}
+
+.star {
+    color: yellow;
+    /*transform: translate(200px,240px);*/
+    animation: animatedStar 3s linear infinite;
+}
+
+@keyframes animatedStar {
+    from {
+        transform: translate(490px, 100px);
+    }
+    to {
+        transform: translate(0px, 100px);
+    }
 }
 
 
+.clouds {
+    width: 490px;
+    height: 330px;
+    background-image: url(../test_img/bg-clouds.png);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    z-index: 19;
+    animation: animatedBackground 50s linear infinite;
+}
+
+
+
+.l1 {
+    width: 490px;
+    height: 330px;
+    background-image: url(../test_img/green_background_2.png);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    z-index: 20;
+    animation: animatedBackground 25s linear infinite;
+    z-index: 1;
+}
+
+.l2 {
+    width: 490px;
+    height: 330px;
+    background-image: url(../test_img/trees_layer.png);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    z-index: 21;
+    animation: animatedBackground 15s linear infinite;
+}
+
+@keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+
+
+.avatar {
+    /*visibility: hidden;*/
+    background-image: url(../test_img/jump.png);
+    height: 80px;
+    width: 70px;
+    animation: run 0.4s infinite steps(5, end);
+    /*   float:left; */
+    transform: translate(100px, 240px);
+    transition: transform 0.5s cubic-bezier(0.990, 0.005, 0.000, 0.420);
+    z-index: 22;
+}
+
+@keyframes run {
+    from {
+        background-position: 0px -240px;
+    }
+    to {
+        background-position: -350px -240px;
+    }
+}
+
+.jump {
+    /*visibility: hidden;*/
+    background-image: url(../test_img/jump.png);
+    width: 70px;
+    height: 80px;
+    animation: jump steps(7) 1s infinite;
+    /*   float:left; */
+    transform: translate(100px, 150px);
+}
+
+@keyframes jump {
+    /*100% { background-position: 700% 0}*/
+    from {
+        background-position: 0px -640px;
+    }
+    to {
+        background-position: -490px -640px;
+    }
+}
 
 
 // Small devices (landscape phones, 576px and up)

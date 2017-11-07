@@ -24,7 +24,7 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                   <a href="level1-3.html">3</a>
+                    <a href="level1-3.html">3</a>
                 </li>
                 <li>
                     <a href="level1-4.html">4</a>
@@ -59,13 +59,24 @@
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
-                 <div id="preview">
+                <div id="preview">
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
+                    <div class="rating">
+                    </div>
+                    <div class="clouds">
+                        <div class="l1">
+                            <div class="l2">
+                                <div class="avatar"></div>
+                                <div class="star"><span>☆</span></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
+                    <button id="up">JUMP</button>
                 </div>
                 <div class="hint-panel">
                     <ul> Pagalba:
@@ -141,7 +152,7 @@
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
-     <script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
@@ -175,8 +186,7 @@
         try {
             if (code.length > 0) {
                 eval(code);
-            }
-            else{
+            } else {
                 alert('Pridėk kodo blokelį.');
             }
 
@@ -184,6 +194,35 @@
             alert(e);
         }
     }
+
+    var $ken = $('.avatar');
+    var $star = $('.star');
+    var $kenPos;
+    var $starPos;
+    var jump = function() {
+
+        $ken.addClass('jump');
+
+           var explodeIfColision = setInterval(function() {
+           if (isStarllColision()) { clearInterval(explodeIfColision);
+           $("<span>&#x2605;</span>").appendTo($('.rating'));
+           setTimeout(function() {$('.star').hide();}, 200);
+        setTimeout(function() {$('.star').show();}, 500);
+       }
+        }, 50);
+
+        setTimeout(function() { $ken.removeClass('jump');clearInterval(explodeIfColision); }, 500);
+    };
+    $('#up').on('mousedown mouseup', function(e) {
+        if (e.type == 'mousedown') { jump(); }
+    });
+
+
+    var isStarllColision = function() {
+            $starPos = $star.offset();
+            $kenPos = $ken.offset();
+        return $starPos.left > $kenPos.left+20  && $starPos.left < $kenPos.left+70 ? true : false;
+    };
     </script>
 </body>
 
