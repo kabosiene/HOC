@@ -84,3 +84,23 @@ Blockly.JavaScript['dance'] = function(block) {
   var code = 'costumeChange('+dropdown_sokiai+');\n';
   return code;
 };
+
+Blockly.Blocks['rotate'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["suktis","spin"], ["šokti vietoje","stop"]]), "sukimasis");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+Blockly.JavaScript['rotate'] = function(block) {
+  var dropdown_sukimasis = block.getFieldValue('sukimasis');
+  // TODO: Assemble JavaScript into code variable.
+  
+  var code = 'rotate('+dropdown_sukimasis+');\n';
+  console.log(code);
+  return code;
+};
