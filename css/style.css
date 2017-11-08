@@ -186,6 +186,62 @@ canvas {
     }
 }
 
+.person {
+display: none;
+position: absolute;
+  width: 30px;
+  height:60px;
+   background: url("../test_img/girl.png");
+   transform: translate(200px, 10px);
+    animation:  3s linear 1;
+    z-index: 22;
+}
+.person2 {
+ display: none;
+  position: absolute;
+  width: 30px;
+  height:60px;
+   background: url("../test_img/girl.png");
+   transform: translate(350px, 100px);
+    animation: animatedPerson2 3s linear 1;
+    z-index: 22;
+}
+.person3 {
+  display: none;
+  position: absolute;
+  width: 30px;
+  height:60px;
+   background: url("../test_img/girl.png");
+   transform: translate(200px, 200px);
+    animation: animatedPerson3 3s linear 1;
+    z-index: 22;
+}
+
+@keyframes animatedPerson {
+    from {
+        transform: translate(0px, 10px);
+    }
+    to {
+        transform: translate(200px, 10px);
+    }
+}
+@keyframes animatedPerson2 {
+    from {
+        transform: translate(0px, 100px);
+    }
+    to {
+        transform: translate(350px, 100px);
+    }
+}
+@keyframes animatedPerson3 {
+    from {
+        transform: translate(0px, 200px);
+    }
+    to {
+        transform: translate(200px, 200px);
+    }
+}
+
 .rating {
     position: absolute;
     color: yellow;
@@ -194,7 +250,6 @@ canvas {
 
 .star {
     color: yellow;
-    /*transform: translate(200px,240px);*/
     animation: animatedStar 3s linear infinite;
 }
 
