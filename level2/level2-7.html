@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="heading">
+            <h1 style="text-align: center;"><a href="../index.html">Programavimo valanda</a></h1>
+        </div>
+        <div class="progress-container">
+            <ul style="text-align: center;">
+<li>
+                    <a href="level2-1.html">1</a>
+                </li>
+                <li>
+                    <a href="level2-2.html">2</a>
+                </li>
+                <li>
+                    <a href="level2-3.html">3</a>
+                </li>
+                <li>
+                    <a href="level2-4.html">4</a>
+                </li>
+                <li>
+                    <a href="level2-5.html">5</a>
+                </li>
+                <li>
+                    <a href="level2-6.html">6</a>
+                </li>
+                <li>
+                    <a href="level2-7.html">7</a>
+                </li>
+                <li>
+                    <a href="level2-8.html">8</a>
+                </li>
+                <li>
+                    <a href="level2-9.html">9</a>
+                </li>
+                <li>
+                    <a href="level2-10.html">10</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid working-space">
+        <div class="row" style="padding: 10px;">
+            <div class="col-md-5">
+                <h4>Dainų šventė - sinchroninis plaukimas:))</h4></div>
+            <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas.
+                <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
+        </div>
+        <div class="row" style="padding: 10px">
+            <div class="col  ">
+                <div id="preview">
+                    <canvas id="canvas" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <div id=d5>
+                        <div class="dance">
+                            <div class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div class="d-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-panel">
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
+                </div>
+                <div class="hint-panel">
+                    <ul> Pagalba:
+                        <li>
+                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">HINT1</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col" style="padding: 0 ;">
+                <div id="blocklyDiv">
+                </div>
+                <xml id="toolbox" style="display: none">
+                    <category name="Ciklas" colour ="120">
+                        <block type="controls_repeat_ext">
+                            <value name="TIMES">
+                                <block type="math_number">
+                                    <field name="NUM">10</field>
+                                </block>
+                            </value>
+                        </block>
+                        <block type="wait_seconds"></block>
+                    </category>
+                    <category name="Šokis" colour = "65">
+                        <block type="anim_speed"></block>
+                        <block type="musicplay"></block>
+                        <block type="dance"></block>
+                        <block type="math_number"></block>
+                         <block type="rotate"></block>
+                    </category>
+                </xml>
+            </div>
+            <div class="col-md-3 col-lg-2" style="height: 70vh;">
+                <h5>Javascript kodas: </h5>
+                <pre id="content_javascript">
+                </pre>
+            </div>
+        </div>
+        <div class="video-modal">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/isnwxt2Z5Dw  " frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
+                            <a href="level1-5.html" type="button" class="btn btn-default">Sekanti užduotis</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/blockly_compressed.js"></script>
+    <script src="../js/javascript_compressed.js"></script>
+    <script src="../js/acorn_interpreter.js"></script>
+    <script src="../js/blocks_compressed.js"></script>
+    <script src="../msg/js/lt.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/sokiai.js"></script>
+    <script type="text/javascript">
+    var my_canvas = document.getElementById("canvas");
+    var ctx = my_canvas.getContext("2d");
+    </script>
+    <script>
+    var workspace = Blockly.inject('blocklyDiv', {
+        toolbox: document.getElementById('toolbox'),
+        grid: {
+            spacing: 20,
+            length: 5,
+            colour: '#E1D82C',
+            snap: true
+        },
+        trashcan: true
+    });
+
+    function toJavascript(event) {
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        document.getElementById('content_javascript').innerHTML = code;
+    }
+    workspace.addChangeListener(toJavascript);
+    </script>
+    <script type="text/javascript">
+    var radius = 71;
+    var degreeAngle = 0;
+    var x1 = 73;
+    var y1 = 150;
+    var anim_speed;
+    var stop;
+    var spin;
+    var radius = 100; // adjust to move out items in and out 
+    var fields = $('.dance'),
+        inner_fields = $('.d-inner'),
+        container = $('#d5'),
+        width = container.width(),
+        height = container.height();
+    var angle = 0,
+        step = (2 * Math.PI) / fields.length;
+
+    fields.each(function() {
+        var x = Math.round(width / 2 + radius * Math.cos(angle) - $(this).width() / 2);
+        var y = Math.round(height / 2 + radius * Math.sin(angle) - $(this).height() / 2);
+        $(this).css({
+            left: x + 'px',
+            top: y + 'px'
+        });
+
+        angle += step;
+    });
+
+    function runCode() {
+
+        // Generate JavaScript code and run it.
+        // window.LoopTrap = 1000;
+        // Blockly.JavaScript.INFINITE_LOOP_TRAP =
+        //     'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+        // var code = Blockly.JavaScript.workspaceToCode(workspace);
+        // Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+
+        Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
+        Blockly.JavaScript.addReservedWords('highlightBlock');
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        var myInterpreter = new Interpreter(code, initApi);
+
+        radius = 71;
+        degreeAngle = 0;
+        // animateCircle();                   
+        anim_speed = 0;
+        radius = 100; // adjust to move out items in and out 
+        fields = $('.dance');
+        container = $('#d5');
+        width = container.width();
+        height = container.height();
+        angle = 0;
+        step = (2 * Math.PI) / fields.length;
+        try {
+            audio.pause();
+            audio.currentTime = 0;
+            if (code.length > 0) {
+                //eval(code);
+
+                function nextStep() {
+                    if (myInterpreter.step()) {
+                        window.setTimeout(nextStep, 0);
+                    }
+                }
+                nextStep();
+
+            } else {
+                alert('Pridėk kodo blokelį.');
+            }
+
+        } catch (e) {
+            alert(e);
+        }
+    }
+
+    function initApi(interpreter, scope) {
+
+        // Add an API function for the alert() block.
+        var wrapper = function(text) {
+            text = text ? text.toString() : '';
+            return interpreter.createPrimitive(alert(text));
+        };
+        interpreter.setProperty(scope, 'alert',
+            interpreter.createNativeFunction(wrapper));
+
+        // Add an API function for the prompt() block.
+        wrapper = function(text) {
+            text = text ? text.toString() : '';
+            return interpreter.createPrimitive(prompt(text));
+        };
+        interpreter.setProperty(scope, 'prompt',
+            interpreter.createNativeFunction(wrapper));
+        // Add an API function for highlighting blocks.
+        var wrapper = function(id) {
+            id = id ? id.toString() : '';
+            return interpreter.createPrimitive(Blockly.mainWorkspace.highlightBlock(id));
+        };
+        interpreter.setProperty(scope, 'highlightBlock',
+            interpreter.createNativeFunction(wrapper));
+
+        /*************************************************************************/
+
+        Blockly.JavaScript.addReservedWords('aSpeed');
+
+        var wrapper = interpreter.createNativeFunction(
+            function(anim_speed) {
+                var inner_fields = document.getElementsByClassName('d-inner');
+                for (i = 0; i < inner_fields.length; i++) {
+                    inner_fields[i].style.animationDuration = (anim_speed) + "s";
+                }
+            });
+        interpreter.setProperty(scope, 'aSpeed', wrapper);
+
+           Blockly.JavaScript.addReservedWords('rotate');
+   
+        var wrapper = interpreter.createNativeFunction(
+            function(a_rotate) {
+                         var stop = "stop";
+    var spin ="spin";
+                console.log(a_rotate);
+                var d_fields = document.getElementsByClassName('dance');
+                for (i = 0; i < d_fields.length; i++) {
+                    d_fields[i].style.WebkitAnimationName =  a_rotate ;
+                    d_fields[i].style.animationName =  a_rotate ;
+                }
+            });
+        interpreter.setProperty(scope, 'rotate', wrapper);
+
+
+        Blockly.JavaScript.addReservedWords('musicPlay');
+
+        var wrapper = interpreter.createNativeFunction(
+            function() {
+
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.currentTime = 0;
+                }
+            });
+        interpreter.setProperty(scope, 'musicPlay', wrapper);
+
+
+        Blockly.JavaScript.addReservedWords('costumeChange');
+
+        var wrapper = interpreter.createNativeFunction(
+            function(costumeNumber) {
+                var d_fields = document.getElementsByClassName('dance');
+                
+                var costumeClass;
+                if (costumeNumber == 1) {
+                    costumeClass = "d-inner";
+                } else if (costumeNumber == 2) {
+                    costumeClass = "d-inner2";
+                }
+                for (i = 0; i < d_fields.length; i++) {
+                    console.log(d_fields[i].children[0].className);
+                     d_fields[i].children[0].className = costumeClass;
+                }
+            });
+        interpreter.setProperty(scope, 'costumeChange', wrapper);
+
+
+        Blockly.JavaScript.addReservedWords('waitForSeconds');
+
+        var wrapper = interpreter.createAsyncFunction(
+            function(timeInSeconds, callback) {
+                // Delay the call to the callback.
+                setTimeout(callback, timeInSeconds * 1000);
+            });
+        interpreter.setProperty(scope, 'waitForSeconds', wrapper);
+
+    }
+    </script>
+</body>
+
+</html>
