@@ -70,7 +70,7 @@ Blockly.Blocks['dance'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Šokis")
-        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"]]), "sokiai");
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"], ["4","4"]]), "sokiai");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -100,7 +100,7 @@ Blockly.JavaScript['rotate'] = function(block) {
   var dropdown_sukimasis = block.getFieldValue('sukimasis');
   // TODO: Assemble JavaScript into code variable.
   
-  var code = 'rotate('+dropdown_sukimasis+');\n';
+  var code = 'rotate("'+dropdown_sukimasis+'");\n';
   console.log(code);
   return code;
 };

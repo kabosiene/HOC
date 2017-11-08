@@ -136,7 +136,7 @@ canvas {
 }
 
 #d5 {
-    width: 200px;
+    width: 250px;
     height: 200px;
     margin: 65px auto;
     animation: spin 10s linear infinite;
@@ -145,20 +145,6 @@ canvas {
 .dance {
     position: absolute;
     animation: spin 10s linear infinite reverse;
-}
-
-.d-inner {
-    background-image: url(../test_img/swim_sprite.png);
-    height: 40px;
-    width: 40px;
-    animation: dance 2s infinite steps(2, end);
-}
-
-.d-inner2 {
-    background-image: url(../test_img/dance2.png);
-    height: 50px;
-    width: 54px;
-    animation: dance2 1s infinite steps(4, end);
 }
 
 @keyframes spin {
@@ -173,6 +159,62 @@ canvas {
     }
 }
 
+#dancers1.d-inner {
+    background-image: url(../img_lessons/pora1/1.1.png);
+    height: 100px;
+    width: 89px;
+    animation: dance 1s infinite steps(2, end);
+}
+
+#dancers1.d-inner2 {
+    background-image: url(../img_lessons/pora1/2.1.png);
+    height: 100px;
+    width: 112px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+#dancers1.d-inner3 {
+    background-image: url(../img_lessons/pora1/3.1.png);
+    height: 100px;
+    width: 79px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+#dancers1.d-inner4 {
+    background-image: url(../img_lessons/pora1/4.1.png);
+    height: 100px;
+    width: 77px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+#dancers2.d-inner {
+    background-image: url(../img_lessons/pora2/1.png);
+    height: 100px;
+    width: 98px;
+    animation: dance 1s infinite steps(2, end);
+}
+
+#dancers3.d-inner {
+    background-image: url(../img_lessons/pora3/1.png);
+    height: 100px;
+    width: 100px;
+    animation: dance 1s infinite steps(2, end);
+}
+
+#dancers4.d-inner {
+    background-image: url(../img_lessons/pora4/1.png);
+    height: 100px;
+    width: 99px;
+    animation: dance 1s infinite steps(2, end);
+}
+
+#dancers5.d-inner {
+    background-image: url(../img_lessons/pora5/1.png);
+    height: 100px;
+    width: 100px;
+    animation: dance 1s infinite steps(2, end);
+}
+
 
 @keyframes dance {
     100% {
@@ -182,37 +224,39 @@ canvas {
 
 @keyframes dance2 {
     100% {
-        background-position: 400% 0
+        background-position: 200% 0
     }
 }
 
 .person {
-display: none;
-position: absolute;
-  width: 30px;
-  height:60px;
-   background: url("../test_img/girl.png");
-   transform: translate(200px, 10px);
-    animation:  3s linear 1;
+    display: none;
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    background: url("../test_img/girl.png");
+    transform: translate(200px, 10px);
+    animation: 3s linear 1;
     z-index: 22;
 }
+
 .person2 {
- display: none;
-  position: absolute;
-  width: 30px;
-  height:60px;
-   background: url("../test_img/girl.png");
-   transform: translate(350px, 100px);
+    display: none;
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    background: url("../test_img/girl.png");
+    transform: translate(350px, 100px);
     animation: animatedPerson2 3s linear 1;
     z-index: 22;
 }
+
 .person3 {
-  display: none;
-  position: absolute;
-  width: 30px;
-  height:60px;
-   background: url("../test_img/girl.png");
-   transform: translate(200px, 200px);
+    display: none;
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    background: url("../test_img/girl.png");
+    transform: translate(200px, 200px);
     animation: animatedPerson3 3s linear 1;
     z-index: 22;
 }
@@ -225,6 +269,7 @@ position: absolute;
         transform: translate(200px, 10px);
     }
 }
+
 @keyframes animatedPerson2 {
     from {
         transform: translate(0px, 100px);
@@ -233,6 +278,7 @@ position: absolute;
         transform: translate(350px, 100px);
     }
 }
+
 @keyframes animatedPerson3 {
     from {
         transform: translate(0px, 200px);

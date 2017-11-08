@@ -65,19 +65,19 @@
                     </canvas>
                     <div id=d5>
                         <div class="dance">
-                            <div class="d-inner"></div>
+                            <div id="dancers1" class="d-inner"></div>
                         </div>
                         <div class="dance">
-                            <div class="d-inner"></div>
+                            <div id="dancers2" class="d-inner"></div>
                         </div>
                         <div class="dance">
-                            <div class="d-inner"></div>
+                            <div id="dancers3" class="d-inner"></div>
                         </div>
                         <div class="dance">
-                            <div class="d-inner"></div>
+                            <div id="dancers4" class="d-inner"></div>
                         </div>
                         <div class="dance">
-                            <div class="d-inner"></div>
+                            <div id="dancers5" class="d-inner"></div>
                         </div>
                     </div>
                 </div>
@@ -309,6 +309,8 @@
     var spin ="spin";
                 console.log(a_rotate);
                 var d_fields = document.getElementsByClassName('dance');
+                var d_field = document.getElementById('d5');
+                d_field.style.animationName =  a_rotate ;
                 for (i = 0; i < d_fields.length; i++) {
                     d_fields[i].style.WebkitAnimationName =  a_rotate ;
                     d_fields[i].style.animationName =  a_rotate ;
@@ -342,6 +344,12 @@
                     costumeClass = "d-inner";
                 } else if (costumeNumber == 2) {
                     costumeClass = "d-inner2";
+                }
+                else if (costumeNumber == 3) {
+                    costumeClass = "d-inner3";
+                }
+                else if (costumeNumber == 4) {
+                    costumeClass = "d-inner4";
                 }
                 for (i = 0; i < d_fields.length; i++) {
                     console.log(d_fields[i].children[0].className);
