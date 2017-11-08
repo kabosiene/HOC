@@ -9,6 +9,10 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
 </head>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lekton:700&subset=latin-ext');
+</style>
+<!-- font-family: 'Lekton', sans-serif; -->
 
 <body>
     <div class="container-fluid">
@@ -246,7 +250,7 @@
         ctx.save();
         ctx.beginPath();
         ctx.fillStyle = "black";
-        ctx.font = "12px Verdana";
+        ctx.font = "12px Lekton";
         ctx.globalAlpha = 0.70;
         for (var i = tekstas_old.length - 1; i >= 0; i--) {
             ctx.fillText((i + 1) + '. ' + tekstas_old[i], 10, (i + 1) * 20);
@@ -290,7 +294,7 @@
 
                 ctx.beginPath();
                 ctx.fillStyle = "black";
-                ctx.font = "12px Verdana";
+                ctx.font = "12px Lekton";
                 ctx.globalAlpha = 0.70;
                 for (var i = tekstas.length - 1; i >= 0; i--) {
                     if (tekstas[i]) { tekstas_old.splice(i, 1, tekstas_short[tekstas[i] - 1]); }
