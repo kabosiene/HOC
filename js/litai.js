@@ -1,23 +1,14 @@
 
         var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
-    var button = new Image();
-    var button_euras = new Image();
-    var buy = new Image();
-    var sakotis = new Image();
     my_canvas.addEventListener('click', clickReporterPirkti, false);
     var eurasKainuoja = 3.45;
     var litas;
     var euras;
     var paspausta;
     var callAgain;
-
-
-
-    button.src = "../test_img/download.jpg";
-    button_euras.src = "../test_img/euras.jpg";
-    sakotis.src = "../test_img/sakotis.jpg";
-    buy.src = "http://i.imgur.com/bCXdyYP.png";
+     var background = new Image();
+ background.src = "../img_lessons/valiutos/level1-bg.jpg";
 
     Blockly.Blocks['paspausta'] = {
         init: function() {
@@ -148,18 +139,8 @@ Blockly.JavaScript['convert'] = function(block) {
 
 };
 
-    button.onload = function() {
-        draw(button, 10, 10);
-    };
-    button_euras.onload = function() {
-        draw(button_euras, 10, 120);
-    };
-    buy.onload = function() {
-        draw(buy, 250, 200);
-    };
-    sakotis.onload = function() {
-        draw(sakotis, 300, 50);
-        ctx.strokeText("Kaina: 30 Litų", 300, 50);
+       background.onload = function() {
+       draw(background,0,0);
     };
 
     function draw(pic_name, x, y) {
@@ -168,10 +149,7 @@ Blockly.JavaScript['convert'] = function(block) {
 
     function draw_elements() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        draw(button, 10, 10);
-        draw(buy, 250, 200);
-        draw(button_euras, 10, 120);
-        draw(sakotis, 300, 50);
+         draw(background,0,0);
         ctx.strokeText("Kaina: 30 Litų", 300, 50);
         ctx.strokeText("Eurai: " + euras, 10, 120);
         ctx.strokeText("Litai: " + litas, 10, 10);
