@@ -11,10 +11,8 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="heading">
-            <h1 style="text-align: center;"><a href="../index.html">Programavimo valanda</a></h1>
-        </div>
+    <div class="container-fluid header-top">
+       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -69,17 +67,17 @@
                     <div id="test1"></div>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
-                </div>
-                <div class="hint-panel">
-                    <ul> Pagalba:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">HINT1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
-                        </li>
-                    </ul>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <div class="hint-panel">
+                        <ul> Pagalba:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="col" style="padding: 0 ;">
@@ -154,7 +152,7 @@
         grid: {
             spacing: 20,
             length: 5,
-            colour: '#E1D82C',
+            colour: '#f2f2f2',
             snap: true
         },
         trashcan: true
@@ -260,12 +258,12 @@
         if (start_x < edge2) {
             anim_id = requestAnimationFrame(function() { animateSwimmer(); });
         } else {
-            // edge = true;
+           // edge = true;
             cancelAnimationFrame(anim_id);
-            if (turn) {
-                animateSwimmerBack();
+            if (edge && turn) {
+               animateSwimmerBack();
             } else {
-                alert("Apsisuk");
+                alert("Baseino kraštas? Apsisuk");
             }
 
         }
@@ -332,7 +330,7 @@
 
     function onClick(e) {
         speed += add_speed;
-        document.getElementById("test1").style.animationDuration = ""+(0.1/add_speed)+"s";
+        document.getElementById("test1").style.animationDuration = "" + (0.1 / add_speed) + "s";
     }
     </script>
 </body>
