@@ -11,10 +11,8 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="heading">
-            <h1 style="text-align: center;"><a href="../index.html">Programavimo valanda</a></h1>
-        </div>
+    <div class="container-fluid header-top">
+       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -71,19 +69,19 @@
                     </canvas>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
-                    <button id="download">download</button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <div class="hint-panel">
+                        <ul> Jei sunku:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="hint-panel">
-                    <ul> Jei sunku:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">HINT1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
-                        </li>
-                    </ul>
-                </div>
+                <button id="download" class="btn download-btn">Download</button>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
@@ -228,7 +226,7 @@
     <script src="../msg/js/lt.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/letters.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+    <script src="../js/jspdf.js"></script>
     <script type="text/javascript">
     var w = window;
     requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
@@ -240,6 +238,7 @@
     var m_ctx = a_canvas.getContext("2d");
 
     var img_maciunas = new Image();
+    //img_maciunas.setAttribute('crossOrigin', 'anonymous');
     img_maciunas.src = '../img_lessons/maciunas_1.png';
 
     ///draw image
@@ -254,7 +253,7 @@
         grid: {
             spacing: 20,
             length: 5,
-            colour: '#E1D82C',
+            colour: '#f2f2f2',
             snap: true
         },
         trashcan: true
@@ -290,6 +289,7 @@
         degreeAngle = 0;
         degreeAngleCircle = 0;
         img_maciunas_drawing = new Image();
+        //img_maciunas_drawing.setAttribute('crossOrigin', 'anonymous');
         img_maciunas_drawing.src = '../img_lessons/maciunas_2.png';
         img_maciunas_drawing.addEventListener("load", function() {
             m_ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 200);
@@ -347,21 +347,21 @@
     }
     </script>
     <script type="text/javascript">
-        download.addEventListener("click", function() {
-  // only jpeg is supported by jsPDF
-  var imgData = canvas.toDataURL();
-  var imgData2 = canvas2.toDataURL();
- // var imgData3 = canvas3.toDataURL();
-  var pdf = new jsPDF({
-  orientation: 'landscape'
-})
+    download.addEventListener("click", function() {
+        // only jpeg is supported by jsPDF
+        var imgData = canvas.toDataURL();
+        var imgData2 = canvas2.toDataURL();
+        // var imgData3 = canvas3.toDataURL();
+        var pdf = new jsPDF({
+            orientation: 'landscape'
+        })
 
 
-  pdf.addImage(imgData, 'JPEG', 20, 20);
-  pdf.addImage(imgData2, 'JPEG', 20, 20);
- // pdf.addImage(imgData3, 'JPEG', 20, 20);
-  pdf.save("vardo_simbolis.pdf");
-}, false);
+        pdf.addImage(imgData, 'JPEG', 20, 20);
+        pdf.addImage(imgData2, 'JPEG', 20, 20);
+        // pdf.addImage(imgData3, 'JPEG', 20, 20);
+        pdf.save("vardo_simbolis.pdf");
+    }, false);
     </script>
 </body>
 

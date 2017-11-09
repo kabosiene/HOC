@@ -1,11 +1,29 @@
 body {
-    color: #52499E;
-    background-color: #F8F8FB;
+    color: #5c48a2;
+    background-color: #fff;
 }
 
 li {
     list-style: none;
     display: inline-block;
+}
+
+.header-top {
+    background-color: #513e8f;
+    height: 15%;
+    height: 15vh;
+    min-height: 100px;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.header_logo {
+    width: 30%;
+    width: 30vw;
+    height: auto;
 }
 
 .heading a {
@@ -18,37 +36,102 @@ li {
 }
 
 .hint-panel {
-    padding: 20px;
+    padding: 0px 20px 0px 20px;
+    display: inline-block;
+}
+
+.hint-panel ul {
+    padding-left: 5px;
+    border-spacing: 10px 0px;
 }
 
 .hint-panel li {
-    padding: 10px;
+    padding: 0px 25px 0px 25px;
+    display: table-cell;
+    border: 2px solid;
+    border-radius: 25px;
+    background-color: #604a9c;
+}
+
+.hint-panel li:hover {
+    background-color: #fff;
+}
+
+.hint-panel li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.hint-panel li:hover a {
+    text-decoration: none;
+    color: #604a9c;
+}
+
+.btn {
+    border-radius: 0;
 }
 
 .button-run {
-    background-color: #EF5898;
     font-size: 1.5em;
-    font-weight: bold;
-    border: .05rem solid #fff;
+    /*font-weight: bold;*/
+    padding: .75rem 4.5rem;
+    background-color: #604a9c;
+    border: none;
+    box-shadow: 4px 4px 0px #f95496;
+    margin-top: 25px;
 }
 
 .btn-secondary:hover {
     background-color: #90CD9B;
 }
 
-.progress-container {
-    border: 2px #EF5898 solid;
+.download-btn {
+    border-radius: 25px;
+    background-color: #604a9c;
+    color: #fff;
+    border: 2px solid;
+    padding: 5px 20px;
 }
 
-.progress-container li {
-    margin-top: 1rem;
-    padding: 0 10px 0 10px;
+.download-btn:hover {
+    border-radius: 25px;
+    background-color: #fff;
+    color: #604a9c;
+    border: 2px solid;
 }
+
+.progress-container {
+    /*border: 2px #EF5898 solid;*/
+    display: inline-block;
+    float: right;
+    font-size: 22px;
+}
+
+.progress-container ul {
+    margin-top: 1rem;
+}
+
+.progress-container li a{ 
+    background-color: #443579;
+    padding: 8px 0px 8px 0px;
+    border: 1px solid #443579;
+    border-radius: 50px;
+    margin: 0px 6px; 
+    font-weight: bold;
+    color: #fff;
+    display:block;
+    width:50px;
+    height:50px;
+   
+}
+.progress-container li a:hover {
+     background-color: #f1579a;
+      border: 1px solid #f1579a;
+}
+
 
 .progress-container a:hover {
     text-decoration: none;
-    color: #EF5898;
-    font-weight: bold;
 }
 
 .working-space {
@@ -59,11 +142,11 @@ li {
 
 #preview {
     background-color: #fff;
-    border: 5px #90CD9B solid;
+    border: 1px #f2f2f2 solid;
     height: 50vh;
     /*padding: 10px;*/
-    width: 500px;
-    height: 340px;
+    width: 490px;
+    height: 330px;
     position: relative;
 }
 
@@ -92,14 +175,14 @@ canvas {
 }
 
 .button-panel {
-    margin-top: 20px;
-    text-align: center;
+    margin-bottom: 10px;
+    /*text-align: center;*/
 }
 
 #blocklyDiv {
     height: 70vh;
     min-width: 400px;
-    border: solid #E1D82C 5px;
+    border: solid #f2f2f2 1px;
 }
 
 #test1 {
@@ -187,12 +270,41 @@ canvas {
     animation: dance2 1s infinite steps(2, end);
 }
 
+
+
+/*********************************/
+
 #dancers2.d-inner {
     background-image: url(../img_lessons/pora2/1.png);
     height: 100px;
     width: 98px;
     animation: dance 1s infinite steps(2, end);
 }
+
+#dancers2.d-inner2 {
+    background-image: url(../img_lessons/pora2/2.png);
+    height: 100px;
+    width: 130px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+#dancers2.d-inner3 {
+    background-image: url(../img_lessons/pora2/3.png);
+    height: 100px;
+    width: 85px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+#dancers2.d-inner4 {
+    background-image: url(../img_lessons/pora2/4.png);
+    height: 100px;
+    width: 81px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+
+
+/***********************/
 
 #dancers3.d-inner {
     background-image: url(../img_lessons/pora3/1.png);
@@ -201,6 +313,31 @@ canvas {
     animation: dance 1s infinite steps(2, end);
 }
 
+#dancers3.d-inner2 {
+    background-image: url(../img_lessons/pora3/2.png);
+    height: 100px;
+    width: 131px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+#dancers3.d-inner3 {
+    background-image: url(../img_lessons/pora3/3.png);
+    height: 100px;
+    width: 85px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+#dancers3.d-inner4 {
+    background-image: url(../img_lessons/pora3/4.png);
+    height: 100px;
+    width: 84px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+
+
+/***********************/
+
 #dancers4.d-inner {
     background-image: url(../img_lessons/pora4/1.png);
     height: 100px;
@@ -208,12 +345,59 @@ canvas {
     animation: dance 1s infinite steps(2, end);
 }
 
+#dancers4.d-inner2 {
+    background-image: url(../img_lessons/pora4/2.png);
+    height: 100px;
+    width: 130px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+#dancers4.d-inner3 {
+    background-image: url(../img_lessons/pora4/3.png);
+    height: 100px;
+    width: 85px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+#dancers4.d-inner4 {
+    background-image: url(../img_lessons/pora4/4.png);
+    height: 100px;
+    width: 82px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+
+
+/**********************/
+
 #dancers5.d-inner {
     background-image: url(../img_lessons/pora5/1.png);
     height: 100px;
     width: 100px;
     animation: dance 1s infinite steps(2, end);
 }
+
+#dancers5.d-inner2 {
+    background-image: url(../img_lessons/pora5/2.png);
+    height: 100px;
+    width: 131px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+#dancers5.d-inner3 {
+    background-image: url(../img_lessons/pora5/3.png);
+    height: 100px;
+    width: 85px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
+#dancers5.d-inner4 {
+    background-image: url(../img_lessons/pora5/4.png);
+    height: 100px;
+    width: 83px;
+    animation: dance2 1s infinite steps(2, end);
+}
+
 
 
 @keyframes dance {

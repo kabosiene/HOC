@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -10,10 +11,8 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="heading">
-            <h1 style="text-align: center;"><a href="../index.html">Programavimo valanda</a></h1>
-        </div>
+    <div class="container-fluid header-top">
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -64,17 +63,17 @@
                     </canvas>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
-                </div>
-                <div class="hint-panel">
-                    <ul> Jei sunku:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="Pagalba" data-content=" Jei paspausta ant Euro, padidink jį 1.">Pagalba</a>
-                        </li>
-                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus"  title="HINT2" data-content="Jei paspausta ant Lito - konvertuok.">Pagalba 2</a>
-                        </li>
-                    </ul>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <div class="hint-panel">
+                        <ul> Jei sunku:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content=" Jei paspausta ant Euro, padidink jį 1.">Hint1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Jei paspausta ant Lito - konvertuok.">Hint2</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="col" style="padding: 0 ;">
@@ -85,7 +84,7 @@
                     <block type="set"></block>
                     <block type="change"></block>
                     <block type="ifas"></block>
-                     <block type="convert"></block>
+                    <block type="convert"></block>
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -141,7 +140,7 @@
         grid: {
             spacing: 20,
             length: 5,
-            colour: '#E1D82C',
+            colour: '#f2f2f2',
             snap: true
         },
         trashcan: true
@@ -178,7 +177,6 @@
             alert(e);
         }
     }
-
     </script>
 </body>
 

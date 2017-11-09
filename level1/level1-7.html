@@ -11,10 +11,8 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="heading">
-            <h1 style="text-align: center;"><a href="../index.html">Programavimo valanda</a></h1>
-        </div>
+    <div class="container-fluid header-top">
+       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -53,7 +51,7 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Dainų šventė - sinchroninis plaukimas:))</h4></div>
+                <h4>Dainų šventė</h4></div>
             <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
@@ -64,7 +62,7 @@
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
                     <div id=d5>
-                        <div class="dance" >
+                        <div class="dance">
                             <div id="dancers1" class="d-inner"></div>
                         </div>
                         <div class="dance">
@@ -82,24 +80,24 @@
                     </div>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
-                </div>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                
                 <div class="hint-panel">
                     <ul> Pagalba:
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">HINT1</a>
+                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
+                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
                         </li>
                     </ul>
-                </div>
+                </div></div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Ciklas" colour ="120">
+                    <category name="Ciklas" colour="120">
                         <block type="controls_repeat_ext">
                             <value name="TIMES">
                                 <block type="math_number">
@@ -109,12 +107,12 @@
                         </block>
                         <block type="wait_seconds"></block>
                     </category>
-                    <category name="Šokis" colour = "65">
+                    <category name="Šokis" colour="65">
                         <block type="anim_speed"></block>
                         <block type="musicplay"></block>
                         <block type="dance"></block>
                         <block type="math_number"></block>
-                         <block type="rotate"></block>
+                        <block type="rotate"></block>
                     </category>
                 </xml>
             </div>
@@ -176,7 +174,7 @@
         grid: {
             spacing: 20,
             length: 5,
-            colour: '#E1D82C',
+            colour: '#f2f2f2',
             snap: true
         },
         trashcan: true
@@ -301,19 +299,19 @@
             });
         interpreter.setProperty(scope, 'aSpeed', wrapper);
 
-           Blockly.JavaScript.addReservedWords('rotate');
-   
+        Blockly.JavaScript.addReservedWords('rotate');
+
         var wrapper = interpreter.createNativeFunction(
             function(a_rotate) {
-                         var stop = "stop";
-    var spin ="spin";
+                var stop = "stop";
+                var spin = "spin";
                 console.log(a_rotate);
                 var d_fields = document.getElementsByClassName('dance');
                 var d_field = document.getElementById('d5');
-                d_field.style.animationName =  a_rotate ;
+                d_field.style.animationName = a_rotate;
                 for (i = 0; i < d_fields.length; i++) {
-                    d_fields[i].style.WebkitAnimationName =  a_rotate ;
-                    d_fields[i].style.animationName =  a_rotate ;
+                    d_fields[i].style.WebkitAnimationName = a_rotate;
+                    d_fields[i].style.animationName = a_rotate;
                 }
             });
         interpreter.setProperty(scope, 'rotate', wrapper);
@@ -338,22 +336,20 @@
         var wrapper = interpreter.createNativeFunction(
             function(costumeNumber) {
                 var d_fields = document.getElementsByClassName('dance');
-                
+
                 var costumeClass;
                 if (costumeNumber == 1) {
                     costumeClass = "d-inner";
                 } else if (costumeNumber == 2) {
                     costumeClass = "d-inner2";
-                }
-                else if (costumeNumber == 3) {
+                } else if (costumeNumber == 3) {
                     costumeClass = "d-inner3";
-                }
-                else if (costumeNumber == 4) {
+                } else if (costumeNumber == 4) {
                     costumeClass = "d-inner4";
                 }
                 for (i = 0; i < d_fields.length; i++) {
                     console.log(d_fields[i].children[0].className);
-                     d_fields[i].children[0].className = costumeClass;
+                    d_fields[i].children[0].className = costumeClass;
                 }
             });
         interpreter.setProperty(scope, 'costumeChange', wrapper);

@@ -11,10 +11,8 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="heading">
-            <h1 style="text-align: center;"><a href="../index.html">Programavimo valanda</a></h1>
-        </div>
+    <div class="container-fluid header-top">
+       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -68,19 +66,19 @@
                     <div class="person3"></div>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
-                </div>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                
                 <div class="hint-panel">
                     <ul> Jei sunku:
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="Pagalba" data-content="1 žmogus gali užpildyti 1m tarpą.">Pagalba </a>
+                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content="1 žmogus gali užpildyti 1m tarpą.">Hint1</a>
                             <!-- Perkelti vyresniems -->
                         </li>
                         <!--  <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
+                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
                         </li> -->
                     </ul>
-                </div>
+                </div></div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
@@ -92,33 +90,6 @@
                         <block type="add_person">
                         </block>
                     </category>
-              <!--       <category name="Ciklas">
-                        <block type="controls_repeat_ext">
-                            <value name="TIMES">
-                                <block type="math_number">
-                                    <field name="NUM">10</field>
-                                </block>
-                            </value>
-                        </block>
-                        <block type="controls_whileUntil"></block>
-                        <block type="controls_for">
-                            <value name="FROM">
-                                <shadow type="math_number" id="Mql1JNf7]Wv.^_w0U2Ny">
-                                    <field name="NUM">1</field>
-                                </shadow>
-                            </value>
-                            <value name="TO">
-                                <shadow type="math_number" id="n?k?MfI|KwN]a.rdfQVa">
-                                    <field name="NUM">10</field>
-                                </shadow>
-                            </value>
-                            <value name="BY">
-                                <shadow type="math_number" id="BU*Lzl|-9i7CJiBW3_uV">
-                                    <field name="NUM">1</field>
-                                </shadow>
-                            </value>
-                        </block>
-                    </category> -->
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -133,6 +104,21 @@
                     <div class="modal-content">
                         <div class="modal-body">
                             <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/isnwxt2Z5Dw  " frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
+                            <a href="level1-9.html" type="button" class="btn btn-default">Sekanti užduotis</a>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -203,9 +189,6 @@
         draw(people_est, 100, 200);
         draw(people_est, 230, 200);
     }
-
- 
-
     </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
@@ -213,7 +196,7 @@
         grid: {
             spacing: 20,
             length: 5,
-            colour: '#E1D82C',
+            colour: '#f2f2f2',
             snap: true
         },
         trashcan: true
@@ -235,7 +218,7 @@
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         step = 0;
 
-       // animatePerson();
+        // animatePerson();
         // animateLostPerson();
         try {
             if (code.length > 0) {
@@ -249,13 +232,12 @@
         }
     }
 
-       function animatePerson(x) {
-if (x == "raudona") {$('.person').show().css({"animation-name": "animatedPerson" });}
-else if (x == "baltas") {$('.person2').show().css({"animation-name": "animatedPerson2" });}
-else if (x == "zali") {$('.person3').show().css({"animation-name": "animatedPerson3" });} else{lost();}
-    
+    function animatePerson(x) {
+        if (x == "raudona") { $('.person').show().css({ "animation-name": "animatedPerson" }); } else if (x == "baltas") { $('.person2').show().css({ "animation-name": "animatedPerson2" }); } else if (x == "zali") { $('.person3').show().css({ "animation-name": "animatedPerson3" }); } else { lost(); }
+
     }
-    function lost(){
+
+    function lost() {
         alert("Nėra tokio žmogaus")
     }
     </script>

@@ -11,10 +11,8 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="heading">
-            <h1 style="text-align: center;"><a href="../index.html">Programavimo valanda</a></h1>
-        </div>
+     <div class="container-fluid header-top">
+       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -24,7 +22,7 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                   <a href="level1-3.html">3</a>
+                    <a href="level1-3.html">3</a>
                 </li>
                 <li>
                     <a href="level1-4.html">4</a>
@@ -59,24 +57,25 @@
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
-                 <div id="preview">
+                <div id="preview">
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">PALEISTI &#x25BA; </button>
-                </div>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                
                 <div class="hint-panel">
                     <ul> Pagalba:
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">HINT1</a>
+                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-trigger="focus" title="HINT2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">HINT2</a>
+                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
                         </li>
                     </ul>
                 </div>
+            </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
@@ -131,7 +130,7 @@
                 </div>
             </div>
         </div>
-                <div class="next-modal">
+        <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -155,10 +154,12 @@
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
-     <script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/jspdf.js"></script>
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
+    // img.setAttribute('crossOrigin', 'anonymous');
     </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
@@ -166,7 +167,7 @@
         grid: {
             spacing: 20,
             length: 5,
-            colour: '#E1D82C',
+            colour: '#f2f2f2',
             snap: true
         },
         trashcan: true
@@ -189,8 +190,7 @@
         try {
             if (code.length > 0) {
                 eval(code);
-            }
-            else{
+            } else {
                 alert('Pridėk kodo blokelį.');
             }
 
@@ -198,6 +198,56 @@
             alert(e);
         }
     }
+    </script>
+    <script type="text/javascript">
+    download.addEventListener("click", function() {
+        // only jpeg is supported by jsPDF
+        var imgData = canvas.toDataURL();
+        var pdf = new jsPDF({
+            orientation: 'landscape'
+        })
+
+
+        pdf.addImage(imgData, 'JPEG', 20, 20);
+
+        pdf.save("vardo_simbolis.pdf");
+    }, false);
+    </script>
+    <script type="text/javascript">
+    Blockly.Blocks['select_image'] = {
+        init: function() {
+            this.appendDummyInput()
+                .appendField("Paveiksliukas")
+                .appendField(new Blockly.FieldDropdown([
+                    ["Basanavičius", "basanavicius"],
+                    ["Prezidentas", "prezidentas"],
+                    ["Meilutytė", "meilutyte"],
+                    ["Mačiūnas", "maciunas"],
+                    ["100 logo", "logo"],
+                    ["Lituanica", "lituanica"],
+                    ["Mažylis", "mazylis"],
+                    ["Dainų šventė", "sokiai"],
+                    ["Valiutos", "valiutos"],
+                    ["Šakotis", "sakotis"],
+                    ["Baltijos kelias", "kelias"]
+                ]), "image")
+                .appendField("X: ")
+                .appendField(new Blockly.FieldNumber(0, 0, 490), "x")
+                .appendField("Y: ")
+                .appendField(new Blockly.FieldNumber(0, 0, 330), "y");
+            this.setColour(230);
+            this.setTooltip("");
+            this.setHelpUrl("");
+        }
+    };
+    Blockly.JavaScript['select_image'] = function(block) {
+        var dropdown_image = block.getFieldValue('image');
+        var number_x = block.getFieldValue('x');
+        var number_y = block.getFieldValue('y');
+        // TODO: Assemble JavaScript into code variable.
+        var code = '...;\n';
+        return code;
+    };
     </script>
 </body>
 
