@@ -49,9 +49,6 @@ Blockly.Blocks['change'] = {
         this.appendDummyInput()
             .appendField("prie")
             .appendField(new Blockly.FieldDropdown([
-                ["litai", "litas"],
-                ["litai(23m.)", "litas_old"],
-                ["talonas", "talonas"],
                 ["eurai", "euras"]
             ]), "NAME")
             .appendField("pridėk")
