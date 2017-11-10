@@ -190,10 +190,10 @@ function changePoints(x, y) {
 }
 
 function checkPoint(x, y) {
-    console.log(x + " - " + y);
-
+    
+console.log(x + " - " + y);
     //check if end point setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
-    if (410 > x && x >= 390 && 110 > y && y > 90) {
+    if (410 > x && x >= 390 && 115 > y && y > 80) {
         if (points[0] == 1 && points[1] == 1 && points[2] == 1) {
             setTimeout(function() {
                 document.getElementById("lituanica_plane").style.visibility = 'hidden';
@@ -202,7 +202,8 @@ function checkPoint(x, y) {
                 background.drawImage(plane, 0, 50);
             }, 1000);
             setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
-        } else if (x == 400 && y == 105) {
+        } else if ((x == 400 && y == 90)||(x == 400 && y == 110)  ) {
+            
             setTimeout(function() { alert("Ne visi taškai aplankyti!"); }, 500);
         }
     } else if (100 >= x && x >= 80 && 140 >= y && y >= 120) {
