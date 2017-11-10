@@ -9,14 +9,32 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
 </head>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lekton:700&subset=latin-ext');
+#preview {
+    font-family: Lekton;
+    font-size: 12px;
+    color: black;
+    background-image: url("../img_lessons/basanavicius/dokumentas.png");
+}
+
+#preview_text{
+    padding: 22px 40px 10px 25px;
+}
+
+#list {
+    padding: 22px 40px 10px 25px;
+}
+</style>
+<!-- font-family: 'Lekton', sans-serif; -->
 
 <body>
     <div class="container-fluid header-top">
-       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a>
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
-                    <a href="level1-1.html">1</a>
+                    <a class="active" href="level1-1.html">1</a>
                 </li>
                 <li>
                     <a href="level1-2.html">2</a>
@@ -51,8 +69,8 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Vardo simbolis. Jurgis Mačiūnas. FLUXUS</h4></div>
-            <div class=" col-md-7" id="task"> Sukurk savo vardo simbolį.
+                <h4> Sąrašai. Basanavičius</h4></div>
+            <div class=" col-md-7" id="task"> Sutvarkyk Nepriklausomybės akto tekstą. Sudėk eilutes į sarašą tinkama eilės tvarka.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
@@ -61,123 +79,78 @@
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-                    <canvas id="canvas2" width="490" height="330">
-                        This text is displayed if your browser does not support HTML5 Canvas.
-                    </canvas>
-                    <canvas id="canvas3" width="490" height="330">
-                        This text is displayed if your browser does not support HTML5 Canvas.
-                    </canvas>
+                    <div id="preview_text"></div>
+                    <div id="list"></div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
                     <div class="hint-panel">
-                        <ul> Jei sunku:
+                        <ul> Pagalba:
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="">Hint1</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="">Hint2</a>
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div>
-                    <button id="download" class="btn download-btn">Download</button>
                 </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Raidžių stilius" colour="20">
-                        <block type="spalva">
-                        </block>
-                        <block type="storis">
-                        </block>
-                        <block type="colour_random"></block>
-                        <block type="math_random_int">
-                            <value name="FROM">
-                                <shadow type="math_number">
-                                    <field name="NUM">1</field>
-                                </shadow>
+                    <category name="Skaičiai" colour="230">
+                        <block type="math_number"></block>
+                    </category>
+                    <category name="Tekstas" colour="160">
+                        <block type="tekstas1"></block>
+                        <block type="tekstas2"></block>
+                        <block type="tekstas3"></block>
+                    </category>
+                    <category name="Sąrašai" colour="#745CA6">
+                        <block type="lists_setIndex">
+                            <mutation at="true"></mutation>
+                            <field name="MODE">SET</field>
+                            <field name="WHERE">FROM_START</field>
+                            <value name="LIST">
+                                <block type="variables_get">
+                                    <field name="VAR" id="agSI/ogyCXtYTJxS:dXL" variabletype="">tekstas</field>
+                                </block>
                             </value>
-                            <value name="TO">
-                                <shadow type="math_number">
-                                    <field name="NUM">100</field>
-                                </shadow>
-                            </value>
-                        </block>
-                        <block type="math_number" gap="32"></block>
-                        <block type="colour_picker"></block>
-                        <block type="kvadratas">
                         </block>
                     </category>
-                    <category name="Raidės" colour="260">
-                        <block type="raide_A">
-                        </block>
-                        <block type="raide_Ą">
-                        </block>
-                        <block type="raide_B">
-                        </block>
-                        <block type="raide_C">
-                        </block>
-                        <block type="raide_Č">
-                        </block>
-                        <block type="raide_D">
-                        </block>
-                        <block type="raide_E">
-                        </block>
-                        <block type="raide_Ę">
-                        </block>
-                        <block type="raide_Ė">
-                        </block>
-                        <block type="raide_F">
-                        </block>
-                        <block type="raide_G">
-                        </block>
-                        <block type="raide_H">
-                        </block>
-                        <block type="raide_I">
-                        </block>
-                        <block type="raide_Į">
-                        </block>
-                        <block type="raide_Y">
-                        </block>
-                        <block type="raide_J">
-                        </block>
-                        <block type="raide_K">
-                        </block>
-                        <block type="raide_L">
-                        </block>
-                        <block type="raide_M">
-                        </block>
-                        <block type="raide_N">
-                        </block>
-                        <block type="raide_O">
-                        </block>
-                        <block type="raide_P">
-                        </block>
-                        <block type="raide_R">
-                        </block>
-                        <block type="raide_S">
-                        </block>
-                        <block type="raide_Š">
-                        </block>
-                        <block type="raide_T">
-                        </block>
-                        <block type="raide_U">
-                        </block>
-                        <block type="raide_Ų">
-                        </block>
-                        <block type="raide_Ū">
-                        </block>
-                        <block type="raide_V">
-                        </block>
-                        <block type="raide_Z">
-                        </block>
-                        <block type="raide_Ž">
-                        </block>
-                    </category>
+                </xml>
+                <xml id="load_custom" style="display: none">
+                    <variables>
+                        <variable type="" id="bIqqa+{5{%uX3JtyQuh5">litai</variable>
+                        <variable type="" id="|RDL=+G-BPZ1^=;=BKqi">euras</variable>
+                        <variable type="" id="Tz5xAOXdy(67GK8OKMLh">x</variable>
+                        <variable type="" id="}t63oO7#(0}B3f%C_Nh3">list</variable>
+                        <variable type="" id="Qgr%,iu.M=[w%WYFvHx)">tekstas</variable>
+                    </variables>
+                    <block type="lists_setIndex" id="?{+oKAq%)?zChb8!+Ht9" x="88" y="88">
+                        <mutation at="true"></mutation>
+                        <field name="MODE">SET</field>
+                        <field name="WHERE">FROM_START</field>
+                        <value name="LIST">
+                            <block type="variables_get" id="k+^BK0C{dU6xg{:`s8Ta">
+                                <field name="VAR" id="Qgr%,iu.M=[w%WYFvHx)" variabletype="">tekstas</field>
+                            </block>
+                        </value>
+                        <next>
+                            <block type="lists_setIndex" id="fgjRAQ+/[gu|!]DrJz~i">
+                                <mutation at="true"></mutation>
+                                <field name="MODE">SET</field>
+                                <field name="WHERE">FROM_START</field>
+                                <value name="LIST">
+                                    <block type="variables_get" id="d)Kgj_1?PvAJ~HZ`d#0l">
+                                        <field name="VAR" id="Qgr%,iu.M=[w%WYFvHx)" variabletype="">tekstas</field>
+                                    </block>
+                                </value>
+                            </block>
+                        </next>
+                    </block>
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -215,7 +188,6 @@
                 </div>
             </div>
         </div>
-        <img style="visibility: hidden;">
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -227,28 +199,7 @@
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/letters.js"></script>
-    <script src="../js/jspdf.js"></script>
-    <script type="text/javascript">
-    var w = window;
-    requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
-    var my_canvas = document.getElementById("canvas");
-    var ctx = my_canvas.getContext("2d");
-    var c_canvas = document.getElementById("canvas2");
-    var c_ctx = c_canvas.getContext("2d");
-    var a_canvas = document.getElementById("canvas3");
-    var m_ctx = a_canvas.getContext("2d");
-
-    var img_maciunas = new Image();
-    // img_maciunas.setAttribute('crossOrigin', 'anonymous');
-    img_maciunas.src = '../img_lessons/maciunas_1.png';
-
-    ///draw image
-
-    img_maciunas.addEventListener("load", function() {
-        m_ctx.drawImage(img_maciunas, 140, 20, 200, 300);
-    });
-    </script>
+    <script src="../js/sarasai.js"></script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -261,6 +212,11 @@
         trashcan: true
     });
 
+    // var dom = Blockly.Xml.textToDom('load_custom');
+    // console.log(dom);
+    // Blockly.Xml.domToWorkspace(dom, workspace);
+
+
     function toJavascript(event) {
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         document.getElementById('content_javascript').innerHTML = code;
@@ -268,41 +224,80 @@
     workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
-    var cx = 200;
-    var cy = 145;
-    var radius = 71;
-    var degreeAngle = 0;
-    var degreeAngleCircle = 0;
-    var interval = 0;
+    var my_canvas = document.getElementById("canvas");
+    var ctx = my_canvas.getContext("2d");
+    var paper = new Image();
+    // paper.src = "../img_lessons/basanavicius/dokumentas.png";
+    var basanavicius = new Image();
+    basanavicius.src = "../img_lessons/basanavicius/basanavicius.png";
+
+
+    var tekstas_correct = [];
+    tekstas_correct[0] = (1);
+    tekstas_correct[2] = (2);
+    tekstas_correct[4] = (3);
+    var tekstas_old = [];
+    var tekstas = [];
+    tekstas_old[0] = " 1_______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+    tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
+    tekstas_old[2] = " 3_______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+    tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
+    tekstas_old[4] = " 5_______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+    tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei, prašo pripažinti nepriklausomą Lietuvos valstybę.";
+
+    var tekstas_short = [];
+    tekstas_short[0] = " Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė, "
+    tekstas_short[1] = " ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis."
+    tekstas_short[2] = " demokratiniu būdu visų jos gyventojų išrinktas. "
+
+    document.getElementById('preview_text').innerHTML = tekstas_old.join("");
+    document.getElementById('list').innerHTML = "A. " + tekstas_short[2] + "<br>";
+    document.getElementById('list').innerHTML += "B. " + tekstas_short[0] + "<br>";
+    document.getElementById('list').innerHTML += "C. " + tekstas_short[1] + "<br>";
+
+
+    //}
 
     function runCode() {
+        tekstas = [];
         // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        var code = 'tekstas = [];';
+        code += Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        m_ctx.clearRect(0, 0, canvas.width, canvas.height);
-        c_ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        cx = 200;
-        cy = 145;
-        radius = 71;
-        degreeAngle = 0;
-        degreeAngleCircle = 0;
-        img_maciunas_drawing = new Image();
-        //img_maciunas_drawing.setAttribute('crossOrigin', 'anonymous');
-        img_maciunas_drawing.src = '../img_lessons/maciunas_2.png';
-        img_maciunas_drawing.addEventListener("load", function() {
-            m_ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 200);
-        });
-
-
+        //ctx.drawImage(paper, 0, 2);
+        tekstas_old[0] = " 1_______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+        tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
+        tekstas_old[2] = " 3_______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+        tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
+        tekstas_old[4] = " 5_______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+        tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei, prašo pripažinti nepriklausomą Lietuvos valstybę.";
         try {
-
             if (code.length > 0) {
-                animate();
+
                 eval(code);
+
+                for (var i = tekstas.length - 1; i >= 0; i--) {
+                    if (tekstas[i]) { tekstas_old.splice(i, 1, tekstas_short[tekstas[i] - 1]); }
+                }
+                // for (var i = tekstas_old.length - 1; i >= 0; i--) {
+                //     ctx.fillText((i + 1) + '. ' + tekstas_old[i], 10, (i + 1) * 20);
+                // }
+                document.getElementById('preview_text').innerHTML = tekstas_old.join("");
+
+                document.getElementById('list').innerHTML = "A. " + tekstas_short[2] + "<br>";
+                document.getElementById('list').innerHTML += "B. " + tekstas_short[0] + "<br>";
+                document.getElementById('list').innerHTML += "C. " + tekstas_short[1] + "<br>";
+
+                if (JSON.stringify(tekstas_correct) == JSON.stringify(tekstas)) {
+                    ctx.drawImage(basanavicius, 138, 0);
+                    setTimeout(function() { $('#nextModal').modal('show'); }, 1500);
+
+                } else { alert('Bandyk dar'); }
+
             } else {
                 alert('Pridėk kodo blokelį.');
             }
@@ -310,60 +305,7 @@
         } catch (e) {
             alert(e);
         }
-
-        function animate() {
-
-            // request that this animate() function be called again
-            // this creates an animation loop
-            if (degreeAngle >= 360) {
-                cancelAnimationFrame(globalID);
-                //cancelAnimationFrame(globalID2);
-                setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
-            } else { globalID = requestAnimationFrame(animate); }
-
-
-            // clear the canvas
-
-            // calculate the new position of the image
-            // this example just rotates it around a centerpoint   
-            degreeAngle += 1;
-            var radianAngle = degreeAngle * Math.PI / 180;
-            var x = cx + radius * Math.cos(radianAngle);
-            var y = cy + radius * Math.sin(radianAngle);
-
-            // clear the canvas 
-            // and draw the image at its new position
-            c_ctx.clearRect(0, 0, canvas.width, canvas.height);
-            m_ctx.clearRect(0, 0, canvas.width, canvas.height);
-            m_ctx.drawImage(img_maciunas_drawing, x, y, 200, 200);
-            degreeAngleCircle += 0.0056;
-
-            c_ctx.beginPath();
-            c_ctx.lineJoin = 'round';
-            c_ctx.lineCap = 'round';
-            c_ctx.lineWidth = 3;
-            c_ctx.strokeStyle = "black";
-            c_ctx.arc(200, 150, 70, 0, degreeAngleCircle * Math.PI);
-            c_ctx.stroke();
-        }
     }
-    </script>
-    <script type="text/javascript">
-    download.addEventListener("click", function() {
-        // only jpeg is supported by jsPDF
-        var imgData = canvas.toDataURL();
-        var imgData2 = canvas2.toDataURL();
-        // var imgData3 = canvas3.toDataURL();
-        var pdf = new jsPDF({
-            orientation: 'landscape'
-        })
-
-
-        pdf.addImage(imgData, 'JPEG', 20, 20);
-        pdf.addImage(imgData2, 'JPEG', 20, 20);
-        // pdf.addImage(imgData3, 'JPEG', 20, 20);
-        pdf.save("vardo_simbolis.pdf");
-    }, false);
     </script>
 </body>
 

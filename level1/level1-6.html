@@ -9,28 +9,10 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
 </head>
-<style>
-@import url('https://fonts.googleapis.com/css?family=Lekton:700&subset=latin-ext');
-#preview {
-    font-family: Lekton;
-    font-size: 12px;
-    color: black;
-    background-image: url("../img_lessons/basanavicius/dokumentas.png");
-}
-
-#preview_text{
-    padding: 22px 40px 10px 25px;
-}
-
-#list {
-    padding: 22px 40px 10px 25px;
-}
-</style>
-<!-- font-family: 'Lekton', sans-serif; -->
 
 <body>
     <div class="container-fluid header-top">
-        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a>
+       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -49,7 +31,7 @@
                     <a href="level1-5.html">5</a>
                 </li>
                 <li>
-                    <a href="level1-6.html">6</a>
+                    <a class="active" href="level1-6.html">6</a>
                 </li>
                 <li>
                     <a href="level1-7.html">7</a>
@@ -69,8 +51,8 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4> Sąrašai. Basanavičius</h4></div>
-            <div class=" col-md-7" id="task"> Sutvarkyk Nepriklausomybės akto tekstą. Sudėk eilutes į sarašą tinkama eilės tvarka.
+                <h4>Meilutytė</h4></div>
+            <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
@@ -79,18 +61,20 @@
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-                    <div id="preview_text"></div>
-                    <div id="list"></div>
+                    <canvas id="canvas2" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <div id="test1"></div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
                     <div class="hint-panel">
                         <ul> Pagalba:
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="">Hint1</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="">Hint2</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
                             </li>
                         </ul>
                     </div>
@@ -100,57 +84,19 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Skaičiai" colour="230">
-                        <block type="math_number"></block>
-                    </category>
-                    <category name="Tekstas" colour="160">
-                        <block type="tekstas1"></block>
-                        <block type="tekstas2"></block>
-                        <block type="tekstas3"></block>
-                    </category>
-                    <category name="Sąrašai" colour="#745CA6">
-                        <block type="lists_setIndex">
-                            <mutation at="true"></mutation>
-                            <field name="MODE">SET</field>
-                            <field name="WHERE">FROM_START</field>
-                            <value name="LIST">
-                                <block type="variables_get">
-                                    <field name="VAR" id="agSI/ogyCXtYTJxS:dXL" variabletype="">tekstas</field>
-                                </block>
-                            </value>
-                        </block>
-                    </category>
-                </xml>
-                <xml id="load_custom" style="display: none">
-                    <variables>
-                        <variable type="" id="bIqqa+{5{%uX3JtyQuh5">litai</variable>
-                        <variable type="" id="|RDL=+G-BPZ1^=;=BKqi">euras</variable>
-                        <variable type="" id="Tz5xAOXdy(67GK8OKMLh">x</variable>
-                        <variable type="" id="}t63oO7#(0}B3f%C_Nh3">list</variable>
-                        <variable type="" id="Qgr%,iu.M=[w%WYFvHx)">tekstas</variable>
-                    </variables>
-                    <block type="lists_setIndex" id="?{+oKAq%)?zChb8!+Ht9" x="88" y="88">
-                        <mutation at="true"></mutation>
-                        <field name="MODE">SET</field>
-                        <field name="WHERE">FROM_START</field>
-                        <value name="LIST">
-                            <block type="variables_get" id="k+^BK0C{dU6xg{:`s8Ta">
-                                <field name="VAR" id="Qgr%,iu.M=[w%WYFvHx)" variabletype="">tekstas</field>
-                            </block>
-                        </value>
-                        <next>
-                            <block type="lists_setIndex" id="fgjRAQ+/[gu|!]DrJz~i">
-                                <mutation at="true"></mutation>
-                                <field name="MODE">SET</field>
-                                <field name="WHERE">FROM_START</field>
-                                <value name="LIST">
-                                    <block type="variables_get" id="d)Kgj_1?PvAJ~HZ`d#0l">
-                                        <field name="VAR" id="Qgr%,iu.M=[w%WYFvHx)" variabletype="">tekstas</field>
-                                    </block>
-                                </value>
-                            </block>
-                        </next>
-                    </block>
+                    <!-- <category name=b lokeliai> -->
+                    <block type="krastas"></block>
+                    <block type="apsisuk"></block>
+                    <!-- <block type="keisti"></block> -->
+                    <block type="controls_if"></block>
+                    <block type="keisti_greiti"></block>
+                    <!-- <block type="set"></block> -->
+                    <block type="math_number"></block>
+                    <block type="on_click"></block>
+                    <!-- <block type="controls_whileUntil"></block> -->
+                    <block type="plaukti"></block>
+                    <!-- <block type="function_call"></block> -->
+                    <!-- </category> -->
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -199,7 +145,7 @@
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/sarasai.js"></script>
+    <script src="../js/baseinas.js"></script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -212,11 +158,6 @@
         trashcan: true
     });
 
-    // var dom = Blockly.Xml.textToDom('load_custom');
-    // console.log(dom);
-    // Blockly.Xml.domToWorkspace(dom, workspace);
-
-
     function toJavascript(event) {
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         document.getElementById('content_javascript').innerHTML = code;
@@ -226,77 +167,80 @@
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
-    var paper = new Image();
-    // paper.src = "../img_lessons/basanavicius/dokumentas.png";
-    var basanavicius = new Image();
-    basanavicius.src = "../img_lessons/basanavicius/basanavicius.png";
+    var my_canvas2 = document.getElementById("canvas2");
+    var swimmer = my_canvas2.getContext("2d");
+    var swim = new Image();
+    swim.src = "../test_img/swim.png";
+    var swim2 = new Image();
+    swim2.src = "../test_img/swim2.png";
+    var swim3 = new Image();
+    swim3.src = "../test_img/swim_anim.png";
 
+    swim.onload = function() {
+        swimmer.drawImage(swim, 0, 150, 40, 40);
+    };
+    var start_x = 0;
+    var start_y = 150;
+    var x = 490;
+    var startTime;
+    var score;
+    var speed = 0.15;
+    var turn = false;
+    var edge = false;
+    var edge1;
+    var edge2;
+    var mouse_click = false;
+    var swim_do = false;
+    var swim_do_f = false;
+    var add_speed = 0
+    var add_costume = false;
+    var costume = false;
+    var animation_speed = 0;
 
-    var tekstas_correct = [];
-    tekstas_correct[0] = (1);
-    tekstas_correct[2] = (2);
-    tekstas_correct[4] = (3);
-    var tekstas_old = [];
-    var tekstas = [];
-    tekstas_old[0] = " 1_______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
-    tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-    tekstas_old[2] = " 3_______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
-    tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-    tekstas_old[4] = " 5_______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
-    tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei, prašo pripažinti nepriklausomą Lietuvos valstybę.";
-
-    var tekstas_short = [];
-    tekstas_short[0] = " Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė, "
-    tekstas_short[1] = " ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis."
-    tekstas_short[2] = " demokratiniu būdu visų jos gyventojų išrinktas. "
-
-    document.getElementById('preview_text').innerHTML = tekstas_old.join("");
-    document.getElementById('list').innerHTML = "A. " + tekstas_short[2] + "<br>";
-    document.getElementById('list').innerHTML += "B. " + tekstas_short[0] + "<br>";
-    document.getElementById('list').innerHTML += "C. " + tekstas_short[1] + "<br>";
-
-
-    //}
 
     function runCode() {
-        tekstas = [];
         // Generate JavaScript code and run it.
+        start_x = 0;
+        start_y = 150;
+        speed = 0.15;
+        turn = false;
+        edge = false;
+        edge1 = 1;
+        edge2 = 450;
+        mouse_click = false;
+        swim_do = false;
+        swim_do_f = false;
+        add_speed = 0;
+        add_costume = false;
+        costume = false;
+        // document.getElementById("test1").style.animationDuration = "0s";
+        canvas2.removeEventListener("click", onClick, false);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        swimmer.clearRect(0, 0, canvas.width, canvas.height);
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-        var code = 'tekstas = [];';
-        code += Blockly.JavaScript.workspaceToCode(workspace);
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        //ctx.drawImage(paper, 0, 2);
-        tekstas_old[0] = " 1_______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
-        tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-        tekstas_old[2] = " 3_______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
-        tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-        tekstas_old[4] = " 5_______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
-        tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei, prašo pripažinti nepriklausomą Lietuvos valstybę.";
+        startTime = new Date();
+        swimmer.drawImage(swim, 0, 150, 40, 40);
+     document.getElementById("test1").style.animationDuration = "1s";
         try {
             if (code.length > 0) {
-
                 eval(code);
 
-                for (var i = tekstas.length - 1; i >= 0; i--) {
-                    if (tekstas[i]) { tekstas_old.splice(i, 1, tekstas_short[tekstas[i] - 1]); }
+                if (mouse_click) {
+                    canvas2.addEventListener("click", onClick, false);
                 }
-                // for (var i = tekstas_old.length - 1; i >= 0; i--) {
-                //     ctx.fillText((i + 1) + '. ' + tekstas_old[i], 10, (i + 1) * 20);
-                // }
-                document.getElementById('preview_text').innerHTML = tekstas_old.join("");
 
-                document.getElementById('list').innerHTML = "A. " + tekstas_short[2] + "<br>";
-                document.getElementById('list').innerHTML += "B. " + tekstas_short[0] + "<br>";
-                document.getElementById('list').innerHTML += "C. " + tekstas_short[1] + "<br>";
-
-                if (JSON.stringify(tekstas_correct) == JSON.stringify(tekstas)) {
-                    ctx.drawImage(basanavicius, 138, 0);
-                    setTimeout(function() { $('#nextModal').modal('show'); }, 1500);
-
-                } else { alert('Bandyk dar'); }
+                if (swim_do) {
+                    swimmer.clearRect(0, 0, canvas.width, canvas.height);
+                    document.getElementById("test1").style.visibility = "visible";
+                    animateSwimmer();
+                } else {
+                    document.getElementById("test1").style.visibility = "hidden";
+                    alert("Ar plaukikui plaukti?");
+                }
 
             } else {
                 alert('Pridėk kodo blokelį.');
@@ -305,6 +249,87 @@
         } catch (e) {
             alert(e);
         }
+    }
+
+
+    function animateSwimmer() {
+
+        //swimlID = requestAnimationFrame(animate_swimmer);
+
+        if (start_x < edge2) {
+            anim_id = requestAnimationFrame(function() { animateSwimmer(); });
+        } else {
+           // edge = true;
+            cancelAnimationFrame(anim_id);
+            if (edge && turn) {
+               animateSwimmerBack();
+            } else {
+                alert("Baseino kraštas? Apsisuk");
+            }
+
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        swimmer.clearRect(0, 0, canvas.width, canvas.height)
+        // switchCostumes(start_x);
+        document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px)";
+        drawElapsedTime();
+        ctx.font = "14px Verdana";
+        start_x += speed;
+    }
+
+
+
+    function animateSwimmerBack() {
+
+        if (start_x > edge1) {
+            requestAnimationFrame(function() { animateSwimmerBack(); });
+        } else {
+
+            document.getElementById("test1").style.visibility = "hidden";
+            score = parseInt((new Date() - startTime) / 1000);
+            console.log(score);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            swimmer.clearRect(0, 0, canvas.width, canvas.height);
+            if (score < 5) {
+                ctx.font = "20px Verdana";
+                ctx.fillText("LAIMĖJAI AUKSĄ!", 200, 150);
+                setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+                return;
+            } else {
+                ctx.font = "20px Verdana";
+                ctx.fillText("Bandyk dar kartą", 200, 150);
+                return;
+            }
+
+        }
+
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        swimmer.clearRect(0, 0, canvas.width, canvas.height);
+        document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px) scaleX(-1)";
+        start_x -= speed;
+        drawElapsedTime();
+        ctx.font = "14px Verdana";
+
+
+    }
+
+    function drawElapsedTime() {
+        var elapsed = parseInt((new Date() - startTime) / 1000);
+        ctx.save();
+        ctx.beginPath();
+        ctx.fillStyle = "red";
+        ctx.font = "14px Verdana";
+        // draw the running time at half opacity
+        ctx.globalAlpha = 0.50;
+        ctx.fillText(elapsed + " s", canvas.width - 75, 25);
+        ctx.restore();
+    }
+
+
+    function onClick(e) {
+        speed += add_speed;
+        document.getElementById("test1").style.animationDuration = "" + (0.1 / add_speed) + "s";
     }
     </script>
 </body>

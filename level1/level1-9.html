@@ -40,7 +40,7 @@
                     <a href="level1-8.html">8</a>
                 </li>
                 <li>
-                    <a href="level1-9.html">9</a>
+                    <a class="active" href="level1-9.html">9</a>
                 </li>
                 <li>
                     <a href="level1-10.html">10</a>
@@ -51,8 +51,8 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Prezidentai</h4></div>
-            <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas.
+                <h4>Mažylis. Sort list - dokumento paieška</h4></div>
+            <div class=" col-md-7" id="task"> Dokumentai: "18 aa; 19 bcjhs; 18 cj nj; 2003 vndjv; 18 djvnsjk;"
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
@@ -61,21 +61,10 @@
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-                    <div class="rating">
-                    </div>
-                    <div class="clouds">
-                        <div class="l1">
-                            <div class="l2">
-                                <div class="avatar"></div>
-                                <div class="star"><span>☆</span></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
-                    
-                
+               
                 <div class="hint-panel">
                     <ul> Pagalba:
                         <li>
@@ -85,38 +74,34 @@
                             <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
                         </li>
                     </ul>
-                </div></div><button id="up">JUMP</button>
+                </div> </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Logic">
-                        <block type="controls_if"></block>
-                        <block type="logic_compare"></block>
-                        <block type="logic_operation"></block>
-                        <block type="logic_negate"></block>
-                        <block type="logic_boolean"></block>
+                    <category name="Tekstas" colour="160">
+                        <block type="text">
+                        </block>
+                        <block type="text">
+                            <field name="TEXT">18 aa; 19 bcjhs; 18 cj nj; 2003 vndjv; 18 djvnsjk;</field>
+                        </block>
+                        <block type="spausdinti"></block>
                     </category>
-                    <category name="Loops">
-                        <block type="controls_repeat_ext">
-                            <value name="TIMES">
-                                <block type="math_number">
-                                    <field name="NUM">10</field>
-                                </block>
+                    <category name="Sąrašai" colour="260">
+                        <block type="list_includes"></block>
+                        <block type="lists_split">
+                            <value name="DELIM">
+                                <shadow type="text">
+                                    <field name="TEXT">,</field>
+                                </shadow>
                             </value>
                         </block>
-                        <block type="controls_whileUntil"></block>
+                        <block type="lists_sort"></block>
                     </category>
-                    <category name="Math">
-                        <block type="math_number"></block>
-                        <block type="math_arithmetic"></block>
-                        <block type="math_single"></block>
-                    </category>
-                    <category name="Text">
-                        <block type="text"></block>
-                        <block type="text_length"></block>
-                        <block type="text_print"></block>
+                    <category name="Kintamieji" colour="330">
+                        <block type="v_dokumentai"></block>
+                        <block type="set_v"></block>
                     </category>
                 </xml>
             </div>
@@ -166,6 +151,7 @@
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/mazylis.js"></script>
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
@@ -189,12 +175,6 @@
     workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
-    var $ken = $('.avatar');
-    var $star = $('.star');
-    var $kenPos;
-    var $starPos;
-    var countStars = 0;
-
     function runCode() {
         // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
@@ -202,8 +182,6 @@
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        countStars = 0;
-        $('.rating').empty();
         try {
             if (code.length > 0) {
                 eval(code);
@@ -215,38 +193,6 @@
             alert(e);
         }
     }
-
-
-    var jump = function() {
-
-        $ken.addClass('jump');
-
-        var explodeIfColision = setInterval(function() {
-            if (isStarllColision()) {
-                clearInterval(explodeIfColision);
-                $("<span>&#x2605;</span>").appendTo($('.rating'));
-                countStars += 1;
-                setTimeout(function() { $('.star').hide(); }, 200);
-                setTimeout(function() { $('.star').show(); }, 500);
-            }
-            if (countStars == 12) { setTimeout(function() { $('#nextModal').modal('show'); }, 1000); }
-        }, 50);
-
-        setTimeout(function() {
-            $ken.removeClass('jump');
-            clearInterval(explodeIfColision);
-        }, 500);
-    };
-    $('#up').on('mousedown mouseup', function(e) {
-        if (e.type == 'mousedown') { jump(); }
-    });
-
-
-    var isStarllColision = function() {
-        $starPos = $star.offset();
-        $kenPos = $ken.offset();
-        return $starPos.left > $kenPos.left + 20 && $starPos.left < $kenPos.left + 70 ? true : false;
-    };
     </script>
 </body>
 

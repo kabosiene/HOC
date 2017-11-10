@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid header-top">
-        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
+       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -22,7 +22,7 @@
                     <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                    <a href="level1-3.html">3</a>
+                    <a class="active" href="level1-3.html">3</a>
                 </li>
                 <li>
                     <a href="level1-4.html">4</a>
@@ -51,8 +51,8 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Lietuvos valiutos</h4></div>
-            <div class=" col-md-7" id="task"> Paversk eurus litais ir nusipirk šakotį.
+                <h4>Vardo simbolis. Jurgis Mačiūnas. FLUXUS</h4></div>
+            <div class=" col-md-7" id="task"> Sukurk savo vardo simbolį.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
@@ -61,30 +61,123 @@
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
+                    <canvas id="canvas2" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <canvas id="canvas3" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
                     <div class="hint-panel">
                         <ul> Jei sunku:
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content=" Jei paspausta ant Euro, padidink jį 1.">Hint1</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Jei paspausta ant Lito - konvertuok.">Hint2</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
                             </li>
                         </ul>
                     </div>
+                </div>
+                <div>
+                    <button id="download" class="btn download-btn">Download</button>
                 </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <block type="paspausta"></block>
-                    <block type="set"></block>
-                    <block type="change"></block>
-                    <block type="ifas"></block>
-                    <block type="convert"></block>
+                    <category name="Raidžių stilius" colour="20">
+                        <block type="spalva">
+                        </block>
+                        <block type="storis">
+                        </block>
+                        <block type="colour_random"></block>
+                        <block type="math_random_int">
+                            <value name="FROM">
+                                <shadow type="math_number">
+                                    <field name="NUM">1</field>
+                                </shadow>
+                            </value>
+                            <value name="TO">
+                                <shadow type="math_number">
+                                    <field name="NUM">100</field>
+                                </shadow>
+                            </value>
+                        </block>
+                        <block type="math_number" gap="32"></block>
+                        <block type="colour_picker"></block>
+                        <block type="kvadratas">
+                        </block>
+                    </category>
+                    <category name="Raidės" colour="260">
+                        <block type="raide_A">
+                        </block>
+                        <block type="raide_Ą">
+                        </block>
+                        <block type="raide_B">
+                        </block>
+                        <block type="raide_C">
+                        </block>
+                        <block type="raide_Č">
+                        </block>
+                        <block type="raide_D">
+                        </block>
+                        <block type="raide_E">
+                        </block>
+                        <block type="raide_Ę">
+                        </block>
+                        <block type="raide_Ė">
+                        </block>
+                        <block type="raide_F">
+                        </block>
+                        <block type="raide_G">
+                        </block>
+                        <block type="raide_H">
+                        </block>
+                        <block type="raide_I">
+                        </block>
+                        <block type="raide_Į">
+                        </block>
+                        <block type="raide_Y">
+                        </block>
+                        <block type="raide_J">
+                        </block>
+                        <block type="raide_K">
+                        </block>
+                        <block type="raide_L">
+                        </block>
+                        <block type="raide_M">
+                        </block>
+                        <block type="raide_N">
+                        </block>
+                        <block type="raide_O">
+                        </block>
+                        <block type="raide_P">
+                        </block>
+                        <block type="raide_R">
+                        </block>
+                        <block type="raide_S">
+                        </block>
+                        <block type="raide_Š">
+                        </block>
+                        <block type="raide_T">
+                        </block>
+                        <block type="raide_U">
+                        </block>
+                        <block type="raide_Ų">
+                        </block>
+                        <block type="raide_Ū">
+                        </block>
+                        <block type="raide_V">
+                        </block>
+                        <block type="raide_Z">
+                        </block>
+                        <block type="raide_Ž">
+                        </block>
+                    </category>
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -122,6 +215,7 @@
                 </div>
             </div>
         </div>
+        <img style="visibility: hidden;">
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -133,7 +227,28 @@
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/litai.js"></script>
+    <script src="../js/letters.js"></script>
+    <script src="../js/jspdf.js"></script>
+    <script type="text/javascript">
+    var w = window;
+    requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
+    var my_canvas = document.getElementById("canvas");
+    var ctx = my_canvas.getContext("2d");
+    var c_canvas = document.getElementById("canvas2");
+    var c_ctx = c_canvas.getContext("2d");
+    var a_canvas = document.getElementById("canvas3");
+    var m_ctx = a_canvas.getContext("2d");
+
+    var img_maciunas = new Image();
+    // img_maciunas.setAttribute('crossOrigin', 'anonymous');
+    img_maciunas.src = '../img_lessons/maciunas_1.png';
+
+    ///draw image
+
+    img_maciunas.addEventListener("load", function() {
+        m_ctx.drawImage(img_maciunas, 140, 20, 200, 300);
+    });
+    </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -153,7 +268,12 @@
     workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
-    var clicked;
+    var cx = 200;
+    var cy = 145;
+    var radius = 71;
+    var degreeAngle = 0;
+    var degreeAngleCircle = 0;
+    var interval = 0;
 
     function runCode() {
         // Generate JavaScript code and run it.
@@ -162,12 +282,26 @@
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        my_canvas.removeEventListener('click', clicked, false);
-        litas = 0;
-        euras = 0;
-        draw_elements();
+        m_ctx.clearRect(0, 0, canvas.width, canvas.height);
+        c_ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        cx = 200;
+        cy = 145;
+        radius = 71;
+        degreeAngle = 0;
+        degreeAngleCircle = 0;
+        img_maciunas_drawing = new Image();
+        //img_maciunas_drawing.setAttribute('crossOrigin', 'anonymous');
+        img_maciunas_drawing.src = '../img_lessons/maciunas_2.png';
+        img_maciunas_drawing.addEventListener("load", function() {
+            m_ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 200);
+        });
+
+
         try {
+
             if (code.length > 0) {
+                animate();
                 eval(code);
             } else {
                 alert('Pridėk kodo blokelį.');
@@ -176,7 +310,60 @@
         } catch (e) {
             alert(e);
         }
+
+        function animate() {
+
+            // request that this animate() function be called again
+            // this creates an animation loop
+            if (degreeAngle >= 360) {
+                cancelAnimationFrame(globalID);
+                //cancelAnimationFrame(globalID2);
+                setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+            } else { globalID = requestAnimationFrame(animate); }
+
+
+            // clear the canvas
+
+            // calculate the new position of the image
+            // this example just rotates it around a centerpoint   
+            degreeAngle += 1;
+            var radianAngle = degreeAngle * Math.PI / 180;
+            var x = cx + radius * Math.cos(radianAngle);
+            var y = cy + radius * Math.sin(radianAngle);
+
+            // clear the canvas 
+            // and draw the image at its new position
+            c_ctx.clearRect(0, 0, canvas.width, canvas.height);
+            m_ctx.clearRect(0, 0, canvas.width, canvas.height);
+            m_ctx.drawImage(img_maciunas_drawing, x, y, 200, 200);
+            degreeAngleCircle += 0.0056;
+
+            c_ctx.beginPath();
+            c_ctx.lineJoin = 'round';
+            c_ctx.lineCap = 'round';
+            c_ctx.lineWidth = 3;
+            c_ctx.strokeStyle = "black";
+            c_ctx.arc(200, 150, 70, 0, degreeAngleCircle * Math.PI);
+            c_ctx.stroke();
+        }
     }
+    </script>
+    <script type="text/javascript">
+    download.addEventListener("click", function() {
+        // only jpeg is supported by jsPDF
+        var imgData = canvas.toDataURL();
+        var imgData2 = canvas2.toDataURL();
+        // var imgData3 = canvas3.toDataURL();
+        var pdf = new jsPDF({
+            orientation: 'landscape'
+        })
+
+
+        pdf.addImage(imgData, 'JPEG', 20, 20);
+        pdf.addImage(imgData2, 'JPEG', 20, 20);
+        // pdf.addImage(imgData3, 'JPEG', 20, 20);
+        pdf.save("vardo_simbolis.pdf");
+    }, false);
     </script>
 </body>
 

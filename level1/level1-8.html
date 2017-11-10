@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid header-top">
-       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -37,7 +37,7 @@
                     <a href="level1-7.html">7</a>
                 </li>
                 <li>
-                    <a href="level1-8.html">8</a>
+                    <a class="active" href="level1-8.html">8</a>
                 </li>
                 <li>
                     <a href="level1-9.html">9</a>
@@ -51,45 +51,40 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Baltijos kelias</h4></div>
-            <div class=" col-md-7" id="task"> Padėk suorganizuoti Baltijos kelią. Nurodyk žmonėms, kur važiuoti, kad jie susikibę galėtų užpildyti likusius tarpus.
+                <h4>Lietuvos valiutos</h4></div>
+            <div class=" col-md-7" id="task"> Paversk eurus litais ir nusipirk šakotį.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
-            <div class="col ">
+            <div class="col  ">
                 <div id="preview">
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-                    <div class="person"></div>
-                    <div class="person2"></div>
-                    <div class="person3"></div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
-                
-                <div class="hint-panel">
-                    <ul> Jei sunku:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content="1 žmogus gali užpildyti 1m tarpą.">Hint1</a>
-                            <!-- Perkelti vyresniems -->
-                        </li>
-                        <!--  <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
-                        </li> -->
-                    </ul>
-                </div></div>
+                    <div class="hint-panel">
+                        <ul> Jei sunku:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content=" Jei paspausta ant Euro, padidink jį 1.">Hint1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Jei paspausta ant Lito - konvertuok.">Hint2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Sąlyga">
-                        <block type="keisti">
-                        </block>
-                        <block type="add_person">
-                        </block>
-                    </category>
+                    <block type="paspausta"></block>
+                    <block type="set"></block>
+                    <block type="change"></block>
+                    <block type="ifas"></block>
+                    <block type="convert"></block>
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -112,7 +107,7 @@
                 </div>
             </div>
         </div>
-                <div class="next-modal">
+        <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -137,59 +132,8 @@
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
-    <script src="../js/customBlocks.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/kelias.js"></script>
-    <script type="text/javascript">
-    var my_canvas = document.getElementById("canvas");
-    var ctx = my_canvas.getContext("2d");
-    var people_lt = new Image();
-    var people_lv = new Image();
-    var people_est = new Image();
-    var girl = new Image();
-    var step = 0;
-
-
-    people_lt.src = "../test_img/ppl.png";
-    people_lv.src = "../test_img/ppl.png";
-    people_est.src = "../test_img/ppl.png";
-    girl.src = "../test_img/girl.png";
-
-    people_lt.onload = function() {
-        draw(people_lt, 10, 10);
-        draw(people_lt, 100, 10);
-        draw(people_lt, 230, 10);
-    };
-    people_lv.onload = function() {
-        draw(people_lv, 10, 100);
-        draw(people_lv, 100, 100);
-        draw(people_lv, 230, 100);
-    };
-    people_est.onload = function() {
-        draw(people_est, 10, 200);
-        draw(people_est, 100, 200);
-        draw(people_est, 230, 200);
-    };
-    girl.onload = function() {
-        //draw(girl, 200, 10);
-    };
-
-    function draw(pic_name, x, y) {
-        ctx.drawImage(pic_name, x, y);
-    }
-
-    function draw_elements() {
-        draw(people_lt, 10, 10);
-        draw(people_lt, 100, 10);
-        draw(people_lt, 230, 10);
-        draw(people_lv, 10, 100);
-        draw(people_lv, 100, 100);
-        draw(people_lv, 230, 100);
-        draw(people_est, 10, 200);
-        draw(people_est, 100, 200);
-        draw(people_est, 230, 200);
-    }
-    </script>
+    <script src="../js/litai.js"></script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -209,6 +153,8 @@
     workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
+    var clicked;
+
     function runCode() {
         // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
@@ -216,10 +162,10 @@
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        step = 0;
-
-        // animatePerson();
-        // animateLostPerson();
+        my_canvas.removeEventListener('click', clicked, false);
+        litas = 0;
+        euras = 0;
+        draw_elements();
         try {
             if (code.length > 0) {
                 eval(code);
@@ -230,15 +176,6 @@
         } catch (e) {
             alert(e);
         }
-    }
-
-    function animatePerson(x) {
-        if (x == "raudona") { $('.person').show().css({ "animation-name": "animatedPerson" }); } else if (x == "baltas") { $('.person2').show().css({ "animation-name": "animatedPerson2" }); } else if (x == "zali") { $('.person3').show().css({ "animation-name": "animatedPerson3" }); } else { lost(); }
-
-    }
-
-    function lost() {
-        alert("Nėra tokio žmogaus")
     }
     </script>
 </body>

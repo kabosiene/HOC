@@ -124,15 +124,16 @@ li {
     height:50px;
    
 }
-.progress-container li a:hover {
+.progress-container li a:hover,.progress-container .active {
      background-color: #f1579a;
       border: 1px solid #f1579a;
 }
 
 
-.progress-container a:hover {
+.progress-container a:hover,.progress-container .active {
     text-decoration: none;
 }
+
 
 .working-space {
     /*border: 10px #52499E solid;*/
