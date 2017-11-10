@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid header-top">
-       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a>
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -81,17 +81,20 @@
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
-                
-                <div class="hint-panel">
-                    <ul> Pagalba:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
-                        </li>
-                    </ul>
-                </div></div>
+                    <div class="hint-panel">
+                        <ul> Pagalba:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <button id="download" class="btn download-btn" onclick=" musicStop();">&#9632;</button>
+                </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">

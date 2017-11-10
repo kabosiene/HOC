@@ -25,6 +25,11 @@ var radius = 71;
         angle += step;
     });
 
+    function musicStop(){
+        audio.pause();
+        audio.currentTime = 0;
+    }
+
     function runCode() {
 
         // Generate JavaScript code and run it.
@@ -51,8 +56,7 @@ var radius = 71;
         angle = 0;
         step = (2 * Math.PI) / fields.length;
         try {
-            audio.pause();
-            audio.currentTime = 0;
+            musicStop();
             if (code.length > 0) {
                 //eval(code);
 
