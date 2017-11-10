@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid header-top">
-       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a>
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -25,7 +25,7 @@
                     <a href="level2-3.html">3</a>
                 </li>
                 <li>
-                    <a href="level2-4.html">4</a>
+                    <a class="active" href="level2-4.html">4</a>
                 </li>
                 <li>
                     <a href="level2-5.html">5</a>
@@ -51,55 +51,72 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Meilutytė</h4></div>
+                <h4>Dainų šventė</h4></div>
             <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
-                <div id="preview">
+                <div id="preview" style="background-image: url(../img_lessons/fonas-01.png);">
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-                    <canvas id="canvas2" width="490" height="330">
-                        This text is displayed if your browser does not support HTML5 Canvas.
-                    </canvas>
-                    <div id="test1"></div>
+                    <div id=d5>
+                        <div class="dance">
+                            <div id="dancers1" class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div id="dancers2" class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div id="dancers3" class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div id="dancers4" class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div id="dancers5" class="d-inner"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
-                
-                <div class="hint-panel">
-                    <ul> Pagalba:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
-                        </li>
-                    </ul>
-                </div></div>
+                    <div class="hint-panel">
+                        <ul> Pagalba:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <button id="download" class="btn download-btn" onclick=" musicStop();">&#9632;</button>
+                </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <!-- <category name=b lokeliai> -->
-                    <block type="krastas"></block>
-                    <block type="apsisuk"></block>
-                    <block type="keisti"></block>
-                    <block type="controls_if"></block>
-                    <block type="keisti_greiti"></block>
-                    <!-- <block type="set"></block> -->
-                    <block type="anim_speed"></block>
-                    <block type="var_speed"></block>
-                    <block type="math_number"></block>
-                    <block type="on_click"></block>
-                    <!-- <block type="controls_whileUntil"></block> -->
-                    <block type="function"></block>
-                    <block type="function_call"></block>
-                    <!--   <block type="function_x"></block>
-                    <block type="function_call_x"></block> -->
+                    <category name="Ciklas" colour="120">
+                        <block type="controls_repeat_ext">
+                            <value name="TIMES">
+                                <block type="math_number">
+                                    <field name="NUM">10</field>
+                                </block>
+                            </value>
+                        </block>
+                        <block type="wait_seconds"></block>
+                    </category>
+                    <category name="Šokis" colour="65">
+                        <block type="anim_speed"></block>
+                        <block type="musicplay"></block>
+                        <block type="dance"></block>
+                        <block type="math_number"></block>
+                        <block type="rotate"></block>
+                    </category>
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -140,15 +157,20 @@
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
+    <script src="../js/acorn_interpreter.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/baseinas.js"></script>
+    <script src="../js/sokiai.js"></script>
+    <script type="text/javascript">
+    var my_canvas = document.getElementById("canvas");
+    var ctx = my_canvas.getContext("2d");
+    </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -166,204 +188,6 @@
         document.getElementById('content_javascript').innerHTML = code;
     }
     workspace.addChangeListener(toJavascript);
-    </script>
-    <script type="text/javascript">
-    var my_canvas = document.getElementById("canvas");
-    var ctx = my_canvas.getContext("2d");
-    var my_canvas2 = document.getElementById("canvas2");
-    var swimmer = my_canvas2.getContext("2d");
-    var swim = new Image();
-    swim.src = "../test_img/swim.png";
-    var swim2 = new Image();
-    swim2.src = "../test_img/swim2.png";
-    var swim3 = new Image();
-    swim3.src = "../test_img/swim_anim.png";
-
-    swim.onload = function() {
-        swimmer.drawImage(swim, 0, 150, 40, 40);
-    };
-    var start_x = 0;
-    var start_y = 150;
-    var x = 490;
-    var startTime;
-    var score;
-    var speed = 0.15;
-    var turn = false;
-    var edge = false;
-    var edge1;
-    var edge2;
-    var mouse_click = false;
-    var swim_do = false;
-    var swim_do_f = false;
-    var add_speed = 0
-    var add_costume_swim = false;
-    var add_costume_swim2 = false;
-    var costume = false;
-    var animation_speed = false;
-    var anim_speed = 0;
-
-
-    function runCode() {
-        // Generate JavaScript code and run it.
-        start_x = 0;
-        start_y = 150;
-        speed = 0.15;
-        turn = false;
-        edge = false;
-        edge1 = 1;
-        edge2 = 450;
-        mouse_click = false;
-        swim_do = false;
-        swim_do_f = false;
-        add_speed = 0;
-        add_costume_swim = false;
-        add_costume_swim2 = false;
-        costume = false;
-        animation_speed = false;
-        anim_speed = 0;
-        document.getElementById("test1").style.animationDuration = "0s";
-
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.clearRect(0, 0, canvas.width, canvas.height);
-
-        window.LoopTrap = 1000;
-        Blockly.JavaScript.INFINITE_LOOP_TRAP =
-            'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-        var code = Blockly.JavaScript.workspaceToCode(workspace);
-        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        startTime = new Date();
-
-        canvas2.removeEventListener("click", onClick, false);
-          swimmer.drawImage(swim, 0, 150, 40, 40);
-        try {
-            if (code.length > 0) {
-                eval(code);
-
-                if (mouse_click) {
-                    canvas2.addEventListener("click", onClick, false);
-                }
-
-                if (swim_do && swim_do_f) {
-                    if (add_costume_swim && add_costume_swim2) {
-                                     swimmer.clearRect(0, 0, canvas.width, canvas.height);
-                        document.getElementById("test1").style.visibility = "visible";
-                        if (animation_speed) {
-                            document.getElementById("test1").style.animationDuration = "" + (1 / anim_speed) + "s";
-                        }
-                        animateSwimmer();
-                    } else {
-                        document.getElementById("test1").style.visibility = "hidden";
-                        swimmer.drawImage(swim, 0, 150, 40, 40);
-                    }
-
-
-                } else {
-
-                    alert("Ar plaukikui plaukti?");
-                }
-
-            } else {
-                alert('Pridėk kodo blokelį.');
-            }
-
-        } catch (e) {
-            alert(e);
-        }
-    }
-
-
-    function animateSwimmer() {
-
-        //swimlID = requestAnimationFrame(animate_swimmer);
-
-        if (start_x < edge2) {
-            anim_id = requestAnimationFrame(function() { animateSwimmer(); });
-        } else {
-            // edge = true;
-            cancelAnimationFrame(anim_id);
-            if (turn) {
-                animateSwimmerBack();
-            } else {
-                alert("Apsisuk");
-            }
-
-        }
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.clearRect(0, 0, canvas.width, canvas.height)
-        if (add_costume_swim && add_costume_swim2) {
-            // switchCostumes(start_x);
-            document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px)";
-        } else {
-            swimmer.drawImage(swim, start_x, 150, 40, 40);
-        }
-        drawElapsedTime();
-        start_x += speed;
-    }
-
-
-
-    function animateSwimmerBack() {
-
-        if (start_x > edge1) {
-            requestAnimationFrame(function() { animateSwimmerBack(); });
-        } else {
-
-            document.getElementById("test1").style.visibility = "hidden";
-            score = parseInt((new Date() - startTime) / 1000);
-            console.log(score);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            swimmer.clearRect(0, 0, canvas.width, canvas.height);
-            if (score < 5) {
-                ctx.font = "20px Verdana";
-                ctx.fillText("LAIMĖJAI AUKSĄ!", 200, 150);
-                setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
-                return;
-            } else {
-                ctx.font = "20px Verdana";
-                ctx.fillText("Bandyk dar kartą", 200, 150);
-                return;
-            }
-
-        }
-
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.clearRect(0, 0, canvas.width, canvas.height);
-        if (add_costume_swim && add_costume_swim2) {
-            document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px) scaleX(-1)";
-        } else {
-
-            swimmer.drawImage(swim2, start_x, 150, 40, 40);
-        }
-        start_x -= speed;
-        drawElapsedTime();
-
-
-    }
-
-    function drawElapsedTime() {
-        var elapsed = parseInt((new Date() - startTime) / 1000);
-        ctx.save();
-        ctx.beginPath();
-        ctx.fillStyle = "red";
-        ctx.font = "14px Verdana";
-        // draw the running time at half opacity
-        ctx.globalAlpha = 0.50;
-        ctx.fillText(elapsed + " s", canvas.width - 75, 25);
-        ctx.restore();
-    }
-
-
-    function onClick(e) {
-        speed += add_speed;
-
-        if (animation_speed) {
-            anim_speed += add_speed;
-            document.getElementById("test1").style.animationDuration = "" + (1 / anim_speed) + "s";
-        }
-
-    }
     </script>
 </body>
 

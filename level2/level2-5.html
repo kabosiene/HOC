@@ -28,7 +28,7 @@
                     <a href="level2-4.html">4</a>
                 </li>
                 <li>
-                    <a href="level2-5.html">5</a>
+                    <a class="active" href="level2-5.html">5</a>
                 </li>
                 <li>
                     <a href="level2-6.html">6</a>
@@ -51,28 +51,32 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Mažylis. Sort list - dokumento paieška</h4></div>
-            <div class=" col-md-7" id="task"> Dokumentai: "18 aa; 19 bcjhs; 18 cj nj; 2003 vndjv; 18 djvnsjk;"
+                <h4>Baltijos kelias</h4></div>
+            <div class=" col-md-7" id="task"> Padėk suorganizuoti Baltijos kelią. Nurodyk žmonėms, kur važiuoti, kad jie susikibę galėtų užpildyti likusius tarpus.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
-            <div class="col  ">
+            <div class="col ">
                 <div id="preview">
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
+                    <div class="person"></div>
+                    <div class="person2"></div>
+                    <div class="person3"></div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
                 
                 <div class="hint-panel">
-                    <ul> Pagalba:
+                    <ul> Jei sunku:
                         <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
+                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content="1 žmogus gali užpildyti 1m tarpą.">Hint1 </a>
+                            <!-- Perkelti vyresniems -->
                         </li>
-                        <li>
+                        <!--  <li>
                             <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div></div>
             </div>
@@ -80,31 +84,35 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Tekstas" colour="160">
-                        <block type="text">
+                    <category name="Sąlyga">
+                        <block type="keisti">
                         </block>
-                        <block type="text">
-                            <field name="TEXT">18 aa; 19 bcjhs; 18 cj nj; 2003 vndjv; 18 djvnsjk;</field>
+                        <block type="add_person">
                         </block>
-                        <block type="text_print"></block>
-                        <block type="spausdinti"></block>
+                        <block type="add_person2">
+                        </block>
+                        <block type="atstumas">
+                        </block>
                     </category>
-                    <category name="Sąrašai" colour="260">
-                        <block type="lists_getSublist">
-                        </block>
-                        <block type="list_includes2"></block>
-                        <block type="lists_split">
-                            <value name="DELIM">
-                                <shadow type="text">
-                                    <field name="TEXT">,</field>
+                    <category name="Ciklas">
+                        <block type="controls_for">
+                            <field name="VAR" id="u-D?D6Vhel}iCy9uqmV-" variabletype="">metrai</field>
+                            <value name="FROM">
+                                <shadow type="math_number">
+                                    <field name="NUM">1</field>
+                                </shadow>
+                            </value>
+                            <value name="TO">
+                                <shadow type="math_number">
+                                    <field name="NUM">10</field>
+                                </shadow>
+                            </value>
+                            <value name="BY">
+                                <shadow type="math_number">
+                                    <field name="NUM">1</field>
                                 </shadow>
                             </value>
                         </block>
-                        <block type="lists_sort"></block>
-                    </category>
-                    <category name="Kintamieji" colour="330">
-                        <block type="v_dokumentai"></block>
-                        <block type="set_v2"></block>
                     </category>
                 </xml>
             </div>
@@ -149,15 +157,63 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/acorn_interpreter.js"></script>
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
+    <script src="../js/customBlocks.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/mazylis.js"></script>
+    <script src="../js/kelias.js"></script>
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
+    var people_lt = new Image();
+    var people_lv = new Image();
+    var people_est = new Image();
+    var girl = new Image();
+    var step = 0;
+
+
+    people_lt.src = "../test_img/ppl.png";
+    people_lv.src = "../test_img/ppl.png";
+    people_est.src = "../test_img/ppl.png";
+    girl.src = "../test_img/girl.png";
+
+    people_lt.onload = function() {
+        draw(people_lt, 10, 10);
+        draw(people_lt, 100, 10);
+        draw(people_lt, 230, 10);
+    };
+    people_lv.onload = function() {
+        draw(people_lv, 10, 100);
+        draw(people_lv, 100, 100);
+        draw(people_lv, 230, 100);
+    };
+    people_est.onload = function() {
+        draw(people_est, 10, 200);
+        draw(people_est, 100, 200);
+        draw(people_est, 230, 200);
+    };
+    girl.onload = function() {
+        //draw(girl, 200, 10);
+    };
+
+    function draw(pic_name, x, y) {
+        ctx.drawImage(pic_name, x, y);
+    }
+
+    function draw_elements() {
+        draw(people_lt, 10, 10);
+        draw(people_lt, 100, 10);
+        draw(people_lt, 230, 10);
+        draw(people_lv, 10, 100);
+        draw(people_lv, 100, 100);
+        draw(people_lv, 230, 100);
+        draw(people_est, 10, 200);
+        draw(people_est, 100, 200);
+        draw(people_est, 230, 200);
+    }
     </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
@@ -180,14 +236,22 @@
     <script type="text/javascript">
     function runCode() {
         // Generate JavaScript code and run it.
-        window.LoopTrap = 1000;
-        Blockly.JavaScript.INFINITE_LOOP_TRAP =
-            'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+
+        Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
+        Blockly.JavaScript.addReservedWords('highlightBlock');
         var code = Blockly.JavaScript.workspaceToCode(workspace);
-        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        var myInterpreter = new Interpreter(code, initApi);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        draw_elements();
         try {
             if (code.length > 0) {
-                eval(code);
+                function nextStep() {
+                    if (myInterpreter.step()) {
+                        window.setTimeout(nextStep, 0);
+                    }
+                }
+                nextStep();
             } else {
                 alert('Pridėk kodo blokelį.');
             }
@@ -195,6 +259,71 @@
         } catch (e) {
             alert(e);
         }
+    }
+
+
+
+    function initApi(interpreter, scope) {
+
+
+        // Add an API function for the alert() block.
+        var wrapper = function(text) {
+            text = text ? text.toString() : '';
+            return interpreter.createPrimitive(alert(text));
+        };
+        interpreter.setProperty(scope, 'alert',
+            interpreter.createNativeFunction(wrapper));
+
+        // Add an API function for the prompt() block.
+        wrapper = function(text) {
+            text = text ? text.toString() : '';
+            return interpreter.createPrimitive(prompt(text));
+        };
+        interpreter.setProperty(scope, 'prompt',
+            interpreter.createNativeFunction(wrapper));
+        // Add an API function for highlighting blocks.
+        var wrapper = function(id) {
+            id = id ? id.toString() : '';
+            return interpreter.createPrimitive(Blockly.mainWorkspace.highlightBlock(id));
+        };
+        interpreter.setProperty(scope, 'highlightBlock',
+            interpreter.createNativeFunction(wrapper));
+
+        /*************************************************************************/
+        Blockly.JavaScript.addReservedWords('updatePerson');
+
+
+        var wrapper = interpreter.createAsyncFunction(
+
+
+            function updatePerson(x, i, callback) {
+                var lt = 30;
+                var lv = 50;
+                var est = 10;
+                animatePerson(x, i);
+                setTimeout(callback, 1000);
+            }
+        );
+        interpreter.setProperty(scope, 'updatePerson', wrapper);
+        Blockly.JavaScript.addReservedWords('lost');
+
+        var wrapper = interpreter.createNativeFunction(
+            function() {
+                alert("Patikrink savo sąlygą");
+            }
+        );
+        interpreter.setProperty(scope, 'lost', wrapper);
+
+
+        Blockly.JavaScript.addReservedWords('waitForSeconds');
+
+        var wrapper = interpreter.createAsyncFunction(
+            function(timeInSeconds, callback) {
+                // Delay the call to the callback.
+                setTimeout(callback, timeInSeconds * 1000);
+            });
+        interpreter.setProperty(scope, 'waitForSeconds', wrapper);
+
     }
     </script>
 </body>

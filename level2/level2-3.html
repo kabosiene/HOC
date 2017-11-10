@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid header-top">
-        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a>
+       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -22,7 +22,7 @@
                     <a href="level2-2.html">2</a>
                 </li>
                 <li>
-                    <a href="level2-3.html">3</a>
+                    <a class="active" href="level2-3.html">3</a>
                 </li>
                 <li>
                     <a href="level2-4.html">4</a>
@@ -51,8 +51,8 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Lietuvos valiutos</h4></div>
-            <div class=" col-md-7" id="task"> Paversk eurus litais ir nusipirk šakotį.
+                <h4>Vardo simbolis. Jurgis Mačiūnas. FLUXUS</h4></div>
+            <div class=" col-md-7" id="task"> Sukurk savo vardo simbolį.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
@@ -61,13 +61,19 @@
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
+                    <canvas id="canvas2" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <canvas id="canvas3" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
                     <div class="hint-panel">
                         <ul> Jei sunku:
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content="1 Eur = 3.45 Lt.">Hint1</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
                             </li>
                             <li>
                                 <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
@@ -75,33 +81,101 @@
                         </ul>
                     </div>
                 </div>
+                <button id="download" class="btn download-btn">Download</button>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <!-- <category name="Valiutos"> -->
-                    <!-- <block type="controls_if"></block> -->
-                  <!--   <block type="math_number"></block> -->
-                    <block type="math_arithmetic">
-                        <value name="A">
-                            <shadow type="math_number">
-                                <field name="NUM">1</field>
-                            </shadow>
-                        </value>
-                        <value name="B">
-                            <shadow type="math_number">
-                                <field name="NUM">1</field>
-                            </shadow>
-                        </value>
-                    </block>
-                    <block type="paspausta"></block>
-                    <!-- <block type="keisti_valiuta"> </block> -->
-                    <block type="kintamieji"></block>
-                    <block type="set"></block>
-                    <block type="change"></block>
-                    <block type="ifas"></block>
-                    <!-- </category> -->
+                    <category name="Raidžių stilius" colour="20">
+                        <block type="spalva">
+                        </block>
+                        <block type="storis">
+                        </block>
+                        <block type="colour_random"></block>
+                        <block type="math_random_int">
+                            <value name="FROM">
+                                <shadow type="math_number">
+                                    <field name="NUM">1</field>
+                                </shadow>
+                            </value>
+                            <value name="TO">
+                                <shadow type="math_number">
+                                    <field name="NUM">100</field>
+                                </shadow>
+                            </value>
+                        </block>
+                        <block type="math_number" gap="32"></block>
+                        <block type="colour_picker"></block>
+                        <block type="kvadratas">
+                        </block>
+                    </category>
+                    <category name="Raidės" colour="260">
+                        <block type="raide_A">
+                        </block>
+                        <block type="raide_Ą">
+                        </block>
+                        <block type="raide_B">
+                        </block>
+                        <block type="raide_C">
+                        </block>
+                        <block type="raide_Č">
+                        </block>
+                        <block type="raide_D">
+                        </block>
+                        <block type="raide_E">
+                        </block>
+                        <block type="raide_Ę">
+                        </block>
+                        <block type="raide_Ė">
+                        </block>
+                        <block type="raide_F">
+                        </block>
+                        <block type="raide_G">
+                        </block>
+                        <block type="raide_H">
+                        </block>
+                        <block type="raide_I">
+                        </block>
+                        <block type="raide_Į">
+                        </block>
+                        <block type="raide_Y">
+                        </block>
+                        <block type="raide_J">
+                        </block>
+                        <block type="raide_K">
+                        </block>
+                        <block type="raide_L">
+                        </block>
+                        <block type="raide_M">
+                        </block>
+                        <block type="raide_N">
+                        </block>
+                        <block type="raide_O">
+                        </block>
+                        <block type="raide_P">
+                        </block>
+                        <block type="raide_R">
+                        </block>
+                        <block type="raide_S">
+                        </block>
+                        <block type="raide_Š">
+                        </block>
+                        <block type="raide_T">
+                        </block>
+                        <block type="raide_U">
+                        </block>
+                        <block type="raide_Ų">
+                        </block>
+                        <block type="raide_Ū">
+                        </block>
+                        <block type="raide_V">
+                        </block>
+                        <block type="raide_Z">
+                        </block>
+                        <block type="raide_Ž">
+                        </block>
+                    </category>
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -139,6 +213,7 @@
                 </div>
             </div>
         </div>
+        <img style="visibility: hidden;">
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -150,7 +225,28 @@
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/litai_2.js"></script>
+    <script src="../js/letters.js"></script>
+    <script src="../js/jspdf.js"></script>
+    <script type="text/javascript">
+    var w = window;
+    requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
+    var my_canvas = document.getElementById("canvas");
+    var ctx = my_canvas.getContext("2d");
+    var c_canvas = document.getElementById("canvas2");
+    var c_ctx = c_canvas.getContext("2d");
+    var a_canvas = document.getElementById("canvas3");
+    var m_ctx = a_canvas.getContext("2d");
+
+    var img_maciunas = new Image();
+    //img_maciunas.setAttribute('crossOrigin', 'anonymous');
+    img_maciunas.src = '../img_lessons/maciunas_1.png';
+
+    ///draw image
+
+    img_maciunas.addEventListener("load", function() {
+        m_ctx.drawImage(img_maciunas, 140, 20, 200, 300);
+    });
+    </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -170,26 +266,12 @@
     workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
-    var my_canvas = document.getElementById("canvas");
-    var ctx = my_canvas.getContext("2d");
-    var background = new Image();
-    background.src = "../img_lessons/valiutos/level2-bg.jpg";
-    my_canvas.addEventListener('click', clickReporterPirkti, false);
-    var eurasKainuoja = 3.45;
-    var litas;
-    var euras;
-    var talonas;
-    var litas_old;
-    var paspausta;
-    var callAgain;
-    var win = new Image();
-    win.src = "../img_lessons/valiutos/win.jpg";
-
-    background.onload = function() {
-        draw(background, 0, 0);
-    };
-
-    var clicked;
+    var cx = 200;
+    var cy = 145;
+    var radius = 71;
+    var degreeAngle = 0;
+    var degreeAngleCircle = 0;
+    var interval = 0;
 
     function runCode() {
         // Generate JavaScript code and run it.
@@ -198,14 +280,26 @@
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        my_canvas.removeEventListener('click', clicked, false);
-        litas = 0;
-        euras = 0;
-        talonas = 0;
-        litas_old = 0;
-        draw_elements();
+        m_ctx.clearRect(0, 0, canvas.width, canvas.height);
+        c_ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        cx = 200;
+        cy = 145;
+        radius = 71;
+        degreeAngle = 0;
+        degreeAngleCircle = 0;
+        img_maciunas_drawing = new Image();
+        //img_maciunas_drawing.setAttribute('crossOrigin', 'anonymous');
+        img_maciunas_drawing.src = '../img_lessons/maciunas_2.png';
+        img_maciunas_drawing.addEventListener("load", function() {
+            m_ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 200);
+        });
+
+
         try {
+
             if (code.length > 0) {
+                animate();
                 eval(code);
             } else {
                 alert('Pridėk kodo blokelį.');
@@ -214,119 +308,60 @@
         } catch (e) {
             alert(e);
         }
-    }
 
-    function draw(pic_name, x, y) {
-        ctx.drawImage(pic_name, x, y);
-    }
+        function animate() {
 
-    function draw_elements() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        draw(background, 0, 0);
-        ctx.font = "16px Verdana";
-        ctx.strokeText(euras, 150, 170);
-        ctx.strokeText((Math.round(litas * 100) / 100), 195, 52);
-        ctx.strokeText((Math.round(talonas * 100) / 100), 425, 52);
-        ctx.strokeText((Math.round(litas_old * 100) / 100), 410, 180);
-    }
-
-    function callAgain(if_body) {
-
-        clicked = function(e) { clickReporter(e, if_body) };
-        my_canvas.addEventListener('click', clicked);
-
-    };
-
-    function clickReporter(e, if_body) { /// assign event to some variable
-
-        /// adjust mouse click position to be relative to canvas:
-        var rect = canvas.getBoundingClientRect(),
-            x = e.clientX - rect.left,
-            y = e.clientY - rect.top;
-        euras_width = 90;
-        euras_height = 90;
-        litas_width = 150;
-        litas_height = 80;
-        talonas_width = 140;
-        talonas_height = 80;
-        litas_old_width = 150;
-        litas_old_height = 80;
+            // request that this animate() function be called again
+            // this creates an animation loop
+            if (degreeAngle >= 360) {
+                cancelAnimationFrame(globalID);
+                //cancelAnimationFrame(globalID2);
+                setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+            } else { globalID = requestAnimationFrame(animate); }
 
 
-        /// check x/y coordinate against the image position and dimension
-        //button litas
-        if (x >= 30 && x <= (30 + litas_width) &&
-            y >= 30 && y <= (30 + litas_height)) {
+            // clear the canvas
 
-            //exchangeLitai();
-            paspausta = "litai";
-            if_body();
-            draw_elements();
+            // calculate the new position of the image
+            // this example just rotates it around a centerpoint   
+            degreeAngle += 1;
+            var radianAngle = degreeAngle * Math.PI / 180;
+            var x = cx + radius * Math.cos(radianAngle);
+            var y = cy + radius * Math.sin(radianAngle);
 
-        }
-        //button_1 talonas
-        if (x >= 270 && x <= (270 + talonas_width)&
-            y >= 21 && y <= (21 + talonas_height)){
+            // clear the canvas 
+            // and draw the image at its new position
+            c_ctx.clearRect(0, 0, canvas.width, canvas.height);
+            m_ctx.clearRect(0, 0, canvas.width, canvas.height);
+            m_ctx.drawImage(img_maciunas_drawing, x, y, 200, 200);
+            degreeAngleCircle += 0.0056;
 
-            //exchangeLitai();
-            paspausta = "talonas";
-            if_body();
-            draw_elements();
-
-        }
-        //button_2 litas(23m.)
-        if (x >= 230 && x <= (230 + litas_old_width) &&
-            y >= 125 && y <= (125 + litas_old_height)) {
-
-            //exchangeLitai();
-            paspausta = "litas_old";
-            if_body();
-            draw_elements();
-
-        }
-        //button_euras
-        if (x >= 45 && x <= (45 + euras_width) &&
-            y >= 125 && y <= (125 + euras_height)) {
-
-            // exchangeLitai();
-            paspausta = "eurai";
-            if_body();
-            draw_elements();
+            c_ctx.beginPath();
+            c_ctx.lineJoin = 'round';
+            c_ctx.lineCap = 'round';
+            c_ctx.lineWidth = 3;
+            c_ctx.strokeStyle = "black";
+            c_ctx.arc(200, 150, 70, 0, degreeAngleCircle * Math.PI);
+            c_ctx.stroke();
         }
     }
+    </script>
+    <script type="text/javascript">
+    download.addEventListener("click", function() {
+        // only jpeg is supported by jsPDF
+        var imgData = canvas.toDataURL();
+        var imgData2 = canvas2.toDataURL();
+        // var imgData3 = canvas3.toDataURL();
+        var pdf = new jsPDF({
+            orientation: 'landscape'
+        })
 
-    function clickReporterPirkti(e) { /// assign event to some variable
 
-        /// adjust mouse click position to be relative to canvas:
-        var rect = this.getBoundingClientRect(),
-            x = e.clientX - rect.left,
-            y = e.clientY - rect.top;
-
-        buy_width = 145;
-        buy_height = 65
-        if (x >= 320 && x <= (320 + buy_width) &&
-            y >= 244 && y <= (244 + buy_height)) {
-
-            if (litas != 0 && euras != 0 && talonas != 0 && litas_old != 0) {
-                if (litas_old > 30) {
-                    ctx.clearRect(0, 0, 10, 10);
-                    draw(win, 0, 0);
-                    // ctx.strokeText("NUSIPIRKAI", 200, 100);
-                    setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
-                } else {
-
-                    litas = 0;
-                    euras = 0;
-                    talonas = 0;
-                    litas_old = 0;
-                    draw_elements();
-                    ctx.strokeText("TRŪKSTA", 200, 300);
-                }
-            } else {
-                alert('Ne visos valiutos konvertuotos');
-            }
-        }
-    }
+        pdf.addImage(imgData, 'JPEG', 20, 20);
+        pdf.addImage(imgData2, 'JPEG', 20, 20);
+        // pdf.addImage(imgData3, 'JPEG', 20, 20);
+        pdf.save("vardo_simbolis.pdf");
+    }, false);
     </script>
 </body>
 
