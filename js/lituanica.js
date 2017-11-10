@@ -1,81 +1,90 @@
 var move = 0;
 
-
-Blockly.Blocks['grid_turnright'] = {
-    init: function() {
-        this.setColour(320);
-        this.appendDummyInput()
-            .appendField('Skristi į dešinę');
-        this.setTooltip('Pasisukti 90 laipsnių į dešinę ');
-        this.setNextStatement(true);
-        this.setPreviousStatement(true);
-    }
+Blockly.Blocks['fly_left'] = {
+  init: function() {
+    this.appendValueInput("fly")
+        .setCheck(null)
+        .appendField("Skristi į kairę");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
 };
-
-Blockly.JavaScript['grid_turnright'] = function(block) {
-    var  code = 'updatePlane(0,move);';
+Blockly.JavaScript['fly_left'] = function(block) {
+  var value_fly = Blockly.JavaScript.valueToCode(block, 'fly', Blockly.JavaScript.ORDER_NONE);
+  // TODO: Assemble JavaScript into code variable.
+     var code = 'move = ' + value_fly * 40 +';\n';
+    code += 'updatePlane(0,-move);';
     code += 'waitForSeconds(move/40);\n';
     code += 'move = 0;\n';
-    return code;
+  return code;
 };
-Blockly.Blocks['grid_forward'] = {
-    init: function() {
-        this.setColour(320);
-        this.appendDummyInput()
-            .appendField('Skristi tiesiai');
-        this.setTooltip('Skrisk tiesia trajektorija. ');
-        this.setNextStatement(true);
-        this.setPreviousStatement(true);
-    }
+Blockly.Blocks['fly_right'] = {
+  init: function() {
+    this.appendValueInput("fly")
+        .setCheck(null)
+        .appendField("Skristi į dešinę");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
 };
-
-Blockly.JavaScript['grid_forward'] = function(block) {
-    var code = 'updatePlane(move,0);';
+Blockly.JavaScript['fly_right'] = function(block) {
+  var value_fly = Blockly.JavaScript.valueToCode(block, 'fly', Blockly.JavaScript.ORDER_NONE);
+  // TODO: Assemble JavaScript into code variable.
+     var code = 'move = ' + value_fly * 40 +';\n';
+    code += 'updatePlane(0,move);';
     code += 'waitForSeconds(move/40);\n';
     code += 'move = 0;\n';
-    return code;
+  return code;
 };
-
-Blockly.Blocks['grid_turnleft'] = {
-    init: function() {
-        this.setColour(320);
-        this.appendDummyInput()
-            .appendField('Skristi į kairę');
-        this.setTooltip('Pasisukti 90 laipsnių į kairę');
-        this.setNextStatement(true);
-        this.setPreviousStatement(true);
-    }
+Blockly.Blocks['fly_straight'] = {
+  init: function() {
+    this.appendValueInput("fly")
+        .setCheck(null)
+        .appendField("Skristi tiesiai");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
 };
-
-Blockly.JavaScript['grid_turnleft'] = function(block) {
-    var code = 'updatePlane(0,-move);';
+Blockly.JavaScript['fly_straight'] = function(block) {
+  var value_fly = Blockly.JavaScript.valueToCode(block, 'fly', Blockly.JavaScript.ORDER_NONE);
+  // TODO: Assemble JavaScript into code variable.
+     var code = 'move = ' + value_fly * 40 +';\n';
+    code += 'updatePlane(move, 0);';
     code += 'waitForSeconds(move/40);\n';
     code += 'move = 0;\n';
-
-    return code;
+  return code;
 };
 
-Blockly.Blocks['grid_goforward'] = {
-    init: function() {
-        this.setColour(320);
-        this.appendDummyInput()
-            .appendField('Skristi per')
-            .appendField(new Blockly.FieldNumber(0), "STEPS")
-            .appendField(' langelius');
-        this.setTooltip('Eiti tiesia linija, be pasisukimų');
-        this.setNextStatement(true);
-        this.setPreviousStatement(true);
-    }
+
+
+Blockly.Blocks['blocks'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldNumber(0, 0, 10), "block")
+        .appendField("langelius ");
+    this.setOutput(true, null);
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+Blockly.JavaScript['blocks'] = function(block) {
+  var number_block = block.getFieldValue('block');
+  // TODO: Assemble JavaScript into code variable.
+    var code = number_block;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['grid_goforward'] = function(block) {
-    var number_zingsniai = block.getFieldValue('STEPS');
-    var code = 'move = ' + number_zingsniai * 40 + ';\n';
-
-    return code;
-
-
-};
 
 Blockly.Blocks['wait_seconds'] = {
     init: function() {

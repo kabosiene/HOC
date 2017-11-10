@@ -11,8 +11,8 @@
 </head>
 
 <body>
-     <div class="container-fluid header-top">
-       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
+    <div class="container-fluid header-top">
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a>
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -68,36 +68,30 @@
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
-                
-                <div class="hint-panel">
-                    <ul> Jei sunku:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
-                        </li>
-                    </ul>
+                    <div class="hint-panel">
+                        <ul> Jei sunku:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <!-- <category name="Raidės"> -->
-                    <!-- <block type="spalva">
-                    </block> -->
-                    <block type="grid_turnleft">
+                    <block type="fly_left">
                     </block>
-                    <block type="grid_turnright">
+                    <block type="fly_right">
                     </block>
-                    <block type="grid_goforward">
+                    <block type="fly_straight">
                     </block>
-                    <block type="grid_forward">
+                    <block type="blocks">
                     </block>
-                    <!--                     <block type="wait_seconds">
-                    </block> -->
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
