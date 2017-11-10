@@ -217,14 +217,14 @@
         canvas2.removeEventListener("click", onClick, false);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
-
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         startTime = new Date();
-
+        swimmer.drawImage(swim, 0, 150, 40, 40);
+    
         try {
             if (code.length > 0) {
                 eval(code);
@@ -234,6 +234,7 @@
                 }
 
                 if (swim_do) {
+                    swimmer.clearRect(0, 0, canvas.width, canvas.height);
                     document.getElementById("test1").style.visibility = "visible";
                     animateSwimmer();
                 } else {

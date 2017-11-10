@@ -235,6 +235,7 @@
         startTime = new Date();
 
         canvas2.removeEventListener("click", onClick, false);
+          swimmer.drawImage(swim, 0, 150, 40, 40);
         try {
             if (code.length > 0) {
                 eval(code);
@@ -245,6 +246,7 @@
 
                 if (swim_do && swim_do_f) {
                     if (add_costume_swim && add_costume_swim2) {
+                                     swimmer.clearRect(0, 0, canvas.width, canvas.height);
                         document.getElementById("test1").style.visibility = "visible";
                         if (animation_speed) {
                             document.getElementById("test1").style.animationDuration = "" + (1 / anim_speed) + "s";
