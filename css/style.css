@@ -309,28 +309,28 @@ canvas {
 #dancers3.d-inner {
     background-image: url(../img_lessons/pora3/1.png);
     height: 100px;
-    width: 100px;
+    width: 115px;
     animation: dance 1s infinite steps(2, end);
 }
 
 #dancers3.d-inner2 {
     background-image: url(../img_lessons/pora3/2.png);
     height: 100px;
-    width: 131px;
+    width: 114px;
     animation: dance2 1s infinite steps(2, end);
 }
 
 #dancers3.d-inner3 {
     background-image: url(../img_lessons/pora3/3.png);
     height: 100px;
-    width: 85px;
+    width: 115px;
     animation: dance2 1s infinite steps(2, end);
 }
 
 #dancers3.d-inner4 {
     background-image: url(../img_lessons/pora3/4.png);
     height: 100px;
-    width: 84px;
+    width: 115px;
     animation: dance2 1s infinite steps(2, end);
 }
 
@@ -341,28 +341,28 @@ canvas {
 #dancers4.d-inner {
     background-image: url(../img_lessons/pora4/1.png);
     height: 100px;
-    width: 99px;
+    width: 115px;
     animation: dance 1s infinite steps(2, end);
 }
 
 #dancers4.d-inner2 {
     background-image: url(../img_lessons/pora4/2.png);
     height: 100px;
-    width: 130px;
+    width: 114px;
     animation: dance2 1s infinite steps(2, end);
 }
 
 #dancers4.d-inner3 {
     background-image: url(../img_lessons/pora4/3.png);
     height: 100px;
-    width: 85px;
+    width: 115px;
     animation: dance2 1s infinite steps(2, end);
 }
 
 #dancers4.d-inner4 {
     background-image: url(../img_lessons/pora4/4.png);
     height: 100px;
-    width: 82px;
+    width: 115px;
     animation: dance2 1s infinite steps(2, end);
 }
 
@@ -373,28 +373,28 @@ canvas {
 #dancers5.d-inner {
     background-image: url(../img_lessons/pora5/1.png);
     height: 100px;
-    width: 100px;
+    width: 115px;
     animation: dance 1s infinite steps(2, end);
 }
 
 #dancers5.d-inner2 {
     background-image: url(../img_lessons/pora5/2.png);
     height: 100px;
-    width: 131px;
+    width: 114px;
     animation: dance2 1s infinite steps(2, end);
 }
 
 #dancers5.d-inner3 {
     background-image: url(../img_lessons/pora5/3.png);
     height: 100px;
-    width: 85px;
+    width: 115px;
     animation: dance2 1s infinite steps(2, end);
 }
 
 #dancers5.d-inner4 {
     background-image: url(../img_lessons/pora5/4.png);
     height: 100px;
-    width: 83px;
+    width: 115px;
     animation: dance2 1s infinite steps(2, end);
 }
 

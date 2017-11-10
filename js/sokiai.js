@@ -103,9 +103,15 @@ var radius = 71;
 
         var wrapper = interpreter.createNativeFunction(
             function(anim_speed) {
-                var inner_fields = document.getElementsByClassName('d-inner');
-                for (i = 0; i < inner_fields.length; i++) {
-                    inner_fields[i].style.animationDuration = (anim_speed) + "s";
+                // var inner_fields = document.getElementsByClassName('d-inner');
+                // console.log(inner_fields);
+                // for (i = 0; i < inner_fields.length; i++) {
+                //     inner_fields[i].style.animationDuration = (anim_speed) + "s";
+                // }
+                   var d_fields = document.getElementsByClassName('dance');
+                for (i = 0; i < d_fields.length; i++) {
+
+                    d_fields[i].children[0].style.animationDuration = (anim_speed) + "s";
                 }
             });
         interpreter.setProperty(scope, 'aSpeed', wrapper);
@@ -116,7 +122,6 @@ var radius = 71;
             function(a_rotate) {
                 var stop = "stop";
                 var spin = "spin";
-                console.log(a_rotate);
                 var d_fields = document.getElementsByClassName('dance');
                 var d_field = document.getElementById('d5');
                 d_field.style.animationName = a_rotate;
