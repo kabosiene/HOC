@@ -67,91 +67,91 @@ Blockly.JavaScript['tekstas4'] = function(block) {
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
-Blockly.Blocks['tekstas5'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("E. Eilutė");
-    this.setOutput(true, null);
-    this.setColour(160);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-Blockly.JavaScript['tekstas5'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  //var code = 'Drauge Lietuvos Taryba pareiškia,';
-  var code = "5";
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-Blockly.Blocks['tekstas6'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("F. Eilutė");
-    this.setOutput(true, null);
-    this.setColour(160);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-Blockly.JavaScript['tekstas6'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  //var code = 'kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,';
-  var code = "6";
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-Blockly.Blocks['tekstas7'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("G. Eilutė");
-    this.setOutput(true, null);
-    this.setColour(160);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-Blockly.JavaScript['tekstas7'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = 'demokratiniu būdu visų jos gyventojų išrinktas.';
-  var code = "7";
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-Blockly.Blocks['tekstas8'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("H. Eilutė");
-    this.setOutput(true, null);
-    this.setColour(160);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-Blockly.JavaScript['tekstas8'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  //var code = 'Lietuvos Taryba pranešdama apie tai ....... vyriausybei, ';
-  var code = "8";
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-Blockly.Blocks['tekstas9'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("I. Eilutė");
-    this.setOutput(true, null);
-    this.setColour(160);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-Blockly.JavaScript['tekstas9'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  //var code = 'prašo pripažinti nepriklausomą Lietuvos valstybę.';
-  var code = "9";
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
+// Blockly.Blocks['tekstas5'] = {
+//   init: function() {
+//     this.appendDummyInput()
+//         .appendField("E. Eilutė");
+//     this.setOutput(true, null);
+//     this.setColour(160);
+//  this.setTooltip("");
+//  this.setHelpUrl("");
+//   }
+// };
+// Blockly.JavaScript['tekstas5'] = function(block) {
+//   // TODO: Assemble JavaScript into code variable.
+//   //var code = 'Drauge Lietuvos Taryba pareiškia,';
+//   var code = "5";
+//   // TODO: Change ORDER_NONE to the correct strength.
+//   return [code, Blockly.JavaScript.ORDER_NONE];
+// };
+// Blockly.Blocks['tekstas6'] = {
+//   init: function() {
+//     this.appendDummyInput()
+//         .appendField("F. Eilutė");
+//     this.setOutput(true, null);
+//     this.setColour(160);
+//  this.setTooltip("");
+//  this.setHelpUrl("");
+//   }
+// };
+// Blockly.JavaScript['tekstas6'] = function(block) {
+//   // TODO: Assemble JavaScript into code variable.
+//   //var code = 'kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,';
+//   var code = "6";
+//   // TODO: Change ORDER_NONE to the correct strength.
+//   return [code, Blockly.JavaScript.ORDER_NONE];
+// };
+// Blockly.Blocks['tekstas7'] = {
+//   init: function() {
+//     this.appendDummyInput()
+//         .appendField("G. Eilutė");
+//     this.setOutput(true, null);
+//     this.setColour(160);
+//  this.setTooltip("");
+//  this.setHelpUrl("");
+//   }
+// };
+// Blockly.JavaScript['tekstas7'] = function(block) {
+//   // TODO: Assemble JavaScript into code variable.
+//   var code = 'demokratiniu būdu visų jos gyventojų išrinktas.';
+//   var code = "7";
+//   // TODO: Change ORDER_NONE to the correct strength.
+//   return [code, Blockly.JavaScript.ORDER_NONE];
+// };
+// Blockly.Blocks['tekstas8'] = {
+//   init: function() {
+//     this.appendDummyInput()
+//         .appendField("H. Eilutė");
+//     this.setOutput(true, null);
+//     this.setColour(160);
+//  this.setTooltip("");
+//  this.setHelpUrl("");
+//   }
+// };
+// Blockly.JavaScript['tekstas8'] = function(block) {
+//   // TODO: Assemble JavaScript into code variable.
+//   //var code = 'Lietuvos Taryba pranešdama apie tai ....... vyriausybei, ';
+//   var code = "8";
+//   // TODO: Change ORDER_NONE to the correct strength.
+//   return [code, Blockly.JavaScript.ORDER_NONE];
+// };
+// Blockly.Blocks['tekstas9'] = {
+//   init: function() {
+//     this.appendDummyInput()
+//         .appendField("I. Eilutė");
+//     this.setOutput(true, null);
+//     this.setColour(160);
+//  this.setTooltip("");
+//  this.setHelpUrl("");
+//   }
+// };
+// Blockly.JavaScript['tekstas9'] = function(block) {
+//   // TODO: Assemble JavaScript into code variable.
+//   //var code = 'prašo pripažinti nepriklausomą Lietuvos valstybę.';
+//   var code = "9";
+//   // TODO: Change ORDER_NONE to the correct strength.
+//   return [code, Blockly.JavaScript.ORDER_NONE];
+// };
 
 //**************************************
 //SAMPLE OF XML TO LOAD TO WORKSPACE
