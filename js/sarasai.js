@@ -12,7 +12,7 @@ Blockly.Blocks['tekstas1'] = {
 Blockly.JavaScript['tekstas1'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   //var code = '("Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,")';
-  var code = "1";
+  var code = "3";
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -29,7 +29,7 @@ Blockly.Blocks['tekstas2'] = {
 Blockly.JavaScript['tekstas2'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   //var code = 'remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,';
-  var code = "2";
+  var code = "1";
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -46,7 +46,7 @@ Blockly.Blocks['tekstas3'] = {
 Blockly.JavaScript['tekstas3'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   //var code = 'skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje';
-  var code = "3";
+  var code = "2";
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };

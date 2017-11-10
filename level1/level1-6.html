@@ -20,7 +20,7 @@
 
 #preview_text,
 #list {
-    padding: 22px 40px 20px 25px;
+    padding: 22px 40px 10px 25px;
 }
 </style>
 <!-- font-family: 'Lekton', sans-serif; -->
@@ -231,22 +231,16 @@
 
     var tekstas_correct = [];
     tekstas_correct[0] = (1);
-    tekstas_correct[1] = (2);
-    tekstas_correct[2] = (3);
+    tekstas_correct[2] = (2);
+    tekstas_correct[4] = (3);
     var tekstas_old = [];
     var tekstas = [];
     tekstas_old[0] = " 1_______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
-    tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus"
-    tekstas_old[2] = " konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,";
-    tekstas_old[3] = " skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos "
-    tekstas_old[4] = " valstybę su sostine Vilniuje";
-    tekstas_old[5] = " 2_______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
-    tekstas_old[6] = " Drauge Lietuvos Taryba pareiškia,";
-    tekstas_old[7] = " kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo "
-    tekstas_old[8] = " galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-    tekstas_old[9] = " 3_______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
-    tekstas_old[10] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
-    tekstas_old[11] = " prašo pripažinti nepriklausomą Lietuvos valstybę.";
+    tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
+    tekstas_old[2] = " 3_______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+    tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
+    tekstas_old[4] = " 5_______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+    tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei, prašo pripažinti nepriklausomą Lietuvos valstybę.";
 
     var tekstas_short = [];
     tekstas_short[0] = " Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė, "
@@ -254,9 +248,9 @@
     tekstas_short[2] = " demokratiniu būdu visų jos gyventojų išrinktas. "
 
     document.getElementById('preview_text').innerHTML = tekstas_old.join("");
-    document.getElementById('list').innerHTML = "A. " + tekstas_short[0] + "<br>";
-    document.getElementById('list').innerHTML += "B. " + tekstas_short[1] + "<br>";
-    document.getElementById('list').innerHTML += "C. " + tekstas_short[2] + "<br>";
+    document.getElementById('list').innerHTML = "A. " + tekstas_short[2] + "<br>";
+    document.getElementById('list').innerHTML += "B. " + tekstas_short[0] + "<br>";
+    document.getElementById('list').innerHTML += "C. " + tekstas_short[1] + "<br>";
 
 
     //}
@@ -273,17 +267,11 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         //ctx.drawImage(paper, 0, 2);
         tekstas_old[0] = " 1_______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
-        tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus"
-        tekstas_old[2] = " konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais,";
-        tekstas_old[3] = " skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos "
-        tekstas_old[4] = " valstybę su sostine Vilniuje";
-        tekstas_old[5] = " 2_______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
-        tekstas_old[6] = " Drauge Lietuvos Taryba pareiškia,";
-        tekstas_old[7] = " kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo "
-        tekstas_old[8] = " galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-        tekstas_old[9] = " 3_______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
-        tekstas_old[10] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
-        tekstas_old[11] = " prašo pripažinti nepriklausomą Lietuvos valstybę.";
+        tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
+        tekstas_old[2] = " 3_______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+        tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
+        tekstas_old[4] = " 5_______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+        tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei, prašo pripažinti nepriklausomą Lietuvos valstybę.";
         try {
             if (code.length > 0) {
 
@@ -297,12 +285,11 @@
                 // }
                 document.getElementById('preview_text').innerHTML = tekstas_old.join("");
 
-                document.getElementById('list').innerHTML = "A. " + tekstas_short[0] + "<br>";
-                document.getElementById('list').innerHTML += "B. " + tekstas_short[1] + "<br>";
-                document.getElementById('list').innerHTML += "C. " + tekstas_short[2] + "<br>";
+                document.getElementById('list').innerHTML = "A. " + tekstas_short[2] + "<br>";
+                document.getElementById('list').innerHTML += "B. " + tekstas_short[0] + "<br>";
+                document.getElementById('list').innerHTML += "C. " + tekstas_short[1] + "<br>";
 
                 if (JSON.stringify(tekstas_correct) == JSON.stringify(tekstas)) {
-
                     ctx.drawImage(basanavicius, 138, 0);
                     setTimeout(function() { $('#nextModal').modal('show'); }, 1500);
 
