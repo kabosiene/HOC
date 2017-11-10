@@ -298,8 +298,6 @@
             swimmer.drawImage(swim, start_x, 150, 40, 40);
         }
         drawElapsedTime();
-        ctx.font = "14px Verdana";
-        ctx.fillText(speed, 10, 10);
         start_x += speed;
     }
 
@@ -338,10 +336,8 @@
 
             swimmer.drawImage(swim2, start_x, 150, 40, 40);
         }
-        ctx.fillText(speed, 10, 10);
         start_x -= speed;
         drawElapsedTime();
-        ctx.font = "14px Verdana";
 
 
     }
@@ -354,7 +350,7 @@
         ctx.font = "14px Verdana";
         // draw the running time at half opacity
         ctx.globalAlpha = 0.50;
-        ctx.fillText(elapsed + " min", canvas.width - 75, 25);
+        ctx.fillText(elapsed + " s", canvas.width - 75, 25);
         ctx.restore();
     }
 

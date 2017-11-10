@@ -224,7 +224,7 @@
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         startTime = new Date();
         swimmer.drawImage(swim, 0, 150, 40, 40);
-    
+     document.getElementById("test1").style.animationDuration = "1s";
         try {
             if (code.length > 0) {
                 eval(code);
@@ -274,7 +274,6 @@
         document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px)";
         drawElapsedTime();
         ctx.font = "14px Verdana";
-        ctx.fillText(speed, 10, 10);
         start_x += speed;
     }
 
@@ -308,7 +307,6 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
         document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px) scaleX(-1)";
-        ctx.fillText(speed, 10, 10);
         start_x -= speed;
         drawElapsedTime();
         ctx.font = "14px Verdana";
@@ -324,7 +322,7 @@
         ctx.font = "14px Verdana";
         // draw the running time at half opacity
         ctx.globalAlpha = 0.50;
-        ctx.fillText(elapsed + " min", canvas.width - 75, 25);
+        ctx.fillText(elapsed + " s", canvas.width - 75, 25);
         ctx.restore();
     }
 

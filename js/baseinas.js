@@ -30,7 +30,7 @@ Blockly.Blocks['apsisuk'] = {
 };
 
 Blockly.JavaScript['apsisuk'] = function(block) {
-    var code = 'turn = true;\n';
+    var code = 'turn = edge;\n';
     // code += 'animateSwimmerBack();'
     return code;
 };
