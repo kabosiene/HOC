@@ -6,8 +6,7 @@ Blockly.Blocks['paspausta'] = {
                 ["euras", "EURO"],
                 ["litas", "LITAS"],
                 ["talonas", "TALONAS"],
-                ["litas(23m.)", "LITAS(23)"],
-                ["pirkti", "PIRKTI"]
+                ["litas(23m.)", "LITAS(23)"]
             ]), "NAME");
         this.setOutput(true, null);
         this.setColour(230);
@@ -153,10 +152,10 @@ Blockly.Blocks['ifas'] = {
     init: function() {
         this.appendValueInput("if_reiksme")
             .setCheck(Boolean)
-            .appendField("if");
+            .appendField("Jei");
         this.appendStatementInput("do_reiksme")
             .setCheck(null)
-            .appendField("do");
+            .appendField("daryti");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(210);
