@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid header-top">
-       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a>
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -64,17 +64,17 @@
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
-               
-                <div class="hint-panel">
-                    <ul> Jei sunku:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content="1 Eur = 3.45 Lt.">Pagalba</a>
-                        </li>
-                        <!--  <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus"  title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
-                        </li> -->
-                    </ul>
-                </div> </div>
+                    <div class="hint-panel">
+                        <ul> Jei sunku:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content="1 Eur = 3.45 Lt.">Hint1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
@@ -172,8 +172,8 @@
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
-     var background = new Image();
- background.src = "../img_lessons/valiutos/level2-bg.jpg";
+    var background = new Image();
+    background.src = "../img_lessons/valiutos/level2-bg.jpg";
     my_canvas.addEventListener('click', clickReporterPirkti, false);
     var eurasKainuoja = 3.45;
     var litas;
@@ -182,9 +182,11 @@
     var litas_old;
     var paspausta;
     var callAgain;
+    var win = new Image();
+    win.src = "../img_lessons/valiutos/win.jpg";
 
-   background.onload = function() {
-       draw(background,0,0);
+    background.onload = function() {
+        draw(background, 0, 0);
     };
 
     var clicked;
@@ -220,12 +222,12 @@
 
     function draw_elements() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-draw(background,0,0);
-        ctx.strokeText("Kaina: 30 Litų", 300, 50);
-        ctx.strokeText("Eurai: " + euras, 10, 10);
-        ctx.strokeText("Litai: " + litas, 10, 120);
-        ctx.strokeText("Talonai: " + talonas, 10, 200);
-        ctx.strokeText("Litai(23m.): " + litas_old, 10, 280);
+        draw(background, 0, 0);
+        ctx.font = "16px Verdana";
+        ctx.strokeText(euras, 150, 170);
+        ctx.strokeText((Math.round(litas * 100) / 100), 195, 52);
+        ctx.strokeText((Math.round(talonas * 100) / 100), 425, 52);
+        ctx.strokeText((Math.round(litas_old * 100) / 100), 410, 180);
     }
 
     function callAgain(if_body) {
@@ -241,11 +243,20 @@ draw(background,0,0);
         var rect = canvas.getBoundingClientRect(),
             x = e.clientX - rect.left,
             y = e.clientY - rect.top;
+        euras_width = 90;
+        euras_height = 90;
+        litas_width = 150;
+        litas_height = 80;
+        talonas_width = 140;
+        talonas_height = 80;
+        litas_old_width = 150;
+        litas_old_height = 80;
+
 
         /// check x/y coordinate against the image position and dimension
         //button litas
-        if (x >= 10 && x <= (10 + button.width) &&
-            y >= 120 && y <= (120 + button.height)) {
+        if (x >= 30 && x <= (30 + litas_width) &&
+            y >= 30 && y <= (30 + litas_height)) {
 
             //exchangeLitai();
             paspausta = "litai";
@@ -254,8 +265,8 @@ draw(background,0,0);
 
         }
         //button_1 talonas
-        if (x >= 10 && x <= (10 + button_1.width) &&
-            y >= 200 && y <= (200 + button_1.height)) {
+        if (x >= 270 && x <= (270 + talonas_width)&
+            y >= 21 && y <= (21 + talonas_height)){
 
             //exchangeLitai();
             paspausta = "talonas";
@@ -264,8 +275,8 @@ draw(background,0,0);
 
         }
         //button_2 litas(23m.)
-        if (x >= 10 && x <= (10 + button_2.width) &&
-            y >= 280 && y <= (280 + button_2.height)) {
+        if (x >= 230 && x <= (230 + litas_old_width) &&
+            y >= 125 && y <= (125 + litas_old_height)) {
 
             //exchangeLitai();
             paspausta = "litas_old";
@@ -274,8 +285,8 @@ draw(background,0,0);
 
         }
         //button_euras
-        if (x >= 10 && x <= (10 + button_euras.width) &&
-            y >= 10 && y <= (10 + button_euras.height)) {
+        if (x >= 45 && x <= (45 + euras_width) &&
+            y >= 125 && y <= (125 + euras_height)) {
 
             // exchangeLitai();
             paspausta = "eurai";
@@ -291,13 +302,16 @@ draw(background,0,0);
             x = e.clientX - rect.left,
             y = e.clientY - rect.top;
 
-        if (x >= 250 && x <= (250 + buy.width) &&
-            y >= 200 && y <= (200 + buy.height)) {
+        buy_width = 145;
+        buy_height = 65
+        if (x >= 320 && x <= (320 + buy_width) &&
+            y >= 244 && y <= (244 + buy_height)) {
 
             if (litas != 0 && euras != 0 && talonas != 0 && litas_old != 0) {
                 if (litas_old > 30) {
                     ctx.clearRect(0, 0, 10, 10);
-                    ctx.strokeText("NUSIPIRKAI", 200, 100);
+                    draw(win, 0, 0);
+                    // ctx.strokeText("NUSIPIRKAI", 200, 100);
                     setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
                 } else {
 
@@ -306,7 +320,7 @@ draw(background,0,0);
                     talonas = 0;
                     litas_old = 0;
                     draw_elements();
-                    ctx.strokeText("TRUKSTA", 200, 100);
+                    ctx.strokeText("TRŪKSTA", 200, 300);
                 }
             } else {
                 alert('Ne visos valiutos konvertuotos');
