@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid header-top">
-       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a>
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -67,18 +67,18 @@
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
-                
-                <div class="hint-panel">
-                    <ul> Jei sunku:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content="1 žmogus gali užpildyti 1m tarpą.">Hint1 </a>
-                            <!-- Perkelti vyresniems -->
-                        </li>
-                        <!--  <li>
+                    <div class="hint-panel">
+                        <ul> Jei sunku:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content="1 žmogus gali užpildyti 1m tarpą.">Hint1 </a>
+                                <!-- Perkelti vyresniems -->
+                            </li>
+                            <!--  <li>
                             <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
                         </li> -->
-                    </ul>
-                </div></div>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
@@ -96,7 +96,7 @@
                     </category>
                     <category name="Ciklas">
                         <block type="controls_for">
-                            <field name="VAR" id="u-D?D6Vhel}iCy9uqmV-" variabletype="">metrai</field>
+                            <field name="VAR" id="u-D?D6Vhel}iCy9uqmV-" variabletype="">centimetrai</field>
                             <value name="FROM">
                                 <shadow type="math_number">
                                     <field name="NUM">1</field>
@@ -109,7 +109,7 @@
                             </value>
                             <value name="BY">
                                 <shadow type="math_number">
-                                    <field name="NUM">1</field>
+                                    <field name="NUM">40</field>
                                 </shadow>
                             </value>
                         </block>
@@ -168,52 +168,21 @@
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
-    var people_lt = new Image();
-    var people_lv = new Image();
-    var people_est = new Image();
-    var girl = new Image();
-    var step = 0;
+    var people = new Image();
+     var girl = new Image();
 
+    people.src = "../img_lessons/baltija/fonas-baltija.png";
+    girl.src = "../img_lessons/baltija/zmogus_2.png";
 
-    people_lt.src = "../test_img/ppl.png";
-    people_lv.src = "../test_img/ppl.png";
-    people_est.src = "../test_img/ppl.png";
-    girl.src = "../test_img/girl.png";
-
-    people_lt.onload = function() {
-        draw(people_lt, 10, 10);
-        draw(people_lt, 100, 10);
-        draw(people_lt, 230, 10);
-    };
-    people_lv.onload = function() {
-        draw(people_lv, 10, 100);
-        draw(people_lv, 100, 100);
-        draw(people_lv, 230, 100);
-    };
-    people_est.onload = function() {
-        draw(people_est, 10, 200);
-        draw(people_est, 100, 200);
-        draw(people_est, 230, 200);
-    };
-    girl.onload = function() {
-        //draw(girl, 200, 10);
+    people.onload = function() {
+        draw(people, 0, 0);
+        ctx.strokeText("400|-----------------|450", 385, 320);
     };
 
     function draw(pic_name, x, y) {
         ctx.drawImage(pic_name, x, y);
     }
 
-    function draw_elements() {
-        draw(people_lt, 10, 10);
-        draw(people_lt, 100, 10);
-        draw(people_lt, 230, 10);
-        draw(people_lv, 10, 100);
-        draw(people_lv, 100, 100);
-        draw(people_lv, 230, 100);
-        draw(people_est, 10, 200);
-        draw(people_est, 100, 200);
-        draw(people_est, 230, 200);
-    }
     </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
@@ -233,7 +202,7 @@
     }
     workspace.addChangeListener(toJavascript);
     </script>
-    <script type="text/javascript">
+<!--     <script type="text/javascript">
     function runCode() {
         // Generate JavaScript code and run it.
 
@@ -297,6 +266,7 @@
 
 
             function updatePerson(x, i, callback) {
+
                 var lt = 30;
                 var lv = 50;
                 var est = 10;
@@ -325,6 +295,35 @@
         interpreter.setProperty(scope, 'waitForSeconds', wrapper);
 
     }
+    </script> -->
+        <script type="text/javascript">
+    function runCode() {
+        // Generate JavaScript code and run it.
+        window.LoopTrap = 1000;
+        Blockly.JavaScript.INFINITE_LOOP_TRAP =
+            'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+       // step = 0;
+       ctx.clearRect(0,0,canvas.width, canvas.height);
+       draw(people, 0, 0);
+       ctx.strokeText("400|-----------------|450", 385, 320);
+
+        $('.person').hide();
+        $('.person2').hide()
+        $('.person3').hide();
+        try {
+            if (code.length > 0) {
+                eval(code);
+            } else {
+                alert('Pridėk kodo blokelį.');
+            }
+
+        } catch (e) {
+            alert(e);
+        }
+    }
+    
     </script>
 </body>
 

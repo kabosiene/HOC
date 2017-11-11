@@ -438,7 +438,7 @@ canvas {
     height: 100px;
     background: url("../img_lessons/baltija/zmogus_2.png");
     transform: translate(107px, 125px);
-    animation: animatedPerson2 3s linear 1;
+    animation: 3s linear 1;
     z-index: 22;
 }
 
@@ -449,7 +449,7 @@ canvas {
     height: 100px;
     background: url("../img_lessons/baltija/zmogus_1.png");
     transform: translate(258px, 208px);
-    animation: animatedPerson3 3s linear 1;
+    animation:  3s linear 1;
     z-index: 22;
 }
 
