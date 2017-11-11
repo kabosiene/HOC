@@ -437,7 +437,7 @@ canvas {
     width: 50px;
     height: 100px;
     background: url("../img_lessons/baltija/zmogus_2.png");
-    transform: translate(107px, 131px);
+    transform: translate(107px, 125px);
     animation: animatedPerson2 3s linear 1;
     z-index: 22;
 }
@@ -464,10 +464,10 @@ canvas {
 
 @keyframes animatedPerson2 {
     from {
-        transform: translate(0px, 131px);
+        transform: translate(0px, 125px);
     }
     to {
-        transform: translate(107px, 131px);
+        transform: translate(107px, 125px);
     }
 }
 
