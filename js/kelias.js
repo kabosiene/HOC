@@ -1,7 +1,7 @@
-var kepure, SPavadelis, Kepure, Pavadelis, lt, lv, est;
-kepure = "raudona";
-pavadelis = "baltas";
-batai = "zali";
+var kepure, vkelnes, bkelnes, lt, lv, est;
+kepure = "zydra";
+vkelnes = "baltos";
+bkelnes = "zalios";
 lt = 30;
 lv=50;
 est = 10;
@@ -10,9 +10,9 @@ Blockly.Blocks['keisti'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Jei ")
-        .appendField(new Blockly.FieldDropdown([["pasirink","Option"], ["mergaitės kepurė","kepure"], ["šunukio pavadėlis","pavadelis"], ["berniuko batai","batai"]]), "people")
+        .appendField(new Blockly.FieldDropdown([["pasirink","Option"], ["berniuko kepurė","kepure"], ["vyro kelnės","vkelnes"], ["berniuko kelnės","bkelnes"]]), "people")
         .appendField("spalva")
-        .appendField(new Blockly.FieldDropdown([["pasirink","Option"], ["raudona","raudona"], ["baltas","baltas"],["žali","zali"]]), "color");
+        .appendField(new Blockly.FieldDropdown([["pasirink","Option"], ["žydra","zydra"], ["baltos","baltos"],["žalios","zalios"]]), "color");
     this.appendStatementInput("IF")
         .setCheck(null);
     this.setPreviousStatement(true, null);
@@ -45,8 +45,8 @@ Blockly.Blocks['add_person'] = {
 };
 Blockly.JavaScript['add_person'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = ' animatePerson(x,i);\n ';
-    code += 'waitForSeconds(3);\n';
+  var code = ' animatePerson(x);\n ';
+    // code += 'waitForSeconds(3);\n';
   return code;
 };
 /****************level2*********************************/
@@ -63,7 +63,7 @@ Blockly.Blocks['add_person2'] = {
 };
 Blockly.JavaScript['add_person2'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = ' updatePerson(x,i);\n ';
+  var code = ' updatePerson(x,metrai);\n ';
     return code;
 };
 Blockly.Blocks['atstumas'] = {

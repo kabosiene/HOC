@@ -111,26 +111,28 @@ li {
     margin-top: 1rem;
 }
 
-.progress-container li a{ 
+.progress-container li a {
     background-color: #443579;
     padding: 8px 0px 8px 0px;
     border: 1px solid #443579;
     border-radius: 50px;
-    margin: 0px 6px; 
+    margin: 0px 6px;
     font-weight: bold;
     color: #fff;
-    display:block;
-    width:50px;
-    height:50px;
-   
+    display: block;
+    width: 50px;
+    height: 50px;
 }
-.progress-container li a:hover,.progress-container .active {
-     background-color: #f1579a;
-      border: 1px solid #f1579a;
+
+.progress-container li a:hover,
+.progress-container .active {
+    background-color: #f1579a;
+    border: 1px solid #f1579a;
 }
 
 
-.progress-container a:hover,.progress-container .active {
+.progress-container a:hover,
+.progress-container .active {
     text-decoration: none;
 }
 
@@ -273,6 +275,7 @@ canvas {
 
 
 
+
 /*********************************/
 
 #dancers2.d-inner {
@@ -302,6 +305,7 @@ canvas {
     width: 115px;
     animation: dance2 0s infinite steps(2, end);
 }
+
 
 
 
@@ -337,6 +341,7 @@ canvas {
 
 
 
+
 /***********************/
 
 #dancers4.d-inner {
@@ -366,6 +371,7 @@ canvas {
     width: 115px;
     animation: dance2 0s infinite steps(2, end);
 }
+
 
 
 
@@ -416,21 +422,22 @@ canvas {
 .person {
     display: none;
     position: absolute;
-    width: 30px;
-    height: 60px;
-    background: url("../test_img/girl.png");
-    transform: translate(200px, 10px);
+    width: 70px;
+    height: 110px;
+    background: url("../img_lessons/baltija/zmogus_3.png");
+    transform: translate(189px, 27px);
     animation: 3s linear 1;
     z-index: 22;
 }
 
+
 .person2 {
     display: none;
     position: absolute;
-    width: 30px;
-    height: 60px;
-    background: url("../test_img/girl.png");
-    transform: translate(350px, 100px);
+    width: 50px;
+    height: 100px;
+    background: url("../img_lessons/baltija/zmogus_2.png");
+    transform: translate(107px, 131px);
     animation: animatedPerson2 3s linear 1;
     z-index: 22;
 }
@@ -438,38 +445,38 @@ canvas {
 .person3 {
     display: none;
     position: absolute;
-    width: 30px;
-    height: 60px;
-    background: url("../test_img/girl.png");
-    transform: translate(200px, 200px);
+    width: 44px;
+    height: 100px;
+    background: url("../img_lessons/baltija/zmogus_1.png");
+    transform: translate(258px, 208px);
     animation: animatedPerson3 3s linear 1;
     z-index: 22;
 }
 
 @keyframes animatedPerson {
     from {
-        transform: translate(0px, 10px);
+        transform: translate(0px, 27px);
     }
     to {
-        transform: translate(200px, 10px);
+        transform: translate(189px, 27px);
     }
 }
 
 @keyframes animatedPerson2 {
     from {
-        transform: translate(0px, 100px);
+        transform: translate(0px, 131px);
     }
     to {
-        transform: translate(350px, 100px);
+        transform: translate(107px, 131px);
     }
 }
 
 @keyframes animatedPerson3 {
     from {
-        transform: translate(0px, 200px);
+        transform: translate(0px, 208px);
     }
     to {
-        transform: translate(200px, 200px);
+        transform: translate(258px, 208px);
     }
 }
 

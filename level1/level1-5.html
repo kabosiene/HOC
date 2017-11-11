@@ -143,51 +143,32 @@
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
-    var people_lt = new Image();
-    var people_lv = new Image();
-    var people_est = new Image();
-    var girl = new Image();
+    var people = new Image();
+    // var people_lv = new Image();
+    // var people_est = new Image();
+    // var girl = new Image();
     var step = 0;
 
 
-    people_lt.src = "../test_img/ppl.png";
-    people_lv.src = "../test_img/ppl.png";
-    people_est.src = "../test_img/ppl.png";
-    girl.src = "../test_img/girl.png";
+    people.src = "../img_lessons/baltija/fonas-baltija.png";
+    // people_lv.src = "../test_img/ppl.png";
+    // people_est.src = "../test_img/ppl.png";
+    // girl.src = "../test_img/girl.png";
 
-    people_lt.onload = function() {
-        draw(people_lt, 10, 10);
-        draw(people_lt, 100, 10);
-        draw(people_lt, 230, 10);
+    people.onload = function() {
+        draw(people, 0, 0);
     };
-    people_lv.onload = function() {
-        draw(people_lv, 10, 100);
-        draw(people_lv, 100, 100);
-        draw(people_lv, 230, 100);
-    };
-    people_est.onload = function() {
-        draw(people_est, 10, 200);
-        draw(people_est, 100, 200);
-        draw(people_est, 230, 200);
-    };
-    girl.onload = function() {
-        //draw(girl, 200, 10);
-    };
+
+    // girl.onload = function() {
+    //     //draw(girl, 200, 10);
+    // };
 
     function draw(pic_name, x, y) {
         ctx.drawImage(pic_name, x, y);
     }
 
     function draw_elements() {
-        draw(people_lt, 10, 10);
-        draw(people_lt, 100, 10);
-        draw(people_lt, 230, 10);
-        draw(people_lv, 10, 100);
-        draw(people_lv, 100, 100);
-        draw(people_lv, 230, 100);
-        draw(people_est, 10, 200);
-        draw(people_est, 100, 200);
-        draw(people_est, 230, 200);
+        draw(people, 0, 0);
     }
     </script>
     <script>
@@ -233,7 +214,7 @@
     }
 
     function animatePerson(x) {
-        if (x == "raudona") { $('.person').show().css({ "animation-name": "animatedPerson" }); } else if (x == "baltas") { $('.person2').show().css({ "animation-name": "animatedPerson2" }); } else if (x == "zali") { $('.person3').show().css({ "animation-name": "animatedPerson3" }); } else { lost(); }
+        if (x == "zydra") { $('.person').show().css({ "animation-name": "animatedPerson" }); } else if (x == "baltos") { $('.person2').show().css({ "animation-name": "animatedPerson2" }); } else if (x == "zalios") { $('.person3').show().css({ "animation-name": "animatedPerson3" }); } else { lost(); }
 
     }
 
