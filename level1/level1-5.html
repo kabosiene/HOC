@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid header-top">
-       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a>
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -67,18 +67,17 @@
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
-                
-                <div class="hint-panel">
-                    <ul> Jei sunku:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content="1 žmogus gali užpildyti 1m tarpą.">Hint1</a>
-                            <!-- Perkelti vyresniems -->
-                        </li>
-                        <!--  <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
-                        </li> -->
-                    </ul>
-                </div></div>
+                    <div class="hint-panel">
+                        <ul> Jei sunku:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Pagalba" data-content="Pagalbos tekstas">Hint1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
@@ -112,7 +111,7 @@
                 </div>
             </div>
         </div>
-                <div class="next-modal">
+        <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -197,10 +196,11 @@
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        step = 0;
 
-        // animatePerson();
-        // animateLostPerson();
+        $('.person').hide();
+        $('.person2').hide()
+        $('.person3').hide();
+
         try {
             if (code.length > 0) {
                 eval(code);
@@ -211,15 +211,6 @@
         } catch (e) {
             alert(e);
         }
-    }
-
-    function animatePerson(x) {
-        if (x == "zydra") { $('.person').show().css({ "animation-name": "animatedPerson" }); } else if (x == "baltos") { $('.person2').show().css({ "animation-name": "animatedPerson2" }); } else if (x == "zalios") { $('.person3').show().css({ "animation-name": "animatedPerson3" }); } else { lost(); }
-
-    }
-
-    function lost() {
-        alert("Nėra tokio žmogaus")
     }
     </script>
 </body>
