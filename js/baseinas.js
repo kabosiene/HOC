@@ -87,7 +87,7 @@ Blockly.Blocks['keisti_greiti'] = {
     init: function() {
         this.appendValueInput("padidink")
             .setCheck("Number")
-            .appendField("padidink greitį");
+            .appendField("padidinti greitį");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);

@@ -67,6 +67,53 @@ li {
     color: #604a9c;
 }
 
+.popover,
+.modal-content {
+    border: solid 2px #604a9c;
+}
+
+.popover-body {
+    padding: 20px 20px;
+    color: inherit;
+}
+
+.popover.bs-popover-auto[x-placement^=top] .arrow::before,
+.popover.bs-popover-top .arrow::before {
+    border-top-color: #604a9c;
+    bottom: -13px;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+.modal-footer .btn {
+    background-color: #604a9c;
+    border: none;
+    box-shadow: 4px 4px 0px #f95496;
+    margin-top: 25px;
+    color: #fff;
+}
+
+.next-modal .modal-dialog{
+    max-width: 80%;
+}
+
+.next-modal .modal-body {
+    display: flex;
+    justify-content: space-around;
+}
+
+.next-modal a {
+    font-size: 1.3em;
+    padding: .75rem 4rem;
+    background-color: #604a9c;
+    border: none;
+    box-shadow: 4px 4px 0px #f95496;
+    margin-top: 25px;
+    color: #fff;
+}
+
 .btn {
     border-radius: 0;
 }
@@ -276,6 +323,7 @@ canvas {
 
 
 
+
 /*********************************/
 
 #dancers2.d-inner {
@@ -305,6 +353,7 @@ canvas {
     width: 115px;
     animation: dance2 0s infinite steps(2, end);
 }
+
 
 
 
@@ -342,6 +391,7 @@ canvas {
 
 
 
+
 /***********************/
 
 #dancers4.d-inner {
@@ -371,6 +421,7 @@ canvas {
     width: 115px;
     animation: dance2 0s infinite steps(2, end);
 }
+
 
 
 
@@ -449,7 +500,7 @@ canvas {
     height: 100px;
     background: url("../img_lessons/baltija/zmogus_1.png");
     transform: translate(258px, 208px);
-    animation:  3s linear 1;
+    animation: 3s linear 1;
     z-index: 22;
 }
 

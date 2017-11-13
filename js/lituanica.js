@@ -69,7 +69,7 @@ Blockly.JavaScript['fly_straight'] = function(block) {
 Blockly.Blocks['blocks'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldNumber(0, 0, 10), "block")
+        .appendField(new Blockly.FieldNumber(0, 0, 5), "block")
         .appendField("langelius ");
     this.setOutput(true, null);
     this.setColour(330);
@@ -167,7 +167,8 @@ Blockly.JavaScript['fly_points'] = function(block) {
 function changePoints(x, y) {
     if (x != 0 || y != 0) {
 
-        var globalID = requestAnimationFrame(function() { changePoints(x, y); });
+     globalID = requestAnimationFrame(function() { changePoints(x, y); });
+     console.log(globalID);
     } else { cancelAnimationFrame(globalID); }
     document.getElementById("lituanica_plane").style.transform = "translate(" + plain_x + "px, " + plain_y + "px)";
     checkPoint(plain_x, plain_y);
@@ -191,7 +192,7 @@ function changePoints(x, y) {
 
 function checkPoint(x, y) {
     
-console.log(x + " - " + y);
+//console.log(x + " - " + y);
     //check if end point setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
     if (410 > x && x >= 390 && 115 > y && y > 80) {
         if (points[0] == 1 && points[1] == 1 && points[2] == 1) {

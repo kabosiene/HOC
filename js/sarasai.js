@@ -2,7 +2,7 @@ var tekstas = [];
 Blockly.Blocks['tekstas1'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("A. Eilutė");
+        .appendField("A");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");
@@ -19,7 +19,7 @@ Blockly.JavaScript['tekstas1'] = function(block) {
 Blockly.Blocks['tekstas2'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("B. Eilutė");
+        .appendField("B");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");
@@ -36,7 +36,7 @@ Blockly.JavaScript['tekstas2'] = function(block) {
 Blockly.Blocks['tekstas3'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("C. Eilutė");
+        .appendField("C");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");
@@ -53,7 +53,7 @@ Blockly.JavaScript['tekstas3'] = function(block) {
 Blockly.Blocks['tekstas4'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("D. Eilutė");
+        .appendField("D");
     this.setOutput(true, null);
     this.setColour(160);
  this.setTooltip("");

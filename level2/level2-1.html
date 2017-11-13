@@ -18,7 +18,7 @@
     background-image: url("../img_lessons/basanavicius/dokumentas.png");
 }
 
-#preview_text{
+#preview_text {
     padding: 22px 40px 10px 25px;
 }
 
@@ -69,8 +69,8 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4> Sąrašai. Basanavičius</h4></div>
-            <div class=" col-md-7" id="task"> Sutvarkyk Nepriklausomybės akto tekstą. Sudėk eilutes į sarašą tinkama eilės tvarka.
+                <h4> 1. Jonas Basanavičius: žodžiai, žodžiai, susivykit</h4></div>
+            <div class=" col-md-7" id="task"> Sudaryti Vasario 16-osios nutarimą - nelengva užduotis. Grąžink pasimetusias eilutes į jų vietas.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
@@ -87,10 +87,10 @@
                     <div class="hint-panel">
                         <ul> Pagalba:
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="">Hint1</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="">Hint1</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="">Hint2</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="">Hint2</a>
                             </li>
                         </ul>
                     </div>
@@ -168,7 +168,7 @@
                             <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/isnwxt2Z5Dw  " frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
                         </div>
                     </div>
                 </div>
@@ -179,11 +179,11 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
-                            <a href="level2-2.html" type="button" class="btn btn-default">Sekanti užduotis</a>
+                            <a href="#" type="button" class="btn btn-secondary" data-dismiss="modal">Tęsti</a>
+                            <a href="level2-2.html" type="button" class="btn btn-secondary">Sekanti užduotis</a>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
                         </div>
                     </div>
                 </div>
@@ -213,11 +213,6 @@
         trashcan: true
     });
 
-    // var dom = Blockly.Xml.textToDom('load_custom');
-    // console.log(dom);
-    // Blockly.Xml.domToWorkspace(dom, workspace);
-
-
     function toJavascript(event) {
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         document.getElementById('content_javascript').innerHTML = code;
@@ -235,18 +230,18 @@
 
     var tekstas_correct = [];
     tekstas_correct[0] = (1);
-    tekstas_correct[2] = (2);
-    tekstas_correct[4] = (3);
-    tekstas_correct[6] = (4);
+    tekstas_correct[1] = (2);
+    tekstas_correct[2] = (3);
+    tekstas_correct[3] = (4);
     var tekstas_old = [];
     var tekstas = [];
-    tekstas_old[0] = " 1_______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+    tekstas_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
     tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-    tekstas_old[2] = " 3_______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+    tekstas_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
     tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-    tekstas_old[4] = " 5_______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+    tekstas_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
     tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
-    tekstas_old[6] = " 7_______________";
+    tekstas_old[6] = " 4._______________";
 
     var tekstas_short = [];
     tekstas_short[0] = " Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė, "
@@ -274,24 +269,25 @@
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         //ctx.drawImage(paper, 0, 2);
-        tekstas_old[0] = " 1_______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+        tekstas_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
         tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-        tekstas_old[2] = " 3_______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+        tekstas_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
         tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-        tekstas_old[4] = " 5_______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+        tekstas_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
         tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
-        tekstas_old[6] = " 7_______________";
+        tekstas_old[6] = " 4._______________";
         try {
             if (code.length > 0) {
 
                 eval(code);
 
                 for (var i = tekstas.length - 1; i >= 0; i--) {
-                    if (tekstas[i]) { tekstas_old.splice(i, 1, tekstas_short[tekstas[i] - 1]); }
+                    if (tekstas[i]) {
+                        if (i == 1) { tekstas_old.splice(2, 1, " " + (i + 1) + ". " + tekstas_short[tekstas[i] - 1]); } else if (i == 2) { tekstas_old.splice(4, 1, " " + (i + 1) + ". " + tekstas_short[tekstas[i] - 1]); } else if (i == 3) { tekstas_old.splice(6, 1, " " + (i + 1) + ". " + tekstas_short[tekstas[i] - 1]); } else if (i == 0) { tekstas_old.splice(0, 1, " " + (i + 1) + ". " + tekstas_short[tekstas[i] - 1]); }
+
+                    }
                 }
-                // for (var i = tekstas_old.length - 1; i >= 0; i--) {
-                //     ctx.fillText((i + 1) + '. ' + tekstas_old[i], 10, (i + 1) * 20);
-                // }
+
                 document.getElementById('preview_text').innerHTML = tekstas_old.join("");
 
                 document.getElementById('list').innerHTML = "A. " + tekstas_short[2] + "<br>";

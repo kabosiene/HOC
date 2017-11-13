@@ -51,8 +51,8 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>Dariaus ir Girėno skrydis. LITUANICA</h4></div>
-            <div class=" col-md-7" id="task"> Tikslas - atkartoti Dariaus ir Girėno kelionės maršrutą (trasa buvo suskirstyta į tris etapus: Niujorkas-Niufaundlandas, Atlanto vandenynas, Airija-Kaunas).
+                <h4>2. LITUANICA: informacija keleiviams norintiems vykti</h4></div>
+            <div class=" col-md-7" id="task"> Atkurk istorinį Dariaus ir Girėno skrydį per Atlantą ir padėk pasiekti jo tikslą. Lakūnų kelionė, prasidėjusi Niujorke, tęsėsi virš Niufaundlando, Airijos ir, deja, baigėsi dabartinėje Lenkijos teritorijoje, nepasiekusi Kauno.
                 <a href="javascript:void(0)" onclick="changeVideo('isnwxt2Z5Dw')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
@@ -71,10 +71,10 @@
                     <div class="hint-panel">
                         <ul> Jei sunku:
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint1" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Įsivaizduok, kad esi lakūnų vietoje - šitaip bus lengviau naviguoti į kairę ir dešinę.">Hint1</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="Hint2" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Ar tikrai aplankei visus taškus? Atkūręs maršrutą, nukeliauk ir iki suplanuoto tikslo - Kauno.">Hint2</a>
                             </li>
                         </ul>
                     </div>
@@ -108,7 +108,7 @@
                             <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/isnwxt2Z5Dw  " frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
                         </div>
                     </div>
                 </div>
@@ -119,11 +119,11 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <a href="#" type="button" class="btn btn-default" data-dismiss="modal">Tęsti</a>
-                            <a href="level1-3.html" type="button" class="btn btn-default">Sekanti užduotis</a>
+                            <a href="#" type="button" class="btn btn-secondary" data-dismiss="modal">Tęsti</a>
+                            <a href="level1-3.html" type="button" class="btn btn-secondary">Sekanti užduotis</a>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
                         </div>
                     </div>
                 </div>
@@ -230,7 +230,10 @@
     workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
+    var globalID;
+
     function runCode() {
+        cancelAnimationFrame(globalID);
 
         Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
         Blockly.JavaScript.addReservedWords('highlightBlock');
@@ -243,6 +246,8 @@
         drawGrid();
         plain_x = 0;
         plain_y = 170;
+        var x = 0;
+        var y = 0;
         var move = 0;
         finished = false;
         points = [];

@@ -3,6 +3,7 @@ kepure = "zydra";
 vkelnes = "baltos";
 bkelnes = "zalios";
 lt = 40;
+var done = [];
 
 Blockly.Blocks['keisti'] = {
     init: function() {
@@ -17,7 +18,7 @@ Blockly.Blocks['keisti'] = {
             .appendField("spalva")
             .appendField(new Blockly.FieldDropdown([
                 ["pasirink", "Option"],
-                ["baltos salvos", "baltos"],  
+                ["baltos spalvos", "baltos"],  
                 ["žydros spalvos", "zydra"],
                 ["žalios spalvos", "zalios"]
             ]), "color");
@@ -99,11 +100,12 @@ Blockly.JavaScript['atstumas'] = function(block) {
 };
 
 function animatePerson(x) {
-    if (x == "zydra") { $('.person').show().css({ "animation-name": "animatedPerson" }); } else if (x == "baltos") { $('.person2').show().css({ "animation-name": "animatedPerson2" }); } else if (x == "zalios") { $('.person3').show().css({ "animation-name": "animatedPerson3" }); } else { lost(); }
+    if (x == "zydra") { done[0]=1; $('.person').show().css({ "animation-name": "animatedPerson" }); } else if (x == "baltos") { done[1]=1; $('.person2').show().css({ "animation-name": "animatedPerson2" }); } else if (x == "zalios") { done[3]=1; $('.person3').show().css({ "animation-name": "animatedPerson3" }); } else { lost(); }
 
 }
 
 function animatePerson2(x, i) {
+  done[i] = 1;
     if (x == "lt") {
   draw(girl, i, 208);
     }
