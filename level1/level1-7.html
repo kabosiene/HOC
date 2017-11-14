@@ -12,7 +12,7 @@
 
 <body>
     <div class="container-fluid header-top">
-       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a> 
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -67,25 +67,25 @@
                         <div class="l1">
                             <div class="l2">
                                 <div class="avatar"></div>
-                                <div class="star"><span>☆</span></div>
+                                <div class="star"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
-                    
-                
-                <div class="hint-panel">
-                    <ul> Pagalba:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
-                        </li>
-                    </ul>
-                </div></div><button id="up">JUMP</button>
+                    <div class="hint-panel">
+                        <ul> Pagalba:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">Hint1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">Hint2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button id="up">JUMP</button>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
@@ -216,6 +216,8 @@
         }
     }
 
+    clickJump('mousedown');
+
 
     var jump = function() {
 
@@ -226,10 +228,9 @@
                 clearInterval(explodeIfColision);
                 $("<span>&#x2605;</span>").appendTo($('.rating'));
                 countStars += 1;
-                setTimeout(function() { $('.star').hide(); }, 200);
-                setTimeout(function() { $('.star').show(); }, 500);
+                animTreasure('.star');
             }
-            if (countStars == 12) { setTimeout(function() { $('#nextModal').modal('show'); }, 1000); }
+            endGame(3);
         }, 50);
 
         setTimeout(function() {
@@ -237,9 +238,7 @@
             clearInterval(explodeIfColision);
         }, 500);
     };
-    $('#up').on('mousedown mouseup', function(e) {
-        if (e.type == 'mousedown') { jump(); }
-    });
+
 
 
     var isStarllColision = function() {
@@ -247,6 +246,25 @@
         $kenPos = $ken.offset();
         return $starPos.left > $kenPos.left + 20 && $starPos.left < $kenPos.left + 70 ? true : false;
     };
+
+
+    function endGame(x) {
+        if (countStars == x) { gameOver(); }
+    }
+    function gameOver(){
+        setTimeout(function() { $('#nextModal').modal('show'); }, 1000)
+    }
+
+    function clickJump(action) {
+        $('#up').on(action, function(e) {
+            if (e.type == action) { jump(); }
+        });
+    }
+
+    function animTreasure(t,next) {
+        setTimeout(function() { $(t).hide(); }, 200);
+        setTimeout(function() { $(t).show(); }, 500);
+    }
     </script>
 </body>
 
