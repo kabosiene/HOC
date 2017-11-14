@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="../js/main.js"></script>
     <!-- Bootstrap CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
@@ -29,8 +30,12 @@
 <!-- font-family: 'Lekton', sans-serif; -->
 
 <body>
+    <div class='customAlert'>
+        <p class='message'></p>
+        <input type='button' class='confirmButton' value='Ok'>
+    </div>
     <div class="container-fluid header-top">
-        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small.png"></a>
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -198,7 +203,6 @@
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
-    <script src="../js/main.js"></script>
     <script src="../js/sarasai.js"></script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
@@ -238,11 +242,11 @@
     tekstas_correct[2] = (3);
     var tekstas_old = [];
     var tekstas = [];
-    tekstas_old[0] = " 1_______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+    tekstas_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
     tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-    tekstas_old[2] = " 2_______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+    tekstas_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
     tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-    tekstas_old[4] = " 3_______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+    tekstas_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
     tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei, prašo pripažinti nepriklausomą Lietuvos valstybę.";
 
     var tekstas_short = [];
@@ -296,7 +300,7 @@
                     ctx.drawImage(basanavicius, 138, 0);
                     setTimeout(function() { $('#nextModal').modal('show'); }, 1500);
 
-                } else { alert('Bandyk dar'); }
+                } else { alert("Bandyk dar kartą"); }
 
             } else {
                 alert('Pridėk kodo blokelį.');
