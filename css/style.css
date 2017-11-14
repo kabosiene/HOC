@@ -596,7 +596,7 @@ canvas {
 
 @keyframes animatedStar {
     from {
-        transform: translate(490px, 80px);
+        transform: translate(450px, 80px);
     }
     to {
         transform: translate(0px, 80px);
