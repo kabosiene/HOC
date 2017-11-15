@@ -71,7 +71,7 @@
                         <div class="l1">
                             <div class="l2">
                                 <div class="avatar"></div>
-                                <div class="star"></div>
+                                <div id="item" class="star"></div>
                             </div>
                         </div>
                     </div>
@@ -95,16 +95,17 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Logic">
+                    <category name="Žaidimas">
                         <block type="controls_if"></block>
-                    </category>
-                    <category name="Math">
-                        <block type="math_number"></block>
-                    </category>
-                    <category name="Custom">
                         <block type="count"></block>
                         <block type="end_game"></block>
                         <block type="button_clicked"></block>
+                        <block type="jump"></block>
+                        <block type="run"></block>
+                        <block type="game"></block>
+                        <block type="valdymas"></block>
+                        <block type="treasure"></block>
+                        <block type="treasure_speed"></block>
                     </category>
                 </xml>
             </div>
@@ -176,25 +177,78 @@
     }
     workspace.addChangeListener(toJavascript);
     </script>
-    <script type="text/javascript ">
-var $ken = $('.avatar');
+       <script type="text/javascript">
+    var $ken = $('.avatar');
     var $star = $('.star');
     var $kenPos;
     var $starPos;
     var countStars = 0;
 
     function runCode() {
+        $('#up').off('mousedown');
+        reset();
         // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        countStars = 0;
-        $('.rating').empty();
         try {
             if (code.length > 0) {
+                console.log(code);
                 eval(code);
+
+                function clickJump(action) {
+                    $('#up').on(action, function(e) {
+                        if (e.type == action) { addJumpClass(); jump(); }
+                    });
+
+                }
+
+                function endGame(x) {
+                    if (countStars == x) { gameOver(); }
+                }
+
+                function gameOver() {
+                    setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+                }
+
+
+                function isStarllColision() {
+                    $starPos = $star.offset();
+                    $kenPos = $ken.offset();
+                    return $starPos.left > $kenPos.left + 20 && $starPos.left < $kenPos.left + 70 ? true : false;
+                };
+
+                function animTreasure(t, next) {
+                    setTimeout(function() { $(t).hide(); }, 200);
+                    setTimeout(function() { $(t).show(); }, 450);
+                }
+
+                function addJumpClass() {
+                    $ken.addClass('jump');
+                    setTimeout(function() {
+                        $ken.removeClass('jump');
+                        clearInterval(explodeIfColision);
+                    }, 500);
+                }
+
+                function run() {
+                    var vavatar = document.getElementsByClassName('avatar');
+                    vavatar[0].style.animationDuration = "0.5s";
+                }
+
+                function treasureSpeed(speed) {
+                    var st = document.getElementsByClassName('star');
+                    st[0].style.animationDuration = (speed / 10) + "s";
+                }
+
+                function treasureOn(x) {
+                    var st = document.getElementsByClassName('star');
+                    st[0].style.visibility = x;
+                }
+
+
             } else {
                 alert('Pridėk kodo blokelį.');
             }
@@ -204,55 +258,29 @@ var $ken = $('.avatar');
         }
     }
 
-    clickJump('mousedown');
-
-
-    var jump = function() {
-
-        $ken.addClass('jump');
-
-        var explodeIfColision = setInterval(function() {
-            if (isStarllColision()) {
-                clearInterval(explodeIfColision);
-                $("<span>&#x2605;</span>").appendTo($('.rating'));
-                countStars += 1;
-                animTreasure('.star');
-            }
-            endGame(5);
-        }, 50);
-
-        setTimeout(function() {
-            $ken.removeClass('jump');
-            clearInterval(explodeIfColision);
-        }, 500);
-    };
-
-
-
-    var isStarllColision = function() {
-        $starPos = $star.offset();
-        $kenPos = $ken.offset();
-        return $starPos.left > $kenPos.left + 20 && $starPos.left < $kenPos.left + 70 ? true : false;
-    };
-
-
-    function endGame(x) {
-        if (countStars == x) { gameOver(); }
-    }
-    function gameOver(){
-        setTimeout(function() { $('#nextModal').modal('show'); }, 1000)
+    function reset() {
+        var vavatar = document.getElementsByClassName('avatar');
+        vavatar[0].style.animationDuration = "0";
+        var st = document.getElementsByClassName('star');
+        st[0].style.animationDuration = "0";
+        st[0].style.visibility = "hidden";
+        countStars = 0;
+        $('.rating').empty();
     }
 
-    function clickJump(action) {
-        $('#up').on(action, function(e) {
-            if (e.type == action) { jump(); }
-        });
-    }
+    // function jump() {
+    //     addJumpClass();
+    //     var explodeIfColision = setInterval(function() {
+    //         if (isStarllColision()) {
+    //             clearInterval(explodeIfColision);
+    //             $("<span>&#x2605;</span>").appendTo($('.rating'));
+    //             countStars += 1;
 
-    function animTreasure(t,next) {
-        setTimeout(function() { $(t).hide(); }, 200);
-        setTimeout(function() { $(t).show(); }, 450);
-    }
+    //             animTreasure('.star');
+    //         }
+    //         endGame(5);
+    //     }, 50);
+    // };
     </script>
 </body>
 
