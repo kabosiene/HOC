@@ -47,7 +47,7 @@ function runCode() {
     radius = 71;
     degreeAngle = 0;
     // animateCircle();                   
-    anim_speed = 0;
+    anim_speed = 1;
     radius = 100; // adjust to move out items in and out 
     fields = $('.dance');
     container = $('#d5');
@@ -67,7 +67,7 @@ function runCode() {
                     musicStop();
                     stopAnim();
                     stopDance();
-                    setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+                    setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
                 }
             }
             nextStep();
@@ -187,8 +187,6 @@ function initApi(interpreter, scope) {
 }
 
 
-
-var anim_speed = 2;
 var audio = new Audio('../Kepurine.mp3');
 audio.pause();
 
@@ -197,11 +195,11 @@ Blockly.Blocks['anim_speed'] = {
     init: function() {
         this.appendValueInput("ANIM_SPEED")
             .setCheck(null)
-            .appendField("animacijos greitis = ");
+            .appendField("judesių greitis = ");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip("Plaukimo animacijos greitis");
+        this.setTooltip("Šokio judesių greitis");
         this.setHelpUrl("");
     }
 };
@@ -216,7 +214,7 @@ Blockly.JavaScript['anim_speed'] = function(block) {
 Blockly.Blocks['wait_seconds'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("laukti")
+            .appendField("atlikti veiksmą")
             .appendField(new Blockly.FieldTextInput("1"), "SECONDS")
             .appendField("s.");
         this.setPreviousStatement(true);
@@ -241,7 +239,7 @@ Blockly.JavaScript['wait_seconds'] = function(block) {
 Blockly.Blocks['musicplay'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Groti muziką");
+            .appendField("groti muziką");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
@@ -275,6 +273,7 @@ Blockly.JavaScript['dance'] = function(block) {
     var dropdown_sokiai = block.getFieldValue('sokiai');
     // TODO: Assemble JavaScript into code variable.
     var code = 'costumeChange(' + dropdown_sokiai + ');\n';
+    code += 'if (typeof anim_speed == "undefined") {aSpeed(1);}';
     return code;
 };
 
