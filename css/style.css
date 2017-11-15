@@ -296,6 +296,27 @@ canvas {
     min-width: 400px;
     border: solid #f2f2f2 1px;
 }
+#m-background{
+     background-image: url(../img_lessons/mazylis/fonas.png);
+    width: 490px;
+    height: 330px;
+    z-index: 1; 
+}
+#m-finished{
+    display: none;
+    background-image: url(../img_lessons/mazylis/mazylis.png);
+    width: 490px;
+    height: 330px;
+     z-index: 2;
+    animation: 1s eye_anim infinite steps(2, end);
+}
+@keyframes eye_anim {
+    100% {
+        background-position: 200% 0
+    }
+}
+
+
 #pool{
     background-image: url(../img_lessons/baseinas/fonas.png);
     width: 490px;
