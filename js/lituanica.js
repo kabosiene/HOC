@@ -193,7 +193,7 @@ function changePoints(x, y) {
 function checkPoint(x, y) {
     
 //console.log(x + " - " + y);
-    //check if end point setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+    //check if end point setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
     if (410 > x && x >= 390 && 115 > y && y > 80) {
         if (points[0] == 1 && points[1] == 1 && points[2] == 1) {
             setTimeout(function() {
