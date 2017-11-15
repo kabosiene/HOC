@@ -52,7 +52,7 @@ $(function(){
      $('.customAlert').css('animation', 'none');
         $('.customAlert').css('display', 'none');
     }, 300);
-    currentCallback();
+   // currentCallback();
   })
 
   
