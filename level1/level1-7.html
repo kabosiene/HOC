@@ -93,30 +93,14 @@
                 <xml id="toolbox" style="display: none">
                     <category name="Logic">
                         <block type="controls_if"></block>
-                        <block type="logic_compare"></block>
-                        <block type="logic_operation"></block>
-                        <block type="logic_negate"></block>
-                        <block type="logic_boolean"></block>
-                    </category>
-                    <category name="Loops">
-                        <block type="controls_repeat_ext">
-                            <value name="TIMES">
-                                <block type="math_number">
-                                    <field name="NUM">10</field>
-                                </block>
-                            </value>
-                        </block>
-                        <block type="controls_whileUntil"></block>
                     </category>
                     <category name="Math">
                         <block type="math_number"></block>
-                        <block type="math_arithmetic"></block>
-                        <block type="math_single"></block>
                     </category>
-                    <category name="Text">
-                        <block type="text"></block>
-                        <block type="text_length"></block>
-                        <block type="text_print"></block>
+                    <category name="Custom">
+                        <block type="count"></block>
+                        <block type="end_game"></block>
+                        <block type="button_clicked"></block>
                     </category>
                 </xml>
             </div>
@@ -166,6 +150,7 @@
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lt.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/adamkus.js"></script>
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
@@ -230,7 +215,7 @@
                 countStars += 1;
                 animTreasure('.star');
             }
-            endGame(3);
+            endGame(5);
         }, 50);
 
         setTimeout(function() {
