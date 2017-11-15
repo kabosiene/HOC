@@ -22,15 +22,15 @@ li {
     box-sizing: border-box;
     margin-left: -12.5%;
     margin-top: -5.2%;
-    background: #513e8f;
+    background: rgba(81, 62, 143, 0.95);
     z-index: 99;
 }
  .message{
     padding: 5px;
     color: white;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 20px;
-    text-align: justify;
+    text-align: center;
   }
     input[type='button']{
     position: absolute;
@@ -296,22 +296,45 @@ canvas {
     min-width: 400px;
     border: solid #f2f2f2 1px;
 }
+#pool{
+    background-image: url(../img_lessons/baseinas/fonas.png);
+    width: 490px;
+    height: 330px;
+    z-index: 1;
+}
 
 #test1 {
     visibility: hidden;
-    background-image: url(../test_img/swim_sprite.png);
+    background-image: url(../img_lessons/baseinas/plaukia.png);
     height: 40px;
-    width: 40px;
+    width: 70px;
     background-position: 0 0;
-    background-size: 200% 100%;
-    animation: swim 1s infinite steps(2, end);
+    background-size: 400% 100%;
+    animation: swim 1s infinite steps(4, end);
     /*   float:left; */
-    transform: translate(0px, 150px);
+    transform: translate(40px, 220px);
+    z-index: 2;
+      position: absolute;
+}
+#pool_flags {
+    background-image: url(../img_lessons/baseinas/veliaveles.png);
+    z-index: 3;
+     width: 490px;
+    height: 330px;
+    position: absolute;
+}
+#time_counter{
+    background-image: url(../img_lessons/baseinas/lentele.png) ;
+    background-repeat: no-repeat;
+    transform: translate(175px, 45px);
+    width: 134px;
+    height: 100px;
+    z-index: 1;
 }
 
 @keyframes swim {
     100% {
-        background-position: 200% 0
+        background-position: 400% 0
     }
 }
 

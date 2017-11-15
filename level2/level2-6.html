@@ -11,8 +11,12 @@
 </head>
 
 <body>
+    <div class='customAlert'>
+        <p class='message'></p>
+        <input type='button' class='confirmButton' value='Ok'>
+    </div>
     <div class="container-fluid header-top">
-       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a> 
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -64,21 +68,25 @@
                     <canvas id="canvas2" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-                    <div id="test1"></div>
+                    <div id="pool">
+                        <div id="test1"></div>
+                        <div id="pool_flags"></div>
+                         <div id="time_counter"></div>
+                    </div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
-                
-                <div class="hint-panel">
-                    <ul> Pagalba:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content='Nepamiršk blokelio "plaukti". Nebent sieki plaukiojimo vietoje rekordo.'>Hint1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Gal nepakankamai padidinai greitį? Pabandyk">Hint2</a>
-                        </li>
-                    </ul>
-                </div></div>
+                    <div class="hint-panel">
+                        <ul> Pagalba:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content='Nepamiršk blokelio "plaukti". Nebent sieki plaukiojimo vietoje rekordo.'>Hint1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Gal nepakankamai padidinai greitį? Pabandyk">Hint2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
@@ -173,18 +181,18 @@
     var my_canvas2 = document.getElementById("canvas2");
     var swimmer = my_canvas2.getContext("2d");
     var swim = new Image();
-    swim.src = "../test_img/swim.png";
+    swim.src = "../img_lessons/baseinas/plaukia_start.png";
     var swim2 = new Image();
-    swim2.src = "../test_img/swim2.png";
+    swim2.src = "../img_lessons/baseinas/plaukia3.png";
     var swim3 = new Image();
     swim3.src = "../test_img/swim_anim.png";
 
     swim.onload = function() {
-        swimmer.drawImage(swim, 0, 150, 40, 40);
+        swimmer.drawImage(swim, 45, 220, 40, 40);
     };
-    var start_x = 0;
-    var start_y = 150;
-    var x = 490;
+    var start_x = 40;
+    var start_y = 220;
+    var x = 390;
     var startTime;
     var score;
     var speed = 0.15;
@@ -205,13 +213,13 @@
 
     function runCode() {
         // Generate JavaScript code and run it.
-        start_x = 0;
-        start_y = 150;
-        speed = 0.15;
+        start_x = 40;
+        start_y = 220;
+        speed = 0.05;
         turn = false;
         edge = false;
-        edge1 = 1;
-        edge2 = 450;
+        edge1 = 40;
+        edge2 = 380;
         mouse_click = false;
         swim_do = false;
         swim_do_f = false;
@@ -221,9 +229,9 @@
         costume = false;
         animation_speed = false;
         anim_speed = 0;
-        document.getElementById("test1").style.animationDuration = "0s";
-
-
+        // document.getElementById("test1").style.animationDuration = "0s";
+   document.getElementById("test1").style.animationDuration = "1s"
+        pool_flags.removeEventListener("click", onClick, false);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -233,28 +241,26 @@
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         startTime = new Date();
-
-        canvas2.removeEventListener("click", onClick, false);
-          swimmer.drawImage(swim, 0, 150, 40, 40);
+        swimmer.drawImage(swim, 45, 220, 70, 40);
         try {
             if (code.length > 0) {
                 eval(code);
 
                 if (mouse_click) {
-                    canvas2.addEventListener("click", onClick, false);
+                    pool_flags.addEventListener("click", onClick, false);
                 }
 
                 if (swim_do && swim_do_f) {
                     if (add_costume_swim && add_costume_swim2) {
-                                     swimmer.clearRect(0, 0, canvas.width, canvas.height);
+                        swimmer.clearRect(0, 0, canvas.width, canvas.height);
                         document.getElementById("test1").style.visibility = "visible";
-                        if (animation_speed) {
-                            document.getElementById("test1").style.animationDuration = "" + (1 / anim_speed) + "s";
-                        }
+                        // if (animation_speed) {
+                        //     document.getElementById("test1").style.animationDuration = "" + (1 / anim_speed) + "s";
+                        // }
                         animateSwimmer();
                     } else {
+                        alert('Trūksta plaukimo judesių');
                         document.getElementById("test1").style.visibility = "hidden";
-                        swimmer.drawImage(swim, 0, 150, 40, 40);
                     }
 
 
@@ -268,7 +274,12 @@
             }
 
         } catch (e) {
-            alert(e);
+            //alert(e);
+            if (e instanceof ReferenceError) {
+        // statements to handle TypeError exceptions
+         alert("Trūksta funkcijos");
+    } 
+            
         }
     }
 
@@ -282,10 +293,10 @@
         } else {
             // edge = true;
             cancelAnimationFrame(anim_id);
-            if (turn) {
+            if (edge && turn) {
                 animateSwimmerBack();
             } else {
-                alert("Apsisuk");
+                alert("Baseino kraštas? Apsisuk");
             }
 
         }
@@ -293,9 +304,9 @@
         swimmer.clearRect(0, 0, canvas.width, canvas.height)
         if (add_costume_swim && add_costume_swim2) {
             // switchCostumes(start_x);
-            document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px)";
+            document.getElementById("test1").style.transform = "translate(" + start_x + "px, 220px)";
         } else {
-            swimmer.drawImage(swim, start_x, 150, 40, 40);
+            swimmer.drawImage(swim, start_x, 220, 70, 40);
         }
         drawElapsedTime();
         start_x += speed;
@@ -310,18 +321,18 @@
         } else {
 
             document.getElementById("test1").style.visibility = "hidden";
-            score = parseInt((new Date() - startTime) / 1000);
+            score = parseInt((new Date() - startTime) / 300);
             console.log(score);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             swimmer.clearRect(0, 0, canvas.width, canvas.height);
-            if (score < 5) {
-                ctx.font = "20px Verdana";
-                ctx.fillText("LAIMĖJAI AUKSĄ!", 200, 150);
+            if (score < 65) {
+                ctx.font = "14px Arial";
+                ctx.fillText("LAIMĖJAI AUKSĄ!", 190, 126);
                 setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
                 return;
             } else {
-                ctx.font = "20px Verdana";
-                ctx.fillText("Bandyk dar kartą", 200, 150);
+                ctx.font = "14px Arial";
+                ctx.fillText("Bandyk dar kartą", 190, 126);
                 return;
             }
 
@@ -331,10 +342,10 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
         if (add_costume_swim && add_costume_swim2) {
-            document.getElementById("test1").style.transform = "translate(" + start_x + "px, 150px) scaleX(-1)";
+            document.getElementById("test1").style.transform = "translate(" + start_x + "px, 220px) scaleX(-1)";
         } else {
 
-            swimmer.drawImage(swim2, start_x, 150, 40, 40);
+            swimmer.drawImage(swim2, start_x, 220, 70, 40);
         }
         start_x -= speed;
         drawElapsedTime();
@@ -343,14 +354,14 @@
     }
 
     function drawElapsedTime() {
-        var elapsed = parseInt((new Date() - startTime) / 1000);
+        var elapsed = parseInt((new Date() - startTime) / 300);
         ctx.save();
         ctx.beginPath();
-        ctx.fillStyle = "red";
-        ctx.font = "14px Verdana";
+        ctx.fillStyle = "blue";
+        ctx.font = "20px Arial";
         // draw the running time at half opacity
         ctx.globalAlpha = 0.50;
-        ctx.fillText(elapsed + " s", canvas.width - 75, 25);
+        ctx.fillText(elapsed + " s", 225, 126);
         ctx.restore();
     }
 
@@ -359,8 +370,10 @@
         speed += add_speed;
 
         if (animation_speed) {
-            anim_speed += add_speed;
-            document.getElementById("test1").style.animationDuration = "" + (1 / anim_speed) + "s";
+            anim_speed += add_speed/10;
+            if ((0.1 / anim_speed) < 1) {
+                document.getElementById("test1").style.animationDuration = "" + (0.1 / anim_speed) + "s";
+            }
         }
 
     }
