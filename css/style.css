@@ -631,19 +631,21 @@ canvas {
 }
 
 .star{
+    visibility: hidden;
     background-image: url("../img_lessons/adamkus/ikona6.png");
     width: 40px;
     height: 40px;
     /*color: yellow;*/
-    animation: animatedStar 3s linear infinite;
+    transform: translate(450px; 70px);
+    animation: animatedStar 0s linear infinite;
 }
 
 @keyframes animatedStar {
     from {
-        transform: translate(450px, 80px);
+        transform: translate(450px, 70px);
     }
     to {
-        transform: translate(0px, 80px);
+        transform: translate(0px, 70px);
     }
 }
 
@@ -696,7 +698,7 @@ canvas {
     background-image: url(../img_lessons/adamkus/bega.png);
     height: 100px;
     width: 70px;
-    animation: run 0.4s infinite steps(2, end);
+    animation: run 0s infinite steps(2, end);
     /*   float:left; */
     transform: translate(100px, 220px);
     transition: transform 0.5s cubic-bezier(0.990, 0.005, 0.000, 0.420);
