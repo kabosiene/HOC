@@ -188,8 +188,9 @@
     swim.src = "../img_lessons/baseinas/plaukia_start.png";
     var swim2 = new Image();
     swim2.src = "../img_lessons/baseinas/plaukia3.png";
-    var swim3 = new Image();
-    swim3.src = "../test_img/swim_anim.png";
+ var meilutyte_medal = new Image();
+    meilutyte_medal.src = "../img_lessons/baseinas/meilutyte-naujas.png"
+
 
     swim.onload = function() {
         swimmer.drawImage(swim, 45, 220, 40, 40);
@@ -235,7 +236,7 @@
         anim_speed = 0;
         // document.getElementById("test1").style.animationDuration = "0s";
    document.getElementById("test1").style.animationDuration = "1s"
-        pool_flags.removeEventListener("click", onClick, false);
+        canvas2.removeEventListener("click", onClick, false);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -251,7 +252,7 @@
                 eval(code);
 
                 if (mouse_click) {
-                    pool_flags.addEventListener("click", onClick, false);
+                    canvas2.addEventListener("click", onClick, false);
                 }
 
                 if (swim_do && swim_do_f) {
@@ -326,17 +327,15 @@
 
             document.getElementById("test1").style.visibility = "hidden";
             score = parseInt((new Date() - startTime) / 300);
-            console.log(score);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             swimmer.clearRect(0, 0, canvas.width, canvas.height);
             if (score < 65) {
-                ctx.font = "14px Arial";
-                ctx.fillText("LAIMĖJAI AUKSĄ!", 190, 126);
+                 ctx.drawImage(meilutyte_medal, 0, 0);
                 setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
                 return;
             } else {
                 ctx.font = "14px Arial";
-                ctx.fillText("Bandyk dar kartą", 190, 126);
+                ctx.fillText("Bandyk dar kartą", 200, 126);
                 return;
             }
 

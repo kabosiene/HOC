@@ -321,7 +321,6 @@ canvas {
     background-image: url(../img_lessons/baseinas/fonas.png);
     width: 490px;
     height: 330px;
-    z-index: 1;
 }
 
 #test1 {
@@ -334,13 +333,11 @@ canvas {
     animation: swim 1s infinite steps(4, end);
     /*   float:left; */
     transform: translate(40px, 220px);
-    z-index: 2;
       position: absolute;
 }
 #pool_flags {
     background-image: url(../img_lessons/baseinas/veliaveles.png);
-    z-index: 3;
-     width: 490px;
+    width: 490px;
     height: 330px;
     position: absolute;
 }
