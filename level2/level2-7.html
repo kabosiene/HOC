@@ -11,43 +11,43 @@
 </head>
 
 <body>
-        <div class='customAlert'>
+    <div class='customAlert'>
         <p class='message'></p>
         <input type='button' class='confirmButton' value='Ok'>
     </div>
     <div class="container-fluid header-top">
         <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
         <div class="progress-container">
-            <ul style="text-align: center; ">
+            <ul style="text-align: center;">
                 <li>
-                    <a href="level2-1.html ">1</a>
+                    <a href="level1-1.html">1</a>
                 </li>
                 <li>
-                    <a href="level2-2.html ">2</a>
+                    <a href="level1-2.html">2</a>
                 </li>
                 <li>
-                    <a href="level2-3.html ">3</a>
+                    <a href="level1-3.html">3</a>
                 </li>
                 <li>
-                    <a href="level2-4.html ">4</a>
+                    <a href="level1-4.html">4</a>
                 </li>
                 <li>
-                    <a href="level2-5.html ">5</a>
+                    <a href="level1-5.html">5</a>
                 </li>
                 <li>
-                    <a href="level2-6.html ">6</a>
+                    <a href="level1-6.html">6</a>
                 </li>
                 <li>
-                    <a class="active" href="level2-7.html ">7</a>
+                    <a class="active" href="level1-7.html">7</a>
                 </li>
                 <li>
-                    <a href="level2-8.html ">8</a>
+                    <a href="level1-8.html">8</a>
                 </li>
                 <li>
-                    <a href="level2-9.html ">9</a>
+                    <a href="level1-9.html">9</a>
                 </li>
                 <li>
-                    <a href="level2-10.html ">10</a>
+                    <a href="level1-10.html">10</a>
                 </li>
             </ul>
         </div>
@@ -62,10 +62,7 @@
         <div class="row" style="padding: 10px">
             <div class="col  ">
                 <div id="preview">
-                    <canvas id="canvas" width="490" height="330">
-                        This text is displayed if your browser does not support HTML5 Canvas.
-                    </canvas>
-                    <div class="rating">
+                    <div id="rating">
                     </div>
                     <div class="clouds">
                         <div class="l1">
@@ -89,23 +86,25 @@
                         </ul>
                     </div>
                 </div>
-                <button id="up">JUMP</button>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Žaidimas">
+                    <category name="Žaidimas" colour="230">
                         <block type="controls_if"></block>
                         <block type="count"></block>
                         <block type="end_game"></block>
-                        <block type="button_clicked"></block>
+                        <block type="game"></block>
+                    </category>
+                    <category name="Veikėjai" colour="330">
+                        <!-- <block type="button_clicked"></block> -->
                         <block type="jump"></block>
                         <block type="run"></block>
-                        <block type="game"></block>
                         <block type="valdymas"></block>
                         <block type="treasure"></block>
                         <block type="treasure_speed"></block>
+                        <block type="select_treasure"></block>
                     </category>
                 </xml>
             </div>
@@ -147,18 +146,15 @@
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js " integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4 " crossorigin="anonymous "></script>
-    <script src="../js/bootstrap.min.js "></script>
-    <script src="../js/blockly_compressed.js "></script>
-    <script src="../js/javascript_compressed.js "></script>
-    <script src="../js/blocks_compressed.js "></script>
-    <script src="../msg/js/lt.js "></script>
-    <script src="../js/main.js "></script>
-    <script type="text/javascript ">
-    var my_canvas = document.getElementById("canvas");
-    var ctx = my_canvas.getContext("2d ");
-    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/blockly_compressed.js"></script>
+    <script src="../js/javascript_compressed.js"></script>
+    <script src="../js/blocks_compressed.js"></script>
+    <script src="../msg/js/lt.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/adamkus.js"></script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -177,15 +173,21 @@
     }
     workspace.addChangeListener(toJavascript);
     </script>
-       <script type="text/javascript">
+    <script type="text/javascript">
     var $ken = $('.avatar');
     var $star = $('.star');
     var $kenPos;
     var $starPos;
     var countStars = 0;
 
+
     function runCode() {
-        $('#up').off('mousedown');
+
+        var treasureCollection = [];
+        var i = 0;
+        var index = 0;
+
+        $('#preview').off('mousedown');
         reset();
         // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
@@ -195,92 +197,132 @@
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         try {
             if (code.length > 0) {
-                console.log(code);
+                // console.log(code);
+                //console.log(treasureCollection);
                 eval(code);
+                if (treasureCollection.length > 0) {
+                    $(".star").css("background-image", "url(../img_lessons/adamkus/" + treasureCollection[0] + ".png)")
+
+                } else { alert('Trūksta pasiekimo'); }
+
 
                 function clickJump(action) {
-                    $('#up').on(action, function(e) {
-                        if (e.type == action) { addJumpClass(); jump(); }
-                    });
+                    if (action == "screen") {
+                        $('#preview').on('mousedown', function(e) {
+                            if (e.type == 'mousedown') {
+                                addJumpClass();
+                                jump(index);
+                            }
+                        });
 
+                    } else {
+                        $(window).keydown(function(e) {
+                               console.log(e.keyCode);
+                            if (e.keyCode == action) {
+                                addJumpClass();
+                                jump(index);
+                            }
+                        });
+
+
+                    }
                 }
 
-                function endGame(x) {
-                    if (countStars == x) { gameOver(); }
+                    function endGame(x) {
+                        if (countStars == x) { gameOver(); }
+                    }
+
+                    function gameOver() {
+                        $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)');
+                        $('.clouds').hide();
+                        setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+                    }
+
+
+                    function isStarllColision() {
+                        //console.log($star.is(':visible'));
+                        if ($star.is(':visible')) {
+                            $starPos = $star.offset();
+                            $kenPos = $ken.offset();
+                            return $starPos.left > $kenPos.left + 20 && $starPos.left < $kenPos.left + 70 ? true : false;
+
+                        } else { return false; }
+                    };
+
+                    function animTreasure(t) {
+                        setTimeout(function() { $(t).hide(); }, 200);
+                        index += 1;
+                        if (treasureCollection[index]) {
+                            setTimeout(function() {
+                                $(t).css("background-image", "url(../img_lessons/adamkus/" + treasureCollection[index] + ".png)");
+                                $(t).show();
+                            }, 450);
+                        }
+                    }
+
+                    function addJumpClass() {
+                        $ken.addClass('jump');
+                        setTimeout(function() {
+                            $ken.removeClass('jump');
+                            //clearInterval(explodeIfColision);
+                        }, 500);
+                    }
+
+                    function run() {
+                        var vavatar = document.getElementsByClassName('avatar');
+                        vavatar[0].style.animationDuration = "0.5s";
+                    }
+
+                    function treasureSpeed(speed) {
+                        var st = document.getElementsByClassName('star');
+                        st[0].style.animationDuration = (speed / 10) + "s";
+                    }
+
+                    function treasureOn(x) {
+                        var st = document.getElementsByClassName('star');
+                        st[0].style.visibility = x;
+                    }
+
+                    function treasureCollect(treasure_name) {
+
+                        treasureCollection[i] = treasure_name;
+                        i += 1;
+                    }
+
+                } else {
+                    alert('Pridėk kodo blokelį.');
                 }
 
-                function gameOver() {
-                    setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
-                }
-
-
-                function isStarllColision() {
-                    $starPos = $star.offset();
-                    $kenPos = $ken.offset();
-                    return $starPos.left > $kenPos.left + 20 && $starPos.left < $kenPos.left + 70 ? true : false;
-                };
-
-                function animTreasure(t, next) {
-                    setTimeout(function() { $(t).hide(); }, 200);
-                    setTimeout(function() { $(t).show(); }, 450);
-                }
-
-                function addJumpClass() {
-                    $ken.addClass('jump');
-                    setTimeout(function() {
-                        $ken.removeClass('jump');
-                        clearInterval(explodeIfColision);
-                    }, 500);
-                }
-
-                function run() {
-                    var vavatar = document.getElementsByClassName('avatar');
-                    vavatar[0].style.animationDuration = "0.5s";
-                }
-
-                function treasureSpeed(speed) {
-                    var st = document.getElementsByClassName('star');
-                    st[0].style.animationDuration = (speed / 10) + "s";
-                }
-
-                function treasureOn(x) {
-                    var st = document.getElementsByClassName('star');
-                    st[0].style.visibility = x;
-                }
-
-
-            } else {
-                alert('Pridėk kodo blokelį.');
+            } catch (e) {
+                // alert(e);
             }
-
-        } catch (e) {
-            alert(e);
         }
-    }
 
-    function reset() {
-        var vavatar = document.getElementsByClassName('avatar');
-        vavatar[0].style.animationDuration = "0";
-        var st = document.getElementsByClassName('star');
-        st[0].style.animationDuration = "0";
-        st[0].style.visibility = "hidden";
-        countStars = 0;
-        $('.rating').empty();
-    }
+        function reset() {
+            var vavatar = document.getElementsByClassName('avatar');
+            vavatar[0].style.animationDuration = "0";
+            var st = document.getElementsByClassName('star');
+            st[0].style.animationDuration = "0";
+            $('.star').show();
+            st[0].style.visibility = "hidden";
+            countStars = 0;
+            $('#rating').empty();
+            $('.clouds').show();
+        }
 
-    // function jump() {
-    //     addJumpClass();
-    //     var explodeIfColision = setInterval(function() {
-    //         if (isStarllColision()) {
-    //             clearInterval(explodeIfColision);
-    //             $("<span>&#x2605;</span>").appendTo($('.rating'));
-    //             countStars += 1;
+        // function jump() {
+        //     addJumpClass();
+        //     var explodeIfColision = setInterval(function() {
+        //         if (isStarllColision()) {
+        //             clearInterval(explodeIfColision);
+        //             $("<span>&#x2605;</span>").appendTo($('.rating'));
+        //             countStars += 1;
 
-    //             animTreasure('.star');
-    //         }
-    //         endGame(5);
-    //     }, 50);
-    // };
+        //             animTreasure('.star');
+        //         }
+        //         endGame(5);
+        //     }, 50);
+        // };
     </script>
 </body>
 

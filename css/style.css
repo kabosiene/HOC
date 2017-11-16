@@ -621,19 +621,20 @@ canvas {
     }
 }
 
-.rating {
+#rating {
     position: absolute;
-    color: yellow;
-    background: blue;
+        padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
+
 
 .star{
     visibility: hidden;
-    background-image: url("../img_lessons/adamkus/ikona6.png");
+    /*background-image: url("../img_lessons/adamkus/not.png");*/
     width: 40px;
     height: 40px;
-    /*color: yellow;*/
-    transform: translate(450px; 70px);
+    transform: translate(450px, 70px);
     animation: animatedStar 0s linear infinite;
 }
 

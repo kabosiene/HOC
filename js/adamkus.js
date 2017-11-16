@@ -11,7 +11,7 @@ Blockly.Blocks['game'] = {
 Blockly.JavaScript['game'] = function(block) {
     var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
     // TODO: Assemble JavaScript into code variable.
-    var code = "  function jump(){ \n var explodeIfColision = setInterval(function() {\nif (isStarllColision()){ clearInterval(explodeIfColision);\n$('<span>&#x2605;</span>').appendTo($('.rating'));\ncountStars += 1;\nanimTreasure('.star');\n}";
+    var code = "  function jump(index){ \n var explodeIfColision = setInterval(function() {\nif (isStarllColision()){ clearInterval(explodeIfColision);\n    if (treasureCollection[index] == 'not1' || treasureCollection[index] == 'not2' || treasureCollection[index] == 'not3' || treasureCollection[index] == 'not4') {alert('Netinkamas pasiekimas')}else{ \ncountStars += 1; document.getElementById('rating').innerHTML = 'Surinkta: ' +countStars;}\nanimTreasure('.star');\n}";
     code += statements_name;
     code += " \n }, 50); };";
     return code;
@@ -47,8 +47,7 @@ Blockly.Blocks['button_clicked'] = {
             .appendField(new Blockly.FieldDropdown([
                 ["tarpas", "32"],
                 ["rodyklė į viršų", "38"],
-                ["ekranas", "screen"],
-                ["testbutton", "mousedown"]
+                ["ekranas", "screen"]
             ]), "button");
         this.setOutput(true, null);
         this.setColour(330);
@@ -56,16 +55,28 @@ Blockly.Blocks['button_clicked'] = {
         this.setHelpUrl("");
     }
 };
+// Blockly.Blocks['jump'] = {
+//     init: function() {
+//         this.appendDummyInput()
+//             .appendField("pašokti");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(330);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
 Blockly.Blocks['jump'] = {
-    init: function() {
-        this.appendDummyInput()
-            .appendField("pašokti");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(330);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
+  init: function() {
+    this.appendDummyInput()
+        .appendField("pašokti kai paspaustas")
+        .appendField(new Blockly.FieldDropdown([["ekranas","screen"], ["tarpo mygtukas",32], ["rodyklė į viršų",38]]), "buttons");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
 };
 Blockly.Blocks['run'] = {
     init: function() {
@@ -153,20 +164,46 @@ Blockly.JavaScript['end_game'] = function(block) {
 Blockly.JavaScript['button_clicked'] = function(block) {
     var dropdown_button = block.getFieldValue('button');
     // TODO: Assemble JavaScript into code variable.
-    var code = true;
+    var code = 'var button = '+dropdown_button;
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+// Blockly.JavaScript['jump'] = function(block) {
+//     // TODO: Assemble JavaScript into code variable.
+//     var code = "clickJump(button);";
+//     //code += " function clickJump(action) {$('#up').on(action, function(e) { if (e.type == action) { jump(); }});}";
+//     return code;
+// };
 Blockly.JavaScript['jump'] = function(block) {
-    // TODO: Assemble JavaScript into code variable.
-    var code = "clickJump('mousedown');";
-    //code += " function clickJump(action) {$('#up').on(action, function(e) { if (e.type == action) { jump(); }});}";
-    return code;
+  var dropdown_buttons = block.getFieldValue('buttons');
+  // TODO: Assemble JavaScript into code variable.
+   var code = "clickJump('"+dropdown_buttons+"');";
+  return code;
 };
-
 Blockly.JavaScript['run'] = function(block) {
     // TODO: Assemble JavaScript into code variable.
     var code = 'run();\n';
     return code;
+};
+
+
+
+/********treasures****************/
+Blockly.Blocks['select_treasure'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([[" 1960 m. įgyta statybų inžinieriaus specialybė","1"], ["Aktyvus Amerikos lietuvių bendruomenės narys","2"], ["1988 m. Tarptautinis gamtosauginis apdovanojimas","3"], ["100 m. plaukimo nacionalinis rekordininkas","not1"], ["1998-2003 m. Lietuvos prezidentas","4"], ["menininkas, vienas iš Fluxus judėjimo pradininkų","not2"], ["2004-2009 m. Lietuvos prezidentas","5"], ["100 m. bėgimo nacionalinis rekordininkas","6"], ["2014-2019 m. Lietuvos prezidentas","not3"], ["Derybos dėl Lietuvos narystės NATO","7"], ["Derybos dėl Lietuvos narystės ES","8"], ["1918 m. Lietuvos Nepriklausomybės akto signataras","not4"]]), "treasure_name");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+Blockly.JavaScript['select_treasure'] = function(block) {
+  var dropdown_treasure_name = block.getFieldValue('treasure_name');
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'treasureCollect("'+dropdown_treasure_name+'");\n';
+  return code;
 };
