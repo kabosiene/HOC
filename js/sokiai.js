@@ -255,7 +255,7 @@ Blockly.JavaScript['musicplay'] = function(block) {
 Blockly.Blocks['dance'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Šokis")
+            .appendField("judesys")
             .appendField(new Blockly.FieldDropdown([
                 ["1", "1"],
                 ["2", "2"],
@@ -281,7 +281,7 @@ Blockly.Blocks['rotate'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([
-                ["suktis", "spin"],
+                ["suktis ratu", "spin"],
                 ["šokti vietoje", "stop"]
             ]), "sukimasis");
         this.setPreviousStatement(true, null);

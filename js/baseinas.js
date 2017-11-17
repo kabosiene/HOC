@@ -40,7 +40,7 @@ Blockly.Blocks['apsisuk'] = {
     init: function() {
         this.setColour(230);
         this.appendDummyInput()
-            .appendField('apsukti plaukiką');
+            .appendField('apsukti plaukikę');
         this.setTooltip('Blokelis prideda kintamąjį, nurodantį apsisukti.');
         this.setNextStatement(true);
         this.setPreviousStatement(true);
@@ -126,7 +126,7 @@ Blockly.JavaScript['keisti_greiti'] = function(block) {
 Blockly.Blocks['on_click'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("paspausta pelė");
+            .appendField("paspausta ant ekrano");
         this.setOutput(true, null);
         this.setColour(230);
         this.setTooltip("");

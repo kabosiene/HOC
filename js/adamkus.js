@@ -92,8 +92,8 @@ Blockly.Blocks['run'] = {
 Blockly.Blocks['treasure'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("treasure")
-        .appendField(new Blockly.FieldDropdown([["on","visible"], ["off","hidden"]]), "visibility");
+        .appendField("laimėjimą")
+        .appendField(new Blockly.FieldDropdown([["rodyti","visible"], ["slėpti","hidden"]]), "visibility");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);
@@ -105,7 +105,7 @@ Blockly.Blocks['treasure'] = {
 Blockly.Blocks['treasure_speed'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("treasure greitis")
+        .appendField("laimėjimo skriejimo greitis")
         .appendField(new Blockly.FieldNumber(0, 0), "NAME");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -193,7 +193,7 @@ Blockly.JavaScript['run'] = function(block) {
 Blockly.Blocks['select_treasure'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([[" 1960 m. įgyta statybų inžinieriaus specialybė","1"], ["Aktyvus Amerikos lietuvių bendruomenės narys","2"], ["1988 m. Tarptautinis gamtosauginis apdovanojimas","3"], ["100 m. plaukimo nacionalinis rekordininkas","not1"], ["1998-2003 m. Lietuvos prezidentas","4"], ["menininkas, vienas iš Fluxus judėjimo pradininkų","not2"], ["2004-2009 m. Lietuvos prezidentas","5"], ["100 m. bėgimo nacionalinis rekordininkas","6"], ["2014-2019 m. Lietuvos prezidentas","not3"], ["Derybos dėl Lietuvos narystės NATO","7"], ["Derybos dėl Lietuvos narystės ES","8"], ["1918 m. Lietuvos Nepriklausomybės akto signataras","not4"]]), "treasure_name");
+        .appendField(new Blockly.FieldDropdown([[" 1960 m. statybų inžinieriaus diplomas","1"], ["Aktyvus Amerikos lietuvių bendruomenės narys","2"], ["1988 m. Tarptautinis gamtosauginis apdovanojimas","3"], ["100 m. plaukimo nacionalinis rekordininkas","not1"], ["1998-2003 m. Lietuvos Prezidentas","4"], ["Menininkas, Fluxus pradininkas","not2"], ["2004-2009 m. Lietuvos Prezidentas","5"], ["100 m. bėgimo nacionalinis rekordininkas","6"], ["2014-2019 m. Lietuvos Prezidentas","not3"], ["Derybos dėl Lietuvos narystės NATO","7"], ["Derybos dėl Lietuvos narystės ES","8"], ["1918 m. Lietuvos Nepriklausomybės akto signataras","not4"]]), "treasure_name");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);

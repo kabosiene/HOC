@@ -10,14 +10,14 @@ Blockly.Blocks['keisti'] = {
         this.appendDummyInput()
             .appendField("Jei ")
             .appendField(new Blockly.FieldDropdown([
-                ["pasirink", "Option"],
+                ["pasirinkti", "Option"],
                 ["berniuko kepurė", "kepure"],
                 ["berniuko kelnės", "bkelnes"],
                 ["vyro kelnės", "vkelnes"]
             ]), "people")
             .appendField("spalva")
             .appendField(new Blockly.FieldDropdown([
-                ["pasirink", "Option"],
+                ["pasirinkti", "Option"],
                 ["baltos spalvos", "baltos"],  
                 ["žydros spalvos", "zydra"],
                 ["žalios spalvos", "zalios"]
