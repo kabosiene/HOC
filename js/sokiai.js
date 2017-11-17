@@ -216,7 +216,7 @@ Blockly.Blocks['wait_seconds'] = {
         this.appendDummyInput()
             .appendField("atlikti veiksmą")
             .appendField(new Blockly.FieldTextInput("1"), "SECONDS")
-            .appendField("s.");
+            .appendField("s");
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setColour(120);
