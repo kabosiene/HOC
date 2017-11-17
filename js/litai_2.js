@@ -6,7 +6,7 @@ Blockly.Blocks['paspausta'] = {
                 ["euras", "EURO"],
                 ["litas", "LITAS"],
                 ["talonas", "TALONAS"],
-                ["litas(23m.)", "LITAS(23)"]
+                ["tarpukario litas", "LITAS(23)"]
             ]), "NAME");
         this.setOutput(true, null);
         this.setColour(230);
@@ -49,7 +49,7 @@ Blockly.Blocks['change'] = {
         this.appendDummyInput()
             .appendField("prie")
             .appendField(new Blockly.FieldDropdown([
-                ["eurai", "euras"]
+                ["euras", "euras"]
             ]), "NAME")
             .appendField("pridėk")
             .appendField(new Blockly.FieldNumber(0), "NUMBER");
@@ -97,10 +97,10 @@ Blockly.Blocks['set'] = {
         this.appendValueInput("converted")
             .setCheck(null)
             .appendField(new Blockly.FieldDropdown([
-                ["litai", "litas"],
-                ["litai(23m.)", "litas_old"],
+                ["litas", "litas"],
+                ["tarpukario litas", "litas_old"],
                 ["talonas", "talonas"],
-                ["eurai", "euras"]
+                ["euras", "euras"]
             ]), "valiutos")
             .appendField("=");
         this.setInputsInline(true);
@@ -124,10 +124,10 @@ Blockly.Blocks['kintamieji'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([
-                ["litai", "litas"],
-                ["litai(23m.)", "litas_old"],
+                ["litas", "litas"],
+                ["tarpukario litas", "litas_old"],
                 ["talonas", "talonas"],
-                ["eurai", "euras"]
+                ["euras", "euras"]
             ]), "valiutos_name");
         this.setInputsInline(true);
         this.setOutput(true, null);

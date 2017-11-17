@@ -141,7 +141,8 @@ Blockly.Blocks['fly_points'] = {
         this.appendValueInput("points_x_y")
             .setCheck(null)
             .appendField(new Blockly.FieldDropdown([
-                ["Niufaunlandas", "first_point"],
+                ["skristi į", "default_point"],
+                ["Niufaundlandas", "first_point"],
                 ["Škotija", "second_point"],
                 ["Lenkija", "third_point"],
                 ["Lietuva", "fourth_point"]

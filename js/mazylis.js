@@ -98,7 +98,7 @@ Blockly.Blocks['spausdinti'] = {
     init: function() {
         this.appendValueInput("last_list_name")
             .setCheck("Array")
-            .appendField("spausdinti sąrašą: ");
+            .appendField("rodyti sąrašą: ");
         this.setPreviousStatement(true, null);
         this.setColour(160);
         this.setTooltip("");
