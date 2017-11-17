@@ -17,6 +17,24 @@ Blockly.JavaScript['krastas'] = function(block) {
 };
 
 
+Blockly.Blocks['number'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldNumber(0, 0, 50), "number");
+    this.setOutput(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+Blockly.JavaScript['number'] = function(block) {
+  var number_number = block.getFieldValue('number');
+  // TODO: Assemble JavaScript into code variable.
+  var code = ''+number_number+'';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 
 Blockly.Blocks['apsisuk'] = {
     init: function() {
