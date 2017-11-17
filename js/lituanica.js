@@ -191,7 +191,6 @@ function changePoints(x, y) {
 }
 
 function checkPoint(x, y) {
-    
 //console.log(x + " - " + y);
     //check if end point setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
     if (410 > x && x >= 390 && 115 > y && y > 80) {
@@ -212,21 +211,24 @@ function checkPoint(x, y) {
         background.drawImage(map, 0, 0);
         drawGrid();
         background.strokeStyle = 'black';
-        background.strokeText("Niufaunlandas", 140, 140);
+        background.font = "12px Arial";
+        background.strokeText("Niufaundlandas", 140, 135);
         points[0] = 1;
     } else if (290 >= x && x >= 270 && 100 >= y && y >= 88) {
         background.clearRect(0, 0, canvas.width, canvas.height);
         background.drawImage(map, 0, 0);
         drawGrid();
         background.strokeStyle = 'black';
-        background.strokeText("Škotija", 320, 95);
+        background.font = "12px Verdana";
+        background.strokeText("Škotija", 320, 90);
         points[1] = 1;
     } else if (370 >= x && x >= 350 && 130 >= y && y >= 100) {
         background.clearRect(0, 0, canvas.width, canvas.height);
         background.drawImage(map, 0, 0);
         drawGrid();
         background.strokeStyle = 'black';
-        background.strokeText("Lenkija", 410, 160);
+        background.font = "12px Verdana";
+        background.strokeText("Lenkija", 410, 170);
         points[2] = 1;
     }
 
