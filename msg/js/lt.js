@@ -148,7 +148,7 @@ Blockly.Msg["LISTS_REVERSE_TOOLTIP"] = "Reverse a copy of a list.";  // untransl
 Blockly.Msg["LISTS_SET_INDEX_HELPURL"] = "https://github.com/google/blockly/wiki/Lists#in-list--set";  // untranslated
 Blockly.Msg["LISTS_SET_INDEX_INPUT_TO"] = "eilutę";
 Blockly.Msg["LISTS_SET_INDEX_INSERT"] = "įterpk į vietą";
-Blockly.Msg["LISTS_SET_INDEX_SET"] = "priskirk";
+Blockly.Msg["LISTS_SET_INDEX_SET"] = "priskirti";
 Blockly.Msg["LISTS_SET_INDEX_TOOLTIP_INSERT_FIRST"] = "Inserts the item at the start of a list.";  // untranslated
 Blockly.Msg["LISTS_SET_INDEX_TOOLTIP_INSERT_FROM"] = "Įterpią objektą į nurodytą poziciją sąraše.";
 Blockly.Msg["LISTS_SET_INDEX_TOOLTIP_INSERT_LAST"] = "Append the item to the end of a list.";  // untranslated
@@ -386,10 +386,10 @@ Blockly.Msg["TEXT_TRIM_TOOLTIP"] = "Grąžina teksto kopiją, pašalinus tarpus 
 Blockly.Msg["TODAY"] = "Šiandien";
 Blockly.Msg["UNDO"] = "Anuliuoti";
 Blockly.Msg["VARIABLES_DEFAULT_NAME"] = "elementas";
-Blockly.Msg["VARIABLES_GET_CREATE_SET"] = "Sukurk \"priskirk %1\"";
+Blockly.Msg["VARIABLES_GET_CREATE_SET"] = "Sukurk \"priskirti %1\"";
 Blockly.Msg["VARIABLES_GET_HELPURL"] = "https://github.com/google/blockly/wiki/Variables#get";  // untranslated
 Blockly.Msg["VARIABLES_GET_TOOLTIP"] = "Returns the value of this variable.";  // untranslated
-Blockly.Msg["VARIABLES_SET"] = "priskirk %1 = %2";
+Blockly.Msg["VARIABLES_SET"] = "priskirti %1 = %2";
 Blockly.Msg["VARIABLES_SET_CREATE_GET"] = "Sukurti 'kintamasis %1'";
 Blockly.Msg["VARIABLES_SET_HELPURL"] = "https://github.com/google/blockly/wiki/Variables#set";  // untranslated
 Blockly.Msg["VARIABLES_SET_TOOLTIP"] = "Sets this variable to be equal to the input.";  // untranslated
