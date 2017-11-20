@@ -197,5 +197,5 @@ function spausdinti(list) {
         ctx.strokeText("Dokumentas:" + list[i], 20, (i + 1) * 30);
     }
 
-
+ my_canvas.addEventListener('click', clickReporter, false);
 }

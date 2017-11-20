@@ -187,6 +187,7 @@
     <script type="text/javascript">
     function runCode() {
         // Generate JavaScript code and run it.
+        my_canvas.removeEventListener('click', clickReporter, false);
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
@@ -202,6 +203,18 @@
         } catch (e) {
             alert(e);
         }
+    }
+        function clickReporter(e) { /// assign event to some variable
+
+    /// adjust mouse click position to be relative to canvas:
+    var rect = this.getBoundingClientRect(),
+        x = e.clientX - rect.left,
+        y = e.clientY - rect.top;
+    if (x >= 0 && x <= 490 &&
+        y >= 0 && y <= 50) {
+
+            setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
+        } 
     }
     </script>
 </body>
