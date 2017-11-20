@@ -1,7 +1,7 @@
-var kepure, vkelnes, bkelnes, lt, lv, est;
-kepure = "zydra";
-vkelnes = "baltos";
-bkelnes = "zalios";
+var berniukas, mergina, vyriskis, lt, lv, est;
+berniukas = "kepure";
+mergina = "veliava";
+vyriskis = "akiniai";
 lt = 40;
 var done = [];
 
@@ -11,16 +11,16 @@ Blockly.Blocks['keisti'] = {
             .appendField("Jei ")
             .appendField(new Blockly.FieldDropdown([
                 ["pasirinkti", "Option"],
-                ["berniuko kepurė", "kepure"],
-                ["berniuko kelnės", "bkelnes"],
-                ["vyro kelnės", "vkelnes"]
+                ["berniukas", "berniukas"],
+                ["vyriškis", "vyriskis"],
+                ["mergina", "mergina"]
             ]), "people")
             .appendField("spalva")
             .appendField(new Blockly.FieldDropdown([
                 ["pasirinkti", "Option"],
-                ["baltos spalvos", "baltos"],  
-                ["žydros spalvos", "zydra"],
-                ["žalios spalvos", "zalios"]
+                ["su vėliava", "veliava"],  
+                ["su žydra kepure", "kepure"],
+                ["su akinais", "akiniai"]
             ]), "color");
         this.appendStatementInput("IF")
             .setCheck(null);
@@ -100,8 +100,7 @@ Blockly.JavaScript['atstumas'] = function(block) {
 };
 
 function animatePerson(x) {
-    if (x == "zydra") { done[0]=1; $('.person').show().css({ "animation-name": "animatedPerson" }); } else if (x == "baltos") { done[1]=1; $('.person2').show().css({ "animation-name": "animatedPerson2" }); } else if (x == "zalios") { done[3]=1; $('.person3').show().css({ "animation-name": "animatedPerson3" }); } else { lost(); }
-
+    if (x == "kepure") { done[0]=1; $('.person').show().css({ "animation-name": "animatedPerson" }); } else if (x == "veliava") { done[1]=1; $('.person2').show().css({ "animation-name": "animatedPerson2" }); } else if (x == "akiniai") { done[2]=1; $('.person3').show().css({ "animation-name": "animatedPerson3" }); } else { lost(); }
 }
 
 function animatePerson2(x, i) {
