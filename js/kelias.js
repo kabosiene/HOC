@@ -57,6 +57,38 @@ Blockly.JavaScript['add_person'] = function(block) {
     return code;
 };
 /****************level2*********************************/
+Blockly.Blocks['keisti2'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("Jei ")
+            .appendField(new Blockly.FieldDropdown([
+                ["pasirinkti", "Option"],
+                ["berniukas", "berniukas"],
+                ["mergina", "mergina"]
+            ]), "people")
+            .appendField("spalva")
+            .appendField(new Blockly.FieldDropdown([
+                ["pasirinkti", "Option"],
+                ["su vėliava", "veliava"],  
+                ["su žydra kepure", "kepure"]
+            ]), "color");
+        this.appendStatementInput("IF")
+            .setCheck(null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+Blockly.JavaScript['keisti2'] = function(block) {
+    var dropdown_people = block.getFieldValue('people');
+    var dropdown_color = block.getFieldValue('color');
+    var statements_if = Blockly.JavaScript.statementToCode(block, 'IF');
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'if(' + dropdown_people + ' == "' + dropdown_color + '")\n{var x=' + dropdown_people + ';\n' + statements_if + '}else{lost();};\n';
+    return code;
+};
 Blockly.Blocks['add_person2'] = {
     init: function() {
         this.appendDummyInput()
@@ -69,7 +101,7 @@ Blockly.Blocks['add_person2'] = {
     }
 };
 Blockly.JavaScript['add_person2'] = function(block) {
-    var code = "  if (centimetrai >= 400 && centimetrai <= 470) { animatePerson2(x, centimetrai);}else {alert('Netinkamas plotis');}";
+    var code = "  if (centimetrai >= 110 && centimetrai <= 340) { animatePerson2(x, centimetrai);}else {alert('Netinkamas plotis');}";
     return code;
 };
 
@@ -98,6 +130,7 @@ Blockly.JavaScript['atstumas'] = function(block) {
     var code = 'var lt = 40; if ( ' + number_distance + ' >= lt)\n {var x="lt";\n' + statements_if + '};\n';
     return code;
 };
+/****************************************/
 
 function animatePerson(x) {
     if (x == "kepure") { done[0]=1; $('.person').show().css({ "animation-name": "animatedPerson" }); } else if (x == "veliava") { done[1]=1; $('.person2').show().css({ "animation-name": "animatedPerson2" }); } else if (x == "akiniai") { done[2]=1; $('.person3').show().css({ "animation-name": "animatedPerson3" }); } else { lost(); }
@@ -106,7 +139,8 @@ function animatePerson(x) {
 function animatePerson2(x, i) {
   done[i] = 1;
     if (x == "lt") {
-  draw(girl, i, 208);
+        var name = "person"+i;
+  draw(eval(name), i, 220);
     }
 }
 

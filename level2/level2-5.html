@@ -11,7 +11,7 @@
 </head>
 
 <body>
-        <div class='customAlert'>
+    <div class='customAlert'>
         <p class='message'></p>
         <input type='button' class='confirmButton' value='Gerai'>
     </div>
@@ -77,9 +77,9 @@
                                 <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="1 žmogus gali užpildyti 1m tarpą.">1 </a>
                                 <!-- Perkelti vyresniems -->
                             </li>
-                             <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">2</a>
-                        </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">2</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -88,8 +88,8 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Sąlyga">
-                        <block type="keisti">
+                    <category name="Sąlyga" colour="230">
+                        <block type="keisti2">
                         </block>
                         <block type="add_person">
                         </block>
@@ -98,7 +98,7 @@
                         <block type="atstumas">
                         </block>
                     </category>
-                    <category name="Ciklas">
+                    <category name="Ciklas" colour="120">
                         <block type="controls_for">
                             <field name="VAR" id="u-D?D6Vhel}iCy9uqmV-" variabletype="">centimetrai</field>
                             <value name="FROM">
@@ -173,20 +173,29 @@
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
     var people = new Image();
-     var girl = new Image();
+    var person110 = new Image();
+    var person150 = new Image();
+    var person190 = new Image();
+    var person230 = new Image();
+    var person270 = new Image();
+    var person310 = new Image();
 
-    people.src = "../img_lessons/baltija/fonas-baltija.png";
-    girl.src = "../img_lessons/baltija/zmogus_2.png";
+    people.src = "../img_lessons/baltija/fonas_sunkesnis.png";
+    person110.src = "../img_lessons/baltija/1.png";
+    person150.src = "../img_lessons/baltija/2.png";
+    person190.src = "../img_lessons/baltija/3.png";
+    person230.src = "../img_lessons/baltija/4.png";
+    person270.src = "../img_lessons/baltija/5.png";
+    person310.src = "../img_lessons/baltija/6.png";
 
     people.onload = function() {
         draw(people, 0, 0);
-        ctx.strokeText("400|-----------------|450", 385, 320);
+        ctx.strokeText("110|-------------------------------------------------------------------------|340", 100, 320);
     };
 
     function draw(pic_name, x, y) {
         ctx.drawImage(pic_name, x, y);
     }
-
     </script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
@@ -206,7 +215,7 @@
     }
     workspace.addChangeListener(toJavascript);
     </script>
-<!--     <script type="text/javascript">
+    <!--     <script type="text/javascript">
     function runCode() {
         // Generate JavaScript code and run it.
 
@@ -300,18 +309,19 @@
 
     }
     </script> -->
-        <script type="text/javascript">
+    <script type="text/javascript">
     function runCode() {
+        done = [];
         // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-       // step = 0;
-       ctx.clearRect(0,0,canvas.width, canvas.height);
-       draw(people, 0, 0);
-       ctx.strokeText("400|-----------------|450", 385, 320);
+        // step = 0;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        draw(people, 0, 0);
+        ctx.strokeText("110|-------------------------------------------------------------------------|340", 100, 320);
 
         $('.person').hide();
         $('.person2').hide();
@@ -319,7 +329,8 @@
         try {
             if (code.length > 0) {
                 eval(code);
-                // if(done.length == 5){   setTimeout(function() { $('#nextModal').modal('show'); }, 2000);}else{alert('Bandyk dar kartą')};
+                  console.log(done);
+                if (done.join('').split('').length == 8) { setTimeout(function() { $('#nextModal').modal('show'); }, 3000);}
             } else {
                 alert('Pridėk kodo blokelį.');
             }
@@ -328,7 +339,6 @@
             alert(e);
         }
     }
-    
     </script>
 </body>
 
