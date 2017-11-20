@@ -86,12 +86,18 @@ input[type='button'] {
     border: 0;
     background: #04B486;
     color: white;
+    background: #fff;
+    color: rgba(81, 62, 143, 0.95);
+    border-radius: 25px;
 }
 
 input[type='button']:hover {
     transition: 0.3s;
     cursor: pointer;
     background: lighten(#04B486, 5%);
+    border:2px solid #fff;
+    color: #fff;
+    background: rgba(81, 62, 143, 0.95);
 }
 
 
@@ -182,8 +188,7 @@ input[type='button']:hover {
     color: #604a9c;
 }
 
-.popover,
-.modal-content {
+.popover {
     border: solid 2px #604a9c;
 }
 
@@ -210,21 +215,29 @@ input[type='button']:hover {
     color: #fff;
 }
 
+.next-modal .modal{
+        top: 30%;
+}
+.next-modal .modal-content{
+    border:none;
+    border-radius: 0px
+}
 .next-modal .modal-dialog {
-    max-width: 80%;
+    max-width: 500px;
 }
 
-.next-modal .modal-body {
+.next-modal .modal-buttons {
     display: flex;
     justify-content: space-around;
 }
 
 .next-modal a {
-    font-size: 1.3em;
-    padding: .75rem 4rem;
+    font-size: 0.9em;
+    padding: .3rem 2rem;
     background-color: #604a9c;
-    border: none;
-    box-shadow: 4px 4px 0px #f95496;
+    border: 2px solid #604a9c;
+    border-radius: 25px;
+    /*box-shadow: 4px 4px 0px #f95496;*/
     margin-top: 25px;
     color: #fff;
 }
@@ -239,14 +252,16 @@ input[type='button']:hover {
     /*font-weight: bold;*/
     padding: .70rem 3.2rem;
     background-color: #604a9c;
-    border: none;
+     border: 2px solid #604a9c;
     box-shadow: 4px 4px 0px #f95496;
     margin-top: 25px;
     letter-spacing: 0.05em;
 }
 
 .btn-secondary:hover {
-    background-color: #90CD9B;
+    background-color: #fff;
+    color: #604a9c;
+    border: 2px solid;
 }
 
 .download-btn {
