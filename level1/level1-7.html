@@ -92,16 +92,18 @@
                 </div>
                 <xml id="toolbox" style="display: none">
                     <category name="Žaidimas" colour="230">
-                        <block type="controls_if"></block>
+                        <!-- <block type="controls_if"></block>
                         <block type="count"></block>
                         <block type="end_game"></block>
-                        <block type="game"></block>
+                        <block type="game"></block> -->
+                         <block type="jump"></block>
+                        <block type="run"></block>
                     </category>
                     <category name="Veikėjai" colour="330">
                         <!-- <block type="button_clicked"></block> -->
-                        <block type="jump"></block>
-                        <block type="run"></block>
-                        <block type="valdymas"></block>
+                     <!--    <block type="jump"></block>
+                        <block type="run"></block> -->
+                       <!--  <block type="valdymas"></block> -->
                         <block type="treasure"></block>
                         <block type="treasure_speed"></block>
                         <block type="select_treasure"></block>
@@ -217,7 +219,7 @@
 
                     } else {
                         $(window).keydown(function(e) {
-                               console.log(e.keyCode);
+                            console.log(e.keyCode);
                             if (e.keyCode == action) {
                                 addJumpClass();
                                 jump(index);
@@ -228,101 +230,117 @@
                     }
                 }
 
-                    function endGame(x) {
-                        if (countStars == x) { gameOver(); }
-                    }
-
-                    function gameOver() {
-                        $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)');
-                        $('.clouds').hide();
-                        setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
-                    }
-
-
-                    function isStarllColision() {
-                        //console.log($star.is(':visible'));
-                        if ($star.is(':visible')) {
-                            $starPos = $star.offset();
-                            $kenPos = $ken.offset();
-                            return $starPos.left > $kenPos.left + 20 && $starPos.left < $kenPos.left + 70 ? true : false;
-
-                        } else { return false; }
-                    };
-
-                    function animTreasure(t) {
-                        setTimeout(function() { $(t).hide(); }, 200);
-                        index += 1;
-                        if (treasureCollection[index]) {
-                            setTimeout(function() {
-                                $(t).css("background-image", "url(../img_lessons/adamkus/" + treasureCollection[index] + ".png)");
-                                $(t).show();
-                            }, 450);
-                        }
-                    }
-
-                    function addJumpClass() {
-                        $ken.addClass('jump');
-                        setTimeout(function() {
-                            $ken.removeClass('jump');
-                            //clearInterval(explodeIfColision);
-                        }, 500);
-                    }
-
-                    function run() {
-                        var vavatar = document.getElementsByClassName('avatar');
-                        vavatar[0].style.animationDuration = "0.5s";
-                    }
-
-                    function treasureSpeed(speed) {
-                        var st = document.getElementsByClassName('star');
-                        st[0].style.animationDuration = (speed / 10) + "s";
-                    }
-
-                    function treasureOn(x) {
-                        var st = document.getElementsByClassName('star');
-                        st[0].style.visibility = x;
-                    }
-
-                    function treasureCollect(treasure_name) {
-
-                        treasureCollection[i] = treasure_name;
-                        i += 1;
-                    }
-
-                } else {
-                    alert('Pridėk kodo blokelį.');
+                function endGame(x) {
+                    if (countStars == x) { gameOver(); }
                 }
 
-            } catch (e) {
-                // alert(e);
+                function gameOver() {
+                    $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)');
+                    $('.clouds').hide();
+                    setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+                }
+
+
+                function isStarllColision() {
+                    //console.log($star.is(':visible'));
+                    if ($star.is(':visible')) {
+                        $starPos = $star.offset();
+                        $kenPos = $ken.offset();
+                        return $starPos.left > $kenPos.left + 20 && $starPos.left < $kenPos.left + 70 ? true : false;
+
+                    } else { return false; }
+                };
+
+                function animTreasure(t) {
+                    setTimeout(function() { $(t).hide(); }, 200);
+                    index += 1;
+                    if (treasureCollection[index]) {
+                        setTimeout(function() {
+                            $(t).css("background-image", "url(../img_lessons/adamkus/" + treasureCollection[index] + ".png)");
+                            $(t).show();
+                        }, 450);
+                    }
+                }
+
+                function addJumpClass() {
+                    $ken.addClass('jump');
+                    setTimeout(function() {
+                        $ken.removeClass('jump');
+                        //clearInterval(explodeIfColision);
+                    }, 500);
+                }
+
+                function run() {
+                    var vavatar = document.getElementsByClassName('avatar');
+                    vavatar[0].style.animationDuration = "0.5s";
+                }
+
+                function treasureSpeed(speed) {
+                    var st = document.getElementsByClassName('star');
+                    st[0].style.animationDuration = (speed / 10) + "s";
+                }
+
+                function treasureOn(x) {
+                    var st = document.getElementsByClassName('star');
+                    st[0].style.visibility = x;
+                }
+
+                function treasureCollect(treasure_name) {
+
+                    treasureCollection[i] = treasure_name;
+                    i += 1;
+                }
+
+                function jump(index) {
+                    var explodeIfColision = setInterval(function() {
+                        if (isStarllColision()) {
+                            clearInterval(explodeIfColision);
+                            if (treasureCollection[index] == 'not1' || treasureCollection[index] == 'not2' || treasureCollection[index] == 'not3' || treasureCollection[index] == 'not4') {
+                                alert('Netinkamas pasiekimas')
+                            } else {
+                                countStars += 1;
+                                document.getElementById('rating').innerHTML = 'Surinkta: ' + countStars;
+                            }
+                            animTreasure('.star');
+                        }
+                        endGame(8);
+                    }, 50);
+                };
+
+
+            } else {
+                alert('Pridėk kodo blokelį.');
             }
+
+        } catch (e) {
+            // alert(e);
         }
+    }
 
-        function reset() {
-            var vavatar = document.getElementsByClassName('avatar');
-            vavatar[0].style.animationDuration = "0";
-            var st = document.getElementsByClassName('star');
-            st[0].style.animationDuration = "0";
-            $('.star').show();
-            st[0].style.visibility = "hidden";
-            countStars = 0;
-            $('#rating').empty();
-            $('.clouds').show();
-        }
+    function reset() {
+        var vavatar = document.getElementsByClassName('avatar');
+        vavatar[0].style.animationDuration = "0";
+        var st = document.getElementsByClassName('star');
+        st[0].style.animationDuration = "0";
+        $('.star').show();
+        st[0].style.visibility = "hidden";
+        countStars = 0;
+        $('#rating').empty();
+        $('.clouds').show();
+    }
 
-        // function jump() {
-        //     addJumpClass();
-        //     var explodeIfColision = setInterval(function() {
-        //         if (isStarllColision()) {
-        //             clearInterval(explodeIfColision);
-        //             $("<span>&#x2605;</span>").appendTo($('.rating'));
-        //             countStars += 1;
-
-        //             animTreasure('.star');
-        //         }
-        //         endGame(5);
-        //     }, 50);
-        // };
+    // function jump() {
+    //     addJumpClass();
+    //     var explodeIfColision = setInterval(function() {
+    //         if (isStarllColision()) {
+    //             clearInterval(explodeIfColision);
+    //             $("<span>&#x2605;</span>").appendTo($('.rating'));
+    //             countStars += 1;
+    //             animTreasure('.star');
+    //         }
+    //         endGame(8);
+    //     }, 50);
+    // };
     </script>
 </body>
 
