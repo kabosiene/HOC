@@ -29,7 +29,7 @@
 <!-- font-family: 'Lekton', sans-serif; -->
 
 <body>
-     <div class='customAlert'>
+    <div class='customAlert'>
         <p class='message'></p>
         <input type='button' class='confirmButton' value='Gerai'>
     </div>
@@ -126,37 +126,6 @@
                         </block>
                     </category>
                 </xml>
-                <xml id="load_custom" style="display: none">
-                    <variables>
-                        <variable type="" id="bIqqa+{5{%uX3JtyQuh5">litai</variable>
-                        <variable type="" id="|RDL=+G-BPZ1^=;=BKqi">euras</variable>
-                        <variable type="" id="Tz5xAOXdy(67GK8OKMLh">x</variable>
-                        <variable type="" id="}t63oO7#(0}B3f%C_Nh3">list</variable>
-                        <variable type="" id="Qgr%,iu.M=[w%WYFvHx)">tekstas</variable>
-                    </variables>
-                    <block type="lists_setIndex" id="?{+oKAq%)?zChb8!+Ht9" x="88" y="88">
-                        <mutation at="true"></mutation>
-                        <field name="MODE">SET</field>
-                        <field name="WHERE">FROM_START</field>
-                        <value name="LIST">
-                            <block type="variables_get" id="k+^BK0C{dU6xg{:`s8Ta">
-                                <field name="VAR" id="Qgr%,iu.M=[w%WYFvHx)" variabletype="">tekstas</field>
-                            </block>
-                        </value>
-                        <next>
-                            <block type="lists_setIndex" id="fgjRAQ+/[gu|!]DrJz~i">
-                                <mutation at="true"></mutation>
-                                <field name="MODE">SET</field>
-                                <field name="WHERE">FROM_START</field>
-                                <value name="LIST">
-                                    <block type="variables_get" id="d)Kgj_1?PvAJ~HZ`d#0l">
-                                        <field name="VAR" id="Qgr%,iu.M=[w%WYFvHx)" variabletype="">tekstas</field>
-                                    </block>
-                                </value>
-                            </block>
-                        </next>
-                    </block>
-                </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
                 <h5>Javascript kodas: </h5>
@@ -183,11 +152,14 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <a href="#" type="button" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
-                            <a href="level2-2.html" type="button" class="btn btn-secondary">Kita užduotis</a>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
+                            <div>
+                                <h3>title</h3>
+                                <p>text</p>
+                            </div>
+                            <div class="modal-buttons">
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
+                                <a href="level2-2.html" class="btn btn-secondary">Kita užduotis</a>
+                            </div>
                         </div>
                     </div>
                 </div>
