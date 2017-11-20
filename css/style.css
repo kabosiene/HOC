@@ -1,11 +1,51 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3081684, 2015-08-27T06:39:22-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: CoreSansA45Regular by S-Core
+ * URL: http://www.myfonts.com/fonts/s-core/core-sans-a/regular/
+ * Copyright: Core Sans A 45 Regular
+ * Licensed pageviews: 10,000
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3081684
+ * 
+ * © 2015 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+
+@font-face {
+    font-family: 'CoreSansA45Regular';
+    src: url('webfonts/2F05D4_0_0.eot');
+    src: url('webfonts/2F05D4_0_0.eot?#iefix') format('embedded-opentype'), url('webfonts/2F05D4_0_0.woff2') format('woff2'), url('webfonts/2F05D4_0_0.woff') format('woff'), url('webfonts/2F05D4_0_0.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+
 body {
     color: #5c48a2;
     background-color: #fff;
+    font-family: 'CoreSansA45Regular';
 }
 
 li {
     list-style: none;
     display: inline-block;
+}
+h4{
+    font-size: 28px;
+}
+h5{
+    font-size: 18px;
 }
 
 .customAlert {
@@ -25,14 +65,16 @@ li {
     background: rgba(81, 62, 143, 0.95);
     z-index: 99;
 }
- .message{
+
+.message {
     padding: 5px;
     color: white;
     font-size: 18px;
     line-height: 20px;
     text-align: center;
-  }
-    input[type='button']{
+}
+
+input[type='button'] {
     position: absolute;
     top: 100%;
     left: 50%;
@@ -44,31 +86,31 @@ li {
     border: 0;
     background: #04B486;
     color: white;
-
-  } 
-   input[type='button']:hover{
-     transition: 0.3s;
-      cursor: pointer;
-        background: lighten(#04B486, 5%);
-   }
-
-   
-  @keyframes fadeOut{
-    from{
-    opacity: 1;
-  } 
-  to{
-    opacity: 0;
-  }
 }
-    
-@keyframes fadeIn{
-    from{
-    opacity: 0;
-  } 
-  to{
-    opacity: 1;
-  }
+
+input[type='button']:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    background: lighten(#04B486, 5%);
+}
+
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .header-top {
@@ -84,7 +126,7 @@ li {
 }
 
 .header_logo {
-    width:auto;
+    width: auto;
     height: auto;
 }
 
@@ -96,6 +138,9 @@ li {
 .heading a:hover {
     color: #90CD9B;
 }
+#task{
+    font-size: 16px;
+}
 
 .hint-panel {
     padding: 0px 20px 0px 20px;
@@ -105,10 +150,13 @@ li {
 .hint-panel ul {
     padding-left: 5px;
     border-spacing: 10px 0px;
+    font-weight: bold;
 }
 
 .hint-panel li {
-    padding: 0px 25px 0px 25px;
+    font-family: 'Inconsolata', monospace;
+    letter-spacing: 0.05em;
+    /*padding: 0px 25px 0px 25px;*/
     display: table-cell;
     border: 2px solid;
     border-radius: 25px;
@@ -121,7 +169,12 @@ li {
 
 .hint-panel li a {
     text-decoration: none;
+    text-align: center;
     color: #fff;
+    font-size: 18px;
+    display: block;
+    width: 70px;
+    font-weight: normal;
 }
 
 .hint-panel li:hover a {
@@ -181,13 +234,15 @@ li {
 }
 
 .button-run {
-    font-size: 1.5em;
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.7em;
     /*font-weight: bold;*/
-    padding: .75rem 4.5rem;
+    padding: .70rem 3.2rem;
     background-color: #604a9c;
     border: none;
     box-shadow: 4px 4px 0px #f95496;
     margin-top: 25px;
+    letter-spacing: 0.05em;
 }
 
 .btn-secondary:hover {
@@ -226,7 +281,6 @@ li {
     border: 1px solid #443579;
     border-radius: 50px;
     margin: 0px 6px;
-    font-weight: bold;
     color: #fff;
     display: block;
     width: 50px;
@@ -296,20 +350,23 @@ canvas {
     min-width: 400px;
     border: solid #f2f2f2 1px;
 }
-#m-background{
-     background-image: url(../img_lessons/mazylis/fonas.png);
+
+#m-background {
+    background-image: url(../img_lessons/mazylis/fonas.png);
     width: 490px;
     height: 330px;
-    z-index: 1; 
+    z-index: 1;
 }
-#m-finished{
+
+#m-finished {
     display: none;
     background-image: url(../img_lessons/mazylis/mazylis.png);
     width: 490px;
     height: 330px;
-     z-index: 2;
+    z-index: 2;
     animation: 1s eye_anim infinite steps(2, end);
 }
+
 @keyframes eye_anim {
     100% {
         background-position: 200% 0
@@ -317,7 +374,7 @@ canvas {
 }
 
 
-#pool{
+#pool {
     background-image: url(../img_lessons/baseinas/fonas.png);
     width: 490px;
     height: 330px;
@@ -333,16 +390,18 @@ canvas {
     animation: swim 1s infinite steps(4, end);
     /*   float:left; */
     transform: translate(40px, 220px);
-      position: absolute;
+    position: absolute;
 }
+
 #pool_flags {
     background-image: url(../img_lessons/baseinas/veliaveles.png);
     width: 490px;
     height: 330px;
     position: absolute;
 }
-#time_counter{
-    background-image: url(../img_lessons/baseinas/lentele.png) ;
+
+#time_counter {
+    background-image: url(../img_lessons/baseinas/lentele.png);
     background-repeat: no-repeat;
     transform: translate(175px, 45px);
     width: 134px;
@@ -424,6 +483,7 @@ canvas {
 }
 
 
+
 /*********************************/
 
 #dancers2.d-inner {
@@ -453,6 +513,7 @@ canvas {
     width: 115px;
     animation: dance2 0s infinite steps(2, end);
 }
+
 
 
 /***********************/
@@ -486,6 +547,7 @@ canvas {
 }
 
 
+
 /***********************/
 
 #dancers4.d-inner {
@@ -515,6 +577,7 @@ canvas {
     width: 115px;
     animation: dance2 0s infinite steps(2, end);
 }
+
 
 
 /**********************/
@@ -623,13 +686,13 @@ canvas {
 
 #rating {
     position: absolute;
-        padding: 20px;
+    padding: 20px;
     font-size: 20px;
     font-weight: bold;
 }
 
 
-.star{
+.star {
     visibility: hidden;
     /*background-image: url("../img_lessons/adamkus/not.png");*/
     width: 40px;
@@ -704,13 +767,13 @@ canvas {
 }
 
 @keyframes run {
-  /*  from {
+    /*  from {
         background-position: 0px -240px;
     }
     to {
         background-position: -350px -240px;
     }*/
-      100% {
+    100% {
         background-position: 200% 0;
     }
 }
@@ -726,7 +789,9 @@ canvas {
 }
 
 @keyframes jump {
-    100% { background-position: 700% 0}
+    100% {
+        background-position: 700% 0
+    }
     100% {
         background-position: 100% 0;
     }
