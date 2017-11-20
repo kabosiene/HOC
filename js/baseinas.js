@@ -59,8 +59,8 @@ Blockly.Blocks['keisti'] = {
         this.appendDummyInput()
             .appendField("keisti kostiumą į ")
             .appendField(new Blockly.FieldDropdown([
-                ["swim", "add_costume_swim"],
-                ["swim2", "add_costume_swim2"]
+                ["kostiumas1", "add_costume_swim"],
+                ["kostiumas2", "add_costume_swim2"]
             ]), "kostiumas");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -204,11 +204,11 @@ Blockly.Blocks['anim_speed'] = {
     init: function() {
         this.appendValueInput("ANIM_SPEED")
             .setCheck(null)
-            .appendField("animacijos greitis = ");
+            .appendField("judesio greitis = ");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip("Plaukimo animacijos greitis");
+        this.setTooltip("Plaukimo judesio greitis");
         this.setHelpUrl("");
     }
 };

@@ -194,7 +194,7 @@ function spausdinti(list) {
 
     for (var i = 0; i < list.length; i++) {
 
-        ctx.strokeText("Dokumentai:" + list[i], 20, (i + 1) * 30);
+        ctx.strokeText("Dokumentas:" + list[i], 20, (i + 1) * 30);
     }
 
 

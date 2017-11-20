@@ -15,12 +15,12 @@ Blockly.Blocks['keisti'] = {
                 ["vyriškis", "vyriskis"],
                 ["mergina", "mergina"]
             ]), "people")
-            .appendField("spalva")
+            .appendField("su")
             .appendField(new Blockly.FieldDropdown([
                 ["pasirinkti", "Option"],
-                ["su vėliava", "veliava"],  
-                ["su žydra kepure", "kepure"],
-                ["su akinais", "akiniai"]
+                ["vėliava", "veliava"],  
+                ["žydra kepure", "kepure"],
+                ["akiniais", "akiniai"]
             ]), "color");
         this.appendStatementInput("IF")
             .setCheck(null);
@@ -66,11 +66,11 @@ Blockly.Blocks['keisti2'] = {
                 ["berniukas", "berniukas"],
                 ["mergina", "mergina"]
             ]), "people")
-            .appendField("spalva")
+            .appendField("su")
             .appendField(new Blockly.FieldDropdown([
                 ["pasirinkti", "Option"],
-                ["su vėliava", "veliava"],  
-                ["su žydra kepure", "kepure"]
+                ["vėliava", "veliava"],  
+                ["akiniais", "kepure"]
             ]), "color");
         this.appendStatementInput("IF")
             .setCheck(null);
