@@ -313,6 +313,10 @@ input[type='button']:hover {
 .progress-container .active {
     text-decoration: none;
 }
+.progress-container a:visited{
+     border: 1px solid #f1579a;
+}
+
 
 
 .working-space {
