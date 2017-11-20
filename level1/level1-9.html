@@ -183,6 +183,7 @@
     function runCode() {
         // Generate JavaScript code and run it.
         my_canvas.removeEventListener('click', clickReporter, false);
+         $('#m-finished').hide();
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
@@ -207,7 +208,7 @@
         y = e.clientY - rect.top;
     if (x >= 0 && x <= 490 &&
         y >= 0 && y <= 50) {
-
+ $('#m-finished').show();
             setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
         } 
     }
