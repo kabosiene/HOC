@@ -17,11 +17,13 @@ a:hover {
   background-color: #fff;
   background-color: #604a9c;
   /*border: .05rem solid #fff;*/
-  border:none;
+  border: 2px solid #604a9c;
   box-shadow: 4px 4px 0px #f95496;
 }
 .btn-secondary:hover{
-  background-color: #90CD9B;
+    background-color: #fff;
+    color: #604a9c;
+    border: 2px solid;
 }
 /*shadow- f95496*/
 
@@ -133,8 +135,9 @@ body {
 }
 
 .cover_logo{
-  width:25%;
-  width:25vw;
+  /*width:25%;
+  width:25vw;*/
+  width: auto;
   height: auto;
 }
 
