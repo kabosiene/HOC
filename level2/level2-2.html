@@ -160,7 +160,7 @@
 
     function drawGrid() {
         background.strokeStyle = 'grey';
-        for (i = 0; i < 490; i += 40) {
+        for (i = 0; i < 480; i += 40) {
             background.beginPath();
             background.moveTo(i, 0);
             background.lineTo(i, 330);
@@ -169,7 +169,7 @@
               background.strokeStyle = 'grey';
             background.stroke();
         }
-        for (i = 0; i < 330; i += 40) {
+        for (i = 0; i < 320; i += 40) {
             background.beginPath();
             background.moveTo(0, i);
             background.lineTo(490, i);
@@ -179,6 +179,8 @@
             background.stroke();
         }
         background.strokeStyle = 'black';
+        background.strokeText("X", 480, 10);
+        background.strokeText("Y", 5, 325);
         //newyork
         background.fillRect(45, 190, 4, 4);
         background.beginPath();
