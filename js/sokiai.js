@@ -195,7 +195,7 @@ Blockly.Blocks['anim_speed'] = {
     init: function() {
         this.appendValueInput("ANIM_SPEED")
             .setCheck(null)
-            .appendField("judesių greitis = ");
+            .appendField("judesių greitis (s) = ");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
