@@ -57,27 +57,27 @@ Blockly.JavaScript['add_person'] = function(block) {
     return code;
 };
 
-// Blockly.Blocks['add_person_side'] = {
-//     init: function() {
-//         this.appendDummyInput()
-//             .appendField("Pridėti žmogų iš")
-//             .appendField(new Blockly.FieldDropdown([
-//                 ["kairės", "left"],
-//                 ["dešinės", "right"]
-//             ]), "side");
-//         this.setPreviousStatement(true, null);
-//         this.setNextStatement(true, null);
-//         this.setColour(230);
-//         this.setTooltip("");
-//         this.setHelpUrl("");
-//     }
-// };
-// Blockly.JavaScript['add_person_side'] = function(block) {
-//     var dropdown_side = block.getFieldValue('side');
-//     // TODO: Assemble JavaScript into code variable.
-//     var code = ' animatePerson(x,"' + dropdown_side + '");\n ';
-//     return code;
-// };
+Blockly.Blocks['add_person_side'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("Pridėti žmogų iš")
+            .appendField(new Blockly.FieldDropdown([
+                ["kairės", "left"],
+                ["dešinės", "right"]
+            ]), "side");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+Blockly.JavaScript['add_person_side'] = function(block) {
+    var dropdown_side = block.getFieldValue('side');
+    // TODO: Assemble JavaScript into code variable.
+    var code = ' animatePerson(x,"' + dropdown_side + '");\n ';
+    return code;
+};
 /****************level2*********************************/
 Blockly.Blocks['keisti2'] = {
     init: function() {
@@ -168,41 +168,41 @@ Blockly.JavaScript['atstumas'] = function(block) {
 };
 /****************************************/
 
-// function animatePerson(x, side) {
-    function animatePerson(x) {
+function animatePerson(x, side) {
+    // function animatePerson(x) {
 
     if (x == "kepure") {
         done[0] = 1;
-        $('.person').show().css({ "animation-name": "animatedPerson" }); 
-        // if (side == "left") {
-        //     var left = $('.person').offset().left;
-        //     $('.person').show().css({ left: left }).animate({ left: "189px" }, "slow");
-        // } else {
-        //     var right = $('.person').offset().right;
-        //     $('.person').show().css({ right: right }).animate({ right: "230px" }, "slow");
-        // }
+        // $('.person').show().css({ "animation-name": "animatedPerson" }); 
+        if (side == "left") {
+            var left = $('.person').offset().left;
+            $('.person').show().css({ left: left }).animate({ left: "189px" }, "slow");
+        } else {
+            var right = $('.person').offset().right;
+            $('.person').show().css({ right: right }).animate({ right: "230px" }, "slow");
+        }
 
     } else if (x == "veliava") {
         done[1] = 1;
-        $('.person2').show().css({ "animation-name": "animatedPerson2" }); 
-        // if (side == "left") {
-        //     var left = $('.person2').offset().left;
-        //     $('.person2').show().css({ left: left }).animate({ left: "107px" }, "slow");
-        // } else {
-        //     var right = $('.person2').offset().right;
-        //     $('.person2').show().css({ right: right }).animate({ right: "330px" }, "slow");
-        // }
+        // $('.person2').show().css({ "animation-name": "animatedPerson2" }); 
+        if (side == "left") {
+            var left = $('.person2').offset().left;
+            $('.person2').show().css({ left: left }).animate({ left: "107px" }, "slow");
+        } else {
+            var right = $('.person2').offset().right;
+            $('.person2').show().css({ right: right }).animate({ right: "330px" }, "slow");
+        }
 
     } else if (x == "akiniai") {
         done[2] = 1;
-        $('.person3').show().css({ "animation-name": "animatedPerson3" }); 
-        // if (side == "left") {
-        //     var left = $('.person3').offset().left;
-        //     $('.person3').show().css({ left: left }).animate({ left: "258px" }, "slow");
-        // } else {
-        //     var right = $('.person3').offset().right;
-        //     $('.person3').show().css({ right: right }).animate({ right: "190px" }, "slow");
-        // }
+        // $('.person3').show().css({ "animation-name": "animatedPerson3" }); 
+        if (side == "left") {
+            var left = $('.person3').offset().left;
+            $('.person3').show().css({ left: left }).animate({ left: "258px" }, "slow");
+        } else {
+            var right = $('.person3').offset().right;
+            $('.person3').show().css({ right: right }).animate({ right: "190px" }, "slow");
+        }
     } else { lost(); }
 }
 
