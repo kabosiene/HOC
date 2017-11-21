@@ -644,12 +644,14 @@ canvas {
 
 .person {
     display: none;
-    position: absolute;
+    position: absolute;  
+      top: 0;
+    right: 0;
     width: 70px;
     height: 110px;
     background: url("../img_lessons/baltija/zmogus_3.png");
-    transform: translate(189px, 27px);
-    animation: 3s linear 1;
+    transform: translate(0px, 27px);
+    /*animation: 3s linear 1;*/
     z-index: 22;
 }
 
@@ -657,22 +659,26 @@ canvas {
 .person2 {
     display: none;
     position: absolute;
+      top: 0;
+    right: 0;
     width: 50px;
     height: 100px;
     background: url("../img_lessons/baltija/zmogus_2.png");
-    transform: translate(107px, 125px);
-    animation: 3s linear 1;
+    transform: translate(0px, 125px);
+    /*animation: 3s linear 1;*/
     z-index: 22;
 }
 
 .person3 {
     display: none;
     position: absolute;
+      top: 0;
+    right: 0;
     width: 44px;
     height: 100px;
     background: url("../img_lessons/baltija/zmogus_1.png");
-    transform: translate(258px, 208px);
-    animation: 3s linear 1;
+    transform: translate(0px, 208px);
+    /*animation: 3s linear 1;*/
     z-index: 22;
 }
 
