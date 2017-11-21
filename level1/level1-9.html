@@ -11,12 +11,12 @@
 </head>
 
 <body>
-        <div class='customAlert'>
+    <div class='customAlert'>
         <p class='message'></p>
         <input type='button' class='confirmButton' value='Gerai'>
     </div>
     <div class="container-fluid header-top">
-       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a> 
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -65,21 +65,23 @@
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-                    <div id="m-background"><div id="m-finished"></div></div>
+                    <div id="m-background">
+                        <div id="m-finished"></div>
+                    </div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
-               
-                <div class="hint-panel">
-                    <ul> Užuomina:
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content='Sąrašą ir dokumentų pavadinimus saugok kintamąjame "dokumentai". Šitaip būsime tikri, kad nieko nepametėme.'>1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Atrinktą dokumentų sąrašą būtina atspausdinti.">2</a>
-                        </li>
-                    </ul>
-                </div> </div>
+                    <div class="hint-panel">
+                        <ul> Užuomina:
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content='Sąrašą ir dokumentų pavadinimus saugok kintamąjame "dokumentai". Šitaip būsime tikri, kad nieko nepametėme.'>1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Atrinktą dokumentų sąrašą būtina atspausdinti.">2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
@@ -89,7 +91,7 @@
                         <block type="text">
                         </block>
                         <block type="text">
-                            <field name="TEXT"> 6. 1917-07-19. Die Interpretation der Friedensresolution durch Kanzler Michaelis; 1. 1886-12-09. Alfred Lichtwark, Antrittsrede als Direktor der Hamburger Kunsthalle; 15. 2015-11-15. Der weite Weg zur Gleichberechtigung; 10. 1918-08-16. Die Zukunft der baltischen Provinzen: Litauen; 4. 1907-01-01. Die Wahrnehmung der deutschen Außenpolitik in England; 5. 1917-04-07. Wilhelms „Osterbotschaft”; 13. 1919-11-28. Albert Einstein, „Was ist Relativitäts-Theorie?”; 2. 1898-03-06. Ein „ungleicher Vertrag”; 9. 1918-02-16. Die Zukunft der baltischen Provinzen: Litauen; 8. 1917-12-20. Die Zukunft der baltischen Provinzen: Litauen; 14. 2004-04-01. Deutsche Urlaubsgewohnheiten; 11. 1918-10-03. Die erste deutsche Note an Wilson; 3. 1900-09-24. Das Reichsmarineamt und die öffentliche Meinung; 12. 1918-12-01. Die Zukunft der baltischen Provinzen: Litauen; 7. 1917-07-19. Die Friedensresolution des Reichstags</field>
+                            <field name="TEXT"> 1917-07-19. Die Interpretation der Friedensresolution durch Kanzler Michaelis; 1886-12-09. Alfred Lichtwark, Antrittsrede als Direktor der Hamburger Kunsthalle; 2015-11-15. Der weite Weg zur Gleichberechtigung; 1918-08-16. Die Zukunft der baltischen Provinzen: Litauen; 1907-01-01. Die Wahrnehmung der deutschen Außenpolitik in England; 1917-04-07. Wilhelms „Osterbotschaft”; 1919-11-28. Albert Einstein, „Was ist Relativitäts-Theorie?”; 1898-03-06. Ein „ungleicher Vertrag”; 1918-02-16. Die Zukunft der baltischen Provinzen: Litauen; 1917-12-20. Die Zukunft der baltischen Provinzen: Litauen; 2004-04-01. Deutsche Urlaubsgewohnheiten; 1918-10-03. Die erste deutsche Note an Wilson; 1900-09-24. Das Reichsmarineamt und die öffentliche Meinung; 1918-12-01. Die Zukunft der baltischen Provinzen: Litauen; 1917-07-19. Die Friedensresolution des Reichstags</field>
                         </block>
                         <block type="spausdinti"></block>
                     </category>
@@ -102,7 +104,7 @@
                                 </shadow>
                             </value>
                         </block>
-                        <block type="lists_sort"></block>
+                        <!-- <block type="lists_sort"></block> -->
                     </category>
                     <category name="Kintamieji" colour="330">
                         <block type="v_dokumentai"></block>
@@ -133,7 +135,7 @@
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
-                   <div class="modal-content">
+                    <div class="modal-content">
                         <div class="modal-body">
                             <div>
                                 <h3>title</h3>
@@ -186,7 +188,7 @@
     function runCode() {
         // Generate JavaScript code and run it.
         my_canvas.removeEventListener('click', clickReporter, false);
-         $('#m-finished').hide();
+        $('#m-finished').hide();
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
@@ -203,19 +205,20 @@
             alert(e);
         }
     }
+
     function clickReporter(e) { /// assign event to some variable
 
-    /// adjust mouse click position to be relative to canvas:
-    var rect = this.getBoundingClientRect(),
-        x = e.clientX - rect.left,
-        y = e.clientY - rect.top;
-    if (x >= 0 && x <= 490 &&
-        y >= 0 && y <= 50) {
- $('#m-finished').show();
+        /// adjust mouse click position to be relative to canvas:
+        var rect = this.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+        if (x >= 0 && x <= 490 &&
+            y >= 45 && y <= 65) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            $('#m-finished').show();
             setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
-        } 
+        }
     }
-
     </script>
 </body>
 
