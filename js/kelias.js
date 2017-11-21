@@ -70,7 +70,7 @@ Blockly.Blocks['keisti2'] = {
             .appendField(new Blockly.FieldDropdown([
                 ["pasirinkti", "Option"],
                 ["vėliava", "veliava"],  
-                ["akiniais", "kepure"]
+                ["žydra kepure", "kepure"]
             ]), "color");
         this.appendStatementInput("IF")
             .setCheck(null);
@@ -89,19 +89,31 @@ Blockly.JavaScript['keisti2'] = function(block) {
     var code = 'if(' + dropdown_people + ' == "' + dropdown_color + '")\n{var x=' + dropdown_people + ';\n' + statements_if + '}else{lost();};\n';
     return code;
 };
+// Blockly.Blocks['add_person2'] = {
+//     init: function() {
+//         this.appendDummyInput()
+//             .appendField("Pridėti žmogų X centimetre");
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setColour(230);
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
 Blockly.Blocks['add_person2'] = {
-    init: function() {
-        this.appendDummyInput()
-            .appendField("Pridėti žmogų X centimetre");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Pridėti žmogų į")
+        .appendField(new Blockly.FieldDropdown([["tarpas","space"]]), "space");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
 };
 Blockly.JavaScript['add_person2'] = function(block) {
-    var code = "  if (centimetrai >= 110 && centimetrai <= 340) { animatePerson2(x, centimetrai);}else {alert('Netinkamas plotis');}";
+    var code = "  if (tarpas >= 110 && tarpas <= 340) { animatePerson2(x, tarpas);}else {alert('Netinkamas plotis');}";
     return code;
 };
 
