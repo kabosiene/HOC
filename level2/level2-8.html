@@ -11,7 +11,7 @@
 </head>
 
 <body>
-        <div class='customAlert'>
+    <div class='customAlert'>
         <p class='message'></p>
         <input type='button' class='confirmButton' value='Gerai'>
     </div>
@@ -128,7 +128,7 @@
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
-                   <div class="modal-content">
+                    <div class="modal-content">
                         <div class="modal-body">
                             <div>
                                 <h3>title</h3>
@@ -202,7 +202,8 @@
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        my_canvas.removeEventListener('click', clicked, false);
+        // my_canvas.removeEventListener('click', clicked, false);
+        $('canvas').off("click", clicked);
         litas = 0;
         euras = 0;
         talonas = 0;
@@ -236,8 +237,9 @@
 
     function callAgain(if_body) {
 
-        clicked = function(e) { clickReporter(e, if_body) };
-        my_canvas.addEventListener('click', clicked);
+        // clicked = function(e) { clickReporter(e, if_body) };
+        // my_canvas.addEventListener('click', clicked);
+        $('canvas').on("click", function clicked(e) { clickReporter(e, if_body) });
 
     };
 
@@ -269,8 +271,8 @@
 
         }
         //button_1 talonas
-        if (x >= 270 && x <= (270 + talonas_width)&
-            y >= 21 && y <= (21 + talonas_height)){
+        if (x >= 270 && x <= (270 + talonas_width) &
+            y >= 21 && y <= (21 + talonas_height)) {
 
             //exchangeLitai();
             paspausta = "talonas";

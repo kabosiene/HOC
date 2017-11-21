@@ -138,8 +138,9 @@ Blockly.JavaScript['convert'] = function(block) {
 
 function callAgain(if_body) {
 
-    clicked = function(e) { clickReporter(e, if_body) };
-    my_canvas.addEventListener('click', clicked);
+    // clicked = function (e) { clickReporter(e, if_body) };
+    // my_canvas.addEventListener('click', clicked);
+   $('canvas').on( "click", function clicked(e) { clickReporter(e, if_body)});
 
 };
 
@@ -217,7 +218,7 @@ function clickReporterPirkti(e) { /// assign event to some variable
         x = e.clientX - rect.left,
         y = e.clientY - rect.top;
     buy_width = 145;
-    buy_height = 65
+    buy_height = 65;
     if (x >= 320 && x <= (320 + buy_width) &&
         y >= 244 && y <= (244 + buy_height)) {
 
@@ -226,7 +227,7 @@ function clickReporterPirkti(e) { /// assign event to some variable
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             draw(win, 0, 0);
             // ctx.strokeText("NUSIPIRKAI", 200, 100);
-            setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+            setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
         } else {
 
             litas = 0;
