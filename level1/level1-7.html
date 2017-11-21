@@ -254,7 +254,7 @@
                         }, 450);
                     }
                 }
-                
+
                 function run() {
                     var vavatar = document.getElementsByClassName('avatar');
                     vavatar[0].style.animationDuration = "0.5s";
@@ -288,10 +288,7 @@
                         countStars += 1; document.getElementById('rating').innerHTML = 'Surinkta: ' + countStars; 
                     } 
                     animTreasure('.star'); }
-                         setTimeout(function() {
-                        $ken.removeClass('jump');
-                        clearInterval(explodeIfColision);
-                    }, 500);
+                         setTimeout(function() {$ken.removeClass('jump');clearInterval(explodeIfColision);}, 500);
                     if (countStars == 8) { 
                         setTimeout(function() { $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)'); $('.clouds').hide(); }, 500); 
                         setTimeout(function() { $('#nextModal').modal('show'); }, 2000); } }, 50); 
