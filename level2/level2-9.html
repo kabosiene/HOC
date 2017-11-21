@@ -93,7 +93,7 @@
                         <block type="text">
                             <field name="TEXT"> 6. 1917-07-19. Die Interpretation der Friedensresolution durch Kanzler Michaelis; 1. 1886-12-09. Alfred Lichtwark, Antrittsrede als Direktor der Hamburger Kunsthalle; 15. 2015-11-15. Der weite Weg zur Gleichberechtigung; 10. 1918-08-16. Die Zukunft der baltischen Provinzen: Litauen; 4. 1907-01-01. Die Wahrnehmung der deutschen Außenpolitik in England; 5. 1917-04-07. Wilhelms „Osterbotschaft”; 13. 1919-11-28. Albert Einstein, „Was ist Relativitäts-Theorie?”; 2. 1898-03-06. Ein „ungleicher Vertrag”; 9. 1918-02-16. Die Zukunft der baltischen Provinzen: Litauen; 8. 1917-12-20. Die Zukunft der baltischen Provinzen: Litauen; 14. 2004-04-01. Deutsche Urlaubsgewohnheiten; 11. 1918-10-03. Die erste deutsche Note an Wilson; 3. 1900-09-24. Das Reichsmarineamt und die öffentliche Meinung; 12. 1918-12-01. Die Zukunft der baltischen Provinzen: Litauen; 7. 1917-07-19. Die Friedensresolution des Reichstags</field>
                         </block>
-                       <!--  <block type="text_print"></block> -->
+                        <!--  <block type="text_print"></block> -->
                         <block type="spausdinti"></block>
                     </category>
                     <category name="Sąrašai" colour="260">
@@ -138,7 +138,7 @@
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
-                   <div class="modal-content">
+                    <div class="modal-content">
                         <div class="modal-body">
                             <div>
                                 <h3>title</h3>
@@ -208,17 +208,19 @@
             alert(e);
         }
     }
-        function clickReporter(e) { /// assign event to some variable
 
-    /// adjust mouse click position to be relative to canvas:
-    var rect = this.getBoundingClientRect(),
-        x = e.clientX - rect.left,
-        y = e.clientY - rect.top;
-    if (x >= 0 && x <= 490 &&
-        y >= 0 && y <= 45) {
-$('#m-finished').show();
+    function clickReporter(e) { /// assign event to some variable
+
+        /// adjust mouse click position to be relative to canvas:
+        var rect = this.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+        if (x >= 0 && x <= 490 &&
+            y >= 0 && y <= 45) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            $('#m-finished').show();
             setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
-        } 
+        }
     }
     </script>
 </body>
