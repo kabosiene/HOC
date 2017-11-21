@@ -57,10 +57,10 @@ Blockly.JavaScript['apsisuk'] = function(block) {
 Blockly.Blocks['keisti'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("keisti kostiumą į ")
+            .appendField("judesys: ")
             .appendField(new Blockly.FieldDropdown([
-                ["kostiumas1", "add_costume_swim"],
-                ["kostiumas2", "add_costume_swim2"]
+                ["panerti", "add_costume_swim"],
+                ["iškilti", "add_costume_swim2"]
             ]), "kostiumas");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
