@@ -236,9 +236,10 @@
                     }
 
                     function gameOver() {
-                        $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)');
-                        $('.clouds').hide();
-                        setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
+                        // $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)');
+                        // $('.clouds').hide();
+                           setTimeout(function() { $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)'); $('.clouds').hide(); }, 500); 
+                        setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
                     }
 
 

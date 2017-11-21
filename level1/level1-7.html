@@ -96,14 +96,14 @@
                         <block type="count"></block>
                         <block type="end_game"></block>
                         <block type="game"></block> -->
-                         <block type="jump"></block>
+                        <block type="jump"></block>
                         <block type="run"></block>
                     </category>
                     <category name="Veikėjai" colour="330">
                         <!-- <block type="button_clicked"></block> -->
-                     <!--    <block type="jump"></block>
+                        <!--    <block type="jump"></block>
                         <block type="run"></block> -->
-                       <!--  <block type="valdymas"></block> -->
+                        <!--  <block type="valdymas"></block> -->
                         <block type="treasure"></block>
                         <block type="treasure_speed"></block>
                         <block type="select_treasure"></block>
@@ -133,7 +133,7 @@
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
-                   <div class="modal-content">
+                    <div class="modal-content">
                         <div class="modal-body">
                             <div>
                                 <h3>title</h3>
@@ -215,7 +215,7 @@
                     if (action == "screen") {
                         $('#preview').on('mousedown', function(e) {
                             if (e.type == 'mousedown') {
-                                addJumpClass();
+                                // addJumpClass();
                                 jump(index);
                             }
                         });
@@ -224,23 +224,13 @@
                         $(window).keydown(function(e) {
                             console.log(e.keyCode);
                             if (e.keyCode == action) {
-                                addJumpClass();
+                                // addJumpClass();
                                 jump(index);
                             }
                         });
 
 
                     }
-                }
-
-                function endGame(x) {
-                    if (countStars == x) { gameOver(); }
-                }
-
-                function gameOver() {
-                    $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)');
-                    $('.clouds').hide();
-                    setTimeout(function() { $('#nextModal').modal('show'); }, 1000);
                 }
 
 
@@ -264,15 +254,7 @@
                         }, 450);
                     }
                 }
-
-                function addJumpClass() {
-                    $ken.addClass('jump');
-                    setTimeout(function() {
-                        $ken.removeClass('jump');
-                        //clearInterval(explodeIfColision);
-                    }, 500);
-                }
-
+                
                 function run() {
                     var vavatar = document.getElementsByClassName('avatar');
                     vavatar[0].style.animationDuration = "0.5s";
@@ -294,22 +276,26 @@
                     i += 1;
                 }
 
-                function jump(index) {
-                    var explodeIfColision = setInterval(function() {
-                        if (isStarllColision()) {
-                            clearInterval(explodeIfColision);
-                            if (treasureCollection[index] == 'not1' || treasureCollection[index] == 'not2' || treasureCollection[index] == 'not3' || treasureCollection[index] == 'not4') {
-                                alert('Netinkamas pasiekimas')
-                            } else {
-                                countStars += 1;
-                                document.getElementById('rating').innerHTML = 'Surinkta: ' + countStars;
-                            }
-                            animTreasure('.star');
-                        }
-                        endGame(8);
-                    }, 50);
-                };
 
+              function jump(index) { 
+                $ken.addClass('jump');
+                var explodeIfColision = setInterval(function() { 
+                    if (isStarllColision()) { 
+                        clearInterval(explodeIfColision); 
+                        if (treasureCollection[index] == 'not1' || treasureCollection[index] == 'not2' || treasureCollection[index] == 'not3' || treasureCollection[index] == 'not4') { 
+                            alert('Netinkamas pasiekimas') 
+                    } else { 
+                        countStars += 1; document.getElementById('rating').innerHTML = 'Surinkta: ' + countStars; 
+                    } 
+                    animTreasure('.star'); }
+                         setTimeout(function() {
+                        $ken.removeClass('jump');
+                        clearInterval(explodeIfColision);
+                    }, 500);
+                    if (countStars == 8) { 
+                        setTimeout(function() { $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)'); $('.clouds').hide(); }, 500); 
+                        setTimeout(function() { $('#nextModal').modal('show'); }, 2000); } }, 50); 
+                     };
 
             } else {
                 alert('Pridėk kodo blokelį.');
@@ -339,9 +325,10 @@
     //             clearInterval(explodeIfColision);
     //             $("<span>&#x2605;</span>").appendTo($('.rating'));
     //             countStars += 1;
+
     //             animTreasure('.star');
     //         }
-    //         endGame(8);
+    //         endGame(5);
     //     }, 50);
     // };
     </script>

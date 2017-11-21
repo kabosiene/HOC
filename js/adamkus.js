@@ -11,9 +11,9 @@ Blockly.Blocks['game'] = {
 Blockly.JavaScript['game'] = function(block) {
     var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
     // TODO: Assemble JavaScript into code variable.
-    var code = "  function jump(index){ \n var explodeIfColision = setInterval(function() {\nif (isStarllColision()){ clearInterval(explodeIfColision);\n    if (treasureCollection[index] == 'not1' || treasureCollection[index] == 'not2' || treasureCollection[index] == 'not3' || treasureCollection[index] == 'not4') {alert('Netinkamas pasiekimas')}else{ \ncountStars += 1; document.getElementById('rating').innerHTML = 'Surinkta: ' +countStars;}\nanimTreasure('.star');\n}";
+    var code = "  function jump(index){ \n var explodeIfColision = setInterval(function() {\nif (isStarllColision()){ clearInterval(explodeIfColision);\n    if (treasureCollection[index] == 'not1' || treasureCollection[index] == 'not2' || treasureCollection[index] == 'not3' || treasureCollection[index] == 'not4') {alert('Netinkamas laimėjimas')}else{ \ncountStars += 1; document.getElementById('rating').innerHTML = 'Surinkta: ' +countStars;}\nanimTreasure('.star');\n} setTimeout(function() {clearInterval(explodeIfColision);}, 500);\n";
     code += statements_name;
-    code += " \n }, 50); };";
+    code += " }, 50); };";
     return code;
 };
 Blockly.Blocks['count'] = {
