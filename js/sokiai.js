@@ -13,6 +13,7 @@ var fields = $('.dance'),
     height = container.height();
 var angle = 0,
     step = (2 * Math.PI) / fields.length;
+var danceCount = [];
 
 fields.each(function() {
     var x = Math.round(width / 2 + radius * Math.cos(angle) - $(this).width() / 2);
@@ -55,19 +56,25 @@ function runCode() {
     height = container.height();
     angle = 0;
     step = (2 * Math.PI) / fields.length;
+    danceCount = [];
     try {
         musicStop();
         if (code.length > 0) {
             //eval(code);
 
             function nextStep() {
+
                 if (myInterpreter.step()) {
+
                     window.setTimeout(nextStep, 0);
                 } else {
-                    musicStop();
-                    stopAnim();
-                    stopDance();
-                    setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
+                    console.log(danceCount.join('').split('').length);
+                    if (danceCount.join('').split('').length == 4) {
+                        musicStop();
+                        stopAnim();
+                        stopDance();
+                        setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
+                    } else { alert("Panaudok 4 skirtingus šokio judesius");}
                 }
             }
             nextStep();
@@ -160,15 +167,18 @@ function initApi(interpreter, scope) {
             var costumeClass;
             if (costumeNumber == 1) {
                 costumeClass = "d-inner";
+                addCostume(0);
             } else if (costumeNumber == 2) {
                 costumeClass = "d-inner2";
+                addCostume(1);
             } else if (costumeNumber == 3) {
                 costumeClass = "d-inner3";
+                addCostume(2);
             } else if (costumeNumber == 4) {
                 costumeClass = "d-inner4";
+                addCostume(3);
             }
             for (i = 0; i < d_fields.length; i++) {
-                console.log(d_fields[i].children[0].className);
                 d_fields[i].children[0].className = costumeClass;
             }
         });
@@ -296,7 +306,6 @@ Blockly.JavaScript['rotate'] = function(block) {
     // TODO: Assemble JavaScript into code variable.
 
     var code = 'rotate("' + dropdown_sukimasis + '");\n';
-    console.log(code);
     return code;
 };
 
@@ -316,3 +325,7 @@ function stopDance() {
         d_fields[i].children[0].style.animationDuration = "0s";
     }
 };
+
+function addCostume(x) {
+    danceCount[x] = 1;
+}
