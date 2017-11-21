@@ -106,7 +106,7 @@ Blockly.Blocks['treasure_speed'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("laimėjimo skriejimo greitis")
-        .appendField(new Blockly.FieldNumber(0, 0), "NAME");
+        .appendField(new Blockly.FieldNumber(0, 0, 19), "NAME");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);
@@ -143,7 +143,8 @@ Blockly.JavaScript['treasure'] = function(block) {
 Blockly.JavaScript['treasure_speed'] = function(block) {
   var number_speed = block.getFieldValue('NAME');
   // TODO: Assemble JavaScript into code variable.
-  var code = 'treasureSpeed('+number_speed+');\n';
+  if (number_speed==0) {  var code = 'treasureSpeed(0);\n';} else{
+  var code = 'treasureSpeed(20-'+number_speed+');\n';}
   return code;
 };
 
