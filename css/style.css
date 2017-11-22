@@ -190,6 +190,7 @@ input[type='button']:hover {
 
 .popover {
     border: solid 2px #604a9c;
+     max-width: 60%;
 }
 
 .popover-body {
