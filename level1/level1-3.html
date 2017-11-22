@@ -11,12 +11,12 @@
 </head>
 
 <body>
-        <div class='customAlert'>
+    <div class='customAlert'>
         <p class='message'></p>
         <input type='button' class='confirmButton' value='Gerai'>
     </div>
     <div class="container-fluid header-top">
-       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a> 
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
@@ -182,7 +182,6 @@
                         <block type="kvadratas">
                         </block>
                     </category>
-                    
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -208,7 +207,7 @@
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
-                   <div class="modal-content">
+                    <div class="modal-content">
                         <div class="modal-body">
                             <div>
                                 <h3>Puikiai!</h3>
@@ -363,7 +362,7 @@
         var imgData = canvas.toDataURL();
         var imgData2 = canvas2.toDataURL();
         // var imgData3 = canvas3.toDataURL();
-        var pdf = new jsPDF({orientation: 'landscape'});
+        var pdf = new jsPDF({ orientation: 'landscape' });
 
 
         pdf.addImage(imgData, 'JPEG', 20, 20);

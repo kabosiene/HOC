@@ -20,7 +20,7 @@
         <div class="progress-container">
             <ul style="text-align: center;">
                 <li>
-                    <a  href="level2-1.html">1</a>
+                    <a href="level2-1.html">1</a>
                 </li>
                 <li>
                     <a href="level2-2.html">2</a>
@@ -56,7 +56,7 @@
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
                 <h4>7. Bėk, Valdai, bėk </h4></div>
-            <div class=" col-md-7" id="task"> Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas. Užduoties aprašymas.
+            <div class=" col-md-7" id="task"> Prezidentas Valdas Adamkus - išskirtinė asmenybė. Šioje užduotyje atrask ir sudėliok svarbius jo laimėjimus. Užduotį įveiksi teisingai panaudojęs visus blokelius ir perėjęs sukurto žaidimo lygį.
                 <a href="javascript:void(0)" onclick="changeVideo('ztSZyiXTzRY')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
@@ -78,10 +78,10 @@
                     <div class="hint-panel">
                         <ul> Užuomina:
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Pagalbos tekstas numeris 1. Reikia tramparamparam.">1</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Visus veikėjų ir žaidimo nustatymus atitinkamai sugrupuok.">1</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Pagalbos tekstas numeris 2. Reikia tramparamparam">2</a>
+                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-content="Ar radai visus laimėjimus? Jų turi būti 8.">2</a>
                             </li>
                         </ul>
                     </div>
@@ -133,13 +133,15 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
-                               <div><h3>title</h3><p>text</p></div>
-                               <div class="modal-buttons">
-                            <a href="#"  class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
-                            <a href="level2-8.html"  class="btn btn-secondary">Kita užduotis</a>
+                            <div>
+                                <h3>Laimėjai!</h3>
+                            </div>
+                            <div class="modal-buttons">
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
+                                <a href="level2-8.html" class="btn btn-secondary">Kita užduotis</a>
+                            </div>
                         </div>
-                        </div>
-                       <!--  <div class="modal-footer">
+                        <!--  <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
                         </div> -->
                     </div>
@@ -221,7 +223,7 @@
 
                     } else {
                         $(window).keydown(function(e) {
-                               console.log(e.keyCode);
+                            console.log(e.keyCode);
                             if (e.keyCode == action) {
                                 addJumpClass();
                                 jump(index);
@@ -232,102 +234,103 @@
                     }
                 }
 
-                    function endGame(x) {
-                        if (countStars == x) { gameOver(); }
-                    }
-
-                    function gameOver() {
-                        // $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)');
-                        // $('.clouds').hide();
-                           setTimeout(function() { $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)'); $('.clouds').hide(); }, 500); 
-                        setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
-                    }
-
-
-                    function isStarllColision() {
-                        //console.log($star.is(':visible'));
-                        if ($star.is(':visible')) {
-                            $starPos = $star.offset();
-                            $kenPos = $ken.offset();
-                            return $starPos.left > $kenPos.left + 20 && $starPos.left < $kenPos.left + 70 ? true : false;
-
-                        } else { return false; }
-                    };
-
-                    function animTreasure(t) {
-                        setTimeout(function() { $(t).hide(); }, 200);
-                        index += 1;
-                        if (treasureCollection[index]) {
-                            setTimeout(function() {
-                                $(t).css("background-image", "url(../img_lessons/adamkus/" + treasureCollection[index] + ".png)");
-                                $(t).show();
-                            }, 450);
-                        }
-                    }
-
-                    function addJumpClass() {
-                        $ken.addClass('jump');
-                        setTimeout(function() {
-                            $ken.removeClass('jump');
-                            //clearInterval(explodeIfColision);
-                        }, 500);
-                    }
-
-                    function run() {
-                        var vavatar = document.getElementsByClassName('avatar');
-                        vavatar[0].style.animationDuration = "0.5s";
-                    }
-
-                    function treasureSpeed(speed) {
-                        var st = document.getElementsByClassName('star');
-                        st[0].style.animationDuration = (speed / 10) + "s";
-                    }
-
-                    function treasureOn(x) {
-                        var st = document.getElementsByClassName('star');
-                        st[0].style.visibility = x;
-                    }
-
-                    function treasureCollect(treasure_name) {
-
-                        treasureCollection[i] = treasure_name;
-                        i += 1;
-                    }
-
-                } else {
-                    alert('Pridėk kodo blokelį.');
+                function endGame(x) {
+                    if (countStars == x) { gameOver(); }
                 }
 
-            } catch (e) {
-                // alert(e);
+                function gameOver() {
+                    // $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)');
+                    // $('.clouds').hide();
+                    setTimeout(function() { $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)');
+                        $('.clouds').hide(); }, 500);
+                    setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
+                }
+
+
+                function isStarllColision() {
+                    //console.log($star.is(':visible'));
+                    if ($star.is(':visible')) {
+                        $starPos = $star.offset();
+                        $kenPos = $ken.offset();
+                        return $starPos.left > $kenPos.left + 20 && $starPos.left < $kenPos.left + 70 ? true : false;
+
+                    } else { return false; }
+                };
+
+                function animTreasure(t) {
+                    setTimeout(function() { $(t).hide(); }, 200);
+                    index += 1;
+                    if (treasureCollection[index]) {
+                        setTimeout(function() {
+                            $(t).css("background-image", "url(../img_lessons/adamkus/" + treasureCollection[index] + ".png)");
+                            $(t).show();
+                        }, 450);
+                    }
+                }
+
+                function addJumpClass() {
+                    $ken.addClass('jump');
+                    setTimeout(function() {
+                        $ken.removeClass('jump');
+                        //clearInterval(explodeIfColision);
+                    }, 500);
+                }
+
+                function run() {
+                    var vavatar = document.getElementsByClassName('avatar');
+                    vavatar[0].style.animationDuration = "0.5s";
+                }
+
+                function treasureSpeed(speed) {
+                    var st = document.getElementsByClassName('star');
+                    st[0].style.animationDuration = (speed / 10) + "s";
+                }
+
+                function treasureOn(x) {
+                    var st = document.getElementsByClassName('star');
+                    st[0].style.visibility = x;
+                }
+
+                function treasureCollect(treasure_name) {
+
+                    treasureCollection[i] = treasure_name;
+                    i += 1;
+                }
+
+            } else {
+                alert('Pridėk kodo blokelį.');
             }
+
+        } catch (e) {
+            // alert(e);
         }
+    }
 
-        function reset() {
-            var vavatar = document.getElementsByClassName('avatar');
-            vavatar[0].style.animationDuration = "0";
-            var st = document.getElementsByClassName('star');
-            st[0].style.animationDuration = "0";
-            $('.star').show();
-            st[0].style.visibility = "hidden";
-            countStars = 0;
-            $('#rating').empty();
-            $('.clouds').show();
-        }
+    function reset() {
+        var vavatar = document.getElementsByClassName('avatar');
+        vavatar[0].style.animationDuration = "0";
+        var st = document.getElementsByClassName('star');
+        st[0].style.animationDuration = "0";
+        $('.star').show();
+        st[0].style.visibility = "hidden";
+        countStars = 0;
+        $('#rating').empty();
+        $('.clouds').show();
+    }
 
-        // function jump() {
-        //     addJumpClass();
-        //     var explodeIfColision = setInterval(function() {
-        //         if (isStarllColision()) {
-        //             clearInterval(explodeIfColision);
-        //             $("<span>&#x2605;</span>").appendTo($('.rating'));
-        //             countStars += 1;
+    // function jump() {
+    //     addJumpClass();
+    //     var explodeIfColision = setInterval(function() {
+    //         if (isStarllColision()) {
+    //             clearInterval(explodeIfColision);
+    //             $("<span>&#x2605;</span>").appendTo($('.rating'));
+    //             countStars += 1;
 
-        //             animTreasure('.star');
-        //         }
-        //         endGame(5);
-        //     }, 50);
-        // };
+    //             animTreasure('.star');
+    //         }
+    //         endGame(5);
+    //     }, 50);
+    // };
     </script>
 </body>
 
