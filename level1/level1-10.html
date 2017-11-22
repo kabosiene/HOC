@@ -88,8 +88,9 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Logic">
-                        <block type="controls_if"></block>
+                    <category name="Plakatas">
+                        <block type="select_image"></block>
+                        <block type="block_name"></block>
                     </category>
                 </xml>
             </div>
@@ -139,99 +140,7 @@
     <script src="../msg/js/lt.js"></script>
     <script src="../js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
-    <script type="text/javascript">
-    var my_canvas = document.getElementById("canvas");
-    var ctx = my_canvas.getContext("2d");
-    // img.setAttribute('crossOrigin', 'anonymous');
-    </script>
-    <script>
-    var workspace = Blockly.inject('blocklyDiv', {
-        toolbox: document.getElementById('toolbox'),
-        grid: {
-            spacing: 20,
-            length: 5,
-            colour: '#f2f2f2',
-            snap: true
-        },
-        trashcan: true
-    });
-
-    function toJavascript(event) {
-        var code = Blockly.JavaScript.workspaceToCode(workspace);
-        document.getElementById('content_javascript').innerHTML = code;
-    }
-    workspace.addChangeListener(toJavascript);
-    </script>
-    <script type="text/javascript">
-    function runCode() {
-        // Generate JavaScript code and run it.
-        window.LoopTrap = 1000;
-        Blockly.JavaScript.INFINITE_LOOP_TRAP =
-            'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-        var code = Blockly.JavaScript.workspaceToCode(workspace);
-        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        try {
-            if (code.length > 0) {
-                eval(code);
-            } else {
-                alert('Pridėk kodo blokelį.');
-            }
-
-        } catch (e) {
-            alert(e);
-        }
-    }
-    </script>
-    <script type="text/javascript">
-    download.addEventListener("click", function() {
-        // only jpeg is supported by jsPDF
-        var imgData = canvas.toDataURL();
-        var pdf = new jsPDF({
-            orientation: 'landscape'
-        })
-
-
-        pdf.addImage(imgData, 'JPEG', 20, 20);
-
-        pdf.save("vardo_simbolis.pdf");
-    }, false);
-    </script>
-    <script type="text/javascript">
-    Blockly.Blocks['select_image'] = {
-        init: function() {
-            this.appendDummyInput()
-                .appendField("Paveiksliukas")
-                .appendField(new Blockly.FieldDropdown([
-                    ["Basanavičius", "basanavicius"],
-                    ["Prezidentas", "prezidentas"],
-                    ["Meilutytė", "meilutyte"],
-                    ["Mačiūnas", "maciunas"],
-                    ["100 logo", "logo"],
-                    ["Lituanica", "lituanica"],
-                    ["Mažylis", "mazylis"],
-                    ["Dainų šventė", "sokiai"],
-                    ["Valiutos", "valiutos"],
-                    ["Šakotis", "sakotis"],
-                    ["Baltijos kelias", "kelias"]
-                ]), "image")
-                .appendField("X: ")
-                .appendField(new Blockly.FieldNumber(0, 0, 490), "x")
-                .appendField("Y: ")
-                .appendField(new Blockly.FieldNumber(0, 0, 330), "y");
-            this.setColour(230);
-            this.setTooltip("");
-            this.setHelpUrl("");
-        }
-    };
-    Blockly.JavaScript['select_image'] = function(block) {
-        var dropdown_image = block.getFieldValue('image');
-        var number_x = block.getFieldValue('x');
-        var number_y = block.getFieldValue('y');
-        // TODO: Assemble JavaScript into code variable.
-        var code = '...;\n';
-        return code;
-    };
-    </script>
+    <script src="../js/plakatas.js"></script>
 </body>
 
 </html>
