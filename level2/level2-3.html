@@ -245,7 +245,7 @@
     var m_ctx = a_canvas.getContext("2d");
 
     var img_maciunas = new Image();
-    //img_maciunas.setAttribute('crossOrigin', 'anonymous');
+   img_maciunas.setAttribute('crossOrigin', 'anonymous');
     img_maciunas.src = '../img_lessons/maciunas_1.png';
 
     ///draw image
@@ -298,7 +298,7 @@
         degreeAngle = 0;
         degreeAngleCircle = 0;
         img_maciunas_drawing = new Image();
-        //img_maciunas_drawing.setAttribute('crossOrigin', 'anonymous');
+        img_maciunas_drawing.setAttribute('crossOrigin', 'anonymous');
         img_maciunas_drawing.src = '../img_lessons/maciunas_2.png';
         img_maciunas_drawing.addEventListener("load", function() {
             m_ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 195);
@@ -360,7 +360,7 @@
         // only jpeg is supported by jsPDF
         var imgData = canvas.toDataURL();
         var imgData2 = canvas2.toDataURL();
-        // var imgData3 = canvas3.toDataURL();
+        var imgData3 = canvas3.toDataURL();
         var pdf = new jsPDF({
             orientation: 'landscape'
         })
@@ -368,7 +368,7 @@
 
         pdf.addImage(imgData, 'JPEG', 20, 20);
         pdf.addImage(imgData2, 'JPEG', 20, 20);
-        // pdf.addImage(imgData3, 'JPEG', 20, 20);
+        pdf.addImage(imgData3, 'JPEG', 20, 20);
         pdf.save("vardo_simbolis.pdf");
     }, false);
     </script>

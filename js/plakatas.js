@@ -114,19 +114,24 @@
     Blockly.JavaScript['block_name'] = function(block) {
         var text_kids_name = block.getFieldValue('kids_name');
         // TODO: Assemble JavaScript into code variable.
-        var code = 'draw("background", 0,0);\n';
-          code +=  'write("'+text_kids_name+'");';
+        var code = 'write("'+text_kids_name+'");';
         return code;
     };
 
     function draw(name, x, y) {
         var img_name = new Image();
-        img_name.setAttribute('crossOrigin', 'anonymous');
+       img_name.setAttribute('crossOrigin', 'anonymous');
         img_name.src = '../img_lessons/plakatas/' + name + '.png';
         img_name.onload = function() { ctx.drawImage(img_name, x, y); }
     }
 
     function write(name) {
+        var img_name = new Image();
+       img_name.setAttribute('crossOrigin', 'anonymous');
+        img_name.src = '../img_lessons/plakatas/background.png';
+        img_name.onload = function() { 
+        ctx.drawImage(img_name, 0, 0);
         ctx.font = "16px Arial";
-        ctx.fillText(name, 200, 160); 
+        ctx.fillText(name, 160, 162) }
+   
     }
