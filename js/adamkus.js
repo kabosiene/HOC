@@ -45,7 +45,6 @@ Blockly.Blocks['button_clicked'] = {
         this.appendDummyInput()
             .appendField("paspaustas")
             .appendField(new Blockly.FieldDropdown([
-                ["tarpas", "32"],
                 ["rodyklė į viršų", "38"],
                 ["ekranas", "screen"]
             ]), "button");
@@ -70,7 +69,9 @@ Blockly.Blocks['jump'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("pašokti, kai paspaustas")
-        .appendField(new Blockly.FieldDropdown([["ekranas","screen"], ["tarpo mygtukas",32], ["rodyklė į viršų",38]]), "buttons");
+        .appendField(new Blockly.FieldDropdown([
+            ["ekranas","screen"],
+          ["rodyklė į viršų",38]]), "buttons");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);
