@@ -17,6 +17,12 @@
 
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
+    var my_canvas2 = document.getElementById("canvas2");
+    var background = my_canvas2.getContext("2d");
+        background.strokeStyle = 'black';
+        background.strokeText("X", 480, 10);
+        background.strokeText("Y", 5, 325);
+         background.strokeText("(0;0)", 0, 10);
 
 
     download.addEventListener("click", function() {
@@ -120,14 +126,14 @@
 
     function draw(name, x, y) {
         var img_name = new Image();
-       img_name.setAttribute('crossOrigin', 'anonymous');
+        img_name.setAttribute('crossOrigin', 'anonymous');
         img_name.src = '../img_lessons/plakatas/' + name + '.png';
         img_name.onload = function() { ctx.drawImage(img_name, x, y); }
     }
 
     function write(name) {
         var img_name = new Image();
-       img_name.setAttribute('crossOrigin', 'anonymous');
+        img_name.setAttribute('crossOrigin', 'anonymous');
         img_name.src = '../img_lessons/plakatas/background.png';
         img_name.onload = function() { 
         ctx.drawImage(img_name, 0, 0);
