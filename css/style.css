@@ -714,7 +714,21 @@ canvas {
     /*animation: 3s linear 1;*/
     z-index: 22;
 }
-
+.person_lost {
+    display: none;
+    position: absolute;
+    width: 80px;
+    height: 210px;
+    background: url("../img_lessons/baltija/lost.png");
+    transform: translate(200px, 80px);
+    animation: lost 2s infinite steps(2, end);
+    z-index: 22;
+}
+@keyframes lost{
+ 100% {
+        background-position: 200% 0
+    }
+}
 @keyframes animatedPerson {
     from {
         transform: translate(0px, 27px);

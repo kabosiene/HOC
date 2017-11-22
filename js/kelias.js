@@ -62,8 +62,8 @@ Blockly.Blocks['add_person_side'] = {
         this.appendDummyInput()
             .appendField("Pridėti žmogų iš")
             .appendField(new Blockly.FieldDropdown([
-                ["kairės", "left"],
-                ["dešinės", "right"]
+                ["kairės", "right"],
+                ["dešinės", "left"]
             ]), "side");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -137,7 +137,7 @@ Blockly.Blocks['add_person2'] = {
     }
 };
 Blockly.JavaScript['add_person2'] = function(block) {
-    var code = "  if (tarpas >= 110 && tarpas <= 340) { animatePerson2(x, tarpas);}else {alert('Netinkamas plotis');}";
+    var code = "  if (tarpas >= 110 && tarpas <= 340) { animatePerson2(x, tarpas);}else {alert('Netinkamas plotis');  $('.person_lost').show();}";
     return code;
 };
 
@@ -172,36 +172,42 @@ function animatePerson(x, side) {
     // function animatePerson(x) {
 
     if (x == "kepure") {
-        done[0] = 1;
         // $('.person').show().css({ "animation-name": "animatedPerson" }); 
         if (side == "left") {
-            var left = $('.person').offset().left;
-            $('.person').show().css({ left: left }).animate({ left: "189px" }, "slow");
+            alert('Netinkama berniuko pusė');
+            $('.person_lost').show();
+            // var left = $('.person').offset().left;
+            // $('.person').show().css({ left: left }).animate({ left: "189px" }, "slow");
         } else {
+            done[0] = 1;
             var right = $('.person').offset().right;
             $('.person').show().css({ right: right }).animate({ right: "230px" }, "slow");
         }
 
     } else if (x == "veliava") {
-        done[1] = 1;
         // $('.person2').show().css({ "animation-name": "animatedPerson2" }); 
         if (side == "left") {
-            var left = $('.person2').offset().left;
-            $('.person2').show().css({ left: left }).animate({ left: "107px" }, "slow");
-        } else {
+             alert('Netinkama merginos pusė');
+              $('.person_lost').show();
+            // var left = $('.person2').offset().left;
+            // $('.person2').show().css({ left: left }).animate({ left: "107px" }, "slow");
+        } else { 
+            done[1] = 1;
             var right = $('.person2').offset().right;
             $('.person2').show().css({ right: right }).animate({ right: "330px" }, "slow");
         }
 
     } else if (x == "akiniai") {
-        done[2] = 1;
         // $('.person3').show().css({ "animation-name": "animatedPerson3" }); 
         if (side == "left") {
+            done[2] = 1;
             var left = $('.person3').offset().left;
             $('.person3').show().css({ left: left }).animate({ left: "258px" }, "slow");
         } else {
-            var right = $('.person3').offset().right;
-            $('.person3').show().css({ right: right }).animate({ right: "190px" }, "slow");
+             alert('Netinkama vyro pusė');
+              $('.person_lost').show();
+            // var right = $('.person3').offset().right;
+            // $('.person3').show().css({ right: right }).animate({ right: "190px" }, "slow");
         }
     } else { lost(); }
 }
@@ -215,5 +221,6 @@ function animatePerson2(x, i) {
 }
 
 function lost() {
-    alert("Nėra tokio žmogaus")
+    alert("Nėra tokio žmogaus");
+     $('.person_lost').show();
 }
