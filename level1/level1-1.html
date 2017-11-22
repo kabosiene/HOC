@@ -134,6 +134,9 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
                 </pre>
             </div>
         </div>
+        <div class="row">
+            <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
+        </div>
         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -270,7 +273,7 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
                 document.getElementById('list').innerHTML += "C. " + tekstas_short[1] + "<br>";
                 if (JSON.stringify(tekstas_correct) == JSON.stringify(tekstas)) {
                     ctx.drawImage(basanavicius, 138, 0);
-                    setTimeout(function() { $('#nextModal').modal('show'); }, 1500);
+                    setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
 
                 } else { alert("Bandyk dar kartą"); }
 

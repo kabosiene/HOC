@@ -204,6 +204,10 @@ input[type='button']:hover {
     bottom: -13px;
 }
 
+.logo-row img{
+margin: 30px 10px;
+}
+
 .modal-footer {
     border-top: none;
 }
@@ -232,7 +236,7 @@ input[type='button']:hover {
     justify-content: space-around;
 }
 
-.next-modal a {
+.next-modal .modal-buttons a {
     font-size: 0.9em;
     padding: .3rem 2rem;
     background-color: #604a9c;
@@ -323,7 +327,7 @@ input[type='button']:hover {
 .working-space {
     /*border: 10px #52499E solid;*/
     margin-top: 50px;
-    margin-bottom: 50px
+    /*margin-bottom: 50px*/
 }
 
 #preview {
