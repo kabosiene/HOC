@@ -159,7 +159,7 @@ Blockly.JavaScript['count'] = function(block) {
 
 Blockly.JavaScript['end_game'] = function(block) {
     // TODO: Assemble JavaScript into code variable.
-    var code = 'endGame(countStars);\n';
+    var code = 'clearInterval(explodeIfColision);endGame(countStars);\n';
     return code;
 };
 

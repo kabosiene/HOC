@@ -297,6 +297,7 @@
                     animTreasure('.star'); }
                          setTimeout(function() {$ken.removeClass('jump');clearInterval(explodeIfColision);}, 500);
                     if (countStars == 8) { 
+                        clearInterval(explodeIfColision);
                         setTimeout(function() { $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)'); $('.clouds').hide(); }, 500); 
                         setTimeout(function() { $('#nextModal').modal('show'); }, 2000); } }, 50); 
                      };
