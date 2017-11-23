@@ -190,7 +190,7 @@ input[type='button']:hover {
 
 .popover {
     border: solid 2px #604a9c;
-     max-width: 60%;
+     max-width: 50%;
 }
 
 .popover-body {
@@ -202,6 +202,9 @@ input[type='button']:hover {
 .popover.bs-popover-top .arrow::before {
     border-top-color: #604a9c;
     bottom: -13px;
+}
+#task li{
+    display: list-item;
 }
 
 .logo-row img{
