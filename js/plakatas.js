@@ -44,6 +44,7 @@
 
     function runCode() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        icons.clearRect(0, 0, canvas.width, canvas.height);
         // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
