@@ -18,22 +18,26 @@
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
     var my_canvas2 = document.getElementById("canvas2");
-    var background = my_canvas2.getContext("2d");
+    var icons = my_canvas2.getContext("2d");
+    var my_canvas3 = document.getElementById("canvas3");
+    var background = my_canvas3.getContext("2d");
         background.strokeStyle = 'black';
         background.strokeText("X:480", 460, 10);
         background.strokeText("Y:320", 5, 325);
-         background.strokeText("X:0; Y:0", 0, 10);
+        background.strokeText("X:0; Y:0", 0, 10);
 
 
     download.addEventListener("click", function() {
         // only jpeg is supported by jsPDF
         var imgData = canvas.toDataURL();
+         var imgData2 = canvas2.toDataURL();
         var pdf = new jsPDF({
             orientation: 'landscape'
         })
 
 
         pdf.addImage(imgData, 'JPEG', 20, 20);
+         pdf.addImage(imgData2, 'JPEG', 20, 20);
 
         pdf.save("plakatas.pdf");
     }, false);
@@ -128,7 +132,7 @@
         var img_name = new Image();
         img_name.setAttribute('crossOrigin', 'anonymous');
         img_name.src = '../img_lessons/plakatas/' + name + '.png';
-        img_name.onload = function() { ctx.drawImage(img_name, x, y); }
+        img_name.onload = function() { icons.drawImage(img_name, x, y); }
     }
 
     function write(name) {
@@ -139,5 +143,5 @@
         ctx.drawImage(img_name, 0, 0);
         ctx.font = "16px Arial";
         ctx.fillText(name, 160, 162) }
-   
     }
+      
