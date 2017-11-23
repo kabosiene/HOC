@@ -74,7 +74,11 @@ function runCode() {
                         stopAnim();
                         stopDance();
                         setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
-                    } else { alert("Panaudok 4 skirtingus šokio judesius");}
+                    } else {  
+                        stopAnim();
+                        stopDance();
+                        musicStop();
+                        alert("Panaudok 4 skirtingus šokio judesius");}
                 }
             }
             nextStep();
