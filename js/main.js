@@ -18,18 +18,24 @@ var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
 $(document).ready(function() {
-$('[data-toggle="popover"]').popover({
-    container: 'body',
-    html: true,
-    placement: 'top',
-    trigger: 'focus',
-    content: function() {
-      // get the url for the full size img
-      var url = $(this).data('full');
-      var url1 = $(this).data('text');
-      return url1+ ' <br><img src="' + url + '" style="width:70%"> ';
-    }
-      });
+    $('[data-toggle="popover"]').popover({
+        container: 'body',
+        html: true,
+        placement: 'top',
+        trigger: 'focus',
+        content: function() {
+            // get the url for the full size img
+            var url1 = $(this).data('text');
+            var url = $(this).data('full');
+            if (url) {
+                return url1 + ' <br><img src="' + url + '" style="max-width:100%;"> ';
+            } else {
+                return url1;
+            }
+
+
+        }
+    });
 });
 
 $(document).ready(function() {
