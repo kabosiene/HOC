@@ -81,3 +81,9 @@ $(function() {
 
 
 });
+
+function highlightBlock(id) {
+  workspace.highlightBlock(id);
+}
+        Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
+Blockly.JavaScript.addReservedWords('highlightBlock');

@@ -93,10 +93,10 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
                     <div class="hint-panel">
                         <ul> Užuomina:
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Pasirink eilutės numerį bei atsakymo raidę." data-full="../hints/L1T1_H1.png">1</a>
+                                <a tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Pasirink eilutės numerį bei atsakymo raidę." data-full="../hints/L1T1_H1.png">1</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Kartais nusirašyti - visai naudinga. Nutarimo tekstą rasi <a href='https://lt.wikipedia.org/wiki/Lietuvos_Nepriklausomyb%C4%97s_Aktas#/media/File:Nepriklausomybes_aktas.gif' target='_blank'>čia</a>." ">2</a>
+                                <a tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Kartais nusirašyti - visai naudinga. Nutarimo tekstą rasi <a href='https://lt.wikipedia.org/wiki/Lietuvos_Nepriklausomyb%C4%97s_Aktas#/media/File:Nepriklausomybes_aktas.gif' target='_blank'>čia</a>." ">2</a>
                             </li>
                         </ul>
                     </div>
@@ -241,6 +241,7 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
     function runCode() {
         tekstas = [];
         // Generate JavaScript code and run it.
+
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
