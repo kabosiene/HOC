@@ -76,7 +76,6 @@ Blockly.JavaScript['keisti'] = function(block) {
     if (dropdown_kostiumas == 'add_costume_swim') {add_costume_swim = true}
     if (dropdown_kostiumas == 'add_costume_swim2') {add_costume_swim2 = true}
    // dropdown_kostiumas = true;
-    console.log(dropdown_kostiumas);
     return code;
 };
 Blockly.Blocks['set'] = {
@@ -115,7 +114,7 @@ Blockly.Blocks['keisti_greiti'] = {
 };
 
 Blockly.JavaScript['keisti_greiti'] = function(block) {
-    var value_padidink = Blockly.JavaScript.valueToCode(block, 'padidink', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_padidink = Blockly.JavaScript.valueToCode(block, 'padidink', Blockly.JavaScript.ORDER_NONE);
    // add_speed = value_padidink * 0.01;
     // TODO: Assemble JavaScript into code variable.
     var code = 'add_speed += ' + value_padidink * 0.01 + ';\n';

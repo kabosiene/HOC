@@ -11,7 +11,7 @@
 </head>
 
 <body>
-        <div class='customAlert'>
+    <div class='customAlert'>
         <p class='message'></p>
         <input type='button' class='confirmButton' value='Gerai'>
     </div>
@@ -56,7 +56,7 @@
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
                 <h4>6. Rūta Meilutytė: olimpinės purslynės</h4></div>
-            <div class=" col-md-7" id="task"> Padėkime Rūtai pakartoti jos olimpinį rekordą! Šioje užduotyje tau reikės sukurti naują komandą „Plaukti“. Į ją įdėk blokelius, apibūdinančius plaukimo judesius bei judesių greitį. Padaryk taip, jog plaukikės greitį galėtum padidinti paspaudęs ant ekrano, o pasiekus jo kraštą - apsuk. 
+            <div class=" col-md-7" id="task"> Padėkime Rūtai pakartoti jos olimpinį rekordą! Šioje užduotyje tau reikės sukurti naują komandą „Plaukti“. Į ją įdėk blokelius, apibūdinančius plaukimo judesius bei judesių greitį. Padaryk taip, jog plaukikės greitį galėtum padidinti paspaudęs ant ekrano, o pasiekus jo kraštą - apsuk.
                 <a href="javascript:void(0)" onclick="changeVideo('9j-wTK2C-Sc')">Užduoties video</a> </div>
         </div>
         <div class="row" style="padding: 10px">
@@ -71,7 +71,7 @@
                     <div id="pool">
                         <div id="test1"></div>
                         <div id="pool_flags"></div>
-                         <div id="time_counter"></div>
+                        <div id="time_counter"></div>
                     </div>
                 </div>
                 <div class="button-panel">
@@ -116,7 +116,7 @@
                 </pre>
             </div>
         </div>
-          <div class="row">
+        <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
         <div class="video-modal">
@@ -136,7 +136,7 @@
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
-                   <div class="modal-content">
+                    <div class="modal-content">
                         <div class="modal-body">
                             <div>
                                 <h3>Įveikta!</h3>
@@ -189,7 +189,7 @@
     swim.src = "../img_lessons/baseinas/plaukia_start.png";
     var swim2 = new Image();
     swim2.src = "../img_lessons/baseinas/plaukia3.png";
- var meilutyte_medal = new Image();
+    var meilutyte_medal = new Image();
     meilutyte_medal.src = "../img_lessons/baseinas/meilutyte-naujas.png"
 
 
@@ -236,7 +236,7 @@
         animation_speed = false;
         anim_speed = 0;
         // document.getElementById("test1").style.animationDuration = "0s";
-   document.getElementById("test1").style.animationDuration = "1s"
+        document.getElementById("test1").style.animationDuration = "1s"
         canvas2.removeEventListener("click", onClick, false);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         swimmer.clearRect(0, 0, canvas.width, canvas.height);
@@ -282,10 +282,10 @@
         } catch (e) {
             //alert(e);
             if (e instanceof ReferenceError) {
-        // statements to handle TypeError exceptions
-         alert("Trūksta funkcijos");
-    } 
-            
+                // statements to handle TypeError exceptions
+                alert("Trūksta funkcijos");
+            }
+
         }
     }
 
@@ -331,12 +331,12 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             swimmer.clearRect(0, 0, canvas.width, canvas.height);
             if (score < 65) {
-                 ctx.drawImage(meilutyte_medal, 0, 0);
+                ctx.drawImage(meilutyte_medal, 0, 0);
                 setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
                 return;
             } else {
                 ctx.font = "14px Arial";
-                ctx.fillText("Bandyk dar kartą", 200, 126);
+                ctx.fillText("Bandyk dar kartą", 195, 126);
                 return;
             }
 
@@ -371,14 +371,17 @@
 
 
     function onClick(e) {
-        speed += add_speed;
 
-        if (animation_speed) {
-            anim_speed += add_speed/10;
-            if ((0.1 / anim_speed) < 1) {
-                document.getElementById("test1").style.animationDuration = "" + (0.1 / anim_speed) + "s";
+            speed += add_speed;
+
+            if (animation_speed) { 
+
+                anim_speed += add_speed / 10;
+                if ((0.1 / anim_speed) < 1) {
+                    document.getElementById("test1").style.animationDuration = "" + (0.1 / anim_speed) + "s";
+                }  
             }
-        }
+      
 
     }
     </script>
