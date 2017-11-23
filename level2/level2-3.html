@@ -363,7 +363,7 @@
         // only jpeg is supported by jsPDF
         var imgData = canvas.toDataURL();
         var imgData2 = canvas2.toDataURL();
-        var imgData3 = canvas3.toDataURL();
+       // var imgData3 = canvas3.toDataURL();
         var pdf = new jsPDF({
             orientation: 'landscape'
         })
@@ -371,7 +371,7 @@
 
         pdf.addImage(imgData, 'JPEG', 20, 20);
         pdf.addImage(imgData2, 'JPEG', 20, 20);
-        pdf.addImage(imgData3, 'JPEG', 20, 20);
+       // pdf.addImage(imgData3, 'JPEG', 20, 20);
         pdf.save("vardo_simbolis.pdf");
     }, false);
     </script>
