@@ -50,6 +50,7 @@ function changeVideo(vId) {
 
     $("#myModal").modal("show");
 }
+
 $(window).on('load', function() {
     $('#myModal').modal('show');
 });
