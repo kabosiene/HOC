@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,6 +9,21 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
 </head>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lekton:700&subset=latin-ext');
+#preview {
+    font-family: Lekton;
+    font-size: 12px;
+    color: black;
+}
+
+#doclist {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+</style>
 
 <body>
     <div class='customAlert'>
@@ -69,6 +85,8 @@
                     <canvas id="canvas" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
+                    <div id="doclist">
+                    </div>
                     <div id="m-background">
                         <div id="m-finished"></div>
                     </div>
@@ -78,15 +96,15 @@
                     <div class="hint-panel">
                         <ul> Užuomina:
                             <li>
-                                <a  tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='Tai visų dokumentų pavadinimai, kurie turi pavirsti tvarkingu sąrašu. Atkreipk dėmesį, koks skyrybos ženklas skiria vieno dokumento pavadinimą nuo kito - jis ir yra skirtukas.' data-full="../hints/L1T9_H1.png">1</a>
+                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='Tai visų dokumentų pavadinimai, kurie turi pavirsti tvarkingu sąrašu. Atkreipk dėmesį, koks skyrybos ženklas skiria vieno dokumento pavadinimą nuo kito - jis ir yra skirtukas.' data-full="../hints/L1T9_H1.png">1</a>
                                 <!-- https://drive.google.com/file/d/1Ujv6vNnknaK__rEgzy4afQlTds_trzOR/view -->
                             </li>
                             <li>
-                                <a  tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Kintamasis - tai lyg dėžutė su pavadinimu, kurioje galime saugoti tekstą arba skaičius. Sąrašą ir dokumentų pavadinimus saugok kintamajame „dokumentai“. Šitaip būsime tikri, kad nieko nepametėme." data-full="../hints/L1T9_H2.png">2</a>
+                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Kintamasis - tai lyg dėžutė su pavadinimu, kurioje galime saugoti tekstą arba skaičius. Sąrašą ir dokumentų pavadinimus saugok kintamajame „dokumentai“. Šitaip būsime tikri, kad nieko nepametėme." data-full="../hints/L1T9_H2.png">2</a>
                                 <!-- https://drive.google.com/file/d/1kBehVLz2FRqPzjQpRrwoh-oqidktSkgr/view -->
                             </li>
                             <li>
-                                <a  tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Atrinktą dokumentų sąrašą būtina parodyti ekrane ir spustelėti ant ieškoto dokumento pavadinimo. Jį atrasti padės dokumento data." data-full="../hints/L1T9_H3.png">3</a>
+                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Atrinktą dokumentų sąrašą būtina parodyti ekrane ir spustelėti ant ieškoto dokumento pavadinimo. Jį atrasti padės dokumento data." data-full="../hints/L1T9_H3.png">3</a>
                                 <!--https://drive.google.com/file/d/1ha81G6vuncZo1qwePjCHZcmGGS5MPruO/view -->
                             </li>
                         </ul>
@@ -125,7 +143,7 @@
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
                 <h5>Javascript kodas: </h5>
                 <pre id="content_javascript">
-                </pre>
+				</pre>
             </div>
         </div>
         <div class="row">
@@ -199,8 +217,9 @@
     <script type="text/javascript">
     function runCode() {
         // Generate JavaScript code and run it.
-        my_canvas.removeEventListener('click', clickReporter, false);
+        // my_canvas.removeEventListener('click', clickReporter, false);
         $('#m-finished').hide();
+        $('#doclist').show();
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
@@ -218,19 +237,26 @@
         }
     }
 
-    function clickReporter(e) { /// assign event to some variable
+    // function clickReporter(e) { /// assign event to some variable
 
-        /// adjust mouse click position to be relative to canvas:
-        var rect = this.getBoundingClientRect(),
-            x = e.clientX - rect.left,
-            y = e.clientY - rect.top;
-        if (x >= 0 && x <= 490 &&
-            y >= 45 && y <= 65) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //     /// adjust mouse click position to be relative to canvas:
+    //     var rect = this.getBoundingClientRect(),
+    //         x = e.clientX - rect.left,
+    //         y = e.clientY - rect.top;
+    //     if (x >= 0 && x <= 490 &&
+    //         y >= 45 && y <= 65) {
+    //         ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //         $('#m-finished').show();
+    //         setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
+    //     }
+    // }
+    $('#doclist').on("click", "div", function() {
+        if ($(' div.' + $(this).attr("class") + ':contains("1918-02-16")').length > 0) {
             $('#m-finished').show();
+            $('#doclist').hide();
             setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
         }
-    }
+    })
     </script>
 </body>
 

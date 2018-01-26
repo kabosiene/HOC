@@ -189,13 +189,15 @@ function contains(a, obj, place) {
 
 
 function spausdinti(list) {
-    ctx.fillStyle = "black";
-    ctx.font = "12px Verdana";
-
+    // ctx.fillStyle = "black";
+    // ctx.font = "12px Verdana";
+ document.getElementById('doclist').innerHTML ="";
     for (var i = 0; i < list.length; i++) {
 
-        ctx.strokeText("Dokumentas:" + list[i], 20, (i + 1) * 30);
+       // ctx.strokeText("Dokumentas:" + list[i], 20, (i + 1) * 30);
+
+        document.getElementById('doclist').innerHTML += "<div class=text"+i+"> Dokumentas:" + list[i] + "<br></div>";
     }
 
- my_canvas.addEventListener('click', clickReporter, false);
+ // my_canvas.addEventListener('click', clickReporter, false);
 }
