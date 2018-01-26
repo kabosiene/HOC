@@ -69,7 +69,7 @@ Blockly.JavaScript['fly_straight'] = function(block) {
 Blockly.Blocks['blocks'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldNumber(0, 0, 5), "block")
+        .appendField(new Blockly.FieldNumber(0, 0, 7), "block")
         .appendField("langelius ");
     this.setOutput(true, null);
     this.setColour(330);
