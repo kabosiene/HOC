@@ -1,0 +1,895 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3081684, 2015-08-27T06:39:22-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: CoreSansA45Regular by S-Core
+ * URL: http://www.myfonts.com/fonts/s-core/core-sans-a/regular/
+ * Copyright: Core Sans A 45 Regular
+ * Licensed pageviews: 10,000
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3081684
+ * 
+ * © 2015 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+
+@font-face {
+    font-family: 'CoreSansA45Regular';
+    src: url('webfonts/2F05D4_0_0.eot');
+    src: url('webfonts/2F05D4_0_0.eot?#iefix') format('embedded-opentype'), url('webfonts/2F05D4_0_0.woff2') format('woff2'), url('webfonts/2F05D4_0_0.woff') format('woff'), url('webfonts/2F05D4_0_0.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+
+body {
+    color: #5c48a2;
+    background-color: #fff;
+    font-family: 'CoreSansA45Regular';
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+}
+h4{
+    font-size: 28px;
+}
+h5{
+    font-size: 18px;
+}
+
+.customAlert {
+
+    display: none;
+    position: fixed;
+    max-width: 25%;
+    min-width: 250px !important;
+    min-height: 20%;
+    height: 100px;
+    left: 50%;
+    top: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-left: -12.5%;
+    margin-top: -5.2%;
+    background: rgba(81, 62, 143, 0.95);
+    z-index: 99;
+}
+
+.message {
+    padding: 5px;
+    color: white;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+}
+
+input[type='button'] {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 50%;
+    height: 36px;
+    margin-top: -45px;
+    margin-left: -25%;
+    outline: 0;
+    border: 0;
+    background: #04B486;
+    color: white;
+    background: #fff;
+    color: rgba(81, 62, 143, 0.95);
+    border-radius: 25px;
+}
+
+input[type='button']:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    background: lighten(#04B486, 5%);
+    border:2px solid #fff;
+    color: #fff;
+    background: rgba(81, 62, 143, 0.95);
+}
+
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.header-top {
+    background-color: #513e8f;
+    height: 15%;
+    height: 15vh;
+    min-height: 100px;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.header_logo {
+    width: auto;
+    height: auto;
+}
+
+.heading a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.heading a:hover {
+    color: #90CD9B;
+}
+#task{
+    font-size: 16px;
+}
+
+.hint-panel {
+    padding: 0px 20px 0px 20px;
+    display: inline-block;
+}
+
+.hint-panel ul {
+    padding-left: 5px;
+    border-spacing: 10px 0px;
+    font-weight: bold;
+}
+
+.hint-panel li {
+    font-family: 'Inconsolata', monospace;
+    letter-spacing: 0.05em;
+    /*padding: 0px 25px 0px 25px;*/
+    display: table-cell;
+    border: 2px solid;
+    border-radius: 25px;
+    background-color: #604a9c;
+}
+
+.hint-panel li:hover {
+    background-color: #fff;
+}
+
+.hint-panel li a {
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    display: block;
+    width: 70px;
+    font-weight: normal;
+}
+
+.hint-panel li:hover a {
+    text-decoration: none;
+    color: #604a9c;
+}
+
+.popover {
+    border: solid 2px #604a9c;
+     max-width: 50%;
+}
+
+.popover-body {
+    padding: 20px 20px;
+    color: inherit;
+}
+
+.popover.bs-popover-auto[x-placement^=top] .arrow::before,
+.popover.bs-popover-top .arrow::before {
+    border-top-color: #604a9c;
+    bottom: -13px;
+}
+#task li{
+    display: list-item;
+}
+
+.logo-row img{
+margin: 30px 10px;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+.modal-footer .btn {
+    background-color: #604a9c;
+    border: none;
+    box-shadow: 4px 4px 0px #f95496;
+    margin-top: 25px;
+    color: #fff;
+}
+
+.next-modal .modal{
+        top: 30%;
+}
+.next-modal .modal-content{
+    border:none;
+    border-radius: 0px
+}
+.next-modal .modal-dialog {
+    max-width: 500px;
+}
+
+.next-modal .modal-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.next-modal .modal-buttons a {
+    font-size: 0.9em;
+    padding: .3rem 2rem;
+    background-color: #604a9c;
+    border: 2px solid #604a9c;
+    border-radius: 25px;
+    /*box-shadow: 4px 4px 0px #f95496;*/
+    margin-top: 25px;
+    color: #fff;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.button-run {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.7em;
+    /*font-weight: bold;*/
+    padding: .70rem 3.2rem;
+    background-color: #604a9c;
+     border: 2px solid #604a9c;
+    box-shadow: 4px 4px 0px #f95496;
+    margin-top: 25px;
+    letter-spacing: 0.05em;
+}
+
+.btn-secondary:hover {
+    background-color: #fff;
+    color: #604a9c;
+    border: 2px solid;
+}
+
+.download-btn {
+    border-radius: 25px;
+    background-color: #604a9c;
+    color: #fff;
+    border: 2px solid;
+    padding: 5px 20px;
+}
+
+.download-btn:hover {
+    border-radius: 25px;
+    background-color: #fff;
+    color: #604a9c;
+    border: 2px solid;
+}
+
+.progress-container {
+    /*border: 2px #EF5898 solid;*/
+    display: inline-block;
+    float: right;
+    font-size: 22px;
+}
+
+.progress-container ul {
+    margin-top: 1rem;
+}
+
+.progress-container li a {
+    background-color: #443579;
+    padding: 8px 0px 8px 0px;
+    border: 1px solid #443579;
+    border-radius: 50px;
+    margin: 0px 6px;
+    color: #fff;
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.progress-container li a:hover,
+.progress-container .active {
+    background-color: #f1579a;
+    border: 1px solid #f1579a;
+}
+
+
+.progress-container a:hover,
+.progress-container .active {
+    text-decoration: none;
+}
+.progress-container a:visited{
+     border: 1px solid #f1579a;
+}
+
+
+
+.working-space {
+    /*border: 10px #52499E solid;*/
+    margin-top: 50px;
+    /*margin-bottom: 50px*/
+}
+
+#preview {
+    background-color: #fff;
+    border: 1px #f2f2f2 solid;
+    height: 50vh;
+    /*padding: 10px;*/
+    width: 490px;
+    height: 330px;
+    position: relative;
+}
+
+canvas {
+    position: absolute;
+}
+
+#canvas {
+    z-index: 1;
+}
+
+#canvas2 {
+    z-index: 2;
+}
+
+#canvas3 {
+    z-index: 3;
+}
+
+.flagPart {
+    height: 50px;
+    width: 250px;
+    background-color: #fff;
+    border: 3px solid #52499e;
+    position: relative;
+}
+
+.button-panel {
+    margin-bottom: 10px;
+    /*text-align: center;*/
+}
+
+#blocklyDiv {
+    height: 70vh;
+    min-width: 400px;
+    border: solid #f2f2f2 1px;
+}
+
+#m-background {
+    background-image: url(../img_lessons/mazylis/fonas.png);
+    width: 490px;
+    height: 330px;
+    z-index: 1;
+}
+
+#m-finished {
+    display: none;
+    background-image: url(../img_lessons/mazylis/mazylis.png);
+    width: 490px;
+    height: 330px;
+    z-index: 2;
+    animation: 1s eye_anim infinite steps(2, end);
+}
+
+@keyframes eye_anim {
+    100% {
+        background-position: 200% 0
+    }
+}
+
+
+#pool {
+    background-image: url(../img_lessons/baseinas/fonas.png);
+    width: 490px;
+    height: 330px;
+}
+
+#test1 {
+    visibility: hidden;
+    background-image: url(../img_lessons/baseinas/plaukia.png);
+    height: 40px;
+    width: 70px;
+    background-position: 0 0;
+    background-size: 400% 100%;
+    animation: swim 1s infinite steps(4, end);
+    /*   float:left; */
+    transform: translate(40px, 220px);
+    position: absolute;
+}
+
+#pool_flags {
+    background-image: url(../img_lessons/baseinas/veliaveles.png);
+    width: 490px;
+    height: 330px;
+    position: absolute;
+}
+
+#time_counter {
+    background-image: url(../img_lessons/baseinas/lentele.png);
+    background-repeat: no-repeat;
+    transform: translate(175px, 45px);
+    width: 134px;
+    height: 100px;
+    z-index: 1;
+}
+
+@keyframes swim {
+    100% {
+        background-position: 400% 0
+    }
+}
+
+#lituanica_plane {
+    /*visibility: hidden;*/
+    background-image: url(../img_lessons/lituanica/lituanica_sprite.png);
+    height: 33px;
+    width: 75px;
+    animation: fly 0.15s infinite steps(2, end);
+    transform: translate(0px, 170px);
+}
+
+@keyframes fly {
+    100% {
+        background-position: 200% 0
+    }
+}
+
+#d5 {
+    width: 250px;
+    height: 200px;
+    margin: 65px auto;
+    animation: stop 10s linear infinite;
+}
+
+.dance {
+    position: absolute;
+    animation: stop 10s linear infinite reverse;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes stop {
+    100% {
+        transform: rotate(0turn);
+    }
+}
+
+#dancers1.d-inner {
+    background-image: url(../img_lessons/pora1/1.1.png);
+    height: 100px;
+    width: 115px;
+    animation: dance 0s infinite steps(2, end);
+}
+
+#dancers1.d-inner2 {
+    background-image: url(../img_lessons/pora1/2.1.png);
+    height: 100px;
+    width: 114px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+#dancers1.d-inner3 {
+    background-image: url(../img_lessons/pora1/3.1.png);
+    height: 100px;
+    width: 115px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+#dancers1.d-inner4 {
+    background-image: url(../img_lessons/pora1/4.1.png);
+    height: 100px;
+    width: 115px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+
+
+/*********************************/
+
+#dancers2.d-inner {
+    background-image: url(../img_lessons/pora2/1.png);
+    height: 100px;
+    width: 115px;
+    animation: dance 0s infinite steps(2, end);
+}
+
+#dancers2.d-inner2 {
+    background-image: url(../img_lessons/pora2/2.png);
+    height: 100px;
+    width: 114px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+#dancers2.d-inner3 {
+    background-image: url(../img_lessons/pora2/3.png);
+    height: 100px;
+    width: 115px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+#dancers2.d-inner4 {
+    background-image: url(../img_lessons/pora2/4.png);
+    height: 100px;
+    width: 115px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+
+
+/***********************/
+
+#dancers3.d-inner {
+    background-image: url(../img_lessons/pora3/1.png);
+    height: 100px;
+    width: 115px;
+    animation: dance 0s infinite steps(2, end);
+}
+
+#dancers3.d-inner2 {
+    background-image: url(../img_lessons/pora3/2.png);
+    height: 100px;
+    width: 114px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+#dancers3.d-inner3 {
+    background-image: url(../img_lessons/pora3/3.png);
+    height: 100px;
+    width: 115px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+#dancers3.d-inner4 {
+    background-image: url(../img_lessons/pora3/4.png);
+    height: 100px;
+    width: 115px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+
+
+/***********************/
+
+#dancers4.d-inner {
+    background-image: url(../img_lessons/pora4/1.png);
+    height: 100px;
+    width: 115px;
+    animation: dance 0s infinite steps(2, end);
+}
+
+#dancers4.d-inner2 {
+    background-image: url(../img_lessons/pora4/2.png);
+    height: 100px;
+    width: 114px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+#dancers4.d-inner3 {
+    background-image: url(../img_lessons/pora4/3.png);
+    height: 100px;
+    width: 115px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+#dancers4.d-inner4 {
+    background-image: url(../img_lessons/pora4/4.png);
+    height: 100px;
+    width: 115px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+
+
+/**********************/
+
+#dancers5.d-inner {
+    background-image: url(../img_lessons/pora5/1.png);
+    height: 100px;
+    width: 115px;
+    animation: dance 0s infinite steps(2, end);
+}
+
+#dancers5.d-inner2 {
+    background-image: url(../img_lessons/pora5/2.png);
+    height: 100px;
+    width: 114px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+#dancers5.d-inner3 {
+    background-image: url(../img_lessons/pora5/3.png);
+    height: 100px;
+    width: 115px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+#dancers5.d-inner4 {
+    background-image: url(../img_lessons/pora5/4.png);
+    height: 100px;
+    width: 115px;
+    animation: dance2 0s infinite steps(2, end);
+}
+
+
+@keyframes dance {
+    100% {
+        background-position: 200% 0
+    }
+}
+
+@keyframes dance2 {
+    100% {
+        background-position: 200% 0
+    }
+}
+
+/*.person {
+    display: none;
+    position: absolute;
+    width: 70px;
+    height: 110px;
+    background: url("../img_lessons/baltija/zmogus_3.png");
+    transform: translate(189px, 27px);
+    animation: 3s linear 1;
+    z-index: 22;
+}
+
+
+.person2 {
+    display: none;
+    position: absolute;
+    width: 50px;
+    height: 100px;
+    background: url("../img_lessons/baltija/zmogus_2.png");
+    transform: translate(107px, 125px);
+    animation: 3s linear 1;
+    z-index: 22;
+}
+
+.person3 {
+    display: none;
+    position: absolute;
+    width: 44px;
+    height: 100px;
+    background: url("../img_lessons/baltija/zmogus_1.png");
+    transform: translate(258px, 208px);
+    animation: 3s linear 1;
+    z-index: 22;
+}*/
+.person {
+    display: none;
+    position: absolute;
+     top:0;
+    right: 0;
+    width: 70px;
+    height: 110px;
+    background: url("../img_lessons/baltija/zmogus_3.png");
+    transform: translate(0px, 27px);
+    /*animation: 3s linear 1;*/
+    z-index: 22;
+}
+
+
+.person2 {
+    display: none;
+    position: absolute;
+     top:0;
+    right: 0;
+    width: 50px;
+    height: 100px;
+    background: url("../img_lessons/baltija/zmogus_2.png");
+    transform: translate(0px, 125px);
+    /*animation: 3s linear 1;*/
+    z-index: 22;
+}
+
+.person3 {
+    display: none;
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 44px;
+    height: 100px;
+    background: url("../img_lessons/baltija/zmogus_1.png");
+    transform: translate(0px, 208px);
+    /*animation: 3s linear 1;*/
+    z-index: 22;
+}
+.person_lost {
+    display: none;
+    position: absolute;
+    width: 80px;
+    height: 210px;
+    background: url("../img_lessons/baltija/lost.png");
+    transform: translate(200px, 80px);
+    animation: lost 2s infinite steps(2, end);
+    z-index: 22;
+}
+@keyframes lost{
+ 100% {
+        background-position: 200% 0
+    }
+}
+@keyframes animatedPerson {
+    from {
+        transform: translate(0px, 27px);
+    }
+    to {
+        transform: translate(189px, 27px);
+    }
+}
+
+@keyframes animatedPerson2 {
+    from {
+        transform: translate(0px, 125px);
+    }
+    to {
+        transform: translate(107px, 125px);
+    }
+}
+
+@keyframes animatedPerson3 {
+    from {
+        transform: translate(0px, 208px);
+    }
+    to {
+        transform: translate(258px, 208px);
+    }
+}
+
+#rating {
+    position: absolute;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.star {
+    visibility: hidden;
+    /*background-image: url("../img_lessons/adamkus/not.png");*/
+    width: 40px;
+    height: 40px;
+    transform: translate(450px, 70px);
+    animation: animatedStar 0s linear infinite;
+}
+
+@keyframes animatedStar {
+    from {
+        transform: translate(450px, 70px);
+    }
+    to {
+        transform: translate(0px, 70px);
+    }
+}
+
+
+.clouds {
+    width: 490px;
+    height: 330px;
+    background-image: url(../img_lessons/adamkus/fonas-2.png);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    z-index: 19;
+    animation: animatedBackground 50s linear infinite;
+}
+
+
+
+.l1 {
+    width: 490px;
+    height: 330px;
+    background-image: url(../img_lessons/adamkus/fonas-1.png);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    z-index: 20;
+    animation: animatedBackground 25s linear infinite;
+    z-index: 1;
+}
+
+.l2 {
+    width: 490px;
+    height: 330px;
+    background-image: url(../img_lessons/adamkus/fonas-3.png);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    z-index: 21;
+    animation: animatedBackground 25s linear infinite;
+}
+
+@keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+
+
+.avatar {
+    /*visibility: hidden;*/
+    background-image: url(../img_lessons/adamkus/bega.png);
+    height: 100px;
+    width: 70px;
+    animation: run 0s infinite steps(2, end);
+    /*   float:left; */
+    transform: translate(100px, 220px);
+    transition: transform 0.5s cubic-bezier(0.990, 0.005, 0.000, 0.420);
+    z-index: 22;
+}
+
+@keyframes run {
+    /*  from {
+        background-position: 0px -240px;
+    }
+    to {
+        background-position: -350px -240px;
+    }*/
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.jump {
+    /*visibility: hidden;*/
+    background-image: url(../img_lessons/adamkus/soka.png);
+    width: 70px;
+    height: 100px;
+    /*animation: jump steps(1) 1s infinite;*/
+    /*   float:left; */
+    transform: translate(100px, 150px);
+}
+
+@keyframes jump {
+    100% {
+        background-position: 700% 0
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .working-space {
+        height: 80vh;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}

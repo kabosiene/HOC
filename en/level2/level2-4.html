@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+        <div class='customAlert'>
+        <p class='message'></p>
+        <input type='button' class='confirmButton' value='Gerai'>
+    </div>
+    <div class="container-fluid header-top">
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
+        <div class="progress-container">
+            <ul style="text-align: center;">
+                <li>
+                    <a href="level2-1.html">1</a>
+                </li>
+                <li>
+                    <a href="level2-2.html">2</a>
+                </li>
+                <li>
+                    <a href="level2-3.html">3</a>
+                </li>
+                <li>
+                    <a class="active" href="level2-4.html">4</a>
+                </li>
+                <li>
+                    <a href="level2-5.html">5</a>
+                </li>
+                <li>
+                    <a href="level2-6.html">6</a>
+                </li>
+                <li>
+                    <a href="level2-7.html">7</a>
+                </li>
+                <li>
+                    <a href="level2-8.html">8</a>
+                </li>
+                <li>
+                    <a href="level2-9.html">9</a>
+                </li>
+                <li>
+                    <a href="level2-10.html">10</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid working-space">
+        <div class="row" style="padding: 10px;">
+            <div class="col-md-5">
+                <h4>4. Suk suk ratelį, suk į vieną pusę</h4></div>
+            <div class=" col-md-7" id="task"> Šios 5 poros pasirengusios sutrypti kepurinę ir laukia tavo nurodymų. Improvizuok - suprogramuok jų šokio judesius ir nepamiršk laikytis ritmo. Ciklas leis kartoti tuos pačius judesius keletą (arba keliasdešimt!) kartų iš eilės. 
+                <a href="javascript:void(0)" onclick="changeVideo('0m0uPu0bZQE')">Užduoties video</a> </div>
+        </div>
+        <div class="row" style="padding: 10px">
+            <div class="col  ">
+                <div id="preview" style="background-image: url(../img_lessons/fonas-01.png);">
+                    <canvas id="canvas" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <div id=d5>
+                        <div class="dance">
+                            <div id="dancers1" class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div id="dancers2" class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div id="dancers3" class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div id="dancers4" class="d-inner"></div>
+                        </div>
+                        <div class="dance">
+                            <div id="dancers5" class="d-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-panel">
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <div class="hint-panel">
+                        <ul> Užuomina:
+                            <li>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="<b>Atlikti veiksmą 1s</b> blokelis nurodo, kiek laiko šokėjai atlikinės nurodytą judesį, o 
+<b>judesių greitis (s)</b> blokelyje nurodytas skaičius - tai tarpas tarp pačių šokio elementų (kiekvieną judesį sudaro 2 šokio elementai).
+Koreguoti atlikimo greitį galima kiekvienam judesiui atskirai, tokia eilės tvarka: " data-full="../hints/L1T4_H1.png">1</a>
+<!-- screenshot (https://drive.google.com/open?id=1IwSM161-bLTpQOOyglcKzaojf-Vt0kbQ) -->
+                            </li>
+                            <li>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Ar panaudojai visus 4 šokių judesius?">2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <button id="download" class="btn download-btn" onclick=" musicStop();">&#9632;</button>
+                </div>
+            </div>
+            <div class="col" style="padding: 0 ;">
+                <div id="blocklyDiv">
+                </div>
+                <xml id="toolbox" style="display: none">
+                    <category name="Ciklas" colour="120">
+                        <block type="controls_repeat_ext">
+                            <value name="TIMES">
+                                <block type="math_number">
+                                    <field name="NUM">2</field>
+                                </block>
+                            </value>
+                        </block>
+                        <block type="wait_seconds"></block>
+                    </category>
+                    <category name="Šokis" colour="65">
+                        <block type="anim_speed"></block>
+                        <block type="musicplay"></block>
+                        <block type="dance"></block>
+                        <block type="math_number"></block>
+                        <block type="rotate"></block>
+                    </category>
+                </xml>
+            </div>
+            <div class="col-md-3 col-lg-2" style="height: 70vh;">
+                <h5>Javascript kodas: </h5>
+                <pre id="content_javascript">
+                </pre>
+            </div>
+        </div>
+          <div class="row">
+            <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
+        </div>
+        <div class="video-modal">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/0m0uPu0bZQE" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                        <div class="modal-body">
+                            <div>
+                                <h3>Smagu!</h3>
+                            </div>
+                            <div class="modal-buttons">
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
+                                <a href="level2-5.html" class="btn btn-secondary">Kita užduotis</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/blockly_compressed.js"></script>
+    <script src="../js/javascript_compressed.js"></script>
+    <script src="../js/acorn_interpreter.js"></script>
+    <script src="../js/blocks_compressed.js"></script>
+    <script src="../msg/js/lt.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/sokiai.js"></script>
+    <script type="text/javascript">
+    var my_canvas = document.getElementById("canvas");
+    var ctx = my_canvas.getContext("2d");
+    </script>
+    <script>
+    var workspace = Blockly.inject('blocklyDiv', {
+        toolbox: document.getElementById('toolbox'),
+        grid: {
+            spacing: 20,
+            length: 5,
+            colour: '#f2f2f2',
+            snap: true
+        },
+        trashcan: true
+    });
+
+    function toJavascript(event) {
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        document.getElementById('content_javascript').innerHTML = code;
+    }
+    workspace.addChangeListener(toJavascript);
+    </script>
+</body>
+
+</html>

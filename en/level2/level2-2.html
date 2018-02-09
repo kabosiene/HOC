@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+        <div class='customAlert'>
+        <p class='message'></p>
+        <input type='button' class='confirmButton' value='Gerai'>
+    </div>
+    <div class="container-fluid header-top">
+       <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a> 
+        <div class="progress-container">
+            <ul style="text-align: center;">
+                <li>
+                    <a href="level2-1.html">1</a>
+                </li>
+                <li>
+                    <a class="active" href="level2-2.html">2</a>
+                </li>
+                <li>
+                    <a href="level2-3.html">3</a>
+                </li>
+                <li>
+                    <a href="level2-4.html">4</a>
+                </li>
+                <li>
+                    <a href="level2-5.html">5</a>
+                </li>
+                <li>
+                    <a href="level2-6.html">6</a>
+                </li>
+                <li>
+                    <a href="level2-7.html">7</a>
+                </li>
+                <li>
+                    <a href="level2-8.html">8</a>
+                </li>
+                <li>
+                    <a href="level2-9.html">9</a>
+                </li>
+                <li>
+                    <a href="level2-10.html">10</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid working-space">
+        <div class="row" style="padding: 10px;">
+            <div class="col-md-5">
+                <h4>2. LITUANICA: du draugai</h4></div>
+            <div class=" col-md-7" id="task"> Atkurk istorinį Dariaus ir Girėno skrydį per Atlantą ir padėk pasiekti jo tikslą. Lakūnų kelionė, prasidėjusi Niujorke, tęsėsi virš Niufaundlando, Škotijos ir, deja, baigėsi dabartinėje Lenkijos teritorijoje, nepasiekusi Kauno. Programuok jungdamas blokelius, kaip ir užduotyje prieš tai. Jei pasiekei lemtingą tašką Lenkijoje, padėk lakūnams pasiekti Kauną.
+                <a href="javascript:void(0)" onclick="changeVideo('f6R89D9RLn4')">Užduoties video</a> </div>
+        </div>
+        <div class="row" style="padding: 10px">
+            <div class="col  ">
+                <div id="preview">
+                    <canvas id="canvas" width="490" height="330" style="z-index: 0">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <div id="lituanica_plane"></div>
+                </div>
+                <div class="button-panel">
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+               
+                <div class="hint-panel">
+                    <ul> Užuomina:
+                        <li>
+                            <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Koordinatės - dalykas painus. Nepamiršk, kad X reikšmės didėja į dešinę, Y - į apačią." data-full="../hints/L2T2_H1.png">1</a>
+                        </li>
+                        <li>
+                            <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Ar tikrai aplankei visus taškus? Atkūręs maršrutą, nukeliauk ir iki suplanuoto tikslo - Kauno. Jo koordinatės x: 450 ; y: 120 ." data-full="../hints/L2T2_H2.png">2</a>
+                        </li>
+                    </ul>
+                </div> </div>
+            </div>
+            <div class="col" style="padding: 0 ;">
+                <div id="blocklyDiv">
+                </div>
+                <xml id="toolbox" style="display: none">
+                    </block>
+                    <block type="fly_to">
+                    </block>
+                    <block type="fly_points">
+                    </block>
+                </xml>
+            </div>
+            <div class="col-md-3 col-lg-2" style="height: 70vh;">
+                <h5>Javascript kodas: </h5>
+                <pre id="content_javascript">
+                </pre>
+            </div>
+        </div>
+          <div class="row">
+            <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
+        </div>
+        <div class="video-modal">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/f6R89D9RLn4 " frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div>
+                                <h3>Atskridai!</h3>
+                            </div>
+                            <div class="modal-buttons">
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
+                                <a href="level2-3.html" class="btn btn-secondary">Kita užduotis</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img style="visibility: hidden;">
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/acorn_interpreter.js"></script>
+    <script src="../js/blockly_compressed.js"></script>
+    <script src="../js/javascript_compressed.js"></script>
+    <script src="../js/blocks_compressed.js"></script>
+    <script src="../msg/js/lt.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/lituanica.js"></script>
+    <script type="text/javascript">
+    var my_canvas = document.getElementById("canvas");
+    var background = my_canvas.getContext("2d");
+    var map = new Image();
+    map.src = "../img_lessons/lituanica/fonas.png";
+    var plane = new Image();
+    plane.src = "../img_lessons/lituanica/lituanica_didelis.png";
+    var plain_x = 0;
+    var plain_y = 170;
+    var finished = false;
+    var points = [];
+
+    map.onload = function() {
+        background.drawImage(map, 0, 0);
+        drawGrid();
+    }
+
+    function drawGrid() {
+        background.strokeStyle = 'grey';
+        for (i = 0; i < 480; i += 40) {
+            background.beginPath();
+            background.moveTo(i, 0);
+            background.lineTo(i, 330);
+            background.strokeStyle = 'black';
+            background.strokeText(i, i, 10);
+              background.strokeStyle = 'grey';
+            background.stroke();
+        }
+        for (i = 0; i < 320; i += 40) {
+            background.beginPath();
+            background.moveTo(0, i);
+            background.lineTo(490, i);
+            background.strokeStyle = 'black';
+            background.strokeText(i, 0, i+10);
+              background.strokeStyle = 'grey';
+            background.stroke();
+        }
+        background.strokeStyle = 'black';
+        background.strokeText("X", 480, 10);
+        background.strokeText("Y", 5, 325);
+        //newyork
+        background.fillRect(45, 190, 4, 4);
+        background.beginPath();
+        background.arc(47, 192, 8, 0, 2 * Math.PI);
+        background.strokeText("Niujorkas", 40, 210);
+        background.stroke();
+        //newfoundland
+        background.fillRect(130, 140, 4, 4);
+        background.beginPath();
+        background.arc(132, 142, 8, 0, 2 * Math.PI);
+
+        background.stroke();
+        //Škotija
+        background.fillRect(330, 105, 4, 4);
+        background.beginPath();
+        background.arc(332, 107, 8, 0, 2 * Math.PI);
+
+        background.stroke();
+        //Kaunas
+        background.fillRect(449, 122, 4, 4);
+        background.beginPath();
+        background.arc(451, 124, 8, 0, 2 * Math.PI);
+        background.stroke();
+        //Lenkija, ex Vokietija, 
+        background.fillRect(410, 140, 4, 4);
+        background.beginPath();
+        background.strokeStyle = '#ff0000';
+        background.arc(412, 142, 8, 0, 2 * Math.PI);
+        background.stroke();
+
+    }
+    </script>
+    <script>
+    var workspace = Blockly.inject('blocklyDiv', {
+        toolbox: document.getElementById('toolbox'),
+        grid: {
+            spacing: 20,
+            length: 5,
+            colour: '#f2f2f2',
+            snap: true
+        },
+        trashcan: true
+    });
+
+    function toJavascript(event) {
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        document.getElementById('content_javascript').innerHTML = code;
+    }
+    workspace.addChangeListener(toJavascript);
+    </script>
+    <script type="text/javascript">
+    function runCode() {
+
+        Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
+        Blockly.JavaScript.addReservedWords('highlightBlock');
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        var myInterpreter = new Interpreter(code, initApi);
+
+        background.clearRect(0, 0, canvas.width, canvas.height);
+        background.strokeStyle = "black";
+        background.drawImage(map, 0, 0);
+        drawGrid();
+        plain_x = 0;
+        plain_y = 170;
+        points = [];
+        document.getElementById("lituanica_plane").style.visibility = 'visible';
+        document.getElementById("lituanica_plane").style.transform = "translate(0px, 170px)";
+
+        finished = false;
+        try {
+
+            if (code.length > 0) {
+                //eval(code);
+                function nextStep() {
+                    if (myInterpreter.step()) {
+                        window.setTimeout(nextStep, 0);
+                    }
+                }
+                nextStep();
+                // myInterpreter.run();
+            } else {
+                alert('Pridėk kodo blokelį.');
+            }
+
+        } catch (e) {
+            alert(e);
+        }
+    }
+
+
+    function initApi(interpreter, scope) {
+
+        // Add an API function for the alert() block.
+        var wrapper = function(text) {
+            text = text ? text.toString() : '';
+            return interpreter.createPrimitive(alert(text));
+        };
+        interpreter.setProperty(scope, 'alert',
+            interpreter.createNativeFunction(wrapper));
+
+        // Add an API function for the prompt() block.
+        wrapper = function(text) {
+            text = text ? text.toString() : '';
+            return interpreter.createPrimitive(prompt(text));
+        };
+        interpreter.setProperty(scope, 'prompt',
+            interpreter.createNativeFunction(wrapper));
+        // Add an API function for highlighting blocks.
+        var wrapper = function(id) {
+            id = id ? id.toString() : '';
+            return interpreter.createPrimitive(Blockly.mainWorkspace.highlightBlock(id));
+        };
+        interpreter.setProperty(scope, 'highlightBlock',
+            interpreter.createNativeFunction(wrapper));
+
+        /***********************************************************************/
+
+        Blockly.JavaScript.addReservedWords('updatePlane');
+
+        var wrapper = interpreter.createAsyncFunction(
+            function updatePlane(x, y, callback) {
+                x = x - plain_x-50;
+                y = y - plain_y-10;
+                changePoints(x, y);
+                callback();
+            }
+        );
+
+        interpreter.setProperty(scope, 'updatePlane', wrapper);
+
+        /***********************************************************************/
+
+        Blockly.JavaScript.addReservedWords('waitForSeconds');
+
+        var wrapper = interpreter.createAsyncFunction(
+            function(timeInSeconds, callback) {
+                // Delay the call to the callback.
+                setTimeout(callback, timeInSeconds * 1000);
+            });
+        interpreter.setProperty(scope, 'waitForSeconds', wrapper);
+
+    }
+    </script>
+</body>
+
+</html>

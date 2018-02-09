@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class='customAlert'>
+        <p class='message'></p>
+        <input type='button' class='confirmButton' value='Gerai'>
+    </div>
+    <div class="container-fluid header-top">
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
+        <div class="progress-container">
+            <ul style="text-align: center;">
+                <li>
+                    <a href="level2-1.html">1</a>
+                </li>
+                <li>
+                    <a href="level2-2.html">2</a>
+                </li>
+                <li>
+                    <a href="level2-3.html">3</a>
+                </li>
+                <li>
+                    <a href="level2-4.html">4</a>
+                </li>
+                <li>
+                    <a href="level2-5.html">5</a>
+                </li>
+                <li>
+                    <a href="level2-6.html">6</a>
+                </li>
+                <li>
+                    <a class="active" href="level2-7.html">7</a>
+                </li>
+                <li>
+                    <a href="level2-8.html">8</a>
+                </li>
+                <li>
+                    <a href="level2-9.html">9</a>
+                </li>
+                <li>
+                    <a href="level2-10.html">10</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid working-space">
+        <div class="row" style="padding: 10px;">
+            <div class="col-md-5">
+                <h4>7. Bėk, Valdai, bėk </h4></div>
+            <div class=" col-md-7" id="task"> Prezidentas Valdas Adamkus - išskirtinė asmenybė. Šioje užduotyje atrask ir sudėliok svarbius jo laimėjimus. Užduotį įveiksi teisingai panaudojęs visus blokelius ir perėjęs sukurto žaidimo lygį.
+                <a href="javascript:void(0)" onclick="changeVideo('ztSZyiXTzRY')">Užduoties video</a> </div>
+        </div>
+        <div class="row" style="padding: 10px">
+            <div class="col  ">
+                <div id="preview">
+                    <div id="rating">
+                    </div>
+                    <div class="clouds">
+                        <div class="l1">
+                            <div class="l2">
+                                <div class="avatar"></div>
+                                <div id="item" class="star"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-panel">
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <div class="hint-panel">
+                        <ul> Užuomina:
+                            <li>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Visus veikėjų ir žaidimo nustatymus atitinkamai sugrupuok." data-full="../hints/L2T7_H1.png">1</a>
+                            </li>
+                            <li>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Ar radai visus laimėjimus? Jų turi būti 8.">2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="padding: 0 ;">
+                <div id="blocklyDiv">
+                </div>
+                <xml id="toolbox" style="display: none">
+                    <category name="Žaidimas" colour="230">
+                        <block type="controls_if"></block>
+                        <block type="count"></block>
+                        <block type="end_game"></block>
+                        <block type="game"></block>
+                    </category>
+                    <category name="Veikėjai" colour="330">
+                        <!-- <block type="button_clicked"></block> -->
+                        <block type="jump"></block>
+                        <block type="run"></block>
+                        <block type="valdymas"></block>
+                        <block type="treasure"></block>
+                        <block type="treasure_speed"></block>
+                        <block type="select_treasure"></block>
+                    </category>
+                </xml>
+            </div>
+            <div class="col-md-3 col-lg-2" style="height: 70vh;">
+                <h5>Javascript kodas: </h5>
+                <pre id="content_javascript">
+                </pre>
+            </div>
+        </div>
+          <div class="row">
+            <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
+        </div>
+        <div class="video-modal">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/ztSZyiXTzRY " frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div>
+                                <h3>Laimėjai!</h3>
+                            </div>
+                            <div class="modal-buttons">
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
+                                <a href="level2-8.html" class="btn btn-secondary">Kita užduotis</a>
+                            </div>
+                        </div>
+                        <!--  <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/blockly_compressed.js"></script>
+    <script src="../js/javascript_compressed.js"></script>
+    <script src="../js/blocks_compressed.js"></script>
+    <script src="../msg/js/lt.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/adamkus.js"></script>
+    <script>
+    var workspace = Blockly.inject('blocklyDiv', {
+        toolbox: document.getElementById('toolbox'),
+        grid: {
+            spacing: 20,
+            length: 5,
+            colour: '#f2f2f2',
+            snap: true
+        },
+        trashcan: true
+    });
+
+    function toJavascript(event) {
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        document.getElementById('content_javascript').innerHTML = code;
+    }
+    workspace.addChangeListener(toJavascript);
+    </script>
+    <script type="text/javascript">
+    var $ken = $('.avatar');
+    var $star = $('.star');
+    var $kenPos;
+    var $starPos;
+    var countStars = 0;
+
+
+    function runCode() {
+
+        var treasureCollection = [];
+        var i = 0;
+        var index = 0;
+
+        $('#preview').off('mousedown');
+        $(window).off('keydown');
+        reset();
+        // Generate JavaScript code and run it.
+        window.LoopTrap = 1000;
+        Blockly.JavaScript.INFINITE_LOOP_TRAP =
+            'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        try {
+            if (code.length > 0) {
+                // console.log(code);
+                //console.log(treasureCollection);
+                eval(code);
+                if (treasureCollection.length > 0) {
+                    $(".star").css("background-image", "url(../img_lessons/adamkus/" + treasureCollection[0] + ".png)")
+
+                } else { alert('Trūksta laimėjimo'); }
+
+
+                function clickJump(action) {
+                    if (action == "screen") {
+                        $('#preview').on('mousedown', function(e) {
+                            if (e.type == 'mousedown') {
+                                addJumpClass();
+                                jump(index);
+                            }
+                        });
+
+                    } else {
+                        $(window).keydown(function(e) {
+                            if (e.keyCode == action) {
+                                addJumpClass();
+                                jump(index);
+                            }
+                        });
+
+
+                    }
+                }
+
+                function endGame(x) {
+                    if (countStars == x) { gameOver(); }
+                }
+
+                function gameOver() {
+                    // $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)');
+                    // $('.clouds').hide();
+                    setTimeout(function() { $('#preview').css('background-image', 'url(../img_lessons/adamkus/final.png)');
+                        $('.clouds').hide(); }, 500);
+                    setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
+                }
+
+
+                function isStarllColision() {
+                    //console.log($star.is(':visible'));
+                    if ($star.is(':visible')) {
+                        $starPos = $star.offset();
+                        $kenPos = $ken.offset();
+                        return $starPos.left > $kenPos.left + 20 && $starPos.left < $kenPos.left + 70 ? true : false;
+
+                    } else { return false; }
+                };
+
+                function animTreasure(t) {
+                    setTimeout(function() { $(t).hide(); }, 200);
+                    index += 1;
+                    if (treasureCollection[index]) {
+                        setTimeout(function() {
+                            $(t).css("background-image", "url(../img_lessons/adamkus/" + treasureCollection[index] + ".png)");
+                            $(t).show();
+                        }, 450);
+                    }
+                }
+
+                function addJumpClass() {
+                    $ken.addClass('jump');
+                    setTimeout(function() {
+                        $ken.removeClass('jump');
+                        //clearInterval(explodeIfColision);
+                    }, 500);
+                }
+
+                function run() {
+                    var vavatar = document.getElementsByClassName('avatar');
+                    vavatar[0].style.animationDuration = "0.5s";
+                }
+
+                function treasureSpeed(speed) {
+                    var st = document.getElementsByClassName('star');
+                    st[0].style.animationDuration = (speed / 10) + "s";
+                }
+
+                function treasureOn(x) {
+                    var st = document.getElementsByClassName('star');
+                    st[0].style.visibility = x;
+                }
+
+                function treasureCollect(treasure_name) {
+
+                    treasureCollection[i] = treasure_name;
+                    i += 1;
+                }
+
+            } else {
+                alert('Pridėk kodo blokelį.');
+            }
+
+        } catch (e) {
+            // alert(e);
+        }
+    }
+
+    function reset() {
+        var vavatar = document.getElementsByClassName('avatar');
+        vavatar[0].style.animationDuration = "0";
+        var st = document.getElementsByClassName('star');
+        st[0].style.animationDuration = "0";
+        $('.star').show();
+        st[0].style.visibility = "hidden";
+        countStars = 0;
+        $('#rating').empty();
+        $('.clouds').show();
+    }
+
+    // function jump() {
+    //     addJumpClass();
+    //     var explodeIfColision = setInterval(function() {
+    //         if (isStarllColision()) {
+    //             clearInterval(explodeIfColision);
+    //             $("<span>&#x2605;</span>").appendTo($('.rating'));
+    //             countStars += 1;
+
+    //             animTreasure('.star');
+    //         }
+    //         endGame(5);
+    //     }, 50);
+    // };
+    </script>
+</body>
+
+</html>
