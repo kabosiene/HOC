@@ -71,24 +71,24 @@
                 .appendField(new Blockly.FieldDropdown([
                     ["Adamkus", "adamkus"],
                     ["Basanavičius", "basanavicius"],
-                    ["Estija", "estija"],
-                    ["Latvija", "latvija"],
-                    ["Lietuva", "lietuva"],
-                    ["Euras", "euras"],
-                    ["Kasa", "kasa"],
+                    ["Estonia", "estija"],
+                    ["Latvia", "latvija"],
+                    ["Lithuania", "lietuva"],
+                    ["Euro", "euras"],
+                    ["Cash Register", "kasa"],
                     ["Litas", "litas"],
                     ["Lituanica", "lituanica"],
-                    ["Šakotis", "sakotis"],
+                    ["Šakotis cake", "sakotis"],
                     ["Mačiūnas 1", "maciunas1"],
                     ["Mačiūnas 2", "maciunas2"],
                     ["Mažylis", "mazylis"],
                     ["Meilutytė", "meilutyte"],
-                    ["Mergina", "mergina"],
-                    ["Palmės", "palmes"],
-                    ["Šokėjų pora 1", "sokejai1"],
-                    ["Šokėjų pora 2", "sokejai2"],
-                    ["Šokėjų pora 3", "sokejai3"],
-                    ["Šokėjų pora 4", "sokejai4"]
+                    ["Girl", "mergina"],
+                    ["Palms", "palmes"],
+                    ["Dancer couple 1", "sokejai1"],
+                    ["Dancer couple 2", "sokejai2"],
+                    ["Dancer couple 3", "sokejai3"],
+                    ["Dancer couple 4", "sokejai4"]
                 ]), "image")
                 .appendField("X: ")
                 .appendField(new Blockly.FieldNumber(0, 0, 480), "x")
@@ -114,8 +114,8 @@
     Blockly.Blocks['block_name'] = {
         init: function() {
             this.appendDummyInput()
-                .appendField("Fonas su tavo vardu: ")
-                .appendField(new Blockly.FieldTextInput("įrašyk vardą"), "kids_name");
+                .appendField("Background with your name: ")
+                .appendField(new Blockly.FieldTextInput("write your name"), "kids_name");
             this.setNextStatement(true, null);
             this.setColour(230);
             this.setTooltip("");

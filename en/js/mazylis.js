@@ -4,17 +4,17 @@ Blockly.Blocks['list_includes'] = {
     init: function() {
         this.appendValueInput("list_name")
             .setCheck("String")
-            .appendField("sąraše");
+            .appendField("in the list");
         this.appendValueInput("item_place")
             .setCheck(null)
-            .appendField("rasti")
+            .appendField("find")
             .appendField(new Blockly.FieldDropdown([
-                ["visus", "all"],
-                ["pirmą", "first"],
-                ["paskutinį", "last"]
+                ["all", "all"],
+                ["first", "first"],
+                ["last", "last"]
 
             ]), "item_placement")
-            .appendField("su data");
+            .appendField("with date");
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(260);
@@ -37,16 +37,16 @@ Blockly.Blocks['list_includes2'] = {
     init: function() {
         this.appendValueInput("list_name")
             .setCheck("String")
-            .appendField("sąraše");
+            .appendField("in the list");
         this.appendValueInput("item_place")
             .setCheck(null)
-            .appendField("rasti")
+            .appendField("find")
             .appendField(new Blockly.FieldDropdown([
-                ["pirmą", "first"],
-                ["paskutinį", "last"]
+                ["first", "first"],
+                ["last", "last"]
 
             ]), "item_placement")
-            .appendField("su data");
+            .appendField("width date");
         this.setInputsInline(true);
         this.setOutput(true, null);
         this.setColour(260);
@@ -69,11 +69,11 @@ Blockly.Blocks['set_v2'] = {
         this.appendValueInput("NAME")
             .setAlign(Blockly.ALIGN_CENTRE)
             .appendField(new Blockly.FieldDropdown([
-                ["dokumentai", "dokumentai"],
-                ["galutinis sąrašas", "last_list"],
-                ["sąrašas pagal datą", "sorted_list"],
-                ["pirma data", "first_v"],
-                ["paskutinė data", "last_v"]
+                ["documents", "dokumentai"],
+                ["final list", "last_list"],
+                ["list according to date", "sorted_list"],
+                ["first date", "first_v"],
+                ["last date", "last_v"]
             ]), "kintamieji_set")
             .appendField("=");
         this.setPreviousStatement(true, null);
@@ -98,7 +98,7 @@ Blockly.Blocks['spausdinti'] = {
     init: function() {
         this.appendValueInput("last_list_name")
             .setCheck("Array")
-            .appendField("rodyti sąrašą: ");
+            .appendField("show list: ");
         this.setPreviousStatement(true, null);
         this.setColour(160);
         this.setTooltip("");
@@ -116,11 +116,11 @@ Blockly.Blocks['v_dokumentai'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([
-                ["dokumentai", "dokumentai"],
-                ["galutinis sąrašas", "last_list"],
-                ["sąrašas pagal datą", "sorted_list"],
-                ["pirma data", "first_v"],
-                ["paskutinė data", "last_v"]
+                ["documents", "dokumentai"],
+                ["final list", "last_list"],
+                ["list according to date", "sorted_list"],
+                ["first date", "first_v"],
+                ["last date", "last_v"]
             ]), "kintamieji");
         this.setOutput(true, null);
         this.setColour(330);
@@ -143,9 +143,9 @@ Blockly.Blocks['set_v'] = {
             .setCheck("Array")
             .setAlign(Blockly.ALIGN_CENTRE)
             .appendField(new Blockly.FieldDropdown([
-                ["dokumentai", "dokumentai"],
-                ["galutinis sąrašas", "last_list"],
-                ["sąrašas pagal datą", "sorted_list"]
+                ["documents", "dokumentai"],
+                ["final list", "last_list"],
+                ["list according to date", "sorted_list"]
             ]), "kintamieji_set")
             .appendField("=");
         this.setPreviousStatement(true, null);
@@ -196,7 +196,7 @@ function spausdinti(list) {
 
        // ctx.strokeText("Dokumentas:" + list[i], 20, (i + 1) * 30);
 
-        document.getElementById('doclist').innerHTML += "<div class=text"+i+"> Dokumentas:" + list[i] + "<br></div>";
+        document.getElementById('doclist').innerHTML += "<div class=text"+i+"> Document:" + list[i] + "<br></div>";
     }
 
  // my_canvas.addEventListener('click', clickReporter, false);
