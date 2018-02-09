@@ -3,7 +3,7 @@ Blockly.Blocks['spalva'] = {
   init: function() {
     this.appendValueInput("spalva")
         .setCheck(null)
-        .appendField("Raidės spalva");
+        .appendField("Letter colour");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(20);
@@ -21,7 +21,7 @@ Blockly.JavaScript['spalva'] = function(block) {
  Blockly.Blocks['storis'] = {
   init: function() {
     this.appendValueInput("storis")
-        .appendField("Linijos storis")
+        .appendField("Line thickness")
         .setCheck(null)
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -42,7 +42,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Rėmelis")
+             .appendField("Frame")
          this.setInputsInline(false);
          this.setNextStatement(true, null);
          this.setColour(0);
@@ -63,7 +63,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė A")
+             .appendField("Letter A")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -87,7 +87,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė Ą")
+             .appendField("Letter Ą")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -110,7 +110,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė B")
+             .appendField("Letter B")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -133,7 +133,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė C")
+             .appendField("Letter C")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -156,7 +156,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė Č")
+             .appendField("Letter Č")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -179,7 +179,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė D")
+             .appendField("Letter D")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -203,7 +203,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė E")
+             .appendField("Letter E")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -227,7 +227,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė Ę")
+             .appendField("Letter Ę")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -251,7 +251,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė Ė")
+             .appendField("Letter Ė")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -276,7 +276,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė F")
+             .appendField("Letter F")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -300,7 +300,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė G")
+             .appendField("Letter G")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -324,7 +324,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė H")
+             .appendField("Letter H")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -348,7 +348,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė I")
+             .appendField("Letter I")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -371,7 +371,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė Į")
+             .appendField("Letter Į")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -393,7 +393,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė Y")
+             .appendField("Letter Y")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -415,7 +415,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė J")
+             .appendField("Letter J")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -437,7 +437,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė K")
+             .appendField("Letter K")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -459,7 +459,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė L")
+             .appendField("Letter L")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -481,7 +481,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė M")
+             .appendField("Letter M")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -504,7 +504,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė N")
+             .appendField("Letter N")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -526,7 +526,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė O")
+             .appendField("Letter O")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -548,7 +548,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė P")
+             .appendField("Letter P")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -571,7 +571,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė R")
+             .appendField("Letter R")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -595,7 +595,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė S")
+             .appendField("Letter S")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -618,7 +618,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė Š")
+             .appendField("Letter Š")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -641,7 +641,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė T")
+             .appendField("Letter T")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -663,7 +663,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          // this.appendDummyInput()
-         // .appendField("Raidė U")
+         // .appendField("Letter U")
          //     .appendField(new Blockly.FieldDropdown([
          //         ["x"],["20"],
          //     ]), "XPOS")
@@ -677,7 +677,7 @@ Blockly.JavaScript['storis'] = function(block) {
          // this.setTooltip("");
          // this.setHelpUrl("");
          this.appendDummyInput()
-             .appendField("Raidė U")
+             .appendField("Letter U")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -701,7 +701,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė Ū")
+             .appendField("Letter Ū")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -724,7 +724,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė Ų")
+             .appendField("Letter Ų")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -747,7 +747,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė V")
+             .appendField("Letter V")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -769,7 +769,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė Z")
+             .appendField("Letter Z")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);
@@ -791,7 +791,7 @@ Blockly.JavaScript['storis'] = function(block) {
      // draw a line from current position to x,y
      init: function() {
          this.appendDummyInput()
-             .appendField("Raidė Ž")
+             .appendField("Letter Ž")
          this.setInputsInline(false);
          this.setPreviousStatement(true, null);
          this.setNextStatement(true, null);

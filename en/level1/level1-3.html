@@ -13,7 +13,7 @@
 <body>
     <div class='customAlert'>
         <p class='message'></p>
-        <input type='button' class='confirmButton' value='Gerai'>
+        <input type='button' class='confirmButton' value='OK'>
     </div>
     <div class="container-fluid header-top">
         <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
@@ -55,9 +55,10 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>3. Jurgis Mačiūnas: daugiau nei FLUXUS</h4></div>
-            <div class=" col-md-7" id="task">Smalsu, kaip atrodytų grafinis simbolis, sukurtas iš tavo vardo ar pavardės raidžių? Sudėk visas savo vardo raides eilės tvarka ir keisk raidžių stilių. Kai atrasi tau patinkantį, simbolį išsaugok savo kompiuteryje paspaudęs mygtuką „Atsisiųsti“.
-                <a href="javascript:void(0)" onclick="changeVideo('S7ziegs3NGo')">Užduoties video</a> </div>
+                <h4>3. Jurgis Mačiūnas: More than FLUXUS</h4></div>
+            <div class=" col-md-7" id="task">Curious to see how your name would look as a graphic symbol? Combine all of your name and surname letters in a sequence and change the style of the letters. Once you find something you like, save the symbol on your computer by pressing the "Download" button.
+                <!-- <a href="javascript:void(0)" onclick="changeVideo('S7ziegs3NGo')">Task Video</a>  -->
+            </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
@@ -73,27 +74,27 @@
                     </canvas>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Play </button>
                     <div class="hint-panel">
-                        <ul> Užuomina:
+                        <ul> Hint:
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Ar sujungei visas raides?" data-full="../hints/L1T3_H1.png">1</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Did you connect all the letters?" data-full="../hints/L1T3_H1.png">1</a>
                             </li>
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='Linijos storis bei spalva gali būti tiksli, o gali būti ir netikėta, jei pasirinksi blokelį su žodžiu „atsitiktinis“. Šiuos blokelius gali naudoti prieš kiekvieną raidę.' data-full="../hints/L1T3_H2.png">2</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='The thickness of the line may be exact, or it can be unexpected if you choose the block marked as "random". These blocks can be used before every letter. ' data-full="../hints/L1T3_H2.png">2</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div>
-                    <button id="download" class="btn download-btn">Atsisiųsti</button>
+                    <button id="download" class="btn download-btn">Download</button>
                 </div>
             </div>
             <div class="col" style="padding: 0 ;">
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Abėcėlė" colour="260">
+                    <category name="Alphabet" colour="260">
                         <block type="raide_A">
                         </block>
                         <block type="raide_Ą">
@@ -159,7 +160,7 @@
                         <block type="raide_Ž">
                         </block>
                     </category>
-                    <category name="Raidžių stilius" colour="20">
+                    <category name="Letter style" colour="20">
                         <block type="spalva">
                         </block>
                         <block type="storis">
@@ -185,7 +186,7 @@
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
-                <h5>Javascript kodas: </h5>
+                <h5>Javascript code: </h5>
                 <pre id="content_javascript">
                 </pre>
             </div>
@@ -193,7 +194,7 @@
           <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-        <div class="video-modal">
+<!--         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -206,18 +207,18 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
                             <div>
-                                <h3>Puikiai!</h3>
+                                <h3>Perfect!</h3>
                             </div>
                             <div class="modal-buttons">
-                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
-                                <a href="level1-4.html" class="btn btn-secondary">Kita užduotis</a>
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Back to task</a>
+                                <a href="level1-4.html" class="btn btn-secondary">Next task</a>
                             </div>
                         </div>
                     </div>
@@ -234,7 +235,7 @@
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
-    <script src="../msg/js/lt.js"></script>
+    <script src="../msg/js/en.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/letters.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
@@ -315,7 +316,7 @@
                 animate();
                 eval(code);
             } else {
-                alert('Pridėk kodo blokelį.');
+                alert('Add code block.');
             }
 
         } catch (e) {

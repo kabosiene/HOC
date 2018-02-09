@@ -13,7 +13,7 @@
 <body>
         <div class='customAlert'>
         <p class='message'></p>
-        <input type='button' class='confirmButton' value='Gerai' onclick=" $('.person_lost').hide();">
+        <input type='button' class='confirmButton' value='OK' onclick=" $('.person_lost').hide();">
     </div>
     <div class="container-fluid header-top">
         <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
@@ -55,9 +55,10 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>5. Baltijos kelias: duokš, mielas drauge, ranką</h4></div>
-            <div class=" col-md-7" id="task">Keli žmonės pasimetė ir nežino, kur jiems atvykti. Programuojant tokius iššūkius lengvai išsprendžia sąlygos („jei ..., tai ...“). Pavyzdžiui, „jei pasuksi į kairę, tai pasieksi kelionės tikslą“. Sukurk tokias sąlygas, kad Baltijos kelyje neliktų nesusikibusių rankomis.
-                <a href="javascript:void(0)" onclick="changeVideo('qguvajOf5CE')">Užduoties video</a> </div>
+                <h4>5. The Baltic Way: Give Me Your Hand, My Friend</h4></div>
+            <div class=" col-md-7" id="task">A few people got lost and don't know where to go. When programming, such issues are easily solved by  using conditions ("if..., then..."). For example, "if you turn left, then you will reach your destination". Create the conditions to eliminate gaps between people. 
+                <!-- <a href="javascript:void(0)" onclick="changeVideo('qguvajOf5CE')">Task Video</a> -->
+                 </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col ">
@@ -71,11 +72,11 @@
                     <div class="person_lost"></div>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Play </button>
                     <div class="hint-panel">
-                        <ul> Užuomina:
+                        <ul> Hint:
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Žmonių Baltijos kelyje kairė pusė nebūtinai sutampa su tavo kaire puse. Įsivaizduok, jog stovi minioje ir esi vienas iš jų.">1</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="The left side of people in the Baltic way might not match your left side. Imagine yourself standing amongst them. ">1</a>
                             </li>
                 <!--             <li>
                                 <a href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="">2</a>
@@ -88,7 +89,7 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Sąlyga" colour="230">
+                    <category name="Condition" colour="230">
                         <block type="keisti">
                         </block>
                        <!--  <block type="add_person">
@@ -99,7 +100,7 @@
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
-                <h5>Javascript kodas: </h5>
+                <h5>Javascript code: </h5>
                 <pre id="content_javascript">
                 </pre>
             </div>
@@ -107,7 +108,7 @@
           <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-        <div class="video-modal">
+<!--         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -120,7 +121,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
@@ -131,8 +132,8 @@
                             
                             </div>
                             <div class="modal-buttons">
-                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
-                                <a href="level1-6.html" class="btn btn-secondary">Kita užduotis</a>
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Back to task</a>
+                                <a href="level1-6.html" class="btn btn-secondary">Next task</a>
                             </div>
                         </div>
                     </div>
@@ -151,7 +152,7 @@
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
-    <script src="../msg/js/lt.js"></script>
+    <script src="../msg/js/en.js"></script>
     <script src="../js/customBlocks.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/kelias.js"></script>
@@ -225,7 +226,7 @@
                 if (done.join('').split('').length == 3) { setTimeout(function() { $('#nextModal').modal('show'); }, 3000);}
                 
             } else {
-                alert('Pridėk kodo blokelį.');
+                alert('Add code block.');
             }
 
         } catch (e) {

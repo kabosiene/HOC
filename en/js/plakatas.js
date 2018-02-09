@@ -39,7 +39,7 @@
         pdf.addImage(imgData, 'JPEG', 20, 20);
          pdf.addImage(imgData2, 'JPEG', 20, 20);
 
-        pdf.save("plakatas.pdf");
+        pdf.save("poster.pdf");
     }, false);
 
     function runCode() {
@@ -55,7 +55,7 @@
             if (code.length > 0) {
                 eval(code);
             } else {
-                alert('Pridėk kodo blokelį.');
+                alert('Add code block.');
             }
 
         } catch (e) {
@@ -67,7 +67,7 @@
     Blockly.Blocks['select_image'] = {
         init: function() {
             this.appendDummyInput()
-                .appendField("Paveiksliukas")
+                .appendField("Image")
                 .appendField(new Blockly.FieldDropdown([
                     ["Adamkus", "adamkus"],
                     ["Basanavičius", "basanavicius"],

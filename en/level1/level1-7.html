@@ -13,7 +13,7 @@
 <body>
     <div class='customAlert'>
         <p class='message'></p>
-        <input type='button' class='confirmButton' value='Gerai'>
+        <input type='button' class='confirmButton' value='OK'>
     </div>
     <div class="container-fluid header-top">
         <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
@@ -55,9 +55,10 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>7. Bėk, Valdai, bėk</h4></div>
-            <div class=" col-md-7" id="task"> Prezidentas Valdas Adamkus - išskirtinė asmenybė. Šioje užduotyje atrask ir sudėliok svarbius jo laimėjimus. Užduotį įveiksi teisingai panaudojęs visus blokelius ir perėjęs sukurto žaidimo lygį.
-                <a href="javascript:void(0)" onclick="changeVideo('ztSZyiXTzRY')">Užduoties video</a> </div>
+                <h4>7. Run, Valdas, Run</h4></div>
+            <div class=" col-md-7" id="task"> President Valdas Adamkus is an extraordinary person. In this task you need to find and arrange his important achievements. The task will be done once you use all the blocks and pass the level of the game you created. 
+                <!-- <a href="javascript:void(0)" onclick="changeVideo('ztSZyiXTzRY')">Task Video</a> -->
+                 </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
@@ -74,14 +75,14 @@
                     </div>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Play </button>
                     <div class="hint-panel">
-                        <ul> Užuomina:
+                        <ul> Hint:
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Tam, kad pasiektų laimėjimus atvaizduojančius paveikslėlius, veikėjas turi pašokti.">1</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="In order to reach the represented pictures, the hero needs to jump.">1</a>
                             </li>
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Ar radai visus laimėjimus? Jų turi būti 8.">2</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Did you find all achievements? There are 8 of them. ">2</a>
                             </li>
                         </ul>
                     </div>
@@ -91,7 +92,7 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Žaidimas" colour="330">
+                    <category name="Game" colour="330">
                         <!-- <block type="controls_if"></block>
                         <block type="count"></block>
                         <block type="end_game"></block>
@@ -114,7 +115,7 @@
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
-                <h5>Javascript kodas: </h5>
+                <h5>Javascript code: </h5>
                 <pre id="content_javascript">
                 </pre>
             </div>
@@ -122,7 +123,7 @@
           <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-        <div class="video-modal">
+<!--         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -135,19 +136,19 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
                             <div>
-                                <h3>Laimėjai!</h3>
+                                <h3>You won!</h3>
                             
                             </div>
                             <div class="modal-buttons">
-                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
-                                <a href="level1-8.html" class="btn btn-secondary">Kita užduotis</a>
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Back to task</a>
+                                <a href="level1-8.html" class="btn btn-secondary">Next task</a>
                             </div>
                         </div>
                     </div>
@@ -163,7 +164,7 @@
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
-    <script src="../msg/js/lt.js"></script>
+    <script src="../msg/js/en.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/adamkus.js"></script>
     <script>
@@ -215,7 +216,7 @@
                 if (treasureCollection.length > 0) {
                     $(".star").css("background-image", "url(../img_lessons/adamkus/" + treasureCollection[0] + ".png)")
 
-                } else { alert('Trūksta laimėjimo'); }
+                } else { alert('Achievement is missing'); }
 
 
                 function clickJump(action) {
@@ -290,9 +291,9 @@
                     if (isStarllColision()) { 
                         clearInterval(explodeIfColision); 
                         if (treasureCollection[index] == 'not1' || treasureCollection[index] == 'not2' || treasureCollection[index] == 'not3' || treasureCollection[index] == 'not4') { 
-                            alert('Laimėjimas neteisingas. Pakeisk ir pabandyk dar kartą.') 
+                            alert('Wrong achievement. Change it and try again.') 
                     } else { 
-                        countStars += 1; document.getElementById('rating').innerHTML = 'Surinkta: ' + countStars; 
+                        countStars += 1; document.getElementById('rating').innerHTML = 'Collected: ' + countStars; 
                     } 
                     animTreasure('.star'); }
                          setTimeout(function() {$ken.removeClass('jump');clearInterval(explodeIfColision);}, 500);
@@ -303,7 +304,7 @@
                      };
 
             } else {
-                alert('Pridėk kodo blokelį.');
+                alert('Add code block.');
             }
 
         } catch (e) {

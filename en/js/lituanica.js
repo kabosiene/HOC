@@ -4,7 +4,7 @@ Blockly.Blocks['fly_left'] = {
   init: function() {
     this.appendValueInput("fly")
         .setCheck(null)
-        .appendField("Skristi į kairę");
+        .appendField("Fly up");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);
@@ -25,7 +25,7 @@ Blockly.Blocks['fly_right'] = {
   init: function() {
     this.appendValueInput("fly")
         .setCheck(null)
-        .appendField("Skristi į dešinę");
+        .appendField("Fly down");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);
@@ -46,7 +46,7 @@ Blockly.Blocks['fly_straight'] = {
   init: function() {
     this.appendValueInput("fly")
         .setCheck(null)
-        .appendField("Skristi tiesiai");
+        .appendField("Fly straight");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);
@@ -70,7 +70,7 @@ Blockly.Blocks['blocks'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldNumber(0, 0, 7), "block")
-        .appendField("langelius ");
+        .appendField("squares ");
     this.setOutput(true, null);
     this.setColour(330);
  this.setTooltip("");
@@ -89,7 +89,7 @@ Blockly.JavaScript['blocks'] = function(block) {
 Blockly.Blocks['wait_seconds'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("laukti")
+            .appendField("wait")
             .appendField(new Blockly.FieldTextInput("1"), "SECONDS")
             .appendField("s.");
         this.setPreviousStatement(true);
@@ -141,11 +141,11 @@ Blockly.Blocks['fly_points'] = {
         this.appendValueInput("points_x_y")
             .setCheck(null)
             .appendField(new Blockly.FieldDropdown([
-                ["skristi į", "default_point"],
-                ["Niufaundlandas", "first_point"],
-                ["Škotija", "second_point"],
-                ["Lenkija", "third_point"],
-                ["Lietuva", "fourth_point"]
+                ["fly to", "default_point"],
+                ["Newfoundland", "first_point"],
+                ["Scotland", "second_point"],
+                ["Poland", "third_point"],
+                ["Lithuania", "fourth_point"]
             ]), "d_points");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -205,7 +205,7 @@ function checkPoint(x, y) {
             setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
         } else if ((x == 400 && y == 90)||(x == 400 && y == 110)  ) {
             
-            setTimeout(function() { alert("Ne visi taškai aplankyti!"); }, 500);
+            setTimeout(function() { alert("Not all points are visited!"); }, 500);
         }
     } else if (100 >= x && x >= 80 && 140 >= y && y >= 120) {
         background.clearRect(0, 0, canvas.width, canvas.height);
@@ -213,7 +213,7 @@ function checkPoint(x, y) {
         drawGrid();
         background.strokeStyle = 'black';
         background.font = "12px Arial";
-        background.strokeText("Niufaundlandas", 140, 135);
+        background.strokeText("Newfoundland", 140, 135);
         points[0] = 1;
     } else if (290 >= x && x >= 270 && 100 >= y && y >= 88) {
         background.clearRect(0, 0, canvas.width, canvas.height);
@@ -221,7 +221,7 @@ function checkPoint(x, y) {
         drawGrid();
         background.strokeStyle = 'black';
         background.font = "12px Verdana";
-        background.strokeText("Škotija", 320, 90);
+        background.strokeText("Scotland", 320, 90);
         points[1] = 1;
     } else if (370 >= x && x >= 350 && 130 >= y && y >= 100) {
         background.clearRect(0, 0, canvas.width, canvas.height);
@@ -229,7 +229,7 @@ function checkPoint(x, y) {
         drawGrid();
         background.strokeStyle = 'black';
         background.font = "12px Verdana";
-        background.strokeText("Lenkija", 410, 170);
+        background.strokeText("Poland", 410, 170);
         points[2] = 1;
     }
 

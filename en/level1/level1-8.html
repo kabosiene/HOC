@@ -13,7 +13,7 @@
 <body>
     <div class='customAlert'>
         <p class='message'></p>
-        <input type='button' class='confirmButton' value='Gerai'>
+        <input type='button' class='confirmButton' value='OK'>
     </div>
     <div class="container-fluid header-top">
         <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
@@ -55,9 +55,11 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>8. Griebk šakotį, kol jaunas</h4></div>
-            <div class=" col-md-7" id="task">Užsidirbk eurų, paversk juos litais ir nusipirk šakotį. Programoje nurodyk, kad eurai gaunami <b>nuspaudus euro monetą</b>, o paverčiami litais (konvertuojami) <b>nuspaudus lito banknotą</b>. Surinkęs reikiamą pinigų sumą, spausk mygtuką „Pirkti“ ir skanauk!
-                <a href="javascript:void(0)" onclick="changeVideo('3GHeJUeor5A')">Užduoties video</a> </div>
+                <h4>8. It's the Early Bird That Catches the Šakotis cake</h4></div>
+            <div class=" col-md-7" id="task">
+                Earn some Euros, convert them into Litas and buy a cake. While programming, specify that Euros are received after <b>clicking on the Euro coin</b> and converted into Litas by <b>clicking on the Litas note</b>. After collecting the right amount, click the "Purchase" button and taste!
+                <!-- <a href="javascript:void(0)" onclick="changeVideo('3GHeJUeor5A')">Task Video</a>  -->
+            </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
@@ -67,14 +69,14 @@
                     </canvas>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Play </button>
                     <div class="hint-panel">
-                        <ul> Užuomina:
+                        <ul> Hint:
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Ar surinkai pakankamai eurų? Šakotis kainuoja 30 LT, taigi sąskaitoje turi būti daugiau nei 9 eurai.">1</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Did you collect enough Euros? The cake costs 30 LT, so you must have more than 9 Euros in your account.">1</a>
                             </li>
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Valiutos konvertuojamos nuspaudus litą, tačiau tai dar reikia suprogramuoti." data-full="../hints/L1T8_H2.png">2</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="The currency is exchanged by clicking on the Litas note, but this needs to be programmed first." data-full="../hints/L1T8_H2.png">2</a>
                                 <!-- https://drive.google.com/file/d/1UcgKGJuLAjtPwJZwZCzFg4zV9UmzJkFI/view -->
                             </li>
                         </ul>
@@ -85,7 +87,7 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Valiutos" colour="230">
+                    <category name="Currency" colour="230">
                         <block type="paspausta"></block>
                         <!-- <block type="set"></block> -->
                         <block type="change"></block>
@@ -95,7 +97,7 @@
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
-                <h5>Javascript kodas: </h5>
+                <h5>Javascript code: </h5>
                 <pre id="content_javascript">
                 </pre>
             </div>
@@ -103,7 +105,7 @@
           <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-        <div class="video-modal">
+<!--         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -116,7 +118,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
@@ -126,8 +128,8 @@
                                 <h3>Šakotį turim!</h3>
                             </div>
                             <div class="modal-buttons">
-                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
-                                <a href="level1-9.html" class="btn btn-secondary">Kita užduotis</a>
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Back to task</a>
+                                <a href="level1-9.html" class="btn btn-secondary">Next task</a>
                             </div>
                         </div>
                     </div>
@@ -143,7 +145,7 @@
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
-    <script src="../msg/js/lt.js"></script>
+    <script src="../msg/js/en.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/litai.js"></script>
     <script>
@@ -183,7 +185,7 @@
             if (code.length > 0) {
                 eval(code);
             } else {
-                alert('Pridėk kodo blokelį.');
+                alert('Add code block.');
             }
 
         } catch (e) {

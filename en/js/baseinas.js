@@ -2,8 +2,8 @@ Blockly.Blocks['krastas'] = {
     init: function() {
 
         this.appendDummyInput()
-            .appendField('baseino kraštas');
-        this.setTooltip('Blokelis prideda baseino kraštą, kad turėtume starto, apsisukimo ir finišo vietą.');
+            .appendField('pool edge');
+        this.setTooltip('');
         this.setOutput(true, null);
         this.setColour(230);
         this.setTooltip("");
@@ -40,8 +40,8 @@ Blockly.Blocks['apsisuk'] = {
     init: function() {
         this.setColour(230);
         this.appendDummyInput()
-            .appendField('apsukti plaukikę');
-        this.setTooltip('Blokelis prideda kintamąjį, nurodantį apsisukti.');
+            .appendField('turn the swimmer around');
+        this.setTooltip('');
         this.setNextStatement(true);
         this.setPreviousStatement(true);
     }
@@ -57,10 +57,10 @@ Blockly.JavaScript['apsisuk'] = function(block) {
 Blockly.Blocks['keisti'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("judesys: ")
+            .appendField("movement: ")
             .appendField(new Blockly.FieldDropdown([
-                ["panerti", "add_costume_swim"],
-                ["iškilti", "add_costume_swim2"]
+                ["dive in", "add_costume_swim"],
+                ["dive out", "add_costume_swim2"]
             ]), "kostiumas");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -81,7 +81,7 @@ Blockly.JavaScript['keisti'] = function(block) {
 Blockly.Blocks['set'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("laukti")
+            .appendField("wait")
             .appendField("= ")
             .appendField(new Blockly.FieldNumber(0, 0), "NUMBER")
             .appendField("s");
@@ -104,11 +104,11 @@ Blockly.Blocks['keisti_greiti'] = {
     init: function() {
         this.appendValueInput("padidink")
             .setCheck("Number")
-            .appendField("padidinti greitį");
+            .appendField("increase speed");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip("Pakeičia plaukimo greitį");
+        this.setTooltip("");
         this.setHelpUrl("");
     }
 };
@@ -125,7 +125,7 @@ Blockly.JavaScript['keisti_greiti'] = function(block) {
 Blockly.Blocks['on_click'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("paspausta ant ekrano");
+            .appendField("clicked on screen");
         this.setOutput(true, null);
         this.setColour(230);
         this.setTooltip("");
@@ -186,7 +186,7 @@ Blockly.JavaScript['function_call'] = function(block) {
 Blockly.Blocks['plaukti'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("plaukti");
+            .appendField("swim");
         this.setColour(230);
         this.setTooltip('Blokelis prideda kintamąjį, nurodantį plaukti.');
         this.setNextStatement(true);

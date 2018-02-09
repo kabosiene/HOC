@@ -28,7 +28,7 @@
 <body>
     <div class='customAlert'>
         <p class='message'></p>
-        <input type='button' class='confirmButton' value='Gerai'>
+        <input type='button' class='confirmButton' value='OK'>
     </div>
     <div class="container-fluid header-top">
         <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
@@ -70,14 +70,15 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>9. Liudas Mažylis: adata Berlyno kupetoje</h4></div>
-            <div class=" col-md-7" id="task">Vasario 16-osios nutarimo originalas pasimetė archyve, jį būtina atrasti. Archyve tau pateikė tik nerišlų tekstą su įvairių dokumentų pavadinimais.
+                <h4>9. Liudas Mažylis: A Needle in the Berlin Haystack</h4></div>
+            <div class=" col-md-7" id="task">The original of the February 16th resolution has been lost in the archive - it must be found. In the archive you received a jumbled text with various document names. 
                 <ul>
-                    <li> 1) Tekstą paversk sąrašu;</li>
-                    <li> 2) Jame rask visus dokumentus su 1918 m. data;</li>
-                    <li> 3) Parodyk sąrašą ekrane ir nuspausk ant teisingo dokumento pavadinimo.</li>
+                    <li> 1) Assemble the text into a list;</li>
+                    <li> 2) Find all documents with the 1918 date;</li>
+                    <li> 3) Show the list on screen and click on the right document name.</li>
                 </ul>
-                <a href="javascript:void(0)" onclick="changeVideo('F-gF4n5ZN7M')">Užduoties video</a> </div>
+               <!--  <a href="javascript:void(0)" onclick="changeVideo('F-gF4n5ZN7M')">Task Video</a>  -->
+            </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
@@ -92,19 +93,19 @@
                     </div>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Play </button>
                     <div class="hint-panel">
-                        <ul> Užuomina:
+                        <ul> Hint:
                             <li>
-                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='Tai visų dokumentų pavadinimai, kurie turi pavirsti tvarkingu sąrašu. Atkreipk dėmesį, koks skyrybos ženklas skiria vieno dokumento pavadinimą nuo kito - jis ir yra skirtukas.' data-full="../hints/L1T9_H1.png">1</a>
+                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='You can see all of the document names that need to be put into a tidy list. Notice that punctuation marks are the ones separating the document names.' data-full="../hints/L1T9_H1.png">1</a>
                                 <!-- https://drive.google.com/file/d/1Ujv6vNnknaK__rEgzy4afQlTds_trzOR/view -->
                             </li>
                             <li>
-                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Kintamasis - tai lyg dėžutė su pavadinimu, kurioje galime saugoti tekstą arba skaičius. Sąrašą ir dokumentų pavadinimus saugok kintamajame „dokumentai“. Šitaip būsime tikri, kad nieko nepametėme." data-full="../hints/L1T9_H2.png">2</a>
+                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='The variable is like a labeled box where you can keep your text and numbers. Hold your list and document names in the variable named "documents" - this will ensure you have not lost anything.' data-full="../hints/L1T9_H2.png">2</a>
                                 <!-- https://drive.google.com/file/d/1kBehVLz2FRqPzjQpRrwoh-oqidktSkgr/view -->
                             </li>
                             <li>
-                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Atrinktą dokumentų sąrašą būtina parodyti ekrane ir spustelėti ant ieškoto dokumento pavadinimo. Jį atrasti padės dokumento data." data-full="../hints/L1T9_H3.png">3</a>
+                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="You must show the sorted document list and click on the name of the document you are searching for. The date of the document will help you find it. " data-full="../hints/L1T9_H3.png">3</a>
                                 <!--https://drive.google.com/file/d/1ha81G6vuncZo1qwePjCHZcmGGS5MPruO/view -->
                             </li>
                         </ul>
@@ -115,7 +116,7 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Tekstas" colour="160">
+                    <category name="Text" colour="160">
                         <block type="text">
                         </block>
                         <block type="text">
@@ -123,7 +124,7 @@
                         </block>
                         <block type="spausdinti"></block>
                     </category>
-                    <category name="Sąrašai" colour="260">
+                    <category name="Lists" colour="260">
                         <block type="list_includes"></block>
                         <block type="lists_split">
                             <value name="DELIM">
@@ -134,14 +135,14 @@
                         </block>
                         <!-- <block type="lists_sort"></block> -->
                     </category>
-                    <category name="Kintamieji" colour="330">
+                    <category name="Variables" colour="330">
                         <block type="v_dokumentai"></block>
                         <block type="set_v"></block>
                     </category>
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
-                <h5>Javascript kodas: </h5>
+                <h5>Javascript code: </h5>
                 <pre id="content_javascript">
 				</pre>
             </div>
@@ -149,7 +150,7 @@
         <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-        <div class="video-modal">
+<!--         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -162,7 +163,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
@@ -172,8 +173,8 @@
                                 <h3>Atsirado!</h3>
                             </div>
                             <div class="modal-buttons">
-                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
-                                <a href="level1-10.html" class="btn btn-secondary">Kita užduotis</a>
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Back to task</a>
+                                <a href="level1-10.html" class="btn btn-secondary">Next task</a>
                             </div>
                         </div>
                     </div>
@@ -189,7 +190,7 @@
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
-    <script src="../msg/js/lt.js"></script>
+    <script src="../msg/js/en.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/mazylis.js"></script>
     <script type="text/javascript">
@@ -229,7 +230,7 @@
             if (code.length > 0) {
                 eval(code);
             } else {
-                alert('Pridėk kodo blokelį.');
+                alert('Add code block.');
             }
 
         } catch (e) {

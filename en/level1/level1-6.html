@@ -13,7 +13,7 @@
 <body>
     <div class='customAlert'>
         <p class='message'></p>
-        <input type='button' class='confirmButton' value='Gerai'>
+        <input type='button' class='confirmButton' value='OK'>
     </div>
     <div class="container-fluid header-top">
         <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
@@ -55,9 +55,10 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>6. Rūta Meilutytė: olimpinės purslynės</h4></div>
-            <div class=" col-md-7" id="task">Padėkime Rūtai pakartoti jos olimpinį rekordą! Padaryk taip, jog plaukikės greitį galėtum padidinti paspaudęs ant ekrano, o pasiekus jo kraštą - apsuk.
-                <a href="javascript:void(0)" onclick="changeVideo('9j-wTK2C-Sc')">Užduoties video</a> </div>
+                <h4>6. Rūta Meilutytė: Olympic Splashes</h4></div>
+            <div class=" col-md-7" id="task">Help Rūta repeat her Olympic record! Make her swim faster by clicking on screen, and turn her around once she reaches the edge of the pool. 
+               <!--  <a href="javascript:void(0)" onclick="changeVideo('9j-wTK2C-Sc')">Task Video</a>  -->
+            </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
@@ -75,14 +76,14 @@
                     </div>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Play </button>
                     <div class="hint-panel">
-                        <ul> Užuomina:
+                        <ul> Hint:
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Nepamiršk blokelio „plaukti“. Nebent sieki plaukimo vietoje rekordo.">1</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='Do not forget the "swim" block, unless you are trying to achieve the record in swimming in place!'>1</a>
                             </li>
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Gal nepakankamai padidinai greitį? Pabandyk" data-full="../hints/L1T6_H2.png">2</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Maybe you did not increase her speed enough? Try it." data-full="../hints/L1T6_H2.png">2</a>
                                 <!-- https://drive.google.com/file/d/1nMCGU0szwlWSmwotpq3YLp3Ph-nLw6ed/view -->
                             </li>
                         </ul>
@@ -109,7 +110,7 @@
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
-                <h5>Javascript kodas: </h5>
+                <h5>Javascript code: </h5>
                 <pre id="content_javascript">
                 </pre>
             </div>
@@ -117,7 +118,7 @@
           <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-        <div class="video-modal">
+<!--         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -130,7 +131,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
@@ -141,8 +142,8 @@
                                 
                             </div>
                             <div class="modal-buttons">
-                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
-                                <a href="level1-7.html" class="btn btn-secondary">Kita užduotis</a>
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Back to task</a>
+                                <a href="level1-7.html" class="btn btn-secondary">Next task</a>
                             </div>
                         </div>
                     </div>
@@ -158,7 +159,7 @@
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
-    <script src="../msg/js/lt.js"></script>
+    <script src="../msg/js/en.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/baseinas.js"></script>
     <script>
@@ -253,11 +254,11 @@
                     animateSwimmer();
                 } else {
                     document.getElementById("test1").style.visibility = "hidden";
-                    alert("Ar plaukikui plaukti?");
+                    alert("Should the swimmer start to swim?");
                 }
 
             } else {
-                alert('Pridėk kodo blokelį.');
+                alert('Add code block.');
             }
 
         } catch (e) {
@@ -278,7 +279,7 @@
             if (edge && turn) {
                 animateSwimmerBack();
             } else {
-                alert("Baseino kraštas? Apsisuk");
+                alert("Edge of the pool? Turn around");
             }
 
         }
@@ -309,7 +310,7 @@
                 return;
             } else {
                 ctx.font = "14px Arial";
-                ctx.fillText("Bandyk dar!", 200, 126);
+                ctx.fillText("Try again!", 200, 126);
                 return;
             }
 

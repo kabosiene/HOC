@@ -8,19 +8,19 @@ var done = [];
 Blockly.Blocks['keisti'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Jei ")
+            .appendField("If ")
             .appendField(new Blockly.FieldDropdown([
-                ["pasirinkti", "Option"],
-                ["berniukas", "berniukas"],
-                ["vyriškis", "vyriskis"],
-                ["mergina", "mergina"]
+                ["choose", "Option"],
+                ["boy", "berniukas"],
+                ["man", "vyriskis"],
+                ["girl", "mergina"]
             ]), "people")
-            .appendField("su")
+            .appendField("with")
             .appendField(new Blockly.FieldDropdown([
-                ["pasirinkti", "Option"],
-                ["vėliava", "veliava"],
-                ["žydra kepure", "kepure"],
-                ["akiniais", "akiniai"]
+                ["choose", "Option"],
+                ["flag", "veliava"],
+                ["blue hat", "kepure"],
+                ["glasses", "akiniai"]
             ]), "color");
         this.appendStatementInput("IF")
             .setCheck(null);
@@ -43,7 +43,7 @@ Blockly.JavaScript['keisti'] = function(block) {
 Blockly.Blocks['add_person'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Pridėti vieną žmogų");
+            .appendField("Add a person");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
@@ -60,10 +60,10 @@ Blockly.JavaScript['add_person'] = function(block) {
 Blockly.Blocks['add_person_side'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Pridėti žmogų iš")
+            .appendField("Add a person from the ")
             .appendField(new Blockly.FieldDropdown([
-                ["kairės", "right"],
-                ["dešinės", "left"]
+                ["left", "right"],
+                ["right", "left"]
             ]), "side");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -82,17 +82,17 @@ Blockly.JavaScript['add_person_side'] = function(block) {
 Blockly.Blocks['keisti2'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Jei ")
+            .appendField("If ")
             .appendField(new Blockly.FieldDropdown([
-                ["pasirinkti", "Option"],
-                ["berniukas", "berniukas"],
-                ["mergina", "mergina"]
+                ["choose", "Option"],
+                ["boy", "berniukas"],
+                ["girl", "mergina"]
             ]), "people")
-            .appendField("su")
+            .appendField("with")
             .appendField(new Blockly.FieldDropdown([
-                ["pasirinkti", "Option"],
-                ["vėliava", "veliava"],
-                ["žydra kepure", "kepure"]
+                ["choose", "Option"],
+                ["flag", "veliava"],
+                ["blue hat", "kepure"]
             ]), "color");
         this.appendStatementInput("IF")
             .setCheck(null);
@@ -174,7 +174,7 @@ function animatePerson(x, side) {
     if (x == "kepure") {
         // $('.person').show().css({ "animation-name": "animatedPerson" }); 
         if (side == "left") {
-            alert('Netinkama berniuko pusė');
+            alert('Wrong side of the boy');
             $('.person_lost').show();
             // var left = $('.person').offset().left;
             // $('.person').show().css({ left: left }).animate({ left: "189px" }, "slow");
@@ -187,7 +187,7 @@ function animatePerson(x, side) {
     } else if (x == "veliava") {
         // $('.person2').show().css({ "animation-name": "animatedPerson2" }); 
         if (side == "left") {
-             alert('Netinkama merginos pusė');
+             alert('Wrong side of the girl');
               $('.person_lost').show();
             // var left = $('.person2').offset().left;
             // $('.person2').show().css({ left: left }).animate({ left: "107px" }, "slow");
@@ -204,7 +204,7 @@ function animatePerson(x, side) {
             var left = $('.person3').offset().left;
             $('.person3').show().css({ left: left }).animate({ left: "258px" }, "slow");
         } else {
-             alert('Netinkama vyro pusė');
+             alert('Wrong side of the man');
               $('.person_lost').show();
             // var right = $('.person3').offset().right;
             // $('.person3').show().css({ right: right }).animate({ right: "190px" }, "slow");
@@ -221,6 +221,6 @@ function animatePerson2(x, i) {
 }
 
 function lost() {
-    alert("Nėra tokio žmogaus");
+    alert("Person not found");
      $('.person_lost').show();
 }

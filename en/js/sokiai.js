@@ -78,13 +78,13 @@ function runCode() {
                         stopAnim();
                         stopDance();
                         musicStop();
-                        alert("Panaudok 4 skirtingus šokio judesius");}
+                        alert("Use 4 different dance moves");}
                 }
             }
             nextStep();
 
         } else {
-            alert('Pridėk kodo blokelį.');
+            alert('Add code block.');
         }
 
     } catch (e) {
@@ -209,11 +209,11 @@ Blockly.Blocks['anim_speed'] = {
     init: function() {
         this.appendValueInput("ANIM_SPEED")
             .setCheck(null)
-            .appendField("judesių greitis (s) = ");
+            .appendField("movement speed (s) = ");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip("Šokio judesių greitis");
+        this.setTooltip("");
         this.setHelpUrl("");
     }
 };
@@ -228,7 +228,7 @@ Blockly.JavaScript['anim_speed'] = function(block) {
 Blockly.Blocks['wait_seconds'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("atlikti veiksmą")
+            .appendField("carry on for")
             .appendField(new Blockly.FieldTextInput("1"), "SECONDS")
             .appendField("s");
         this.setPreviousStatement(true);
@@ -253,7 +253,7 @@ Blockly.JavaScript['wait_seconds'] = function(block) {
 Blockly.Blocks['musicplay'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("groti muziką");
+            .appendField("play music");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
@@ -269,7 +269,7 @@ Blockly.JavaScript['musicplay'] = function(block) {
 Blockly.Blocks['dance'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("judesys")
+            .appendField("move")
             .appendField(new Blockly.FieldDropdown([
                 ["1", "1"],
                 ["2", "2"],
@@ -295,8 +295,8 @@ Blockly.Blocks['rotate'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([
-                ["suktis ratu", "spin"],
-                ["šokti vietoje", "stop"]
+                ["spin", "spin"],
+                ["dance in place", "stop"]
             ]), "sukimasis");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);

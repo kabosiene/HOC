@@ -14,9 +14,9 @@ win.src = "../img_lessons/valiutos/win.jpg";
 Blockly.Blocks['paspausta'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("paspaustas")
+            .appendField("clicked")
             .appendField(new Blockly.FieldDropdown([
-                ["euras", "EURO"],
+                ["euro", "EURO"],
                 ["litas", "LITAS"]
             ]), "NAME");
         this.setOutput(true, null);
@@ -48,11 +48,10 @@ Blockly.JavaScript['paspausta'] = function(block) {
 Blockly.Blocks['change'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("prie")
+            .appendField("add to")
             .appendField(new Blockly.FieldDropdown([
-                ["eurai", "euras"]
+                ["euro", "euras"]
             ]), "NAME")
-            .appendField("pridėk")
             .appendField(new Blockly.FieldNumber(0), "NUMBER");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -72,7 +71,7 @@ Blockly.Blocks['set'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([
-                ["eurai", "euras"]
+                ["euro", "euras"]
             ]), "NAME")
             .appendField("=")
             .appendField(new Blockly.FieldNumber(0, 0), "NUMBER");
@@ -97,10 +96,10 @@ Blockly.Blocks['ifas'] = {
     init: function() {
         this.appendValueInput("if_reiksme")
             .setCheck(Boolean)
-            .appendField("Jei");
+            .appendField("If");
         this.appendStatementInput("do_reiksme")
             .setCheck(null)
-            .appendField("daryti");
+            .appendField("do");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(210);
@@ -120,11 +119,11 @@ Blockly.JavaScript['ifas'] = function(block) {
 Blockly.Blocks['convert'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("konvertuoti");
+            .appendField("convert");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
-        this.setTooltip("Konvertuoja eurus į litus. ");
+        this.setTooltip("");
         this.setHelpUrl("");
     }
 };
@@ -233,7 +232,7 @@ function clickReporterPirkti(e) { /// assign event to some variable
             litas = 0;
             euras = 0;
             draw_elements();
-            ctx.strokeText("TRŪKSTA", 200, 300);
+            ctx.strokeText("NOT ENOUGH", 200, 300);
         }
     }
 }

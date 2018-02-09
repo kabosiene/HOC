@@ -2,7 +2,7 @@ Blockly.Blocks['game'] = {
     init: function() {
         this.appendStatementInput("NAME")
             .setCheck(null)
-            .appendField("Žaidimo nustatymai:");
+            .appendField("Game settings:");
         this.setColour(230);
         this.setTooltip("");
         this.setHelpUrl("");
@@ -19,7 +19,7 @@ Blockly.JavaScript['game'] = function(block) {
 Blockly.Blocks['count'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("surinkti taškai = ")
+            .appendField("points = ")
             .appendField(new Blockly.FieldNumber(0), "NAME");
         this.setOutput(true, null);
         this.setColour(230);
@@ -31,7 +31,7 @@ Blockly.Blocks['count'] = {
 Blockly.Blocks['end_game'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("baigti žaidimą");
+            .appendField("end game");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
@@ -43,10 +43,10 @@ Blockly.Blocks['end_game'] = {
 Blockly.Blocks['button_clicked'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("paspaustas")
+            .appendField("clicked")
             .appendField(new Blockly.FieldDropdown([
-                ["rodyklė į viršų", "38"],
-                ["ekranas", "screen"]
+                ["arrow up", "38"],
+                ["screen", "screen"]
             ]), "button");
         this.setOutput(true, null);
         this.setColour(330);
@@ -68,10 +68,11 @@ Blockly.Blocks['button_clicked'] = {
 Blockly.Blocks['jump'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("pašokti, kai paspaustas")
+        .appendField("jump, when")
         .appendField(new Blockly.FieldDropdown([
-            ["ekranas","screen"],
-          ["rodyklė į viršų",38]]), "buttons");
+            ["screen","screen"],
+          ["arrow up",38]]), "buttons")
+        .appendField("clicked");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);
@@ -82,7 +83,7 @@ Blockly.Blocks['jump'] = {
 Blockly.Blocks['run'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("bėgti");
+            .appendField("run");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
@@ -93,8 +94,8 @@ Blockly.Blocks['run'] = {
 Blockly.Blocks['treasure'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("laimėjimą")
-        .appendField(new Blockly.FieldDropdown([["rodyti","visible"], ["slėpti","hidden"]]), "visibility");
+        .appendField("achievement")
+        .appendField(new Blockly.FieldDropdown([["show","visible"], ["hide","hidden"]]), "visibility");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);
@@ -106,7 +107,7 @@ Blockly.Blocks['treasure'] = {
 Blockly.Blocks['treasure_speed'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("laimėjimo skriejimo greitis")
+        .appendField("achievement flying speed")
         .appendField(new Blockly.FieldNumber(0, 0, 19), "NAME");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -195,8 +196,13 @@ Blockly.JavaScript['run'] = function(block) {
 Blockly.Blocks['select_treasure'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("laimėjimas:")
-        .appendField(new Blockly.FieldDropdown([[" 1960 m. statybų inžinieriaus diplomas","1"], ["Aktyvus Amerikos lietuvių bendruomenės narys","2"], ["1988 m. Tarptautinis gamtosauginis apdovanojimas","3"], ["100 m plaukimo nacionalinis rekordininkas","not1"], ["1998-2003 m. Lietuvos Prezidentas","4"], ["Menininkas, Fluxus pradininkas","not2"], ["2004-2009 m. Lietuvos Prezidentas","5"], ["100 m bėgimo nacionalinis rekordininkas","6"], ["2014-2019 m. Lietuvos Prezidentas","not3"], ["Derybos dėl Lietuvos narystės NATO","7"], ["Derybos dėl Lietuvos narystės ES","8"], ["1918 m. Lietuvos Nepriklausomybės akto signataras","not4"]]), "treasure_name");
+        .appendField("achievement:")
+        .appendField(new Blockly.FieldDropdown([[" Construction Engineer Diploma, 1960","1"], ["Active member of American-Lithuanian Community","2"], 
+            ["International environmental award, 1988","3"], ["National record held in 100 meter swimming","not1"], 
+            ["President of Lithuania, 1998-2003","4"], ["Artist, Fluxus movement initiator","not2"], 
+            ["President of Lithuania, 2004-2009","5"], ["Record holder for 100 meter sprint","6"],
+             ["President of Lithuania, 2014-2019","not3"], ["NATO membership negotiations for Lithuania","7"],
+              ["EU membership negotiations for Lithuania","8"], ["Signatory of the 1918 Act of Reinstating Independence","not4"]]), "treasure_name");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);
