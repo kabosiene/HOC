@@ -54,9 +54,10 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>4. Suk suk ratelį, suk į vieną pusę</h4></div>
-            <div class=" col-md-7" id="task"> Šios 5 poros pasirengusios sutrypti kepurinę ir laukia tavo nurodymų. Improvizuok - suprogramuok jų šokio judesius ir nepamiršk laikytis ritmo. Ciklas leis kartoti tuos pačius judesius keletą (arba keliasdešimt!) kartų iš eilės. 
-                <a href="javascript:void(0)" onclick="changeVideo('0m0uPu0bZQE')">Užduoties video</a> </div>
+                <h4>4. Spin That Wheel!</h4></div>
+            <div class=" col-md-7" id="task"> These five couples are ready to dance and await your orders! Improvise - program their dance moves and don't forget to keep the rhythm! The cycle of the dance will let you repeat the same moves a few (or several!) times in a row.  
+                <!-- <a href="javascript:void(0)" onclick="changeVideo('0m0uPu0bZQE')">Užduoties video</a> -->
+                 </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
@@ -83,17 +84,15 @@
                     </div>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Play </button>
                     <div class="hint-panel">
-                        <ul> Užuomina:
+                        <ul> Hint:
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="<b>Atlikti veiksmą 1s</b> blokelis nurodo, kiek laiko šokėjai atlikinės nurodytą judesį, o 
-<b>judesių greitis (s)</b> blokelyje nurodytas skaičius - tai tarpas tarp pačių šokio elementų (kiekvieną judesį sudaro 2 šokio elementai).
-Koreguoti atlikimo greitį galima kiekvienam judesiui atskirai, tokia eilės tvarka: " data-full="../hints/L1T4_H1.png">1</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="<b>Carry on for 1 second</b> block determines how long the dancers will perform the specified move, and the <b>movement speed (s)</b> block will show the number - the gap between the same dance elements (each move contains 2 dance elements). Adjust the performance speed separately for every move in sequence as follows: " data-full="../hints/L1T4_H1.png">1</a>
 <!-- screenshot (https://drive.google.com/open?id=1IwSM161-bLTpQOOyglcKzaojf-Vt0kbQ) -->
                             </li>
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Ar panaudojai visus 4 šokių judesius?">2</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Did you use all four dance moves?">2</a>
                             </li>
                         </ul>
                     </div>
@@ -106,7 +105,7 @@ Koreguoti atlikimo greitį galima kiekvienam judesiui atskirai, tokia eilės tva
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Ciklas" colour="120">
+                    <category name="Loops" colour="120">
                         <block type="controls_repeat_ext">
                             <value name="TIMES">
                                 <block type="math_number">
@@ -116,7 +115,7 @@ Koreguoti atlikimo greitį galima kiekvienam judesiui atskirai, tokia eilės tva
                         </block>
                         <block type="wait_seconds"></block>
                     </category>
-                    <category name="Šokis" colour="65">
+                    <category name="Dance" colour="65">
                         <block type="anim_speed"></block>
                         <block type="musicplay"></block>
                         <block type="dance"></block>
@@ -134,7 +133,7 @@ Koreguoti atlikimo greitį galima kiekvienam judesiui atskirai, tokia eilės tva
           <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-        <div class="video-modal">
+<!--         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -147,7 +146,7 @@ Koreguoti atlikimo greitį galima kiekvienam judesiui atskirai, tokia eilės tva
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
@@ -175,7 +174,7 @@ Koreguoti atlikimo greitį galima kiekvienam judesiui atskirai, tokia eilės tva
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/acorn_interpreter.js"></script>
     <script src="../js/blocks_compressed.js"></script>
-    <script src="../msg/js/lt.js"></script>
+    <script src="../msg/js/en.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/sokiai.js"></script>
     <script type="text/javascript">

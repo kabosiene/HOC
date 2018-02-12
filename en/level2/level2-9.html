@@ -70,16 +70,17 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>9. Liudas Mažylis: adata Berlyno kupetoje</h4></div>
-            <div class=" col-md-7" id="task">Vasario 16-osios nutarimo originalas pasimetė archyve, jį būtina atrasti. Archyve tau pateikė tik nerišlų tekstą su įvairių dokumentų pavadinimais. Jei tekstą paversi sąrašu ir jame rasi visus dokumentus su 1918 m. data, rasti bus daug paprasčiau. Tau reikės:
+                <h4>9. Liudas Mažylis: A Needle in the Berlin Haystack</h4></div>
+            <div class=" col-md-7" id="task">The original of the Act of February 16th has been lost in the archive - it must be found. In the archive you received a jumbled text with various document names. Things will be much easier if you convert the text into a list and find all the documents with the 1918 date. You will need to: 
                 <ul>
-                    <li>- tekstą paversti sąrašu;</li>
-                    <li>- surūšiuoti dokumentus pagal datą, didėjančia tvarka ;</li>
-                    <li>- rasti pirmą ir paskutinį įrašą su 1918 m. data;</li>
-                    <li>- suformuoti galutinį sąrašą, atrenkant tik dokumentus, esančius tarp šių įrašų;</li>
-                    <li>- sąrašą atvaizduoti ekrane.</li>
+                    <li>- assemble text into list;</li>
+                    <li>- group the documents according to date in ascending order; </li>
+                    <li>- find first and last entry with the 1918 date; </li>
+                    <li>- form the final list, choosing only those documents which are between these entries; </li>
+                    <li>- show the list onscreen.</li>
                 </ul>
-                <a href="javascript:void(0)" onclick="changeVideo('F-gF4n5ZN7M')">Užduoties video</a> </div>
+                <!-- <a href="javascript:void(0)" onclick="changeVideo('F-gF4n5ZN7M')">Užduoties video</a> -->
+                 </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
@@ -94,17 +95,17 @@
                     </div>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Play </button>
                     <div class="hint-panel">
-                        <ul> Užuomina:
+                        <ul> Hint:
                             <li>
-                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Tai visų dokumentų pavadinimai, kurie turi pavirsti tvarkingu sąrašu. Atkreipk dėmesį, koks skyrybos ženklas skiria vieno dokumento pavadinimą nuo kito - jis ir yra skirtukas. " data-full="../hints/L1T9_H1.png">1</a>
+                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="You can see all of the document names that need to be put into a tidy list. Notice the punctuation marks separating the document names. " data-full="../hints/L1T9_H1.png">1</a>
                             </li>
                             <li>
-                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Kintamasis - tai lyg dėžutė su pavadinimu, kurioje galime saugoti tekstą arba skaičius. Kiekvieną kuriamą sąrašą ar ieškomą įrašą saugok skirtingame kintamąjame: „dokumentai“, „sąrašas pagal datą“ ir kt. Šitaip būsime tikri, kad nieko nepametėme. " data-full="../hints/L2T9_H2.png">2</a>
+                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='The variable is like a labeled box where you can keep your text and numbers. Hold every list or searched entry in a different variable: "documents", "list by date" and so on - this will ensure you have not lost anything.' data-full="../hints/L2T9_H2.png">2</a>
                             </li>
                             <li>
-                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Atrinktą dokumentų sąrašą būtina parodyti ekrane ir spustelėti ant ieškoto dokumento pavadinimo. Jį atrasti padės dokumento data. " data-full="../hints/L2T9_H3.png">3</a>
+                                <a tabindex="0" style="width: 58px;" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="You must show the sorted document list and click on the name of the document you are searching for. The date of the document will help you find it. " data-full="../hints/L2T9_H3.png">3</a>
                             </li>
                         </ul>
                     </div>
@@ -114,7 +115,7 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Tekstas" colour="160">
+                    <category name="Text" colour="160">
                         <block type="text">
                         </block>
                         <block type="text">
@@ -123,7 +124,7 @@
                         <!--  <block type="text_print"></block> -->
                         <block type="spausdinti"></block>
                     </category>
-                    <category name="Sąrašai" colour="260">
+                    <category name="Lists" colour="260">
                         <block type="lists_getSublist">
                         </block>
                         <block type="list_includes2"></block>
@@ -136,7 +137,7 @@
                         </block>
                         <block type="lists_sort"></block>
                     </category>
-                    <category name="Kintamieji" colour="330">
+                    <category name="Variables" colour="330">
                         <block type="v_dokumentai"></block>
                         <block type="set_v2"></block>
                     </category>
@@ -151,7 +152,7 @@
         <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-        <div class="video-modal">
+ <!--        <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -164,7 +165,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
@@ -191,7 +192,7 @@
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
-    <script src="../msg/js/lt.js"></script>
+    <script src="../msg/js/en.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/mazylis.js"></script>
     <script type="text/javascript">

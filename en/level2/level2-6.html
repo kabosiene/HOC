@@ -55,9 +55,10 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>6. Rūta Meilutytė: olimpinės purslynės</h4></div>
-            <div class=" col-md-7" id="task"> Padėkime Rūtai pakartoti jos olimpinį rekordą! Šioje užduotyje tau reikės sukurti naują komandą „Plaukti“. Į ją įdėk blokelius, apibūdinančius plaukimo judesius bei judesių greitį. Padaryk taip, jog plaukikės greitį galėtum padidinti paspaudęs ant ekrano, o pasiekus jo kraštą - apsuk.
-                <a href="javascript:void(0)" onclick="changeVideo('9j-wTK2C-Sc')">Užduoties video</a> </div>
+                <h4>6. Rūta Meilutytė: Olympic Splashes</h4></div>
+            <div class=" col-md-7" id="task"> Help Rūta repeat her Olympic record! In this task you will have to create a new command "Swim", in which you will need to insert blocks describing the swim moves and their speed.  Make her swim faster by clicking on screen, and turn her around once she reaches the edge of the pool. 
+                <!-- <a href="javascript:void(0)" onclick="changeVideo('9j-wTK2C-Sc')">Užduoties video</a>  -->
+            </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
@@ -75,14 +76,14 @@
                     </div>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Play </button>
                     <div class="hint-panel">
-                        <ul> Užuomina:
+                        <ul> Hint:
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='Tavo sukurta komanda turėtų būti panaši į šią:' data-full="../hints/L2T6_H1.png">1</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='Your command should look similar to this: ' data-full="../hints/L2T6_H1.png">1</a>
                             </li>
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Nepamiršk iškviesti sukurtos komandos! Nebent sieki plaukiojimo vietoje rekordo." data-full="../hints/L2T6_H2.png">2</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='Do not forget the "swim" block, unless you are trying to achieve the record in swimming in place!' data-full="../hints/L2T6_H2.png">2</a>
                             </li>
                         </ul>
                     </div>
@@ -119,7 +120,7 @@
         <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-        <div class="video-modal">
+<!--         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -132,7 +133,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
@@ -159,7 +160,7 @@
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
-    <script src="../msg/js/lt.js"></script>
+    <script src="../msg/js/en.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/baseinas.js"></script>
     <script>
@@ -265,14 +266,14 @@
                         // }
                         animateSwimmer();
                     } else {
-                        alert('Trūksta plaukimo judesių');
+                        alert('Missing swimming movements');
                         document.getElementById("test1").style.visibility = "hidden";
                     }
 
 
                 } else {
 
-                    alert("Ar plaukikui plaukti?");
+                    alert("Should the swimmer start to swim?");
                 }
 
             } else {
@@ -283,7 +284,7 @@
             //alert(e);
             if (e instanceof ReferenceError) {
                 // statements to handle TypeError exceptions
-                alert("Trūksta funkcijos");
+                alert("Missing function");
             }
 
         }
@@ -302,7 +303,7 @@
             if (edge && turn) {
                 animateSwimmerBack();
             } else {
-                alert("Baseino kraštas? Apsisuk");
+                alert("Edge of the pool? Turn around");
             }
 
         }
@@ -336,7 +337,7 @@
                 return;
             } else {
                 ctx.font = "14px Arial";
-                ctx.fillText("Bandyk dar kartą", 195, 126);
+                ctx.fillText("Try again!", 195, 126);
                 return;
             }
 

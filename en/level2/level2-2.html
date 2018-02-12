@@ -55,9 +55,10 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>2. LITUANICA: du draugai</h4></div>
-            <div class=" col-md-7" id="task"> Atkurk istorinį Dariaus ir Girėno skrydį per Atlantą ir padėk pasiekti jo tikslą. Lakūnų kelionė, prasidėjusi Niujorke, tęsėsi virš Niufaundlando, Škotijos ir, deja, baigėsi dabartinėje Lenkijos teritorijoje, nepasiekusi Kauno. Programuok jungdamas blokelius, kaip ir užduotyje prieš tai. Jei pasiekei lemtingą tašką Lenkijoje, padėk lakūnams pasiekti Kauną.
-                <a href="javascript:void(0)" onclick="changeVideo('f6R89D9RLn4')">Užduoties video</a> </div>
+                <h4>2. LITUANICA: Two Friends </h4></div>
+            <div class=" col-md-7" id="task"> Re-create the historic flight of Darius and Girėnas across the Atlantic Ocean and help them reach their destination. Their started in New York, continued over Newfoundland, Scotland and, sadly, ended somewhere within the modern Poland territory. Program their route by connecting the blocks as you did in the previous task.   Once you reach the fatal point in Poland, help the pilots reach Kaunas. 
+                <!-- <a href="javascript:void(0)" onclick="changeVideo('f6R89D9RLn4')">Užduoties video</a>  -->
+            </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
@@ -68,15 +69,15 @@
                     <div id="lituanica_plane"></div>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Play </button>
                
                 <div class="hint-panel">
-                    <ul> Užuomina:
+                    <ul> Hint:
                         <li>
-                            <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Koordinatės - dalykas painus. Nepamiršk, kad X reikšmės didėja į dešinę, Y - į apačią." data-full="../hints/L2T2_H1.png">1</a>
+                            <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Tricky little things, those coordinates. Don't forget that the value of X increases upwards and the value of Y increases downwards. " data-full="../hints/L2T2_H1.png">1</a>
                         </li>
                         <li>
-                            <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Ar tikrai aplankei visus taškus? Atkūręs maršrutą, nukeliauk ir iki suplanuoto tikslo - Kauno. Jo koordinatės x: 450 ; y: 120 ." data-full="../hints/L2T2_H2.png">2</a>
+                            <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Did you visit all the points of the journey? Once you have finished recreating the route, continue to the planned destination - Kaunas. Its coordinates are: x: 450 ; y: 120 " data-full="../hints/L2T2_H2.png">2</a>
                         </li>
                     </ul>
                 </div> </div>
@@ -101,7 +102,7 @@
           <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-        <div class="video-modal">
+<!--         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -114,7 +115,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
@@ -143,7 +144,7 @@
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
-    <script src="../msg/js/lt.js"></script>
+    <script src="../msg/js/en.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/lituanica.js"></script>
     <script type="text/javascript">
@@ -190,7 +191,7 @@
         background.fillRect(45, 190, 4, 4);
         background.beginPath();
         background.arc(47, 192, 8, 0, 2 * Math.PI);
-        background.strokeText("Niujorkas", 40, 210);
+        background.strokeText("New York", 40, 210);
         background.stroke();
         //newfoundland
         background.fillRect(130, 140, 4, 4);

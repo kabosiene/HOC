@@ -1,12 +1,12 @@
 Blockly.Blocks['paspausta'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("paspaustas")
+            .appendField("clicked")
             .appendField(new Blockly.FieldDropdown([
-                ["euras", "EURO"],
+                ["euro", "EURO"],
                 ["litas", "LITAS"],
                 ["talonas", "TALONAS"],
-                ["tarpukario litas", "LITAS(23)"]
+                ["interwar period litas", "LITAS(23)"]
             ]), "NAME");
         this.setOutput(true, null);
         this.setColour(230);
@@ -47,11 +47,11 @@ Blockly.JavaScript['paspausta'] = function(block) {
 Blockly.Blocks['change'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("prie")
+            .appendField("to")
             .appendField(new Blockly.FieldDropdown([
-                ["euras", "euras"]
+                ["euro", "euras"]
             ]), "NAME")
-            .appendField("pridėk")
+            .appendField("add")
             .appendField(new Blockly.FieldNumber(0), "NUMBER");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -98,9 +98,9 @@ Blockly.Blocks['set'] = {
             .setCheck(null)
             .appendField(new Blockly.FieldDropdown([
                 ["litas", "litas"],
-                ["tarpukario litas", "litas_old"],
+                ["interwar period litas", "litas_old"],
                 ["talonas", "talonas"],
-                ["euras", "euras"]
+                ["euro", "euras"]
             ]), "valiutos")
             .appendField("=");
         this.setInputsInline(true);
@@ -125,9 +125,9 @@ Blockly.Blocks['kintamieji'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([
                 ["litas", "litas"],
-                ["tarpukario litas", "litas_old"],
+                ["interwar period litas", "litas_old"],
                 ["talonas", "talonas"],
-                ["euras", "euras"]
+                ["euro", "euras"]
             ]), "valiutos_name");
         this.setInputsInline(true);
         this.setOutput(true, null);
@@ -149,10 +149,10 @@ Blockly.Blocks['ifas'] = {
     init: function() {
         this.appendValueInput("if_reiksme")
             .setCheck(Boolean)
-            .appendField("Jei");
+            .appendField("If");
         this.appendStatementInput("do_reiksme")
             .setCheck(null)
-            .appendField("daryti");
+            .appendField("do");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(210);

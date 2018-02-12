@@ -142,9 +142,9 @@ Blockly.JavaScript['on_click'] = function(block) {
 Blockly.Blocks['function'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("komanda: ")
-            .appendField(new Blockly.FieldTextInput("plaukti"), "SWIM")
-            .appendField(new Blockly.FieldVariable("greitis"), "speed_var");
+            .appendField("command: ")
+            .appendField(new Blockly.FieldTextInput("swim"), "SWIM")
+            .appendField(new Blockly.FieldVariable("speed"), "speed_var");
         this.appendStatementInput("body")
             .setCheck(null);
         this.setColour(290);
@@ -157,7 +157,7 @@ Blockly.JavaScript['function'] = function(block) {
     var variable_speed_var = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('speed_var'), Blockly.Variables.NAME_TYPE);
     var statements_body = Blockly.JavaScript.statementToCode(block, 'body');
     // TODO: Assemble JavaScript into code variable.
-    var code = 'function plaukti(greitis) {\n' + statements_body + '};\n';
+    var code = 'function swim(speed) {\n' + statements_body + '};\n';
     swim_do_f = true;
     return code;
 };
@@ -165,8 +165,8 @@ Blockly.JavaScript['function'] = function(block) {
 Blockly.Blocks['function_call'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("plaukti(")
-            .appendField(new Blockly.FieldVariable("greitis"), "NAME")
+            .appendField("swim(")
+            .appendField(new Blockly.FieldVariable("speed"), "NAME")
             .appendField(")");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -178,7 +178,7 @@ Blockly.Blocks['function_call'] = {
 Blockly.JavaScript['function_call'] = function(block) {
     var variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
     // TODO: Assemble JavaScript into code variable.
-    var code = 'plaukti(greitis);\n';
+    var code = 'swim(speed);\n';
     swim_do = true;
     return code;
 };
@@ -188,7 +188,7 @@ Blockly.Blocks['plaukti'] = {
         this.appendDummyInput()
             .appendField("swim");
         this.setColour(230);
-        this.setTooltip('Blokelis prideda kintamąjį, nurodantį plaukti.');
+        this.setTooltip('');
         this.setNextStatement(true);
         this.setPreviousStatement(true);
     }
@@ -203,11 +203,11 @@ Blockly.Blocks['anim_speed'] = {
     init: function() {
         this.appendValueInput("ANIM_SPEED")
             .setCheck(null)
-            .appendField("judesio greitis = ");
+            .appendField("movement speed = ");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip("Plaukimo judesio greitis");
+        this.setTooltip("");
         this.setHelpUrl("");
     }
 };
@@ -223,7 +223,7 @@ animation_speed = true;
 Blockly.Blocks['var_speed'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldVariable("greitis"), "var_speed");
+            .appendField(new Blockly.FieldVariable("speed"), "var_speed");
         this.setOutput(true, null);
         this.setColour(330);
         this.setTooltip("");
@@ -242,8 +242,8 @@ Blockly.Blocks['function_x'] = {
   init: function() {
     this.appendValueInput("plaukti_greitis")
         .setCheck(null)
-        .appendField("funkcija:")
-        .appendField("plaukti(");
+        .appendField("function:")
+        .appendField("swim(");
     this.appendDummyInput()
         .appendField(");");
     this.appendStatementInput("body")
@@ -258,7 +258,7 @@ Blockly.JavaScript['function_x'] = function(block) {
   var value_plaukti_greitis = Blockly.JavaScript.valueToCode(block, 'plaukti_greitis', Blockly.JavaScript.ORDER_ATOMIC);
   var statements_body = Blockly.JavaScript.statementToCode(block, 'body');
   // TODO: Assemble JavaScript into code variable.
-     var code = 'function plaukti('+value_plaukti_greitis+') {\n' + statements_body + '};\n';
+     var code = 'function swim('+value_plaukti_greitis+') {\n' + statements_body + '};\n';
     swim_do_f = true;
   return code;
 };
@@ -266,7 +266,7 @@ Blockly.Blocks['function_call_x'] = {
   init: function() {
     this.appendValueInput("f_plaukti")
         .setCheck(null)
-        .appendField("plaukti(");
+        .appendField("swim(");
     this.appendDummyInput()
         .appendField(");");
     this.setInputsInline(true);
@@ -280,7 +280,7 @@ Blockly.Blocks['function_call_x'] = {
 Blockly.JavaScript['function_call_x'] = function(block) {
   var value_f_plaukti = Blockly.JavaScript.valueToCode(block, 'f_plaukti', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-      var code = 'plaukti('+value_f_plaukti+');\n';
+      var code = 'swim('+value_f_plaukti+');\n';
     swim_do = true;
   return code;
 };

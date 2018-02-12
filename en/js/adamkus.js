@@ -122,7 +122,7 @@ Blockly.Blocks['valdymas'] = {
         this.appendStatementInput("control")
             .setCheck()
             .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Veikėjų nustatymai:");
+            .appendField("Character settings:");
         this.setColour(330);
         this.setTooltip("");
         this.setHelpUrl("");

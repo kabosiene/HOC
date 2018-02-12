@@ -72,11 +72,11 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>1. Jonas Basanavičius: žodžiai, žodžiai, susivykit</h4></div>
+                <h4>1. Jonas Basanavičius:Tangled Words</h4></div>
             <div class=" col-md-7" id="task">„Lietuvos Taryba savo posėdyje vasario 16 d. 1918 m. vienu balsu nutarė kreiptis: į Rusijos, Vokietijos ir kitų valstybių vyriausybės šiuo pareiškimu: [...]“<br>
-Tai - Nepriklausomybės akto pradžia, o tęsinyje žodžiai susivijo. Grąžink pasimetusias eilutes į jų vietas.
-Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juos sujungęs tam tikra tvarka. Savo užduoties sprendimą išvysi nuspaudęs mygtuką „Paleisti“.
-                <a href="javascript:void(0)" onclick="changeVideo('tdYGNqb2zgU')">Užduoties video</a> </div>
+This is the beginning of the <b>Act of Reinstating Independence of Lithuania</b>. However, words below got a little bit tangled up. Return the lost lines to their places. On the right side of the screen you will find the code blocks you will need. You will finish the task once the lines are connected in the right order. Press the "Play" button to see if you got your answer.                
+<!-- <a href="javascript:void(0)" onclick="changeVideo('tdYGNqb2zgU')">Užduoties video</a> -->
+ </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
@@ -88,14 +88,14 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
                     <div id="list"></div>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Play </button>
                     <div class="hint-panel">
-                        <ul> Užuomina:
+                        <ul> Hint:
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Pasirink eilutės numerį bei atsakymo raidę." data-full="../hints/L2T1_H1.png">1</a>
+                                <a tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Choose the line number and the answer letter." data-full="../hints/L1T1_H1.png">1</a>
                             </li>
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Kartais nusirašyti - visai naudinga. Nutarimo tekstą rasi <a href='https://lt.wikipedia.org/wiki/Lietuvos_Nepriklausomyb%C4%97s_Aktas#/media/File:Nepriklausomybes_aktas.gif' target='_blank'>čia</a>.">2</a>
+                                <a tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Copying is not always bad... Find the declaration text <a href='https://lt.wikipedia.org/wiki/Lietuvos_Nepriklausomyb%C4%97s_Aktas#/media/File:Nepriklausomybes_aktas.gif' target='_blank'>here</a>." ">2</a>
                             </li>
                         </ul>
                     </div>
@@ -105,23 +105,23 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Skaičiai" colour="230">
+                    <category name="Numbers" colour="230">
                         <block type="math_number"></block>
                     </category>
-                    <category name="Tekstas" colour="160">
-                        <block type="tekstas1"></block>
-                        <block type="tekstas2"></block>
-                        <block type="tekstas3"></block>
-                        <block type="tekstas4"></block>
+                    <category name="Text" colour="160">
+                        <block type="text1"></block>
+                        <block type="text2"></block>
+                        <block type="text3"></block>
+                        <block type="text4"></block>
                     </category>
-                    <category name="Sąrašai" colour="#745CA6">
+                    <category name="List" colour="#745CA6">
                         <block type="lists_setIndex">
                             <mutation at="true"></mutation>
                             <field name="MODE">SET</field>
                             <field name="WHERE">FROM_START</field>
                             <value name="LIST">
                                 <block type="variables_get">
-                                    <field name="VAR" id="agSI/ogyCXtYTJxS:dXL" variabletype="">tekstas</field>
+                                    <field name="VAR" id="agSI/ogyCXtYTJxS:dXL" variabletype="">text</field>
                                 </block>
                             </value>
                         </block>
@@ -137,7 +137,7 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
           <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-        <div class="video-modal">
+<!--         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -150,7 +150,7 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
@@ -177,7 +177,7 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
-    <script src="../msg/js/lt.js"></script>
+    <script src="../msg/js/en.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/sarasai.js"></script>
     <script>
@@ -207,74 +207,74 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
     basanavicius.src = "../img_lessons/basanavicius/basanavicius.png";
 
 
-    var tekstas_correct = [];
-    tekstas_correct[0] = (1);
-    tekstas_correct[1] = (2);
-    tekstas_correct[2] = (3);
-    tekstas_correct[3] = (4);
-    var tekstas_old = [];
-    var tekstas = [];
-    tekstas_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
-    tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-    tekstas_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
-    tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-    tekstas_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
-    tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
-    tekstas_old[6] = " 4._______________";
+    var text_correct = [];
+    text_correct[0] = (1);
+    text_correct[1] = (2);
+    text_correct[2] = (3);
+    text_correct[3] = (4);
+    var text_old = [];
+    var text = [];
+    text_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+    text_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
+    text_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+    text_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
+    text_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+    text_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
+    text_old[6] = " 4._______________";
 
-    var tekstas_short = [];
-    tekstas_short[0] = " Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė, "
-    tekstas_short[1] = " ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis."
-    tekstas_short[2] = " demokratiniu būdu visų jos gyventojų išrinktas. "
-    tekstas_short[3] = " prašo pripažinti nepriklausomą Lietuvos valstybę."
+    var text_short = [];
+    text_short[0] = " Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė, "
+    text_short[1] = " ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis."
+    text_short[2] = " demokratiniu būdu visų jos gyventojų išrinktas. "
+    text_short[3] = " prašo pripažinti nepriklausomą Lietuvos valstybę."
 
-    document.getElementById('preview_text').innerHTML = tekstas_old.join("");
-    document.getElementById('list').innerHTML = "A. " + tekstas_short[2] + "<br>";
-    document.getElementById('list').innerHTML += "B. " + tekstas_short[0] + "<br>";
-    document.getElementById('list').innerHTML += "C. " + tekstas_short[1] + "<br>";
-    document.getElementById('list').innerHTML += "D. " + tekstas_short[3] + "<br>";
+    document.getElementById('preview_text').innerHTML = text_old.join("");
+    document.getElementById('list').innerHTML = "A. " + text_short[2] + "<br>";
+    document.getElementById('list').innerHTML += "B. " + text_short[0] + "<br>";
+    document.getElementById('list').innerHTML += "C. " + text_short[1] + "<br>";
+    document.getElementById('list').innerHTML += "D. " + text_short[3] + "<br>";
 
 
     //}
 
     function runCode() {
-        tekstas = [];
+        text = [];
         // Generate JavaScript code and run it.
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-        var code = 'tekstas = [];';
+        var code = 'text = [];';
         code += Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         //ctx.drawImage(paper, 0, 2);
-        tekstas_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
-        tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-        tekstas_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
-        tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-        tekstas_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
-        tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
-        tekstas_old[6] = " 4._______________";
+        text_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+        text_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
+        text_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+        text_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
+        text_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+        text_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
+        text_old[6] = " 4._______________";
         try {
             if (code.length > 13) {
 
                 eval(code);
 
-                for (var i = tekstas.length - 1; i >= 0; i--) {
-                    if (tekstas[i]) {
-                        if (i == 1) { tekstas_old.splice(2, 1, " " + (i + 1) + ". " + tekstas_short[tekstas[i] - 1]); } else if (i == 2) { tekstas_old.splice(4, 1, " " + (i + 1) + ". " + tekstas_short[tekstas[i] - 1]); } else if (i == 3) { tekstas_old.splice(6, 1, " " + (i + 1) + ". " + tekstas_short[tekstas[i] - 1]); } else if (i == 0) { tekstas_old.splice(0, 1, " " + (i + 1) + ". " + tekstas_short[tekstas[i] - 1]); }
+                for (var i = text.length - 1; i >= 0; i--) {
+                    if (text[i]) {
+                        if (i == 1) { text_old.splice(2, 1, " " + (i + 1) + ". " + text_short[text[i] - 1]); } else if (i == 2) { text_old.splice(4, 1, " " + (i + 1) + ". " + text_short[text[i] - 1]); } else if (i == 3) { text_old.splice(6, 1, " " + (i + 1) + ". " + text_short[text[i] - 1]); } else if (i == 0) { text_old.splice(0, 1, " " + (i + 1) + ". " + text_short[text[i] - 1]); }
 
                     }
                 }
 
-                document.getElementById('preview_text').innerHTML = tekstas_old.join("");
+                document.getElementById('preview_text').innerHTML = text_old.join("");
 
-                document.getElementById('list').innerHTML = "A. " + tekstas_short[2] + "<br>";
-                document.getElementById('list').innerHTML += "B. " + tekstas_short[0] + "<br>";
-                document.getElementById('list').innerHTML += "C. " + tekstas_short[1] + "<br>";
-                document.getElementById('list').innerHTML += "D. " + tekstas_short[3] + "<br>";
+                document.getElementById('list').innerHTML = "A. " + text_short[2] + "<br>";
+                document.getElementById('list').innerHTML += "B. " + text_short[0] + "<br>";
+                document.getElementById('list').innerHTML += "C. " + text_short[1] + "<br>";
+                document.getElementById('list').innerHTML += "D. " + text_short[3] + "<br>";
 
-                if (JSON.stringify(tekstas_correct) == JSON.stringify(tekstas)) {
+                if (JSON.stringify(text_correct) == JSON.stringify(text)) {
                     ctx.drawImage(basanavicius, 138, 0);
                     setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
 

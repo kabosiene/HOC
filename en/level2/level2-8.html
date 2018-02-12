@@ -55,9 +55,11 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>8. Griebk šakotį, kol jaunas</h4></div>
-            <div class=" col-md-7" id="task">Užsidirbk eurų, paversk juos litais, talonais, tuomet - tarpukario litais ir nusipirk už juos šakotį. Programoje nurodyk, kad eurai gaunami <b>nuspaudus euro monetą</b>, o <b>nuspaudus likusias valiutas</b> - atitinkamai konvertuojami. Surinkęs reikiamą tarpukario litų sumą, spausk mygtuką „Pirkti“ ir skanauk! Žaismingi valiutų kursai - užuominoje.
-                <a href="javascript:void(0)" onclick="changeVideo('3GHeJUeor5A')">Užduoties video</a> </div>
+                <h4>8. It's the Early Bird That Catches the Šakotis cake</h4></div>
+            <div class=" col-md-7" id="task">
+                Earn some Euros, convert them into Litas, early 90's currency Talonas, then interwar period Litas and buy a Šakotis cake. While programming, specify that Euros are received after <b>clicking on the Euro coin</b> and the other currencies are converted accordingly after <b>clicking on them</b>. After collecting the right amount of interwar period Litas click the "Purchase" button and taste! Playful exchange rates are in the hint!
+                <!-- <a href="javascript:void(0)" onclick="changeVideo('3GHeJUeor5A')">Užduoties video</a>  -->
+            </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
@@ -67,14 +69,14 @@
                     </canvas>
                 </div>
                 <div class="button-panel">
-                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Play </button>
                     <div class="hint-panel">
-                        <ul> Užuomina:
+                        <ul> Hint:
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Užduoties valiutų kursas: 1 Eur = 3.45 LT; 1 LT = 100 talonų, 1 talonas = 0.006 tarpukario LT. Naudok daugybos funkciją ir vietoj kablelio naudok tašką.">1</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Task currency rate: 1 EUR = 3.45 LT; 1 LT = 100 Talonai; 1 Talonas = 0,006 Interwar Period LT. Use multiplication function and full stop instead of comma. ">1</a>
                             </li>
                             <li>
-                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Konvertavimo programos pavyzdys:" data-full="../hints/L2T8_H2.png">2</a>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="An example of currency conversion program:" data-full="../hints/L2T8_H2.png">2</a>
                             </li>
                         </ul>
                     </div>
@@ -84,7 +86,7 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <category name="Valiutos" colour="230">
+                    <category name="Currency" colour="230">
                         <block type="math_arithmetic">
                             <value name="A">
                                 <shadow type="math_number">
@@ -115,7 +117,7 @@
           <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-        <div class="video-modal">
+<!--         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -128,7 +130,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
@@ -155,7 +157,7 @@
     <script src="../js/blockly_compressed.js"></script>
     <script src="../js/javascript_compressed.js"></script>
     <script src="../js/blocks_compressed.js"></script>
-    <script src="../msg/js/lt.js"></script>
+    <script src="../msg/js/en.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/litai_2.js"></script>
     <script>
@@ -329,10 +331,10 @@
                     talonas = 0;
                     litas_old = 0;
                     draw_elements();
-                    ctx.strokeText("TRŪKSTA", 200, 300);
+                    ctx.strokeText("NOT ENOUGH", 200, 300);
                 }
             } else {
-                alert('Ne visos valiutos konvertuotos');
+                alert('Convert all currencies');
             }
         }
     }

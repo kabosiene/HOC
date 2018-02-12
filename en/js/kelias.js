@@ -125,9 +125,9 @@ Blockly.JavaScript['keisti2'] = function(block) {
 Blockly.Blocks['add_person2'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Pridėti žmogų į")
+            .appendField("Add person to")
             .appendField(new Blockly.FieldDropdown([
-                ["tarpas", "space"]
+                ["gap", "space"]
             ]), "space");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -137,14 +137,14 @@ Blockly.Blocks['add_person2'] = {
     }
 };
 Blockly.JavaScript['add_person2'] = function(block) {
-    var code = "  if (tarpas >= 110 && tarpas <= 340) { animatePerson2(x, tarpas);}else {alert('Netinkamas plotis');  $('.person_lost').show();}";
+    var code = "  if (gap >= 110 && gap <= 340) { animatePerson2(x, gap);}else {alert('Netinkamas plotis');  $('.person_lost').show();}";
     return code;
 };
 
 Blockly.Blocks['atstumas'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Jei atstumas tarp lietuvių")
+            .appendField("If the distance between Lithuanians")
             // .appendField(new Blockly.FieldDropdown([["lietuvių","lt"],]), "people")
             .appendField(">=")
             .appendField(new Blockly.FieldNumber(0, 0, 490), "distance")
