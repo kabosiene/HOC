@@ -15,6 +15,7 @@
     font-size: 12px;
     color: black;
     background-image: url("../img_lessons/basanavicius/dokumentas.png");
+    overflow: hidden;
 }
 
 #preview_text {
@@ -157,7 +158,7 @@ This is the beginning of the <b>Act of Reinstating Independence of Lithuania</b>
                     <div class="modal-content">
                         <div class="modal-body">
                             <div>
-                                <h3>Nutarimą turim!</h3>
+                                <h3>We’ve got it!</h3>
                             </div>
                             <div class="modal-buttons">
                                 <a href="#" class="btn btn-secondary" data-dismiss="modal">Back to task</a>
@@ -214,13 +215,22 @@ This is the beginning of the <b>Act of Reinstating Independence of Lithuania</b>
     text_correct[3] = (4);
     var text_old = [];
     var text = [];
-    text_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
-    text_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-    text_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
-    text_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-    text_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
-    text_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
-    text_old[6] = " 4._______________";
+    // text_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+    // text_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
+    // text_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+    // text_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
+    // text_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+    // text_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
+    // text_old[6] = " 4._______________";
+
+         text_old[0] = " 1.________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+    text_old[1] = " in conformity with the recognized right to national self-determination, and in accordance with the resolution of the Vilnius Conference of September 18-23, 1917 proclaims the restoration of the independent state of Lithuania, founded on democratic principles, with Vilnius as its capital,";
+    text_old[2] = " 2.________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+    text_old[3] = " The Council of Lithuania also declares that the foundation of the Lithuanian State and its relations with other countries will be finally determined by the Constituent Assembly, to be convoked as soon as possible,";
+    text_old[4] = " 3.________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+    text_old[5] = " The Council of Lithuania in informing the Government of .......to this effect kindly";
+    text_old[6] = " 4.________";
+
 
     var text_short = [];
     // text_short[0] = " Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė, "
@@ -252,13 +262,20 @@ This is the beginning of the <b>Act of Reinstating Independence of Lithuania</b>
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         //ctx.drawImage(paper, 0, 2);
-        text_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
-        text_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-        text_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
-        text_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-        text_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
-        text_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
-        text_old[6] = " 4._______________";
+        // text_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+        // text_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
+        // text_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+        // text_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
+        // text_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+        // text_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei,";
+        // text_old[6] = " 4._______________";
+               text_old[0] = " 1.________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
+    text_old[1] = " in conformity with the recognized right to national self-determination, and in accordance with the resolution of the Vilnius Conference of September 18-23, 1917 proclaims the restoration of the independent state of Lithuania, founded on democratic principles, with Vilnius as its capital,";
+    text_old[2] = " 2.________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
+    text_old[3] = " The Council of Lithuania also declares that the foundation of the Lithuanian State and its relations with other countries will be finally determined by the Constituent Assembly, to be convoked as soon as possible,";
+    text_old[4] = " 3.________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
+    text_old[5] = " The Council of Lithuania in informing the Government of ....... to this effect kindly";
+    text_old[6] = " 4.________";
         try {
             if (code.length > 13) {
 
