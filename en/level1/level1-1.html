@@ -95,7 +95,7 @@ This is the beginning of the <b>Act of Reinstating Independence of Lithuania</b>
                                 <a tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Choose the line number and the answer letter." data-full="../hints/L1T1_H1.png">1</a>
                             </li>
                             <li>
-                                <a tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Copying is not always bad... Find the declaration text <a href='https://lt.wikipedia.org/wiki/Lietuvos_Nepriklausomyb%C4%97s_Aktas#/media/File:Nepriklausomybes_aktas.gif' target='_blank'>here</a>." ">2</a>
+                                <a tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Copying is not always bad... Find the declaration text <a href='https://en.wikipedia.org/wiki/Act_of_Independence_of_Lithuania' target='_blank'>here</a>." ">2</a>
                             </li>
                         </ul>
                     </div>
@@ -225,9 +225,12 @@ This is the beginning of the <b>Act of Reinstating Independence of Lithuania</b>
     text_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei, prašo pripažinti nepriklausomą Lietuvos valstybę.";
 
     var text_short = [];
-    text_short[0] = " Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė, "
-    text_short[1] = " ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis."
-    text_short[2] = " demokratiniu būdu visų jos gyventojų išrinktas. "
+    // text_short[0] = " Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė, "
+    // text_short[1] = " ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis."
+    // text_short[2] = " demokratiniu būdu visų jos gyventojų išrinktas. "
+    text_short[0] = " The Council of Lithuania, as the sole representative of the Lithuanian nation, "
+    text_short[1] = " and declares the termination of all state ties which formerly bound this State to other nations."
+    text_short[2] = " elected democratically by all its inhabitants. "
 
     document.getElementById('preview_text').innerHTML = text_old.join("");
     document.getElementById('list').innerHTML = "A. " + text_short[2] + "<br>";
@@ -275,7 +278,7 @@ This is the beginning of the <b>Act of Reinstating Independence of Lithuania</b>
                     ctx.drawImage(basanavicius, 138, 0);
                     setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
 
-                } else { alert("Bandyk dar kartą"); }
+                } else { alert("Try again"); }
 
             } else {
                 alert('Add code block.');
