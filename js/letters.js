@@ -738,7 +738,7 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
     // var code = 'ctx.beginPath();ctx.arc(' + 200 + ',' + 150 + ',50,0,Math.PI);ctx.stroke();\n';
-     var code ='ctx.beginPath();\n ctx.bezierCurveTo(150, 100, 200, 325, 250, 100);\n ctx.moveTo(170, 90);\n ctx.lineTo(230, 90);\n ctx.stroke();\n';
+     var code ='ctx.beginPath();\n ctx.bezierCurveTo(150, 100, 200, 325, 250, 100);\n ctx.moveTo(200, 200);\n  ctx.lineTo(200, 210);\n ctx.lineTo(210, 210);\n  ctx.stroke();\n';
      // interval += 100;
      // code = setInterval(code, interval);
      return code;
