@@ -738,7 +738,7 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
     // var code = 'ctx.beginPath();ctx.arc(' + 200 + ',' + 150 + ',50,0,Math.PI);ctx.stroke();\n';
-     var code ='ctx.beginPath();\n ctx.bezierCurveTo(150, 100, 200, 325, 250, 100);\n ctx.moveTo(170, 90);\n ctx.lineTo(230, 90);\n ctx.stroke();\n';
+     var code ='ctx.beginPath();\n ctx.bezierCurveTo(150, 100, 200, 325, 250, 100);\n ctx.moveTo(200, 200);\n  ctx.lineTo(200, 210);\n ctx.lineTo(210, 210);\n  ctx.stroke();\n';
      // interval += 100;
      // code = setInterval(code, interval);
      return code;
@@ -805,6 +805,73 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code ='ctx.beginPath();\n ctx.moveTo(150, 100);\n ctx.lineTo(250, 100);\n ctx.lineTo(150, 200);\nctx.lineTo(250, 200);\n ctx.moveTo(170, 90);\n ctx.lineTo(230, 90);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
+     return code;
+ };
+
+    Blockly.Blocks['raide_W'] = {
+     // draw a line from current position to x,y
+     init: function() {
+         this.appendDummyInput()
+             .appendField("Letter W")
+         this.setInputsInline(false);
+         this.setPreviousStatement(true, null);
+         this.setNextStatement(true, null);
+         this.setColour(260);
+         this.setTooltip("");
+         this.setHelpUrl("");
+     }
+ };
+ Blockly.JavaScript['raide_W'] = function(block) {
+     //.arc(x, y, radius, startAngle, endAngle)
+     var x = block.getFieldValue('XPOS');
+     var y = block.getFieldValue('YPOS');
+     var code ='ctx.beginPath();\n ctx.moveTo(150, 100);\n ctx.lineTo(175, 200);\n ctx.lineTo(200, 100);\n ctx.lineTo(225, 200);\n ctx.lineTo(250, 100);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
+     return code;
+ }; 
+    Blockly.Blocks['raide_X'] = {
+     // draw a line from current position to x,y
+     init: function() {
+         this.appendDummyInput()
+             .appendField("Letter X")
+         this.setInputsInline(false);
+         this.setPreviousStatement(true, null);
+         this.setNextStatement(true, null);
+         this.setColour(260);
+         this.setTooltip("");
+         this.setHelpUrl("");
+     }
+ };
+ Blockly.JavaScript['raide_X'] = function(block) {
+     //.arc(x, y, radius, startAngle, endAngle)
+     var x = block.getFieldValue('XPOS');
+     var y = block.getFieldValue('YPOS');
+     var code ='ctx.beginPath();\n ctx.moveTo(150, 100);\n ctx.lineTo(250, 200);\n ctx.moveTo(150, 200);\nctx.lineTo(250, 100);\n ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
+     return code;
+ }; 
+  Blockly.Blocks['raide_Q'] = {
+     // draw a line from current position to x,y
+     init: function() {
+         this.appendDummyInput()
+             .appendField("Letter Q")
+         this.setInputsInline(false);
+         this.setPreviousStatement(true, null);
+         this.setNextStatement(true, null);
+         this.setColour(260);
+         this.setTooltip("");
+         this.setHelpUrl("");
+     }
+ };
+ Blockly.JavaScript['raide_Q'] = function(block) {
+     //.arc(x, y, radius, startAngle, endAngle)
+     var x = block.getFieldValue('XPOS');
+     var y = block.getFieldValue('YPOS');
+     var code = 'ctx.beginPath();ctx.arc(' + 200 + ',' + 150 + ',50,0,2*Math.PI);\n ctx.moveTo(200, 150);\n  ctx.lineTo(250, 200);\n ctx.stroke();\n';
      // interval += 100;
      // code = setInterval(code, interval);
      return code;
