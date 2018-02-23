@@ -36,8 +36,8 @@
         })
 
 
-         pdf.addImage(imgData, 'JPEG', 20, 20);
-         pdf.addImage(imgData2, 'JPEG', 200, 200);
+         pdf.addImage(imgData, 'JPEG', 50, 50);
+         pdf.addImage(imgData2, 'JPEG', 50, 50);
 
         pdf.save("plakatas.pdf");
     }, false);
