@@ -29,15 +29,15 @@
 
     download.addEventListener("click", function() {
         // only jpeg is supported by jsPDF
-        var imgData = canvas.toDataURL();
+         var imgData = canvas.toDataURL();
          var imgData2 = canvas2.toDataURL();
         var pdf = new jsPDF({
             orientation: 'landscape'
         })
 
 
-        pdf.addImage(imgData, 'JPEG', 20, 20);
-         pdf.addImage(imgData2, 'JPEG', 20, 20);
+         pdf.addImage(imgData, 'JPEG', 20, 20);
+         pdf.addImage(imgData2, 'JPEG', 200, 200);
 
         pdf.save("plakatas.pdf");
     }, false);
@@ -131,14 +131,14 @@
 
     function draw(name, x, y) {
         var img_name = new Image();
-        // img_name.setAttribute('crossOrigin', 'anonymous');
+        img_name.setAttribute('crossOrigin', 'anonymous');
         img_name.src = '../img_lessons/plakatas/' + name + '.png';
         img_name.onload = function() { icons.drawImage(img_name, x, y); }
     }
 
     function write(name) {
         var img_name = new Image();
-        // img_name.setAttribute('crossOrigin', 'anonymous');
+        img_name.setAttribute('crossOrigin', 'anonymous');
         img_name.src = '../img_lessons/plakatas/background.png';
         img_name.onload = function() { 
         ctx.drawImage(img_name, 0, 0);
