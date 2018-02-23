@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class='customAlert'>
+        <p class='message'></p>
+        <input type='button' class='confirmButton' value='Gerai'>
+    </div>
+    <div class="container-fluid header-top">
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
+        <div class="progress-container">
+            <ul style="text-align: center;">
+                <li>
+                    <a href="level1-1.html">1</a>
+                </li>
+                <li>
+                    <a href="level1-2.html">2</a>
+                </li>
+                <li>
+                    <a class="active" href="level1-3.html">3</a>
+                </li>
+                <li>
+                    <a href="level1-4.html">4</a>
+                </li>
+                <li>
+                    <a href="level1-5.html">5</a>
+                </li>
+                <li>
+                    <a href="level1-6.html">6</a>
+                </li>
+                <li>
+                    <a href="level1-7.html">7</a>
+                </li>
+                <li>
+                    <a href="level1-8.html">8</a>
+                </li>
+                <li>
+                    <a href="level1-9.html">9</a>
+                </li>
+                <li>
+                    <a href="level1-10.html">10</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid working-space">
+        <div class="row" style="padding: 10px;">
+            <div class="col-md-5">
+                <h4>3. Jurgis Mačiūnas: daugiau nei FLUXUS</h4></div>
+            <div class=" col-md-7" id="task">Smalsu, kaip atrodytų grafinis simbolis, sukurtas iš tavo vardo ar pavardės raidžių? Sudėk visas savo vardo raides eilės tvarka ir keisk raidžių stilių. Kai atrasi tau patinkantį, simbolį išsaugok savo kompiuteryje paspaudęs mygtuką „Atsisiųsti“.
+                <a href="javascript:void(0)" onclick="changeVideo('S7ziegs3NGo')">Užduoties video</a> </div>
+        </div>
+        <div class="row" style="padding: 10px">
+            <div class="col  ">
+                <div id="preview">
+                    <canvas id="canvas" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <canvas id="canvas2" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <canvas id="canvas3" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                </div>
+                <div class="button-panel">
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <div class="hint-panel">
+                        <ul> Užuomina:
+                            <li>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Ar sujungei visas raides?" data-full="../hints/L1T3_H1.png">1</a>
+                            </li>
+                            <li>
+                                <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text='Linijos storis bei spalva gali būti tiksli, o gali būti ir netikėta, jei pasirinksi blokelį su žodžiu „atsitiktinis“. Šiuos blokelius gali naudoti prieš kiekvieną raidę.' data-full="../hints/L1T3_H2.png">2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <button id="download" class="btn download-btn">Atsisiųsti</button>
+                </div>
+            </div>
+            <div class="col" style="padding: 0 ;">
+                <div id="blocklyDiv">
+                </div>
+                <xml id="toolbox" style="display: none">
+                    <category name="Alfabēts" colour="260">
+                        <block type="raide_A">
+                        </block>
+                        <block type="raide_Ā">
+                        </block>
+                        <block type="raide_B">
+                        </block>
+                        <block type="raide_C">
+                        </block>
+                        <block type="raide_Č">
+                        </block>
+                        <block type="raide_D">
+                        </block>
+                        <block type="raide_E">
+                        </block>
+                        <block type="raide_Ē">
+                        </block>
+                        <block type="raide_F">
+                        </block>
+                        <block type="raide_G">
+                        </block>
+                        <block type="raide_Ģ">
+                        </block>
+                        <block type="raide_H">
+                        </block>
+                        <block type="raide_I">
+                        </block>
+                        <block type="raide_Ī">
+                        </block>
+                        <block type="raide_J">
+                        </block>
+                        <block type="raide_K">
+                        </block>
+                        <block type="raide_Ķ">
+                        </block>
+                        <block type="raide_L">
+                        </block>
+                        <block type="raide_Ļ">
+                        </block>
+                        <block type="raide_M">
+                        </block>
+                        <block type="raide_N">
+                        </block>
+                        <block type="raide_Ņ">
+                        </block>
+                        <block type="raide_O">
+                        </block>
+                        <block type="raide_P">
+                        </block>
+                        <block type="raide_R">
+                        </block>
+                        <block type="raide_Ŗ">
+                        </block>
+                        <block type="raide_S">
+                        </block>
+                        <block type="raide_Š">
+                        </block>
+                        <block type="raide_T">
+                        </block>
+                        <block type="raide_U">
+                        </block>
+                        <block type="raide_Ū">
+                        </block>
+                        <block type="raide_V">
+                        </block>
+                        <block type="raide_Z">
+                        </block>
+                        <block type="raide_Ž">
+                        </block>
+                    </category>
+                    <category name="Raidžių stilius" colour="20">
+                        <block type="spalva">
+                        </block>
+                        <block type="storis">
+                        </block>
+                        <block type="colour_random"></block>
+                        <block type="math_random_int">
+                            <value name="FROM">
+                                <shadow type="math_number">
+                                    <field name="NUM">1</field>
+                                </shadow>
+                            </value>
+                            <value name="TO">
+                                <shadow type="math_number">
+                                    <field name="NUM">100</field>
+                                </shadow>
+                            </value>
+                        </block>
+                        <block type="math_number" gap="32"></block>
+                        <block type="colour_picker"></block>
+                        <block type="kvadratas">
+                        </block>
+                    </category>
+                </xml>
+            </div>
+            <div class="col-md-3 col-lg-2" style="height: 70vh;">
+                <h5>Javascript kodas: </h5>
+                <pre id="content_javascript">
+                </pre>
+            </div>
+        </div>
+          <div class="row">
+            <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
+        </div>
+<!--         <div class="video-modal">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/S7ziegs3NGo  " frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div>
+                                <h3>Puikiai!</h3>
+                            </div>
+                            <div class="modal-buttons">
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
+                                <a href="level1-4.html" class="btn btn-secondary">Kita užduotis</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img style="visibility: hidden;">
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/blockly_compressed.js"></script>
+    <script src="../js/javascript_compressed.js"></script>
+    <script src="../js/blocks_compressed.js"></script>
+    <script src="../msg/js/lv.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/letters.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+    <script type="text/javascript">
+    var w = window;
+    requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
+    var my_canvas = document.getElementById("canvas");
+    var ctx = my_canvas.getContext("2d");
+    var c_canvas = document.getElementById("canvas2");
+    var c_ctx = c_canvas.getContext("2d");
+    var a_canvas = document.getElementById("canvas3");
+    var m_ctx = a_canvas.getContext("2d");
+
+    var img_maciunas = new Image();
+    img_maciunas.setAttribute('crossOrigin', 'anonymous');
+    img_maciunas.src = '../img_lessons/maciunas_1.png';
+
+    ///draw image
+
+    img_maciunas.addEventListener("load", function() {
+        m_ctx.fillStyle = "#ced9dd";
+        m_ctx.fillRect(0, 0, canvas.width, canvas.height);
+        m_ctx.drawImage(img_maciunas, 140, 20, 200, 300);
+    });
+    </script>
+    <script>
+    var workspace = Blockly.inject('blocklyDiv', {
+        toolbox: document.getElementById('toolbox'),
+        grid: {
+            spacing: 20,
+            length: 5,
+            colour: '#f2f2f2',
+            snap: true
+        },
+        trashcan: true
+    });
+
+    function toJavascript(event) {
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        document.getElementById('content_javascript').innerHTML = code;
+    }
+    workspace.addChangeListener(toJavascript);
+    </script>
+    <script type="text/javascript">
+    var cx = 200;
+    var cy = 145;
+    var radius = 71;
+    var degreeAngle = 0;
+    var degreeAngleCircle = 0;
+    var interval = 0;
+
+    function runCode() {
+        // Generate JavaScript code and run it.
+        window.LoopTrap = 1000;
+        Blockly.JavaScript.INFINITE_LOOP_TRAP =
+            'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        m_ctx.clearRect(0, 0, canvas.width, canvas.height);
+        c_ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        cx = 200;
+        cy = 145;
+        radius = 71;
+        degreeAngle = 0;
+        degreeAngleCircle = 0;
+        img_maciunas_drawing = new Image();
+        img_maciunas_drawing.setAttribute('crossOrigin', 'anonymous');
+        img_maciunas_drawing.src = '../img_lessons/maciunas_2.png';
+        img_maciunas_drawing.addEventListener("load", function() {
+            m_ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 195);
+        });
+
+
+        try {
+
+            if (code.length > 0) {
+                animate();
+                eval(code);
+            } else {
+                alert('Pridėk kodo blokelį.');
+            }
+
+        } catch (e) {
+            alert(e);
+        }
+
+        function animate() {
+
+            // request that this animate() function be called again
+            // this creates an animation loop
+            if (degreeAngle >= 360) {
+                cancelAnimationFrame(globalID);
+                //cancelAnimationFrame(globalID2);
+                setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
+            } else { globalID = requestAnimationFrame(animate); }
+
+
+            // clear the canvas
+
+            // calculate the new position of the image
+            // this example just rotates it around a centerpoint   
+            degreeAngle += 1;
+            var radianAngle = degreeAngle * Math.PI / 180;
+            var x = cx + radius * Math.cos(radianAngle);
+            var y = cy + radius * Math.sin(radianAngle);
+
+            // clear the canvas 
+            // and draw the image at its new position
+            c_ctx.clearRect(0, 0, canvas.width, canvas.height);
+            m_ctx.clearRect(0, 0, canvas.width, canvas.height);
+            m_ctx.drawImage(img_maciunas_drawing, x, y, 200, 195);
+            degreeAngleCircle += 0.0056;
+
+            c_ctx.beginPath();
+            c_ctx.lineJoin = 'round';
+            c_ctx.lineCap = 'round';
+            c_ctx.lineWidth = 3;
+            c_ctx.strokeStyle = "black";
+            c_ctx.arc(200, 150, 70, 0, degreeAngleCircle * Math.PI);
+            c_ctx.stroke();
+        }
+    }
+    </script>
+    <script type="text/javascript">
+    download.addEventListener("click", function() {
+        // only jpeg is supported by jsPDF
+        var imgData = canvas.toDataURL();
+        var imgData2 = canvas2.toDataURL();
+        //var imgData3 = canvas3.toDataURL();
+        var pdf = new jsPDF({ orientation: 'landscape' });
+
+
+        pdf.addImage(imgData, 'JPEG', 20, 20);
+        pdf.addImage(imgData2, 'JPEG', 20, 20);
+       // pdf.addImage(imgData3, 'JPEG', 20, 20);
+        pdf.save("vardo_simbolis.pdf");
+    }, false);
+    </script>
+</body>
+
+</html>
