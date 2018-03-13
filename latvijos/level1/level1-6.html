@@ -68,9 +68,9 @@
                     <canvas id="canvas2" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-                    <div id="pool">
-                        <div id="test1"></div>
-                        <div id="pool_flags"></div>
+                    <div id="arena">
+                        <div id="player"></div>
+                        <div id="ball"></div>
                         <div id="time_counter"></div> 
                     </div>
                 </div>
@@ -93,19 +93,12 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <!-- <category name=b lokeliai> -->
-                    <block type="krastas"></block>
-                    <block type="apsisuk"></block>
-                    <!-- <block type="keisti"></block> -->
+                    <block type="spin_ball"></block>
                     <block type="controls_if"></block>
                     <block type="keisti_greiti"></block>
-                    <!-- <block type="set"></block> -->
                     <block type="number"></block>
                     <block type="on_click"></block>
-                    <!-- <block type="controls_whileUntil"></block> -->
-                    <block type="plaukti"></block>
-                    <!-- <block type="function_call"></block> -->
-                    <!-- </category> -->
+                    <block type="slap_ball"></block>
                 </xml>
             </div>
             <div class="col-md-3 col-lg-2" style="height: 70vh;">
@@ -117,20 +110,6 @@
           <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-<!--         <div class="video-modal">
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/9j-wTK2C-Sc " frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
@@ -160,7 +139,7 @@
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lv.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/baseinas.js"></script>
+    <script src="../js/basketball.js"></script>
     <script>
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
@@ -183,77 +162,60 @@
     var my_canvas = document.getElementById("canvas");
     var ctx = my_canvas.getContext("2d");
     var my_canvas2 = document.getElementById("canvas2");
-    var swimmer = my_canvas2.getContext("2d");
-    var swim = new Image();
-    swim.src = "../img_lessons/baseinas/plaukia_start.png";
-    var swim2 = new Image();
-    swim2.src = "../img_lessons/baseinas/plaukia3.png";
-    var meilutyte_medal = new Image();
-    meilutyte_medal.src = "../img_lessons/baseinas/meilutyte-naujas.png"
+    var basketball = my_canvas2.getContext("2d");
+    // var player = new Image();
+    // player.src = "../img_lessons/basketball/player.jpg";
+    // var ball = new Image();
+    // ball.src = "../img_lessons/basketball/ball.png";
+    // var meilutyte_medal = new Image();
+    // meilutyte_medal.src = "../img_lessons/baseinas/meilutyte-naujas.png"
 
-    swim.onload = function() {
-        swimmer.drawImage(swim, 45, 220, 40, 40);
-    };
-    var start_x = 40;
-    var start_y = 220;
-    var x = 390;
+
     var startTime;
     var score;
     var speed = 0.15;
-    var turn = false;
-    var edge = false;
-    var edge1;
-    var edge2;
     var mouse_click = false;
-    var swim_do = false;
-    var swim_do_f = false;
     var add_speed = 0
-    var add_costume = false;
-    var costume = false;
     var animation_speed = 0;
+
+    var slap_ball = false;
+    var spin_ball = false;
+    document.getElementById("ball").style.visibility = "hidden";
 
     function runCode() {
         // Generate JavaScript code and run it.
-        start_x = 40;
-        start_y = 220;
-        speed = 0.05;
-        turn = false;
-        edge = false;
-        edge1 = 40;
-        edge2 = 380;
+        startTime;
+        score;
+        speed = 0.15;
         mouse_click = false;
-        swim_do = false;
-        swim_do_f = false;
-        add_speed = 0;
-        add_costume = false;
-        costume = false;
-        // document.getElementById("test1").style.animationDuration = "0s";
+        add_speed = 0
+        animation_speed = 0;
+
+        slap_ball = false;
+        spin_ball = false;
+
+        document.getElementById("ball").style.animationDuration = "0s";
+         document.getElementById("ball").style.visibility = "hidden";
+         document.getElementById("ball").style.transform = "translate(183px, 86px)";
         canvas2.removeEventListener("click", onClick, false);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.clearRect(0, 0, canvas.width, canvas.height);
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
             'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
         startTime = new Date();
-        swimmer.drawImage(swim, 45, 220, 70, 40);
-        document.getElementById("test1").style.animationDuration = "1s";
         try {
             if (code.length > 0) {
                 eval(code);
-
                 if (mouse_click) {
                     canvas2.addEventListener("click", onClick, false);
                 }
-
-                if (swim_do) {
-                    swimmer.clearRect(0, 0, canvas.width, canvas.height);
-                    document.getElementById("test1").style.visibility = "visible";
-                    animateSwimmer();
+                if (slap_ball) {
+                    document.getElementById("ball").style.visibility = "visible";
+                    animateBall();
                 } else {
-                    document.getElementById("test1").style.visibility = "hidden";
-                    alert("Ar plaukikui plaukti?");
+                    document.getElementById("ball").style.visibility = "hidden";
+                    alert("Ar kamuoliui suktis?");
                 }
 
             } else {
@@ -264,66 +226,14 @@
             alert(e);
         }
     }
+function animateBall(){
+     document.getElementById("ball").style.animationDuration = "1s";
+     drawElapsedTime();
+}
 
-
-    function animateSwimmer() {
-
-        //swimlID = requestAnimationFrame(animate_swimmer);
-
-        if (start_x < edge2) {
-            anim_id = requestAnimationFrame(function() { animateSwimmer(); });
-        } else {
-            // edge = true;
-            cancelAnimationFrame(anim_id);
-            if (edge && turn) {
-                animateSwimmerBack();
-            } else {
-                alert("Baseino kraštas? Apsisuk");
-            }
-
-        }
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.clearRect(0, 0, canvas.width, canvas.height)
-        // switchCostumes(start_x);
-        document.getElementById("test1").style.transform = "translate(" + start_x + "px, 220px)";
-        drawElapsedTime();
-        ctx.font = "14px Verdana";
-        start_x += speed;
-    }
-
-
-
-    function animateSwimmerBack() {
-
-        if (start_x > edge1) {
-            requestAnimationFrame(function() { animateSwimmerBack(); });
-        } else {
-
-            document.getElementById("test1").style.visibility = "hidden";
-            score = parseInt((new Date() - startTime) / 300);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            swimmer.clearRect(0, 0, canvas.width, canvas.height);
-            if (score < 65) {
-                ctx.drawImage(meilutyte_medal, 0, 0);
-                setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
-                return;
-            } else {
-                ctx.font = "14px Arial";
-                ctx.fillText("Bandyk dar!", 200, 126);
-                return;
-            }
-
-        }
-
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        swimmer.clearRect(0, 0, canvas.width, canvas.height);
-        document.getElementById("test1").style.transform = "translate(" + start_x + "px, 220px) scaleX(-1)";
-        start_x -= speed;
-        drawElapsedTime();
-    }
 
     function drawElapsedTime() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         var elapsed = parseInt((new Date() - startTime) / 300);
         ctx.save();
         ctx.beginPath();
@@ -331,7 +241,7 @@
         ctx.font = "20px Arial";
         // draw the running time at half opacity
         ctx.globalAlpha = 0.50;
-        ctx.fillText(elapsed + " s", 225, 126);
+        ctx.fillText(elapsed + " s", 225, 80);
         ctx.restore();
     }
 
@@ -339,9 +249,27 @@
     function onClick(e) {
         speed += add_speed;
         if ((0.1 / add_speed) < 1) {
-            document.getElementById("test1").style.animationDuration = "" + (0.1 / add_speed) + "s";
+            document.getElementById("ball").style.animationDuration = "" + (0.1 / add_speed) + "s";
+        }
+        drawElapsedTime();
+        if ( add_speed>0.4){
+           fly_away_ball(86);
         }
     }
+    function fly_away_ball(plain_y) {
+    // y=86px
+
+    if (plain_y <= 86 && plain_y > -400) {
+
+        globalID = requestAnimationFrame(function() { fly_away_ball(plain_y); });
+        console.log(globalID);
+    } else { 
+         cancelAnimationFrame(globalID); 
+    }
+     console.log(plain_y);
+    document.getElementById("ball").style.transform = "translate(183px, " + plain_y + "px)";
+    plain_y -= 1;
+}
     </script>
 </body>
 

@@ -401,32 +401,36 @@ canvas {
 }
 
 
-#pool {
-    background-image: url(../img_lessons/baseinas/fonas.png);
+#arena {
+    /*background-image: url(../img_lessons/baseinas/fonas.png);*/
     width: 490px;
     height: 330px;
 }
 
-#test1 {
-    visibility: hidden;
-    background-image: url(../img_lessons/baseinas/plaukia.png);
-    height: 40px;
-    width: 70px;
+#player {
+    /*visibility: hidden;*/
+    background-image: url(../img_lessons/basketball/player.jpg);
+    height: 200px;
+    width: 75px;
     background-position: 0 0;
-    background-size: 400% 100%;
-    animation: swim 1s infinite steps(4, end);
+    background-size: 100% 100%;
+    /*animation: swim 0s infinite steps(1, end);*/
     /*   float:left; */
-    transform: translate(40px, 220px);
+    transform: translate(200px, 100px);
     position: absolute;
 }
 
-#pool_flags {
-    background-image: url(../img_lessons/baseinas/veliaveles.png);
-    width: 490px;
-    height: 330px;
+#ball {
+    background-image: url(../img_lessons/basketball/ball.png);
+    width: 51px;
+    height: 49px;
     position: absolute;
+    animation: spin_ball 0s infinite steps(2, end);
+    transition-timing-function: ease-out;
+    transform: translate(183px, 86px);
 }
 
+/*
 #time_counter {
     background-image: url(../img_lessons/baseinas/lentele.png);
     background-repeat: no-repeat;
@@ -434,9 +438,9 @@ canvas {
     width: 134px;
     height: 100px;
     z-index: 1;
-}
+}*/
 
-@keyframes swim {
+@keyframes spin_ball {
     100% {
         background-position: 400% 0
     }
