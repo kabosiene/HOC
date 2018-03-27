@@ -39,7 +39,7 @@
         pdf.addImage(imgData, 'JPEG', 83, 60);
          pdf.addImage(imgData2, 'JPEG', 83, 60);
 
-        pdf.save("plakatas.pdf");
+        pdf.save("poster.pdf");
     }, false);
 
     function runCode() {
