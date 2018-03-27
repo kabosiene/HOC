@@ -88,7 +88,7 @@ function runCode() {
         }
 
     } catch (e) {
-        alert(e);
+         alert('Error! Please check the blocks.');
     }
 }
 
