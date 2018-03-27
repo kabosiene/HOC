@@ -94,6 +94,7 @@ body {
 .partners {
     margin: auto;
     text-align: left;
+    /*padding-bottom: 20px; */
 }
 
 
@@ -103,7 +104,7 @@ body {
 
 .line {
     border-top: 2px solid;
-    padding: 40px 0px 0px 0px;
+    padding: 20px 0px 20px 0px;
     margin-right: 19px;
 }
 
