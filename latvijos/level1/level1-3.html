@@ -309,7 +309,7 @@
         img_maciunas_drawing.setAttribute('crossOrigin', 'anonymous');
         img_maciunas_drawing.src = '../img_lessons/barons/BARONS_2.png';
         img_maciunas_drawing.addEventListener("load", function() {
-            m_ctx.drawImage(img_maciunas_drawing, 250, 100, 200, 149);
+            m_ctx.drawImage(img_maciunas_drawing, 250, 100, 149,200);
         });
 
 
@@ -350,7 +350,7 @@
             // and draw the image at its new position
             c_ctx.clearRect(0, 0, canvas.width, canvas.height);
             m_ctx.clearRect(0, 0, canvas.width, canvas.height);
-            m_ctx.drawImage(img_maciunas_drawing, x, y, 200, 149);
+            m_ctx.drawImage(img_maciunas_drawing, x, y, 149, 200);
             degreeAngleCircle += 0.0056;
 
             c_ctx.beginPath();
