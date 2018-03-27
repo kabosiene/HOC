@@ -316,14 +316,14 @@
         try {
 
             if (code.length > 0) {
+                eval(code); 
                 animate();
-                eval(code);
             } else {
                 alert('Pridėk kodo blokelį.');
             }
 
         } catch (e) {
-            alert(e);
+            alert('Klaida! Patikrink blokelius');
         }
 
         function animate() {
