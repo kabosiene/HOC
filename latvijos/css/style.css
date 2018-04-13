@@ -778,7 +778,7 @@ canvas {
 
 .star {
     visibility: hidden;
-    /*background-image: url("../img_lessons/adamkus/not.png");*/
+    /*background-image: url("../img_lessons/vike/not.png");*/
     width: 40px;
     height: 40px;
     transform: translate(450px, 70px);
@@ -798,7 +798,7 @@ canvas {
 .clouds {
     width: 490px;
     height: 330px;
-    background-image: url(../img_lessons/adamkus/fonas-2.png);
+    background-image: url(../img_lessons/vike/fonas-2.png);
     background-position: 0px 0px;
     background-repeat: repeat-x;
     z-index: 19;
@@ -810,7 +810,7 @@ canvas {
 .l1 {
     width: 490px;
     height: 330px;
-    background-image: url(../img_lessons/adamkus/fonas-1.png);
+    background-image: url(../img_lessons/vike/fonas-1.png);
     background-position: 0px 0px;
     background-repeat: repeat-x;
     z-index: 20;
@@ -821,7 +821,7 @@ canvas {
 .l2 {
     width: 490px;
     height: 330px;
-    background-image: url(../img_lessons/adamkus/fonas-3.png);
+    background-image: url(../img_lessons/vike/fonas-3.png);
     background-position: 0px 0px;
     background-repeat: repeat-x;
     z-index: 21;
@@ -840,7 +840,7 @@ canvas {
 
 .avatar {
     /*visibility: hidden;*/
-    background-image: url(../img_lessons/adamkus/bega.png);
+    background-image: url(../img_lessons/vike/eina.png);
     height: 100px;
     width: 70px;
     animation: run 0s infinite steps(2, end);
@@ -864,7 +864,7 @@ canvas {
 
 .jump {
     /*visibility: hidden;*/
-    background-image: url(../img_lessons/adamkus/soka.png);
+    background-image: url(../img_lessons/vike/soka.png);
     width: 70px;
     height: 100px;
     /*animation: jump steps(1) 1s infinite;*/

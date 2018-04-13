@@ -69,7 +69,7 @@
             this.appendDummyInput()
                 .appendField("Paveiksliukas")
                 .appendField(new Blockly.FieldDropdown([
-                    ["Adamkus", "adamkus"],
+                    ["Vike", "vike"],
                     ["Basanavičius", "basanavicius"],
                     ["Estija", "estija"],
                     ["Latvija", "latvija"],
