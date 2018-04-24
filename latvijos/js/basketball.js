@@ -90,7 +90,7 @@ Blockly.Blocks['spin_ball'] = {
 
 Blockly.JavaScript['spin_ball'] = function(block) {
     var code = 'spin_ball = true;\n ';
-    spin_ball = true;
+    // spin_ball = true;
     return code;
 };
 
@@ -98,6 +98,23 @@ Blockly.Blocks['slap_ball'] = {
     init: function() {
         this.appendDummyInput()
             .appendField("slap ball");
+        this.setColour(230);
+        this.setTooltip('');
+        this.setNextStatement(true);
+        this.setPreviousStatement(true);
+    }
+};
+
+Blockly.JavaScript['slap_ball'] = function(block) {
+    var code = 'slap_ball = true;\n ';
+    // slap_ball = true;
+    return code;
+};
+
+Blockly.Blocks['ball_slaped'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("ball slaped");
         this.setOutput(true, null);
         this.setColour(230);
         this.setTooltip("");
@@ -105,9 +122,8 @@ Blockly.Blocks['slap_ball'] = {
     }
 };
 
-Blockly.JavaScript['slap_ball'] = function(block) {
-    var code = 'slap_ball = true\n ';
-    slap_ball = true;
+Blockly.JavaScript['ball_slaped'] = function(block) {
+    var code = 'slap_ball == true';
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 

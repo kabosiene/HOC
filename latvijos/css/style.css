@@ -402,32 +402,57 @@ canvas {
 
 
 #arena {
-    /*background-image: url(../img_lessons/baseinas/fonas.png);*/
+    background-image: url(../img_lessons/basketball/fonas.png);
     width: 490px;
     height: 330px;
 }
 
-#player {
+/*#player {*/
     /*visibility: hidden;*/
-    background-image: url(../img_lessons/basketball/player.jpg);
-    height: 200px;
-    width: 75px;
-    background-position: 0 0;
-    background-size: 100% 100%;
+    /*background-image: url(../img_lessons/basketball/player.png);*/
+    /*height: 330px;*/
+    /*width: 490px;*/
+    /*background-position: 0 0;*/
+    /*background-size: 100% 100%;*/
     /*animation: swim 0s infinite steps(1, end);*/
     /*   float:left; */
-    transform: translate(200px, 100px);
+    /*transform: translate(200px, 100px);*/
+    /*position: absolute;*/
+/*}*/
+.player {
+    /*visibility: hidden;*/
+    background-image: url(../img_lessons/basketball/player.png);
+    height: 330px;
+    width: 485px;
+    background-position: 0 0;
+    /*background-size: 100% 100%;*/
+    /*animation: slap 0s steps(3,start);*/
+    /*animation-iteration-count: */
+    /*   float:left; */
+    /*transform: translate(200px, 100px);*/
+    position: absolute;
+}
+.player_slap {
+    /*visibility: hidden;*/
+    background-image: url(../img_lessons/basketball/slap.png);
+    height: 330px;
+    width: 485px;
+    background-position: 0 0;
+    /*background-size: 100% 100%;*/
+    animation: slap 0.5s infinite steps(2, start);
+    /*   float:left; */
+    /*transform: translate(200px, 100px);*/
     position: absolute;
 }
 
 #ball {
     background-image: url(../img_lessons/basketball/ball.png);
-    width: 51px;
-    height: 49px;
+    width: 485px;
+    height: 330px;
     position: absolute;
-    animation: spin_ball 0s infinite steps(2, end);
+    animation: spin_ball 0s infinite steps(3, start);
     transition-timing-function: ease-out;
-    transform: translate(183px, 86px);
+    /*transform: translate(183px, 86px);*/
 }
 
 /*
@@ -442,7 +467,12 @@ canvas {
 
 @keyframes spin_ball {
     100% {
-        background-position: 400% 0
+        background-position: 300% 0
+    }
+}
+@keyframes slap {
+    100% {
+        background-position: 200% 0
     }
 }
 

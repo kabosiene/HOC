@@ -1,23 +1,23 @@
 var my_canvas = document.getElementById("canvas");
 var ctx = my_canvas.getContext("2d");
 my_canvas.addEventListener('click', clickReporterPirkti, false);
-var eurasKainuoja = 3.45;
-var litas;
-var euras;
-var paspausta;
+var eiroKainuoja = 3.45;
+var lati;
+var eiro;
+var pressed;
 var callAgain;
 var background = new Image();
 background.src = "../img_lessons/valiutos/level1-bg.jpg";
 var win = new Image();
 win.src = "../img_lessons/valiutos/win.jpg";
 
-Blockly.Blocks['paspausta'] = {
+Blockly.Blocks['pressed'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("paspaustas")
+            .appendField("pressed")
             .appendField(new Blockly.FieldDropdown([
-                ["euras", "EURO"],
-                ["litas", "LITAS"]
+                ["eiro", "EIRO"],
+                ["lati", "LATI"]
             ]), "NAME");
         this.setOutput(true, null);
         this.setColour(230);
@@ -26,21 +26,21 @@ Blockly.Blocks['paspausta'] = {
     }
 };
 
-Blockly.JavaScript['paspausta'] = function(block) {
+Blockly.JavaScript['pressed'] = function(block) {
     var dropdown_name = block.getFieldValue('NAME');
     // TODO: Assemble JavaScript into code variable.
     var code = "";
 
-    if (dropdown_name == "EURO") {
+    if (dropdown_name == "EIRO") {
         //var a =  my_canvas.addEventListener('click', clickReporterEuras, false);
         // my_canvas.addEventListener('click', clickReporterEuras, false);
-        code = "paspausta == 'eurai'";
+        code = "pressed == 'eiro'";
 
-    } else if (dropdown_name == "LITAS") {
+    } else if (dropdown_name == "LATI") {
         //var b = my_canvas.addEventListener('click', clickReporterLitas, false);
         // my_canvas.addEventListener('click', clickReporterLitas, false);
-        //alert(paspausta);
-        code = "paspausta == 'litai'";
+        //alert(pressed);
+        code = "pressed == 'lati'";
     }
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -48,12 +48,12 @@ Blockly.JavaScript['paspausta'] = function(block) {
 Blockly.Blocks['change'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("prie")
+            .appendField("add")
+            .appendField(new Blockly.FieldNumber(0), "NUMBER")
+            .appendField("to")
             .appendField(new Blockly.FieldDropdown([
-                ["eurai", "euras"]
-            ]), "NAME")
-            .appendField("pridėk")
-            .appendField(new Blockly.FieldNumber(0), "NUMBER");
+                ["eiro", "eiro"]
+            ]), "NAME");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
@@ -72,7 +72,7 @@ Blockly.Blocks['set'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([
-                ["eurai", "euras"]
+                ["eiro", "eiro"]
             ]), "NAME")
             .appendField("=")
             .appendField(new Blockly.FieldNumber(0, 0), "NUMBER");
@@ -97,10 +97,10 @@ Blockly.Blocks['ifas'] = {
     init: function() {
         this.appendValueInput("if_reiksme")
             .setCheck(Boolean)
-            .appendField("Jei");
+            .appendField("If");
         this.appendStatementInput("do_reiksme")
             .setCheck(null)
-            .appendField("daryti");
+            .appendField("do");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(210);
@@ -120,18 +120,18 @@ Blockly.JavaScript['ifas'] = function(block) {
 Blockly.Blocks['convert'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("konvertuoti");
+            .appendField("convert");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
-        this.setTooltip("Konvertuoja eurus į litus. ");
+        this.setTooltip("");
         this.setHelpUrl("");
     }
 };
 Blockly.JavaScript['convert'] = function(block) {
     // TODO: Assemble JavaScript into code variable.
-    var code = 'litas = euras * 3.45;\n';
-    code += 'euras = 0; \n';
+    var code = 'lati = eiro * 0.702804;\n';
+    code += 'eiro = 0; \n';
     return code;
 };
 //*****************************************************************************
@@ -156,8 +156,8 @@ function draw_elements() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     draw(background, 0, 0);
     ctx.font = "16px Verdana";
-    ctx.strokeText(euras, 410, 72);
-    ctx.strokeText((Math.round(litas * 100) / 100), 220, 72);
+    ctx.strokeText(eiro, 410, 72);
+    ctx.strokeText((Math.round(lati * 100) / 100), 220, 72);
 
 }
 
@@ -167,28 +167,28 @@ function clickReporter(e, if_body) { /// assign event to some variable
     var rect = canvas.getBoundingClientRect(),
         x = e.clientX - rect.left,
         y = e.clientY - rect.top;
-    euras_width = 90;
-    euras_height = 90;
-    litas_width = 170;
-    litas_height = 90;
+    eiro_width = 90;
+    eiro_height = 90;
+    lati_width = 170;
+    lati_height = 90;
 
     /// check x/y coordinate against the image position and dimension
-    //button litas
-    if (x >= 30 && x <= (30 + litas_width) &&
-        y >= 30 && y <= (30 + litas_height)) {
+    //button lati
+    if (x >= 30 && x <= (30 + lati_width) &&
+        y >= 30 && y <= (30 + lati_height)) {
 
         //exchangeLitai();
-        paspausta = "litai";
+        pressed = "lati";
         if_body();
         draw_elements();
 
     }
-    //button_euras
-    if (x >= 300 && x <= (300 + euras_width) &&
-        y >= 30 && y <= (30 + euras_height)) {
+    //button_eiro
+    if (x >= 300 && x <= (300 + eiro_width) &&
+        y >= 30 && y <= (30 + eiro_height)) {
 
         // exchangeLitai();
-        paspausta = "eurai";
+        pressed = "eiro";
         if_body();
         draw_elements();
     }
@@ -197,14 +197,14 @@ function clickReporter(e, if_body) { /// assign event to some variable
     //     y >= 200 && y <= (200 + buy.height)) {
 
 
-    //     if (litas > 30) {
+    //     if (lati > 30) {
     //         ctx.clearRect(0, 0, 200, 100);
     //         ctx.strokeText("NUSIPIRKAI", 200, 100);
     //          setTimeout(function(){$('#nextModal').modal('show');},1000);
     //     } else {
 
-    //         litas = 0;
-    //         euras = 0;
+    //         lati = 0;
+    //         eiro = 0;
     //         draw_elements();
     //         ctx.strokeText("TRUKSTA", 200, 100);
     //     }
@@ -217,21 +217,21 @@ function clickReporterPirkti(e) { /// assign event to some variable
     var rect = this.getBoundingClientRect(),
         x = e.clientX - rect.left,
         y = e.clientY - rect.top;
-    buy_width = 145;
+    buy_width = 150;
     buy_height = 65;
     if (x >= 320 && x <= (320 + buy_width) &&
         y >= 244 && y <= (244 + buy_height)) {
 
 
-        if (litas >= 30) {
+        if (lati >= 10) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             draw(win, 0, 0);
             // ctx.strokeText("NUSIPIRKAI", 200, 100);
             setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
         } else {
 
-            litas = 0;
-            euras = 0;
+            lati = 0;
+            eiro = 0;
             draw_elements();
             ctx.strokeText("TRŪKSTA", 200, 300);
         }

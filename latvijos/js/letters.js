@@ -152,6 +152,32 @@ Blockly.JavaScript['storis'] = function(block) {
      // code = setInterval(code, interval);
      return code;
  };
+
+ Blockly.Blocks['raide_CH'] = {
+     // draw a line from current position to x,y
+     init: function() {
+         this.appendDummyInput()
+             .appendField("Raidė CH")
+         this.setInputsInline(false);
+         this.setPreviousStatement(true, null);
+         this.setNextStatement(true, null);
+         this.setColour(260);
+         this.setTooltip("");
+         this.setHelpUrl("");
+     }
+ };
+ Blockly.JavaScript['raide_CH'] = function(block) {
+     //.arc(x, y, radius, startAngle, endAngle)
+     var x = block.getFieldValue('XPOS');
+     var y = block.getFieldValue('YPOS');
+     var code = 'ctx.beginPath();\n ctx.arc(' + 200 + ',' + 150 + ',50, 7, 1.7 * Math.PI);\n ctx.stroke();\n ctx.beginPath();\n ctx.moveTo(150, 100);\n ctx.lineTo(150, 200);\n ctx.moveTo(250, 100);\n ctx.lineTo(250, 200);\n ctx.moveTo(150, 150);\n ctx.lineTo(250, 150);\n ctx.stroke();\n';
+
+
+     // interval += 100;
+     // code = setInterval(code, interval);
+     return code;
+ };
+
   Blockly.Blocks['raide_Č'] = {
      // draw a line from current position to x,y
      init: function() {
@@ -608,6 +634,28 @@ Blockly.JavaScript['storis'] = function(block) {
      var x = block.getFieldValue('XPOS');
      var y = block.getFieldValue('YPOS');
      var code = 'ctx.beginPath();ctx.arc(' + 200 + ',' + 150 + ',50,0,2*Math.PI);ctx.stroke();\n';
+     // interval += 100;
+     // code = setInterval(code, interval);
+     return code;
+ };
+  Blockly.Blocks['raide_Ō'] = {
+     // draw a line from current position to x,y
+     init: function() {
+         this.appendDummyInput()
+             .appendField("Raidė Ō")
+         this.setInputsInline(false);
+         this.setPreviousStatement(true, null);
+         this.setNextStatement(true, null);
+         this.setColour(260);
+         this.setTooltip("");
+         this.setHelpUrl("");
+     }
+ };
+ Blockly.JavaScript['raide_Ō'] = function(block) {
+     //.arc(x, y, radius, startAngle, endAngle)
+     var x = block.getFieldValue('XPOS');
+     var y = block.getFieldValue('YPOS');
+     var code = 'ctx.beginPath();ctx.arc(' + 200 + ',' + 150 + ',50,0,2*Math.PI);ctx.moveTo(170, 90); ctx.lineTo(230, 90);ctx.stroke();\n';
      // interval += 100;
      // code = setInterval(code, interval);
      return code;
