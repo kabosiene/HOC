@@ -1,98 +1,100 @@
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <div class='customAlert'>
-            <p class='message'></p>
-            <input type='button' class='confirmButton' value='Gerai'>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class='customAlert'>
+        <p class='message'></p>
+        <input type='button' class='confirmButton' value='Gerai'>
+    </div>
+    <div class="container-fluid header-top">
+        <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
+        <div class="progress-container">
+            <ul style="text-align: center;">
+                <li>
+                    <a href="level1-1.html">1</a>
+                </li>
+                <li>
+                    <a href="level1-2.html">2</a>
+                </li>
+                <li>
+                    <a href="level1-3.html">3</a>
+                </li>
+                <li>
+                    <a href="level1-4.html">4</a>
+                </li>
+                <li>
+                    <a href="level1-5.html">5</a>
+                </li>
+                <li>
+                    <a class="active" href="level1-6.html">6</a>
+                </li>
+                <li>
+                    <a href="level1-7.html">7</a>
+                </li>
+                <li>
+                    <a href="level1-8.html">8</a>
+                </li>
+                <li>
+                    <a href="level1-9.html">9</a>
+                </li>
+                <li>
+                    <a href="level1-10.html">10</a>
+                </li>
+            </ul>
         </div>
-        <div class="container-fluid header-top">
-            <a href="../index.html"><img class="header_logo img-fluid" src="../img_lessons/100_small1.png"></a>
-            <div class="progress-container">
-                <ul style="text-align: center;">
-                    <li>
-                        <a href="level1-1.html">1</a>
-                    </li>
-                    <li>
-                        <a href="level1-2.html">2</a>
-                    </li>
-                    <li>
-                        <a href="level1-3.html">3</a>
-                    </li>
-                    <li>
-                        <a href="level1-4.html">4</a>
-                    </li>
-                    <li>
-                        <a href="level1-5.html">5</a>
-                    </li>
-                    <li>
-                        <a class="active" href="level1-6.html">6</a>
-                    </li>
-                    <li>
-                        <a href="level1-7.html">7</a>
-                    </li>
-                    <li>
-                        <a href="level1-8.html">8</a>
-                    </li>
-                    <li>
-                        <a href="level1-9.html">9</a>
-                    </li>
-                    <li>
-                        <a href="level1-10.html">10</a>
-                    </li>
-                </ul>
+    </div>
+    <div class="container-fluid working-space">
+        <div class="row" style="padding: 10px;">
+            <div class="col-md-5">
+                <h4>6. Porzingis</h4>
+            </div>
+            <div class=" col-md-7" id="task"> Tekstas tekstas tekstas tekstas tekstas tekstas tekstas tekstas tekstas
+                <!-- <a href="javascript:void(0)" onclick="changeVideo('9j-wTK2C-Sc')">Užduoties video</a> -->
             </div>
         </div>
-        <div class="container-fluid working-space">
-            <div class="row" style="padding: 10px;">
-                <div class="col-md-5">
-                    <h4>6. Porzingis</h4>
+        <div class="row" style="padding: 10px">
+            <div class="col  ">
+                <div id="preview">
+                    <canvas id="canvas" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <canvas id="canvas2" width="490" height="330">
+                        This text is displayed if your browser does not support HTML5 Canvas.
+                    </canvas>
+                    <div id="arena">
+                        <div id="ball"></div>
+                        <div id="player_id" class="player"></div>
+                        <!-- <div id="ball"></div> -->
+                        <div id="time_counter"></div>
+                    </div>
                 </div>
-                <div class=" col-md-7" id="task"> Tekstas tekstas tekstas tekstas tekstas tekstas tekstas tekstas tekstas
-                    <!-- <a href="javascript:void(0)" onclick="changeVideo('9j-wTK2C-Sc')">Užduoties video</a> -->
+                <div class="button-panel">
+                    <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
+                    <div class="hint-panel">
+                        <ul> Užuomina:
+                            <li>
+                                <a tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Nepamiršk blokelio „plaukti“. Nebent sieki plaukimo vietoje rekordo.">1</a>
+                            </li>
+                            <li>
+                                <a tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Gal nepakankamai padidinai greitį? Pabandyk" data-full="../hints/L1T6_H2.png">2</a>
+                                <!-- https://drive.google.com/file/d/1nMCGU0szwlWSmwotpq3YLp3Ph-nLw6ed/view -->
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="row" style="padding: 10px">
-                <div class="col  ">
-                    <div id="preview">
-                        <canvas id="canvas" width="490" height="330">
-                        This text is displayed if your browser does not support HTML5 Canvas.
-                        </canvas>
-                        <canvas id="canvas2" width="490" height="330">
-                        This text is displayed if your browser does not support HTML5 Canvas.
-                        </canvas>
-                        <div id="arena">
-                            <div id="ball"></div>
-                            <div id="player_id" class="player"></div>
-                            <!-- <div id="ball"></div> -->
-                            <div id="time_counter"></div>
-                        </div>
-                    </div>
-                    <div class="button-panel">
-                        <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
-                        <div class="hint-panel">
-                            <ul> Užuomina:
-                                <li>
-                                    <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Nepamiršk blokelio „plaukti“. Nebent sieki plaukimo vietoje rekordo.">1</a>
-                                </li>
-                                <li>
-                                    <a  tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Gal nepakankamai padidinai greitį? Pabandyk" data-full="../hints/L1T6_H2.png">2</a>
-                                    <!-- https://drive.google.com/file/d/1nMCGU0szwlWSmwotpq3YLp3Ph-nLw6ed/view -->
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="col" style="padding: 0 ;">
+                <div id="blocklyDiv">
                 </div>
-                <div class="col" style="padding: 0 ;">
-                    <div id="blocklyDiv">
-                    </div>
-                    <xml id="toolbox" style="display: none">
+                <xml id="toolbox" style="display: none">
                     <block type="spin_ball"></block>
                     <block type="controls_if"></block>
                     <block type="keisti_greiti"></block>
@@ -100,295 +102,299 @@
                     <block type="on_click"></block>
                     <block type="slap_ball"></block>
                     <block type="ball_slaped"></block>
-                    </xml>
-                </div>
-                <div class="col-md-3 col-lg-2" style="height: 70vh;">
-                    <h5>Javascript kodas: </h5>
-                                                                                    <pre id="content_javascript">
-                    </pre>
-                </div>
+                </xml>
             </div>
-            <div class="row">
-                <div class="logo-row">
-                    <img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png">
-                </div>
+            <div class="col-md-3 col-lg-2" style="height: 70vh;">
+                <h5>Javascript kodas: </h5>
+                <pre id="content_javascript"></pre>
             </div>
-            <div class="next-modal">
-                <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div>
-                                    <h3>Įveikta!</h3>
-                                    
-                                </div>
-                                <div class="modal-buttons">
-                                    <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
-                                    <a href="level1-7.html" class="btn btn-secondary">Kita užduotis</a>
-                                </div>
+        </div>
+        <div class="row">
+            <div class="logo-row">
+                <img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png">
+            </div>
+        </div>
+        <div class="next-modal">
+            <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div>
+                                <h3>Įveikta!</h3>
+                            </div>
+                            <div class="modal-buttons">
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
+                                <a href="level1-7.html" class="btn btn-secondary">Kita užduotis</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/blockly_compressed.js"></script>
-        <script src="../js/javascript_compressed.js"></script>
-        <script src="../js/blocks_compressed.js"></script>
-        <script src="../msg/js/lv.js"></script>
-        <script src="../js/main.js"></script>
-        <script src="../js/basketball.js"></script>
-        <script>
-        var workspace = Blockly.inject('blocklyDiv', {
-            toolbox: document.getElementById('toolbox'),
-            grid: {
-                spacing: 20,
-                length: 5,
-                colour: '#f2f2f2',
-                snap: true
-            },
-            trashcan: true
-        });
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/blockly_compressed.js"></script>
+    <script src="../js/javascript_compressed.js"></script>
+    <script src="../js/blocks_compressed.js"></script>
+    <script src="../msg/js/lv.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/basketball.js"></script>
+    <script>
+    var workspace = Blockly.inject('blocklyDiv', {
+        toolbox: document.getElementById('toolbox'),
+        grid: {
+            spacing: 20,
+            length: 5,
+            colour: '#f2f2f2',
+            snap: true
+        },
+        trashcan: true
+    });
 
-        function toJavascript(event) {
-            var code = Blockly.JavaScript.workspaceToCode(workspace);
-            document.getElementById('content_javascript').innerHTML = code;
-        }
-        workspace.addChangeListener(toJavascript);
-        </script>
-        <script type="text/javascript">
-        var my_canvas = document.getElementById("canvas");
-        var ctx = my_canvas.getContext("2d");
-        var my_canvas2 = document.getElementById("canvas2");
-        var startTime;
-        var score;
-        var speed = 0;
-        var mouse_click = false;
-        var add_speed = 0
-        var animation_speed = 0;
-        var slap_ball = false;
-        var spin_ball = false;
-        var ball_speed = 0;
-        var globalID;
-        var globalID2;
-        var seconds = 60;
-        var timer;
+    function toJavascript(event) {
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        document.getElementById('content_javascript').innerHTML = code;
+    }
+    workspace.addChangeListener(toJavascript);
+    </script>
+    <script type="text/javascript">
+    var my_canvas = document.getElementById("canvas");
+    var ctx = my_canvas.getContext("2d");
+    var my_canvas2 = document.getElementById("canvas2");
+    var porzingis_done = new Image();
+    porzingis_done.src = "../img_lessons/basketball/porzingis_done.png"
+    var startTime;
+    var score;
+    var speed = 0;
+    var mouse_click = false;
+    var add_speed = 0
+    var animation_speed = 0;
+    var slap_ball = false;
+    var spin_ball = false;
+    var ball_speed = 0;
+    var globalID;
+    var globalID2;
+    var seconds = 60;
+    var timer;
+    document.getElementById("ball").style.visibility = "hidden";
+    document.getElementById("time_counter").innerHTML = "1:00";
+
+    function runCode() {
+        stopInterval();
+        cancelAnimationFrame(globalID);
+        cancelAnimationFrame(globalID2);
+        clearInterval(timer);
+
+        // Generate JavaScript code and run it.
+        startTime;
+        score;
+        speed = 0;
+        mouse_click = false;
+        add_speed = 0
+        animation_speed = 0;
+        slap_ball = false;
+        spin_ball = false;
+        ball_speed = 3;
+        seconds = 60;
+        document.getElementById("ball").style.animationDuration = "0s";
         document.getElementById("ball").style.visibility = "hidden";
+        document.getElementById("ball").style.transform = "translate(0px, 0px)";
+        // document.getElementById("player").style.animationDuration = "0s";
+        // document.getElementById("player").style.animationIterationCount = 0;
         document.getElementById("time_counter").innerHTML = "1:00";
+        canvas2.removeEventListener("click", onClick, false);
+        window.LoopTrap = 1000;
+        Blockly.JavaScript.INFINITE_LOOP_TRAP =
+            'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        startTime = new Date();
+        try {
+            if (code.length > 0) {
+                eval(code);
+                if (mouse_click) {
+                    canvas2.addEventListener("click", onClick, false);
+                }
+                if (slap_ball && spin_ball) {
+                    document.getElementById("ball").style.visibility = "visible";
+                    // animateBall(3);
+                    timerOn();
+                    slower(3);
+                } else {
+                    document.getElementById("ball").style.visibility = "hidden";
+                    alert("Ar kamuoliui suktis?");
+                }
+            } else {
+                alert('Pridėk kodo blokelį.');
+            }
+        } catch (e) {
+            // alert('Klaida! Patikrink blokelius');
+            alert(e);
+        }
+    }
 
-        function runCode() {
+    // function animateBall(x) {
+    //     console.log("Call function animate ball");
+    //     animatePlayer();
+    //     setTimeout(function() {
+    //         document.getElementById("ball").style.animationDuration = "" + x + "s";
+    //     }, 500);
+    //     drawElapsedTime();
+    //     drawSpeed(x);
+    // }
+
+    function animatePlayer() {
+        console.log("Call function animate player");
+        $('.player').addClass('player_slap');
+        setTimeout(function() {
+            $('.player').removeClass('player_slap');
+        }, 1000);
+    }
+
+    function drawElapsedTime() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var elapsed = parseInt((new Date() - startTime) / 300);
+        ctx.save();
+        ctx.beginPath();
+        ctx.fillStyle = "blue";
+        ctx.font = "20px Arial";
+        // draw the running time at half opacity
+        ctx.globalAlpha = 0.50;
+        ctx.fillText(elapsed + " s", 225, 80);
+        ctx.restore();
+    }
+
+    function drawSpeed(x) {
+        // console.log("Call function draw speed");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.save();
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.font = "20px Arial";
+        // ctx.fillText("Speed: " + (1 / parseFloat(x)).toFixed(2), 60, 20);
+        ctx.fillText("Speed: " + parseFloat(x).toFixed(2), 60, 20);
+        ctx.restore();
+    }
+
+    var id;
+    var elem = document.getElementById("ball");
+
+    function slower(speed_x) {
+        //console.log("Call function slower");
+        animatePlayer();
+        ball_speed = speed_x;
+        id = setInterval(frame, 500);
+    }
+
+    function stopInterval() {
+        //console.log("Interval stoped");
+        clearInterval(id);
+    }
+
+    function tryAgain() {
+        canvas2.removeEventListener("click", onClick, false);
+        ctx.font = "14px Arial";
+        ctx.fillText("Bandyk dar!", 200, 20);
+    }
+
+    function frame() {
+        ball_speed = ball_speed + 0.1;
+        // console.log(ball_speed);
+        if (ball_speed >= 4) {
+            ball_speed = 4;
+            console.log("Call interval stop >=4s");
+            stopInterval();
+            elem.style.animationDuration = "0s";
+            console.log("Call function fall");
+            drawSpeed(ball_speed);
+            tryAgain();
+            fall_ball(0);
+        } else if (ball_speed < 0.1) {
+            ball_speed = 0.1;
+            console.log("Call function fly");
+            stopInterval();
+            elem.style.animationDuration = "0.1s";
+            drawSpeed(ball_speed);
+            tryAgain();
+            fly_away_ball(0);
+        } else {
+            ///console.log("letejantis greitis:" + ball_speed);
+            drawSpeed(ball_speed);
+            elem.style.animationDuration = "" + parseFloat(ball_speed).toFixed(2) + "s";
+        }
+    }
+
+    function onClick(e) {
+        //console.log("Call interval stop on click");
+        stopInterval();
+        if (add_speed > 0) {
+            //console.log("Add speed: " + add_speed);
+            // speed += add_speed;
+            ball_speed -= add_speed;
+            slower(ball_speed);
+        }
+    }
+
+    function fly_away_ball(plain_y) {
+        // y=86px
+        if (plain_y <= 0 && plain_y > -400) {
+            globalID = requestAnimationFrame(function() {
+                fly_away_ball(plain_y);
+            });
+        } else {
+            //console.log("Cancel fly");
+            cancelAnimationFrame(globalID);
+
+        }
+        document.getElementById("ball").style.transform = "translate(0px, " + plain_y + "px)";
+        plain_y -= 1;
+    }
+
+    function fall_ball(plain_y) {
+        // y=86px
+        if (plain_y >= 0 && plain_y < 229) {
+            globalID2 = requestAnimationFrame(function() {
+                fall_ball(plain_y);
+            });
+        } else {
+            //console.log("Cancel fall and hide");
+            cancelAnimationFrame(globalID2);
+            document.getElementById("ball").style.visibility = "hidden";
+        }
+        document.getElementById("ball").style.transform = "translate(0px, " + plain_y + "px)";
+        plain_y += 5;
+    }
+    // timer
+
+    function myFunction() {
+        if (seconds < 60) { // I want it to say 1:00, not 60
+            document.getElementById("time_counter").innerHTML = seconds + "s";
+        }
+        if (seconds > 0) { // so it doesn't go to -1
+            seconds--;
+        } else {
             stopInterval();
             cancelAnimationFrame(globalID);
             cancelAnimationFrame(globalID2);
             clearInterval(timer);
-
-            // Generate JavaScript code and run it.
-            startTime;
-            score;
-            speed = 0;
-            mouse_click = false;
-            add_speed = 0
-            animation_speed = 0;
-            slap_ball = false;
-            spin_ball = false;
-            ball_speed = 3;
-            seconds = 60;
-            document.getElementById("ball").style.animationDuration = "0s";
-            document.getElementById("ball").style.visibility = "hidden";
-            document.getElementById("ball").style.transform = "translate(0px, 0px)";
-            // document.getElementById("player").style.animationDuration = "0s";
-            // document.getElementById("player").style.animationIterationCount = 0;
-            document.getElementById("time_counter").innerHTML = "1:00";
-            canvas2.removeEventListener("click", onClick, false);
-            window.LoopTrap = 1000;
-            Blockly.JavaScript.INFINITE_LOOP_TRAP =
-                'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-            var code = Blockly.JavaScript.workspaceToCode(workspace);
-            Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-            startTime = new Date();
-            try {
-                if (code.length > 0) {
-                    eval(code);
-                    if (mouse_click) {
-                        canvas2.addEventListener("click", onClick, false);
-                    }
-                    if (slap_ball && spin_ball) {
-                        document.getElementById("ball").style.visibility = "visible";
-                        // animateBall(3);
-                        timerOn();
-                        slower(3);
-                    } else {
-                        document.getElementById("ball").style.visibility = "hidden";
-                        alert("Ar kamuoliui suktis?");
-                    }
-                } else {
-                    alert('Pridėk kodo blokelį.');
-                }
-            } catch (e) {
-                // alert('Klaida! Patikrink blokelius');
-                alert(e);
-            }
-        }
-
-        // function animateBall(x) {
-        //     console.log("Call function animate ball");
-        //     animatePlayer();
-        //     setTimeout(function() {
-        //         document.getElementById("ball").style.animationDuration = "" + x + "s";
-        //     }, 500);
-        //     drawElapsedTime();
-        //     drawSpeed(x);
-        // }
-
-        function animatePlayer() {
-            console.log("Call function animate player");
-            $('.player').addClass('player_slap');
-            setTimeout(function() {
-                $('.player').removeClass('player_slap');
-            }, 1000);
-        }
-
-        function drawElapsedTime() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            var elapsed = parseInt((new Date() - startTime) / 300);
-            ctx.save();
-            ctx.beginPath();
-            ctx.fillStyle = "blue";
-            ctx.font = "20px Arial";
-            // draw the running time at half opacity
-            ctx.globalAlpha = 0.50;
-            ctx.fillText(elapsed + " s", 225, 80);
-            ctx.restore();
-        }
-
-        function drawSpeed(x) {
-            // console.log("Call function draw speed");
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.save();
-            ctx.beginPath();
-            ctx.fillStyle = "black";
-            ctx.font = "20px Arial";
-            // ctx.fillText("Speed: " + (1 / parseFloat(x)).toFixed(2), 60, 20);
-            ctx.fillText("Speed: " + parseFloat(x).toFixed(2), 60, 20);
-            ctx.restore();
-        }
-
-        var id;
-        var elem = document.getElementById("ball");
-
-        function slower(speed_x) {
-            console.log("Call function slower");
-            animatePlayer();
-            ball_speed = speed_x;
-            id = setInterval(frame, 500);
-        }
-
-        function stopInterval() {
-            console.log("Interval stoped");
             clearInterval(id);
+            canvas2.removeEventListener("click", onClick, false); 
+            ctx.clearRect(0, 0, canvas.width, canvas.height);      
+            ctx.drawImage(porzingis_done, 0, 0);
+            setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
         }
-        function tryAgain(){
-            canvas2.removeEventListener("click", onClick, false);
-            ctx.font = "14px Arial";
-            ctx.fillText("Bandyk dar!", 200, 20);
-        }
+    }
 
-        function frame() {
-              ball_speed = ball_speed + 0.1;
-            // console.log(ball_speed);
-            if (ball_speed >= 4) {
-                ball_speed = 4;
-                console.log("Call interval stop >=4s");
-                stopInterval();
-                elem.style.animationDuration = "0s";
-                console.log("Call function fall");
-                drawSpeed(ball_speed);
-                tryAgain();
-                fall_ball(0);
-            } 
-           else if (ball_speed < 0.1) {
-                ball_speed = 0.1;
-                console.log("Call function fly");
-                stopInterval();
-                elem.style.animationDuration = "0.1s";
-                drawSpeed(ball_speed);
-                tryAgain();
-                fly_away_ball(0);
-            }
-            else {
-                console.log("letejantis greitis:"+ball_speed);
-                drawSpeed(ball_speed);
-                elem.style.animationDuration = "" + parseFloat(ball_speed).toFixed(2) + "s";
-            }
-        }
+    function timerOn() {
+        timer = window.setInterval(function() {
+            myFunction();
+        }, 1000); // every second
+    }
+    </script>
+</body>
 
-        function onClick(e) {
-            console.log("Call interval stop on click");
-            stopInterval();
-            if (add_speed > 0) {
-                 console.log( "Add speed: "+add_speed);
-                // speed += add_speed;
-                ball_speed -= add_speed;       
-                slower(ball_speed);
-            }
-        }
-
-        function fly_away_ball(plain_y) {
-            // y=86px
-            if (plain_y <= 0 && plain_y > -400) {
-                globalID = requestAnimationFrame(function() {
-                    fly_away_ball(plain_y);
-                });
-            } else {
-                console.log("Cancel fly");
-               cancelAnimationFrame(globalID);
-
-             }
-            document.getElementById("ball").style.transform = "translate(0px, " + plain_y + "px)";
-            plain_y -= 1;
-        }
-
-        function fall_ball(plain_y) {
-            // y=86px
-            if (plain_y >= 0 && plain_y < 229) {
-                globalID2 = requestAnimationFrame(function() {
-                    fall_ball(plain_y);
-                });
-            } else {
-                console.log("Cancel fall and hide");
-                cancelAnimationFrame(globalID2);
-                document.getElementById("ball").style.visibility = "hidden";
-            }
-            document.getElementById("ball").style.transform = "translate(0px, " + plain_y + "px)";
-            plain_y += 5;
-        }
-            // timer
-
-            function myFunction() {
-                if (seconds < 60) { // I want it to say 1:00, not 60
-                    document.getElementById("time_counter").innerHTML = seconds + "s";
-                }
-                if (seconds > 0) { // so it doesn't go to -1
-                    seconds--;
-                } else {
-                    clearInterval(timer);
-                    alert("You did it!");
-                    setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
-                }
-            }
-
-            function timerOn() {
-                    timer = window.setInterval(function() {
-                        myFunction();
-                    }, 1000); // every second
-            }
-
-       
-        </script>
-    </body>
 </html>
