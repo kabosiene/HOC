@@ -11,7 +11,7 @@
 </head>
 
 <body>
-        <div class='customAlert'>
+    <div class='customAlert'>
         <p class='message'></p>
         <input type='button' class='confirmButton' value='Gerai'>
     </div>
@@ -55,9 +55,10 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>2. LITUANICA: du draugai</h4></div>
-            <div class=" col-md-7" id="task"> Atkurk istorinį Dariaus ir Girėno skrydį per Atlantą ir padėk pasiekti jo tikslą. Lakūnų kelionė, prasidėjusi Niujorke, tęsėsi virš Niufaundlando, Škotijos ir, deja, baigėsi dabartinėje Lenkijos teritorijoje, nepasiekusi Kauno. Programuok jungdamas blokelius ir nurodyk teisingą kryptį. Jei pasiekei lemtingą tašką Lenkijoje, padėk lakūnams pasiekti Kauną.
-                <a href="javascript:void(0)" onclick="changeVideo('f6R89D9RLn4')">Užduoties video</a> </div>
+                <h4>2. MILDA</h4></div>
+            <div class=" col-md-7" id="task"> Atkurk Mildos kelią
+                <!-- <a href="javascript:void(0)" onclick="changeVideo('f6R89D9RLn4')">Užduoties video</a>  -->
+            </div>
         </div>
         <div class="row" style="padding: 10px">
             <div class="col  ">
@@ -68,7 +69,7 @@
                     <canvas id="canvas3" width="490" height="330">
                         This text is displayed if your browser does not support HTML5 Canvas.
                     </canvas>
-                    <div id="lituanica_plane"></div>
+                    <div id="milda"></div>
                 </div>
                 <div class="button-panel">
                     <button class="button-run btn btn-lg btn-secondary" onclick="runCode()">Paleisti </button>
@@ -79,7 +80,7 @@
                                 <!-- https://drive.google.com/file/d/1AfH3D7FR0ep2eYjYqQQhWqAPC3ep0hF_/view -->
                             </li>
                             <li>
-                                <a tabindex="0"  href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Ar tikrai aplankei visus taškus? Atkūręs maršrutą, nukeliauk ir iki suplanuoto tikslo - Kauno." data-full="../hints/L1T2_H2.png">2</a>
+                                <a tabindex="0" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-trigger="focus" title="" data-text="Ar tikrai aplankei visus taškus? Atkūręs maršrutą, nukeliauk ir iki suplanuoto tikslo - Kauno." data-full="../hints/L1T2_H2.png">2</a>
                                 <!-- https://drive.google.com/file/d/1udySRTWwxen0BUmGSVjwEqwb5q04YJAu/view -->
                             </li>
                         </ul>
@@ -90,11 +91,13 @@
                 <div id="blocklyDiv">
                 </div>
                 <xml id="toolbox" style="display: none">
-                    <block type="fly_left">
+                    <block type="go_left">
                     </block>
-                    <block type="fly_right">
+                    <block type="go_right">
                     </block>
-                    <block type="fly_straight">
+                    <block type="go_straight">
+                    </block>
+                    <block type="go_back">
                     </block>
                     <block type="blocks">
                     </block>
@@ -106,10 +109,10 @@
                 </pre>
             </div>
         </div>
-          <div class="row">
+        <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-<!--         <div class="video-modal">
+        <!--         <div class="video-modal">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -126,10 +129,10 @@
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
-                   <div class="modal-content">
+                    <div class="modal-content">
                         <div class="modal-body">
                             <div>
-                                <h3>Atskridai!</h3>
+                                <h3>Sujungei!</h3>
                             </div>
                             <div class="modal-buttons">
                                 <a href="#" class="btn btn-secondary" data-dismiss="modal">Grįžti į užduotį</a>
@@ -153,16 +156,18 @@
     <script src="../js/blocks_compressed.js"></script>
     <script src="../msg/js/lv.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/lituanica.js"></script>
+    <script src="../js/milda.js"></script>
     <script type="text/javascript">
     var my_canvas = document.getElementById("canvas");
     var background = my_canvas.getContext("2d");
     var map = new Image();
-    map.src = "../img_lessons/lituanica/fonas.png";
-    var plane = new Image();
-    plane.src = "../img_lessons/lituanica/lituanica_didelis.png";
-    var plain_x = 0;
-    var plain_y = 170;
+    map.src = "../img_lessons/milda/background.png";
+    var map2 = new Image();
+    map2.src = "../img_lessons/milda/background2.png";
+    var m_done = new Image();
+    m_done.src = "../img_lessons/milda/milda-done.png";
+    var plain_x = 180;
+    var plain_y = 75;
     var finished = false;
     var points = [];
 
@@ -176,51 +181,60 @@
 
     function drawGrid() {
         background.strokeStyle = 'grey';
-        for (i = 0; i < 490; i += 40) {
+        for (i = -2; i < 490; i += 40) {
             background.beginPath();
             background.moveTo(i, 0);
             background.lineTo(i, 330);
             background.stroke();
         }
-        for (i = 10; i < 330; i += 40) {
+        for (i = 12; i < 330; i += 40) {
             background.beginPath();
             background.moveTo(0, i);
             background.lineTo(490, i);
             background.stroke();
         }
         background.strokeStyle = 'black';
-         background.font = "12px Verdana";
-        //newyork
-        background.fillRect(45, 190, 4, 4);
-        background.beginPath();
-        background.arc(47, 192, 8, 0, 2 * Math.PI);
-        background.strokeText("Niujorkas", 40, 210);
-        background.stroke();
-        //newfoundland
-        background.fillRect(130, 140, 4, 4);
-        background.beginPath();
-        background.arc(132, 142, 8, 0, 2 * Math.PI);
+        background.font = "14px Arial";
 
-        background.stroke();
-        //Škotija
-        background.fillRect(330, 105, 4, 4);
+        background.fillRect(45, 145, 4, 4);
         background.beginPath();
-        background.arc(332, 107, 8, 0, 2 * Math.PI);
-
-        background.stroke();
-        //Kaunas
-        background.fillRect(449, 122, 4, 4);
-        background.beginPath();
-        background.arc(451, 124, 8, 0, 2 * Math.PI);
-        background.stroke();
-        //Lenkija, ex Vokietija, 
-        background.fillRect(410, 140, 4, 4);
-        background.beginPath();
-        background.strokeStyle = '#ff0000';
-        background.arc(412, 142, 8, 0, 2 * Math.PI);
+        background.arc(47, 147, 12, 0, 2 * Math.PI);
+        if (points[0] == 1) {
+            background.strokeText("Jūrkalne", 25, 125);
+        }
+        //background.strokeText("Jūrkalne", 25, 125);
         background.stroke();
 
+        background.fillRect(165, 205, 4, 4);
+        background.beginPath();
+        background.arc(167, 207, 12, 0, 2 * Math.PI);
+        if (points[1] == 1) {
+            background.strokeText("Tervete nature park", 120, 190);
+        }
+        background.stroke();
 
+        background.fillRect(280, 98, 4, 4);
+        background.beginPath();
+        background.arc(282, 100, 12, 0, 2 * Math.PI);
+        if (points[2] == 1) {
+            background.strokeText("Gauja", 265, 80);
+        }
+        background.stroke();
+
+        background.fillRect(380, 270, 4, 4);
+        background.beginPath();
+        background.arc(382, 272, 12, 0, 2 * Math.PI);
+        if (points[3] == 1) {
+            background.strokeText("Daugavas loki", 340, 255);
+        }
+        background.stroke();
+
+        background.fillRect(200, 155, 4, 4);
+        background.beginPath();
+        // background.strokeStyle = '#ff0000';
+        background.arc(202, 157, 12, 0, 2 * Math.PI);
+        background.strokeText("Ryga", 185, 140);
+        background.stroke();
     }
     </script>
     <script>
@@ -251,20 +265,19 @@
         Blockly.JavaScript.addReservedWords('highlightBlock');
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         var myInterpreter = new Interpreter(code, initApi);
-
+        points = [];
         background.clearRect(0, 0, canvas.width, canvas.height);
         background.strokeStyle = "black";
         background.drawImage(map, 0, 0);
         drawGrid();
-        plain_x = 0;
-        plain_y = 170;
+        plain_x = 180;
+        plain_y = 75;
         var x = 0;
         var y = 0;
         var move = 0;
         finished = false;
-        points = [];
-        document.getElementById("lituanica_plane").style.visibility = 'visible';
-        document.getElementById("lituanica_plane").style.transform = "translate(0px, 170px)";
+        document.getElementById("milda").style.visibility = 'visible';
+        document.getElementById("milda").style.transform = "translate(180px, 75px)";
 
 
         try {
@@ -277,7 +290,6 @@
                     }
                 }
                 nextStep();
-                // myInterpreter.run();
             } else {
                 alert('Pridėk kodo blokelį.');
             }
@@ -315,15 +327,15 @@
 
         /***********************************************************************/
 
-        Blockly.JavaScript.addReservedWords('updatePlane');
+        Blockly.JavaScript.addReservedWords('updateMilda');
 
         var wrapper = interpreter.createAsyncFunction(
-            function updatePlane(x, y, callback) {
+            function updateMilda(x, y, callback) {
                 changePoints(x, y);
                 callback();
             }
         );
-        interpreter.setProperty(scope, 'updatePlane', wrapper);
+        interpreter.setProperty(scope, 'updateMilda', wrapper);
         /***********************************************************************/
 
         /*************************************************************************/
