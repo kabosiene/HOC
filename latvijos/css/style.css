@@ -495,8 +495,8 @@ canvas {
 #milda{
 
     background-image: url(../img_lessons/milda/milda_sprite.png);
-    height: 102px;
-    width: 50px;
+    height: 100px;
+    width: 23px;
     animation: milda_walk 0s infinite steps(2, end);
     transform: translate(180px, 75px);
     
