@@ -199,5 +199,4 @@ function spausdinti(list) {
         document.getElementById('doclist').innerHTML += "<div class=text"+i+"> Dokumentas:" + list[i] + "<br></div>";
     }
 
- // my_canvas.addEventListener('click', clickReporter, false);
 }
