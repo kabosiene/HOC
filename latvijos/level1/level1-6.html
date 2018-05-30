@@ -173,9 +173,20 @@
         var animation_speed = 0;
         var slap_ball = false;
         var spin_ball = false;
+        var ball_speed = 0;
+        var globalID;
+        var globalID2;
+        var seconds = 60;
+        var timer;
         document.getElementById("ball").style.visibility = "hidden";
+        document.getElementById("time_counter").innerHTML = "1:00";
 
         function runCode() {
+            stopInterval();
+            cancelAnimationFrame(globalID);
+            cancelAnimationFrame(globalID2);
+            clearInterval(timer);
+
             // Generate JavaScript code and run it.
             startTime;
             score;
@@ -185,11 +196,14 @@
             animation_speed = 0;
             slap_ball = false;
             spin_ball = false;
+            ball_speed = 3;
+            seconds = 60;
             document.getElementById("ball").style.animationDuration = "0s";
             document.getElementById("ball").style.visibility = "hidden";
             document.getElementById("ball").style.transform = "translate(0px, 0px)";
             // document.getElementById("player").style.animationDuration = "0s";
             // document.getElementById("player").style.animationIterationCount = 0;
+            document.getElementById("time_counter").innerHTML = "1:00";
             canvas2.removeEventListener("click", onClick, false);
             window.LoopTrap = 1000;
             Blockly.JavaScript.INFINITE_LOOP_TRAP =
@@ -205,7 +219,9 @@
                     }
                     if (slap_ball && spin_ball) {
                         document.getElementById("ball").style.visibility = "visible";
-                        animateBall(1);
+                        // animateBall(3);
+                        timerOn();
+                        slower(3);
                     } else {
                         document.getElementById("ball").style.visibility = "hidden";
                         alert("Ar kamuoliui suktis?");
@@ -219,16 +235,18 @@
             }
         }
 
-        function animateBall(x) {
-            animatePlayer();
-            setTimeout(function() {
-                document.getElementById("ball").style.animationDuration = "" + x + "s";
-            }, 500);
-            drawElapsedTime();
-            drawSpeed(x);
-        }
+        // function animateBall(x) {
+        //     console.log("Call function animate ball");
+        //     animatePlayer();
+        //     setTimeout(function() {
+        //         document.getElementById("ball").style.animationDuration = "" + x + "s";
+        //     }, 500);
+        //     drawElapsedTime();
+        //     drawSpeed(x);
+        // }
 
         function animatePlayer() {
+            console.log("Call function animate player");
             $('.player').addClass('player_slap');
             setTimeout(function() {
                 $('.player').removeClass('player_slap');
@@ -249,29 +267,74 @@
         }
 
         function drawSpeed(x) {
+            // console.log("Call function draw speed");
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.save();
             ctx.beginPath();
             ctx.fillStyle = "black";
             ctx.font = "20px Arial";
-            // draw the running time at half opacity
-            // ctx.globalAlpha = 0.50;
-            ctx.fillText("Speed: " + (1/parseFloat(x)).toFixed(2), 60, 20);
+            // ctx.fillText("Speed: " + (1 / parseFloat(x)).toFixed(2), 60, 20);
+            ctx.fillText("Speed: " + parseFloat(x).toFixed(2), 60, 20);
             ctx.restore();
         }
 
-        function onClick(e) {
-            if (add_speed > 0) {
-                speed += add_speed;
-                animateBall(0.1 / speed);
-            }
-            
-            // if ((0.1 / add_speed) < 1) {
-                console.log(speed);
-                
-            // }
-            if (speed > 4) {
+        var id;
+        var elem = document.getElementById("ball");
+
+        function slower(speed_x) {
+            console.log("Call function slower");
+            animatePlayer();
+            ball_speed = speed_x;
+            id = setInterval(frame, 500);
+        }
+
+        function stopInterval() {
+            console.log("Interval stoped");
+            clearInterval(id);
+        }
+        function tryAgain(){
+            canvas2.removeEventListener("click", onClick, false);
+            ctx.font = "14px Arial";
+            ctx.fillText("Bandyk dar!", 200, 20);
+        }
+
+        function frame() {
+              ball_speed = ball_speed + 0.1;
+            // console.log(ball_speed);
+            if (ball_speed >= 4) {
+                ball_speed = 4;
+                console.log("Call interval stop >=4s");
+                stopInterval();
+                elem.style.animationDuration = "0s";
+                console.log("Call function fall");
+                drawSpeed(ball_speed);
+                tryAgain();
+                fall_ball(0);
+            } 
+           else if (ball_speed < 0.1) {
+                ball_speed = 0.1;
+                console.log("Call function fly");
+                stopInterval();
+                elem.style.animationDuration = "0.1s";
+                drawSpeed(ball_speed);
+                tryAgain();
                 fly_away_ball(0);
+            }
+            else {
+                console.log("letejantis greitis:"+ball_speed);
+                drawSpeed(ball_speed);
+                elem.style.animationDuration = "" + parseFloat(ball_speed).toFixed(2) + "s";
+            }
+        }
+
+        function onClick(e) {
+            console.log("Call interval stop on click");
+            stopInterval();
+            if (add_speed > 0) {
+                 console.log( "Add speed: "+add_speed);
+                // speed += add_speed;
+                ball_speed -= add_speed;       
+                slower(ball_speed);
             }
         }
 
@@ -281,14 +344,51 @@
                 globalID = requestAnimationFrame(function() {
                     fly_away_ball(plain_y);
                 });
-                console.log(globalID);
             } else {
-                cancelAnimationFrame(globalID);
-            }
-            console.log(plain_y);
+                console.log("Cancel fly");
+               cancelAnimationFrame(globalID);
+
+             }
             document.getElementById("ball").style.transform = "translate(0px, " + plain_y + "px)";
             plain_y -= 1;
         }
+
+        function fall_ball(plain_y) {
+            // y=86px
+            if (plain_y >= 0 && plain_y < 229) {
+                globalID2 = requestAnimationFrame(function() {
+                    fall_ball(plain_y);
+                });
+            } else {
+                console.log("Cancel fall and hide");
+                cancelAnimationFrame(globalID2);
+                document.getElementById("ball").style.visibility = "hidden";
+            }
+            document.getElementById("ball").style.transform = "translate(0px, " + plain_y + "px)";
+            plain_y += 5;
+        }
+            // timer
+
+            function myFunction() {
+                if (seconds < 60) { // I want it to say 1:00, not 60
+                    document.getElementById("time_counter").innerHTML = seconds + "s";
+                }
+                if (seconds > 0) { // so it doesn't go to -1
+                    seconds--;
+                } else {
+                    clearInterval(timer);
+                    alert("You did it!");
+                    setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
+                }
+            }
+
+            function timerOn() {
+                    timer = window.setInterval(function() {
+                        myFunction();
+                    }, 1000); // every second
+            }
+
+       
         </script>
     </body>
 </html>
