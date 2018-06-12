@@ -213,7 +213,7 @@ Blockly.Blocks['anim_speed'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(330);
-        this.setTooltip("Šokio judesių greitis");
+        this.setTooltip("");
         this.setHelpUrl("");
     }
 };

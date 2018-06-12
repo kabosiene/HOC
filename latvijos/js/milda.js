@@ -136,60 +136,6 @@ Blockly.JavaScript['wait_seconds'] = function(block) {
     return code;
 };
 
-/********************Level2*****************************/
-Blockly.Blocks['go_to'] = {
-    init: function() {
-        this.appendDummyInput()
-            .appendField(" x :")
-            .appendField(new Blockly.FieldNumber(0, 0, 500), "go_x")
-            .appendField("y :")
-            .appendField(new Blockly.FieldNumber(0, 0, 500), "go_y");
-        this.setOutput(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
-
-Blockly.JavaScript['go_to'] = function(block) {
-    var number_go_x = block.getFieldValue('go_x');
-    var number_go_y = block.getFieldValue('go_y');
-    // TODO: Assemble JavaScript into code variable.
-    var code = number_go_x;
-    code += ','
-    code += number_go_y;
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.Blocks['go_points'] = {
-    init: function() {
-        this.appendValueInput("points_x_y")
-            .setCheck(null)
-            .appendField(new Blockly.FieldDropdown([
-                ["skristi į", "default_point"],
-                ["Niufaundlandas", "first_point"],
-                ["Škotija", "second_point"],
-                ["Lenkija", "third_point"],
-                ["Lietuva", "fourth_point"]
-            ]), "d_points");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
-
-Blockly.JavaScript['go_points'] = function(block) {
-    var dropdown_d_points = block.getFieldValue('d_points');
-    var value_points_x_y = Blockly.JavaScript.valueToCode(block, 'points_x_y', Blockly.JavaScript.ORDER_NONE);
-    // TODO: Assemble JavaScript into code variable.
-    var code = "";
-    code += 'updateMilda(' + value_points_x_y + ');';
-    code += 'waitForSeconds(3);\n';
-    return code;
-};
 
 function changePoints(x, y) {
     //console.log(x)
