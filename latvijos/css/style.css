@@ -387,14 +387,14 @@ canvas {
 
 #m-finished {
     display: none;
-    background-image: url(../img_lessons/invent/mazylis.png);
+    background-image: url(../img_lessons/invent/foto.gif);
     width: 490px;
     height: 330px;
     z-index: 2;
-    animation: 1s eye_anim infinite steps(2, end);
+    /*animation: 1s eye_anim infinite steps(2, end);*/
 }
 
-@keyframes eye_anim {
+/*@keyframes eye_anim {*/
     100% {
         background-position: 200% 0
     }

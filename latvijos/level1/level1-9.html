@@ -220,7 +220,7 @@
     }
 
     $('#doclist').on("click", "div", function() {
-        if ($(' div.' + $(this).attr("class") + ':contains("1918-02-16")').length > 0) {
+        if ($(' div.' + $(this).attr("class") + ':contains("1918")').length > 0) {
             $('#m-finished').show();
             $('#doclist').hide();
             setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
