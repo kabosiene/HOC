@@ -82,9 +82,9 @@
                     ["Lati", "latas"],
                     ["Turing award", "award"],
                     ["Tortas", "tortas"],
-                    ["EU flag", "veliava1"],
-                    ["Nato flag", "veliava2"],
-                    ["Latvian flag", "veliava3"],
+                    ["EU flag", "veliava-1"],
+                    ["Nato flag", "veliava-2"],
+                    ["Latvian flag", "veliava-3"],
                     ["Latvijos regionai", "regionai"],
                     ["Milda", "Milda"],
                     ["Mezginys", "mezginys"],
@@ -92,12 +92,12 @@
                     ["Porzingis 1", "Porzingis-1"],
                     ["Porzingis 2", "Porzingis-2"],
                     ["Šventykla", "sventykla"],
-                    ["Šokėjų pora 1", "sokejai1"],
-                    ["Šokėjų pora 2", "sokejai2"],
-                    ["Šokėjų pora 3", "sokejai3"],
-                    ["Šokėjų pora 4", "sokejai4"],
-                    ["Šokėjų pora 5", "sokejai5"],
-                    ["Šokėjų pora 6", "sokejai6"]
+                    ["Šokėjų pora 1", "sokejai-1"],
+                    ["Šokėjų pora 2", "sokejai-2"],
+                    ["Šokėjų pora 3", "sokejai-3"],
+                    ["Šokėjų pora 4", "sokejai-4"],
+                    ["Šokėjų pora 5", "sokejai-5"],
+                    ["Šokėjų pora 6", "sokejai-6"]
                 ]), "image")
                 .appendField("X: ")
                 .appendField(new Blockly.FieldNumber(0, 0, 480), "x")
