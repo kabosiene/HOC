@@ -379,7 +379,7 @@ canvas {
 }
 
 #m-background {
-    background-image: url(../img_lessons/mazylis/fonas.png);
+    background-image: url(../img_lessons/invent/fonas.png);
     width: 490px;
     height: 330px;
     z-index: 1;
@@ -387,7 +387,7 @@ canvas {
 
 #m-finished {
     display: none;
-    background-image: url(../img_lessons/mazylis/mazylis.png);
+    background-image: url(../img_lessons/invent/mazylis.png);
     width: 490px;
     height: 330px;
     z-index: 2;
