@@ -21,6 +21,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
+    padding: 16px;
     z-index: 2;
 }
 </style>
@@ -198,6 +199,13 @@
     workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
+    var inventors = ["People's Council of Latvia","Inventor Valters Caps","Scientist Aina Muceniece","Computer scientist Juris Hartmanis","Mathematician Daina Taimina","Architect Austris Mailītis"];
+ document.getElementById('doclist').innerHTML ="";
+    for (var i = 0; i < inventors.length; i++) {
+
+        document.getElementById('doclist').innerHTML += "<div class=text"+i+" style='font-size:14px'> " +inventors[i] +"<br></div>";
+    }
+
     function runCode() {
         // Generate JavaScript code and run it.
         $('#m-finished').hide();
@@ -220,7 +228,7 @@
     }
 
     $('#doclist').on("click", "div", function() {
-        if ($(' div.' + $(this).attr("class") + ':contains("1918")').length > 0) {
+        if ($(this).attr("class") == 'text0' && $(' div.text0:contains("1918")').length > 0) {
             $('#m-finished').show();
             $('#doclist').hide();
             setTimeout(function() { $('#nextModal').modal('show'); }, 2000);

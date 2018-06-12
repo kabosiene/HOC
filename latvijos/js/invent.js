@@ -1,4 +1,3 @@
-
 Blockly.Blocks['spausdinti'] = {
     init: function() {
         this.appendValueInput("last_list_name")
@@ -22,10 +21,7 @@ Blockly.Blocks['v_dokumentai'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([
                 ["dokumentai", "dokumentai"],
-                ["galutinis sąrašas", "last_list"],
-                ["sąrašas pagal datą", "sorted_list"],
-                ["pirma data", "first_v"],
-                ["paskutinė data", "last_v"]
+                ["sąrašas pagal datą", "sorted_list"]
             ]), "kintamieji");
         this.setOutput(true, null);
         this.setColour(330);
@@ -49,7 +45,6 @@ Blockly.Blocks['set_v'] = {
             .setAlign(Blockly.ALIGN_CENTRE)
             .appendField(new Blockly.FieldDropdown([
                 ["dokumentai", "dokumentai"],
-                ["galutinis sąrašas", "last_list"],
                 ["sąrašas pagal datą", "sorted_list"]
             ]), "kintamieji_set")
             .appendField("=");
@@ -65,7 +60,7 @@ Blockly.JavaScript['set_v'] = function(block) {
     var dropdown_kintamieji_set = block.getFieldValue('kintamieji_set');
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = dropdown_kintamieji_set + '=' + value_name+ ';\n';
+    var code = dropdown_kintamieji_set + '=' + value_name + ';\n';
     return code;
 };
 
@@ -95,16 +90,11 @@ function contains(a, obj, place) {
 
 
 function spausdinti(list) {
-    var inventors = [];
-    // ctx.fillStyle = "black";
-    // ctx.font = "12px Verdana";
- document.getElementById('doclist').innerHTML ="";
+    var inventors = ["People's Council of Latvia", "Inventor Valters Caps", "Scientist Aina Muceniece", "Computer scientist Juris Hartmanis", "Mathematician Daina Taimina", "Architect Austris Mailītis"];
+
+    document.getElementById('doclist').innerHTML = "";
     for (var i = 0; i < list.length; i++) {
-
-       // ctx.strokeText("Dokumentas:" + list[i], 20, (i + 1) * 30);
-
-        document.getElementById('doclist').innerHTML += "<div class=text"+i+"> Dokumentas:" + list[i] + "<br></div>";
+        document.getElementById('doclist').innerHTML += "<div class=text" + i + " style='font-size:14px'> " + inventors[i] + " - <span style='font-size:12px'>" + list[i] + "</span><br></div>";
     }
 
- // my_canvas.addEventListener('click', clickReporter, false);
 }
