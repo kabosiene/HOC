@@ -196,7 +196,14 @@ Blockly.Blocks['select_treasure'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("laimėjimas:")
-        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"], ["grybas1","not1"], ["4","4"], ["grybas2","not2"], ["5","5"], ["6","6"], ["grybas3","not3"], ["7","7"], ["8","8"], ["grybas4","not4"]]), "treasure_name");
+        .appendField(new Blockly.FieldDropdown([
+            ["President of Latvia, 1999-2003","1"], ["President of Latvia, 2003-2007","2"], 
+            ["NATO membership negotiations for Latvia","3"], ["Latvian singer","not1"], 
+            ["EU membership negotiations for Latvia","4"], ["Art Nouveau style architect","not2"], 
+            ["PhD in Experimental Psychology, 1965","5"], ["Researcher on Latvian folksongs","6"], 
+            ["Olympic champion in running","not3"], ["Fluent in 5 languages","7"], 
+            ["Scientist and professor in University of Montreal in Canada","8"], ["Latvian astronaut","not4"]
+            ]), "treasure_name");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(330);
