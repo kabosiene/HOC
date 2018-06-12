@@ -124,7 +124,7 @@
         init: function() {
             this.appendDummyInput()
                 .appendField("Fonas su tavo vardu: ")
-                .appendField(new Blockly.FieldTextInput("įrašyk vardą"), "kids_name");
+                .appendField(new Blockly.FieldTextInput("your name"), "kids_name");
             this.setNextStatement(true, null);
             this.setColour(230);
             this.setTooltip("");
