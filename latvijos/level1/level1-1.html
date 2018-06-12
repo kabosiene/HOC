@@ -14,15 +14,15 @@
     font-family: Lekton;
     font-size: 12px;
     color: black;
-    background-image: url("../img_lessons/basanavicius/dokumentas.png");
+    background-image: url("../img_lessons/independence/fonas.png");
 }
 
 #preview_text {
-    padding: 22px 40px 10px 25px;
+    padding: 60px 40px 10px 25px;
 }
 
 #list {
-    padding: 22px 40px 10px 25px;
+    padding: 15px 40px 10px 25px;
 }
 </style>
 <!-- font-family: 'Lekton', sans-serif; -->
@@ -72,9 +72,8 @@
     <div class="container-fluid working-space">
         <div class="row" style="padding: 10px;">
             <div class="col-md-5">
-                <h4>1. Jonas Basanavičius: žodžiai, žodžiai, susivykit</h4></div>
-            <div class=" col-md-7" id="task"> „Lietuvos Taryba savo posėdyje vasario 16 d. 1918 m. vienu balsu nutarė kreiptis: į Rusijos, Vokietijos ir kitų valstybių vyriausybės šiuo pareiškimu: [...]“<br>
-Tai - Nepriklausomybės akto pradžia, o tęsinyje žodžiai susivijo. Grąžink pasimetusias eilutes į jų vietas.
+                <h4>1. Independence</h4></div>
+            <div class=" col-md-7" id="task">  Grąžink pasimetusias eilutes į jų vietas.
 Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juos sujungęs tam tikra tvarka. Savo užduoties sprendimą išvysi nuspaudęs mygtuką „Paleisti“.
                 <!-- <a href="javascript:void(0)" onclick="changeVideo('tdYGNqb2zgU')">Užduoties video</a> -->
                  </div>
@@ -137,20 +136,6 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
         <div class="row">
             <div class="logo-row"><img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png"></div>
         </div>
-<!--         <div class="video-modal">
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/tdYGNqb2zgU" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="next-modal">
             <div class="modal fade" id="nextModal" tabindex="-1" role="dialog" aria-labelledby="nextModalLabel">
                 <div class="modal-dialog" role="document">
@@ -181,6 +166,8 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
     <script src="../js/main.js"></script>
     <script src="../js/sarasai.js"></script>
     <script>
+        $('#list').show();
+        $('#preview_text').show();
     var workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox'),
         grid: {
@@ -192,10 +179,6 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
         trashcan: true
     });
 
-    // var dom = Blockly.Xml.textToDom('load_custom');
-    // console.log(dom);
-    // Blockly.Xml.domToWorkspace(dom, workspace);
-
 
     function toJavascript(event) {
         var code = Blockly.JavaScript.workspaceToCode(workspace);
@@ -204,13 +187,6 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
     workspace.addChangeListener(toJavascript);
     </script>
     <script type="text/javascript">
-    var my_canvas = document.getElementById("canvas");
-    var ctx = my_canvas.getContext("2d");
-    var paper = new Image();
-    // paper.src = "../img_lessons/basanavicius/dokumentas.png";
-    var basanavicius = new Image();
-    basanavicius.src = "../img_lessons/basanavicius/basanavicius.png";
-
 
     var tekstas_correct = [];
     tekstas_correct[0] = (1);
@@ -236,10 +212,14 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
     document.getElementById('list').innerHTML += "C. " + tekstas_short[1] + "<br>";
 
 
-    //}
+
 
     function runCode() {
+        $('#list').show();
+        $('#preview_text').show();
+        document.getElementById('preview').style.background= 'url("../img_lessons/independence/fonas.png") no-repeat';
         tekstas = [];
+
         // Generate JavaScript code and run it.
 
         window.LoopTrap = 1000;
@@ -248,8 +228,7 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
         var code = 'tekstas = [];';
         code += Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        //ctx.drawImage(paper, 0, 2);
+
         tekstas_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
         tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
         tekstas_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
@@ -273,7 +252,9 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
                 document.getElementById('list').innerHTML += "B. " + tekstas_short[0] + "<br>";
                 document.getElementById('list').innerHTML += "C. " + tekstas_short[1] + "<br>";
                 if (JSON.stringify(tekstas_correct) == JSON.stringify(tekstas)) {
-                    ctx.drawImage(basanavicius, 138, 0);
+                    $('#list').hide();
+                    $('#preview_text').hide();
+                    document.getElementById('preview').style.background= 'url("../img_lessons/independence/fonas-2.gif") no-repeat';
                     setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
 
                 } else { alert("Bandyk dar kartą"); }
