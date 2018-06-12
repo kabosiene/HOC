@@ -17,12 +17,19 @@
     background-image: url("../img_lessons/independence/fonas.png");
 }
 
-#preview_text {
+/*#preview_text {
     padding: 60px 40px 10px 25px;
 }
 
 #list {
     padding: 15px 40px 10px 25px;
+}*/
+#preview_text {
+    padding: 60px 0px 0px 15px;
+}
+
+#list {
+    padding: 10px 5px 0px 15px;
 }
 </style>
 <!-- font-family: 'Lekton', sans-serif; -->
@@ -196,17 +203,17 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
     tekstas_correct[2] = (3);
     var tekstas_old = [];
     var tekstas = [];
-    tekstas_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
-    tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-    tekstas_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
-    tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-    tekstas_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
-    tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei, prašo pripažinti nepriklausomą Lietuvos valstybę.";
+            tekstas_old[0] = " 1.___________" //" 1918. gada 18. novembrī ";
+            tekstas_old[1] = " proklamētā neatkarīgā Latvijas valsts 1920. gadā tika starptautiski atzīta un 1921. gadā kļuva par līdztiesīgu Tautu Savienības locekli. 1922. gada 15. februārī tā pieņēma valsts pamatlikumu — ";
+            tekstas_old[2] = " 2.___________" // " Latvijas Republikas Satversmi "
+            tekstas_old[3] = " kas de jure ir spēkā līdz šim brīdim. Okupācijas laikā, ņemot vērā 1990. gada 21. aprīļa Vislatvijas tautas deputātu sapulces Aicinājumu un ievērojot Latvijas iedzīvotāju gribu, kas nepārprotami izpausta, ievēlot vairākumā tos deputātus,";
+            tekstas_old[4] = " 3.___________" //" kuri savā priekšvēlēšanu programmā izteikuši apņēmību atjaunot Latvijas Republikas valstisko neatkarību "
+            tekstas_old[5] = " nostājoties uz brīvas, demokrātiskas un neatkarīgas Latvijas Republikas de facto atjaunošanas ceļa, Latvijas PSR Augstākā Padome nolemj atjaunot Latvijas Republikas Satversmes darbību visā Latvijas teritorijā.";
 
     var tekstas_short = [];
-    tekstas_short[0] = " Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė, "
-    tekstas_short[1] = " ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis."
-    tekstas_short[2] = " demokratiniu būdu visų jos gyventojų išrinktas. "
+    tekstas_short[0] = " 1918. gada 18. novembrī "
+    tekstas_short[1] = " Latvijas Republikas Satversmi, "
+    tekstas_short[2] = " kuri savā priekšvēlēšanu programmā izteikuši apņēmību atjaunot Latvijas Republikas valstisko neatkarību "
 
     document.getElementById('preview_text').innerHTML = tekstas_old.join("");
     document.getElementById('list').innerHTML = "A. " + tekstas_short[2] + "<br>";
@@ -231,12 +238,12 @@ Dešinėje ekrano pusėje rasi reikiamus kodo blokelius. Užduotį įveiksi, juo
         code += Blockly.JavaScript.workspaceToCode(workspace);
         Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
 
-        tekstas_old[0] = " 1._______________" //" Lietuvos Taryba, kaip vienintelė lietuvių tautos atstovybė,";
-        tekstas_old[1] = " remdamos pripažintąja tautų apsisprendimo teise ir lietuvių Vilniaus konferencijos nutarimu rugsėjo mėn. 18-23 d. 1917 metais, skelbia atstatanti nepriklausomą demokratiniais pamatais sutvarkytą Lietuvos valstybę su sostine Vilniuje";
-        tekstas_old[2] = " 2._______________" //" ir tą valstybę atskirianti nuo visų valstybinių ryšių, kurie yra buvę su kitomis tautomis.";
-        tekstas_old[3] = " Drauge Lietuvos Taryba pareiškia, kad Lietuvos valstybės pamatus ir jos santykius su kitomis valstybėmis privalo galutinai nustatyti kiek galima greičiau sušauktas steigiamasis seimas,";
-        tekstas_old[4] = " 3._______________" //" demokratiniu būdu visų jos gyventojų išrinktas.";
-        tekstas_old[5] = " Lietuvos Taryba pranešdama apie tai ....... vyriausybei, prašo pripažinti nepriklausomą Lietuvos valstybę.";
+            tekstas_old[0] = " 1.___________" //" 1918. gada 18. novembrī ";
+            tekstas_old[1] = " proklamētā neatkarīgā Latvijas valsts 1920. gadā tika starptautiski atzīta un 1921. gadā kļuva par līdztiesīgu Tautu Savienības locekli. 1922. gada 15. februārī tā pieņēma valsts pamatlikumu — ";
+            tekstas_old[2] = " 2.___________" // " Latvijas Republikas Satversmi "
+            tekstas_old[3] = " kas de jure ir spēkā līdz šim brīdim. Okupācijas laikā, ņemot vērā 1990. gada 21. aprīļa Vislatvijas tautas deputātu sapulces Aicinājumu un ievērojot Latvijas iedzīvotāju gribu, kas nepārprotami izpausta, ievēlot vairākumā tos deputātus,";
+            tekstas_old[4] = " 3.___________" //" kuri savā priekšvēlēšanu programmā izteikuši apņēmību atjaunot Latvijas Republikas valstisko neatkarību "
+            tekstas_old[5] = " nostājoties uz brīvas, demokrātiskas un neatkarīgas Latvijas Republikas de facto atjaunošanas ceļa, Latvijas PSR Augstākā Padome nolemj atjaunot Latvijas Republikas Satversmes darbību visā Latvijas teritorijā.";
         try {
             if (code.length > 13) {
                 eval(code);
