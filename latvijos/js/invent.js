@@ -90,11 +90,11 @@ function contains(a, obj, place) {
 
 
 function spausdinti(list) {
-    var inventors = ["People's Council of Latvia", "Inventor Valters Caps", "Scientist Aina Muceniece", "Computer scientist Juris Hartmanis", "Mathematician Daina Taimina", "Architect Austris Mailītis"];
+    // var inventors = ["People's Council of Latvia", "Inventor Valters Caps", "Scientist Aina Muceniece", "Computer scientist Juris Hartmanis", "Mathematician Daina Taimina", "Architect Austris Mailītis"];
 
     document.getElementById('doclist').innerHTML = "";
     for (var i = 0; i < list.length; i++) {
-        document.getElementById('doclist').innerHTML += "<div class=text" + i + " style='font-size:14px'> " + inventors[i] + " - <span style='font-size:12px'>" + list[i] + "</span><br></div>";
+        document.getElementById('doclist').innerHTML += "<div class=text" + i + "> " + list[i] + "<br></div>";
     }
 
 }
