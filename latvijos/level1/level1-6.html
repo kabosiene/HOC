@@ -109,7 +109,7 @@
                 <pre id="content_javascript"></pre>
             </div>
         </div>
-<!--         <div class="row">
+        <!--         <div class="row">
             <div class="logo-row">
                 <img src="../100/logo13.png"><img src="../100/logo12.png"><img src="../100/logo14.png">
             </div>
@@ -248,7 +248,7 @@
     // }
 
     function animatePlayer() {
-        console.log("Call function animate player");
+        //console.log("Call function animate player");
         $('.player').addClass('player_slap');
         setTimeout(function() {
             $('.player').removeClass('player_slap');
@@ -293,12 +293,15 @@
     function stopInterval() {
         //console.log("Interval stoped");
         clearInterval(id);
+        cancelAnimationFrame(globalID);
+        cancelAnimationFrame(globalID2);
+        clearInterval(timer);
     }
 
-    function tryAgain() {
+    function tryAgain(message) {
         canvas2.removeEventListener("click", onClick, false);
         ctx.font = "14px Arial";
-        ctx.fillText("Bandyk dar!", 200, 20);
+        ctx.fillText(message, 200, 20);
     }
 
     function frame() {
@@ -306,20 +309,20 @@
         // console.log(ball_speed);
         if (ball_speed >= 4) {
             ball_speed = 4;
-            console.log("Call interval stop >=4s");
+            //console.log("Call interval stop >=4s");
             stopInterval();
             elem.style.animationDuration = "0s";
-            console.log("Call function fall");
+            //console.log("Call function fall");
             drawSpeed(ball_speed);
-            tryAgain();
+            tryAgain("Too slow!");
             fall_ball(0);
         } else if (ball_speed < 0.1) {
             ball_speed = 0.1;
-            console.log("Call function fly");
+           // console.log("Call function fly");
             stopInterval();
             elem.style.animationDuration = "0.1s";
             drawSpeed(ball_speed);
-            tryAgain();
+            tryAgain("Too fast!");
             fly_away_ball(0);
         } else {
             ///console.log("letejantis greitis:" + ball_speed);
@@ -330,7 +333,8 @@
 
     function onClick(e) {
         //console.log("Call interval stop on click");
-        stopInterval();
+        // stopInterval();
+          clearInterval(id);
         if (add_speed > 0) {
             //console.log("Add speed: " + add_speed);
             // speed += add_speed;
@@ -378,12 +382,8 @@
             seconds--;
         } else {
             stopInterval();
-            cancelAnimationFrame(globalID);
-            cancelAnimationFrame(globalID2);
-            clearInterval(timer);
-            clearInterval(id);
-            canvas2.removeEventListener("click", onClick, false); 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);      
+            canvas2.removeEventListener("click", onClick, false);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(porzingis_done, 0, 0);
             setTimeout(function() { $('#nextModal').modal('show'); }, 2000);
         }
