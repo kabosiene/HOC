@@ -181,7 +181,7 @@
     var seconds = 60;
     var timer;
     document.getElementById("ball").style.visibility = "hidden";
-    document.getElementById("time_counter").innerHTML = "1:00";
+    document.getElementById("time_counter").innerHTML = "60s";
 
     function runCode() {
         stopInterval();
@@ -205,7 +205,7 @@
         document.getElementById("ball").style.transform = "translate(0px, 0px)";
         // document.getElementById("player").style.animationDuration = "0s";
         // document.getElementById("player").style.animationIterationCount = 0;
-        document.getElementById("time_counter").innerHTML = "1:00";
+        document.getElementById("time_counter").innerHTML = "60s";
         canvas2.removeEventListener("click", onClick, false);
         window.LoopTrap = 1000;
         Blockly.JavaScript.INFINITE_LOOP_TRAP =
@@ -237,35 +237,12 @@
         }
     }
 
-    // function animateBall(x) {
-    //     console.log("Call function animate ball");
-    //     animatePlayer();
-    //     setTimeout(function() {
-    //         document.getElementById("ball").style.animationDuration = "" + x + "s";
-    //     }, 500);
-    //     drawElapsedTime();
-    //     drawSpeed(x);
-    // }
-
     function animatePlayer() {
         //console.log("Call function animate player");
         $('.player').addClass('player_slap');
         setTimeout(function() {
             $('.player').removeClass('player_slap');
         }, 1000);
-    }
-
-    function drawElapsedTime() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        var elapsed = parseInt((new Date() - startTime) / 300);
-        ctx.save();
-        ctx.beginPath();
-        ctx.fillStyle = "blue";
-        ctx.font = "20px Arial";
-        // draw the running time at half opacity
-        ctx.globalAlpha = 0.50;
-        ctx.fillText(elapsed + " s", 225, 80);
-        ctx.restore();
     }
 
     function drawSpeed(x) {
@@ -276,7 +253,7 @@
         ctx.fillStyle = "black";
         ctx.font = "20px Arial";
         // ctx.fillText("Speed: " + (1 / parseFloat(x)).toFixed(2), 60, 20);
-        ctx.fillText("Speed: " + parseFloat(x).toFixed(2), 60, 20);
+        ctx.fillText("Speed: " + (100/parseFloat(x)).toFixed(0), 60, 20);
         ctx.restore();
     }
 
